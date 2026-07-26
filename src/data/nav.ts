@@ -106,6 +106,23 @@ export const kebutuhan: MegaNeed[] = [
   },
 ];
 
+/**
+ * Pemetaan nilai `kebutuhan` (dipakai di query string /katalog?kebutuhan=...)
+ * ke slug grup produk yang sudah didukung filter di katalog.astro
+ * (harus salah satu dari kategoriBibit[].slug di atas).
+ *
+ * Ini satu-satunya tempat pemetaan ini didefinisikan — katalog.astro
+ * membaca konstanta ini, tidak mendefinisikan ulang.
+ */
+export const kebutuhanMap: Record<string, string> = {
+  pekarangan: 'tanaman-hias',
+  'kebun-buah': 'bibit-buah',
+  landscape: 'tanaman-hias',
+  penghijauan: 'pohon-kayu',
+  perkebunan: 'perkebunan',
+  'pakan-ternak': 'pakan-ternak',
+};
+
 export const tentangKami = [
   { label: 'Cerita Ardelia Bibit', href: '/tentang' },
   { label: 'Lokasi Nursery', href: '/kontak' },
