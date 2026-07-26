@@ -3,7 +3,7 @@ import { getCollection } from 'astro:content';
 import Layout from '../layouts/Layout.astro';
 import ProdukCard from '../components/ProdukCard.astro';
 import WhatsAppButton from '../components/WhatsAppButton.astro';
-import { kategoriBibit } from '../data/nav';
+import { kategoriBibit, kebutuhanMap } from '../data/nav';
 
 const semuaProduk = await getCollection('produk');
 
@@ -41,7 +41,13 @@ function grupLabel(slug: string) {
 
   <section class="katalog-body">
     <div class="wrap">
-      <div class="filter-bar" role="group" aria-label="Filter kelompok bibit" data-filter-bar>
+      <div
+        class="filter-bar"
+        role="group"
+        aria-label="Filter kelompok bibit"
+        data-filter-bar
+        data-kebutuhan-map={JSON.stringify(kebutuhanMap)}
+      >
         <button class="filter-chip is-active" type="button" data-filter="semua">
           Semua <span>{semuaProduk.length}</span>
         </button>
@@ -251,6 +257,27 @@ function grupLabel(slug: string) {
     });
   });
 
+  // Prioritas 1: link mega menu kategori pakai #hash (mis. /katalog#bibit-buah)
   const initialSlug = window.location.hash.replace('#', '');
-  if (initialSlug) applyFilter(initialSlug);
+
+  if (initialSlug) {
+    applyFilter(initialSlug);
+  } else {
+    // Prioritas 2: link "Cari Berdasarkan Kebutuhan" pakai ?kebutuhan=
+    // (mis. /katalog?kebutuhan=pekarangan) — sebelumnya nilai ini tidak
+    // pernah dibaca sama sekali sehingga filter tidak pernah aktif.
+    const filterBar = document.querySelector<HTMLElement>('[data-filter-bar]');
+    const kebutuhanMapRaw = filterBar?.dataset.kebutuhanMap;
+    const kebutuhanValue = new URLSearchParams(window.location.search).get('kebutuhan');
+
+    if (kebutuhanValue && kebutuhanMapRaw) {
+      try {
+        const kebutuhanMap = JSON.parse(kebutuhanMapRaw) as Record<string, string>;
+        const grupSlug = kebutuhanMap[kebutuhanValue];
+        if (grupSlug) applyFilter(grupSlug);
+      } catch {
+        // Data tidak valid — biarkan tampilan default (semua produk), jangan error.
+      }
+    }
+  }
 </script>
