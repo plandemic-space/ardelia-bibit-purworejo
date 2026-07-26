@@ -1,0 +1,174 @@
+---
+import { getCollection, render } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import WhatsAppButton from '../../components/WhatsAppButton.astro';
+import { kategoriBibit } from '../../data/nav';
+
+export async function getStaticPaths() {
+  const semuaArtikel = await getCollection('artikel');
+  return semuaArtikel.map((entry) => ({
+    params: { slug: entry.id },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+
+const tanggal = entry.data.publishDate.toLocaleDateString('id-ID', {
+  day: 'numeric',
+  month: 'long',
+  year: 'numeric',
+});
+
+const relatedKategori = entry.data.relatedCategorySlug
+  ? kategoriBibit.find((k) => k.slug === entry.data.relatedCategorySlug)
+  : undefined;
+---
+
+<Layout
+  title={`${entry.data.title} — Artikel Ardelia Bibit`}
+  description={entry.data.description}
+  breadcrumbs={[
+    { name: 'Artikel', path: '/artikel' },
+    { name: entry.data.title, path: `/artikel/${entry.id}` },
+  ]}
+>
+  <article class="artikel-detail">
+    <div class="wrap artikel-head">
+      <a class="back-link" href="/artikel">← Semua Artikel</a>
+      <p class="artikel-date">{tanggal}</p>
+      <h1>{entry.data.title}</h1>
+      <p class="artikel-lead">{entry.data.description}</p>
+    </div>
+
+    <div class="wrap">
+      <div class="artikel-cover-big">
+        <span aria-hidden="true">🌱</span>
+      </div>
+    </div>
+
+    <div class="wrap">
+      <div class="prose">
+        <Content />
+      </div>
+
+      {
+        relatedKategori && (
+          <div class="related-box">
+            <div>
+              <p class="related-eyebrow">Baca Katalog Terkait</p>
+              <h3>{relatedKategori.label}</h3>
+              <p>{relatedKategori.description}</p>
+            </div>
+            <a class="btn btn-primary" href={relatedKategori.href}>
+              Lihat Katalog →
+            </a>
+          </div>
+        )
+      }
+
+      <div class="artikel-cta">
+        <p>Masih ada pertanyaan soal bibitnya?</p>
+        <WhatsAppButton message={`Halo Ardelia Bibit, saya baru baca artikel "${entry.data.title}" dan mau tanya lebih lanjut`} label="Tanya via WhatsApp" />
+      </div>
+    </div>
+  </article>
+</Layout>
+
+<style>
+  .artikel-head {
+    padding: 40px 0 28px;
+    max-width: 720px;
+  }
+
+  .back-link {
+    font-size: 13.5px;
+    font-weight: 600;
+    color: var(--color-teal-dark);
+  }
+
+  .artikel-date {
+    font-size: 12.5px;
+    font-weight: 600;
+    color: var(--color-burnt-text);
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    margin: 18px 0 10px;
+  }
+
+  .artikel-head h1 {
+    font-size: clamp(26px, 3.4vw, 38px);
+    line-height: 1.2;
+    margin-bottom: 12px;
+  }
+
+  .artikel-lead {
+    font-size: 16px;
+    color: var(--color-charcoal-soft);
+    line-height: 1.6;
+  }
+
+  .artikel-cover-big {
+    aspect-ratio: 21 / 9;
+    max-width: 900px;
+    border-radius: 16px;
+    background: linear-gradient(135deg, var(--color-mist), #e7ecdf);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 42px;
+    opacity: 0.7;
+    margin-bottom: 36px;
+  }
+
+  .related-box {
+    max-width: 680px;
+    margin-top: 44px;
+    padding: 24px;
+    background: var(--color-mist);
+    border-radius: var(--radius);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+
+  .related-eyebrow {
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--color-burnt-text);
+    margin-bottom: 6px;
+  }
+
+  .related-box h3 {
+    font-size: 17px;
+    margin-bottom: 4px;
+  }
+
+  .related-box p {
+    font-size: 13.5px;
+    color: var(--color-charcoal-soft);
+  }
+
+  .artikel-cta {
+    max-width: 680px;
+    margin: 40px 0 60px;
+    padding-top: 28px;
+    border-top: 1px solid var(--color-line);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .artikel-cta p {
+    font-size: 14.5px;
+    font-weight: 600;
+    color: var(--color-charcoal);
+  }
+</style>

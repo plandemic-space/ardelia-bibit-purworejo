@@ -1,0 +1,104 @@
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { site } from '../data/site';
+import '../styles/global.css';
+
+interface Props {
+  /** Meta title halaman — WAJIB unik per halaman (checklist playbook §7) */
+  title: string;
+  /** Meta description halaman — WAJIB unik per halaman */
+  description: string;
+  /** Path gambar OG (opsional, fallback ke gambar default) */
+  ogImage?: string;
+  /** Breadcrumb untuk JSON-LD BreadcrumbList. "Beranda" ditambah otomatis di depan. */
+  breadcrumbs?: { name: string; path: string }[];
+}
+
+const { title, description, ogImage = '/images/og-default.jpg', breadcrumbs = [] } = Astro.props;
+
+const canonicalUrl = new URL(Astro.url.pathname, site.url).toString();
+
+const breadcrumbItems = [{ name: 'Beranda', path: '/' }, ...breadcrumbs];
+---
+
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href={canonicalUrl} />
+
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta name="theme-color" content="#164a4a" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={site.name} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:image" content={new URL(ogImage, site.url).toString()} />
+    <meta property="og:locale" content="id_ID" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- Schema.org: Organization dasar — disinkronkan dengan konten visible -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'Store',
+      name: site.name,
+      description: 'Nursery bibit tanaman: buah-buahan, kayu keras & penghijauan, palem hias, dan rempah/rimpang.',
+      telephone: `+${site.contact.whatsappNumber}`,
+      url: site.url,
+      address: {
+        '@type': 'PostalAddress',
+        streetAddress: site.contact.address.street,
+        addressLocality: 'Kemiri',
+        addressRegion: site.contact.address.province,
+        postalCode: site.contact.address.postalCode,
+        addressCountry: 'ID',
+      },
+      sameAs: [site.social.youtube, site.social.facebook, site.contact.googleMapsUrl],
+    })} />
+
+    <!-- Schema.org: WebSite (satu kali, dipakai semua halaman) -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'WebSite',
+      name: site.name,
+      url: site.url,
+    })} />
+
+    <!-- Schema.org: BreadcrumbList (per halaman, dari prop breadcrumbs) -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'BreadcrumbList',
+      itemListElement: breadcrumbItems.map((item, i) => ({
+        '@type': 'ListItem',
+        position: i + 1,
+        name: item.name,
+        item: new URL(item.path, site.url).toString(),
+      })),
+    })} />
+  </head>
+  <body>
+    <a class="skip-link" href="#konten-utama">Langsung ke konten utama</a>
+
+    <Header />
+
+    <main id="konten-utama">
+      <slot />
+    </main>
+
+    <Footer />
+  </body>
+</html>

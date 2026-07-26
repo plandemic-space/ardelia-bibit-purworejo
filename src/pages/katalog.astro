@@ -1,0 +1,256 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../layouts/Layout.astro';
+import ProdukCard from '../components/ProdukCard.astro';
+import WhatsAppButton from '../components/WhatsAppButton.astro';
+import { kategoriBibit } from '../data/nav';
+
+const semuaProduk = await getCollection('produk');
+
+// Urutkan sesuai urutan grup di kategoriBibit, lalu alfabet dalam grup
+const urutanGrup = kategoriBibit.map((k) => k.slug);
+const produkTerurut = [...semuaProduk].sort((a, b) => {
+  const grupDiff = urutanGrup.indexOf(a.data.grup) - urutanGrup.indexOf(b.data.grup);
+  if (grupDiff !== 0) return grupDiff;
+  return a.data.nama.localeCompare(b.data.nama, 'id');
+});
+
+const jumlahPerGrup = (slug: string) => semuaProduk.filter((p) => p.data.grup === slug).length;
+
+function grupLabel(slug: string) {
+  return kategoriBibit.find((k) => k.slug === slug)?.label ?? slug;
+}
+---
+
+<Layout
+  title={`Katalog Bibit (${semuaProduk.length} Varietas) — Ardelia Bibit`}
+  description={`Katalog ${semuaProduk.length} varietas bibit dari Ardelia Bibit: buah, tanaman hias, kayu keras, rempah, perkebunan, dan pakan ternak. Tanya stok & harga langsung via WhatsApp.`}
+  breadcrumbs={[{ name: 'Katalog Bibit', path: '/katalog' }]}
+>
+  <section class="katalog-head">
+    <div class="wrap">
+      <p class="eyebrow">Katalog Bibit</p>
+      <h1>{semuaProduk.length} Varietas dalam 6 Kelompok</h1>
+      <p class="katalog-sub">
+        Harga dan stok kami infokan langsung lewat WhatsApp — tergantung
+        ukuran dan jumlah pesanan. Tekan tombol di tiap kartu untuk tanya
+        cepat.
+      </p>
+    </div>
+  </section>
+
+  <section class="katalog-body">
+    <div class="wrap">
+      <div class="filter-bar" role="group" aria-label="Filter kelompok bibit" data-filter-bar>
+        <button class="filter-chip is-active" type="button" data-filter="semua">
+          Semua <span>{semuaProduk.length}</span>
+        </button>
+        {
+          kategoriBibit.map((kat) => (
+            <button class="filter-chip" type="button" data-filter={kat.slug}>
+              {kat.icon} {kat.label} <span>{jumlahPerGrup(kat.slug)}</span>
+            </button>
+          ))
+        }
+      </div>
+
+      <p class="filter-empty" data-filter-empty hidden>
+        Tidak ada produk di kelompok ini.
+      </p>
+
+      <h2 class="visually-hidden">Daftar Semua Varietas Bibit</h2>
+      <div class="produk-grid" data-produk-grid>
+        {
+          produkTerurut.map((item) => (
+            <div class="produk-item" data-grup={item.data.grup}>
+              <ProdukCard
+                nama={item.data.nama}
+                grupLabel={grupLabel(item.data.grup)}
+                ukuran={item.data.ukuran}
+                perluKonfirmasi={item.data.perluKonfirmasi}
+                foto={item.data.foto}
+                placeholderEmoji={item.data.placeholderEmoji}
+              />
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="katalog-cta">
+    <div class="wrap katalog-cta-inner">
+      <div>
+        <h2>Tidak Ketemu Bibit yang Dicari?</h2>
+        <p>Kadang ada varietas yang belum sempat kami masukkan ke katalog. Tanya saja langsung.</p>
+      </div>
+      <WhatsAppButton message="Halo Ardelia Bibit, saya mau tanya bibit yang tidak ada di katalog" label="Tanya via WhatsApp" />
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .katalog-head {
+    padding: 48px 0 28px;
+    background: var(--color-mist);
+  }
+
+  .katalog-head h1 {
+    font-size: clamp(28px, 3.6vw, 40px);
+    margin: 12px 0 12px;
+  }
+
+  .katalog-sub {
+    color: var(--color-charcoal-soft);
+    max-width: 560px;
+    font-size: 15.5px;
+  }
+
+  .katalog-body {
+    padding-top: 40px;
+  }
+
+  .filter-bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 28px;
+  }
+
+  .filter-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 9px 16px;
+    border-radius: 999px;
+    border: 1px solid var(--color-line);
+    background: var(--color-paper);
+    font-size: 13.5px;
+    font-weight: 600;
+    color: var(--color-charcoal-soft);
+    cursor: pointer;
+    transition: 0.15s;
+  }
+
+  .filter-chip span {
+    font-size: 11.5px;
+    font-weight: 700;
+    color: var(--color-charcoal-soft);
+    background: var(--color-mist);
+    border-radius: 999px;
+    padding: 1px 7px;
+  }
+
+  .filter-chip:hover {
+    border-color: var(--color-teal);
+    color: var(--color-teal-dark);
+  }
+
+  .filter-chip.is-active {
+    background: var(--color-teal-dark);
+    border-color: var(--color-teal-dark);
+    color: #fff;
+  }
+
+  .filter-chip.is-active span {
+    background: rgba(255, 255, 255, 0.18);
+    color: #fff;
+  }
+
+  .filter-empty {
+    text-align: center;
+    padding: 40px 0;
+    color: var(--color-charcoal-soft);
+  }
+
+  .produk-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+    padding-bottom: 32px;
+  }
+
+  @media (max-width: 980px) {
+    .produk-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  @media (max-width: 700px) {
+    .produk-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 420px) {
+    .produk-grid {
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+  }
+
+  .katalog-cta {
+    background: var(--color-teal-dark);
+  }
+
+  .katalog-cta-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+
+  .katalog-cta h2 {
+    color: #fff;
+    font-size: clamp(20px, 2.4vw, 26px);
+    margin-bottom: 6px;
+  }
+
+  .katalog-cta p {
+    color: rgba(255, 255, 255, 0.72);
+    font-size: 14px;
+    max-width: 420px;
+  }
+
+  @media (max-width: 700px) {
+    .katalog-cta-inner {
+      flex-direction: column;
+      text-align: center;
+    }
+  }
+</style>
+
+<script>
+  // Filter grid berdasarkan grup, murni client-side (tanpa reload).
+  // Kalau datang dari link mega menu (#slug), filter otomatis ke grup itu.
+  const chips = document.querySelectorAll<HTMLButtonElement>('[data-filter]');
+  const items = document.querySelectorAll<HTMLElement>('[data-produk-grid] [data-grup]');
+  const emptyMsg = document.querySelector<HTMLElement>('[data-filter-empty]');
+
+  function applyFilter(slug: string) {
+    let visibleCount = 0;
+    items.forEach((item) => {
+      const match = slug === 'semua' || item.dataset.grup === slug;
+      item.style.display = match ? '' : 'none';
+      if (match) visibleCount++;
+    });
+
+    chips.forEach((chip) => {
+      chip.classList.toggle('is-active', chip.dataset.filter === slug);
+    });
+
+    if (emptyMsg) emptyMsg.hidden = visibleCount !== 0;
+  }
+
+  chips.forEach((chip) => {
+    chip.addEventListener('click', () => {
+      const slug = chip.dataset.filter ?? 'semua';
+      applyFilter(slug);
+      history.replaceState(null, '', slug === 'semua' ? '/katalog' : `/katalog#${slug}`);
+    });
+  });
+
+  const initialSlug = window.location.hash.replace('#', '');
+  if (initialSlug) applyFilter(initialSlug);
+</script>

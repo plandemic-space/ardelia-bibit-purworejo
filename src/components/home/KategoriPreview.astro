@@ -1,0 +1,103 @@
+---
+import { kategoriBibit } from '../../data/nav';
+---
+
+<section class="kategori">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Katalog Bibit</p>
+      <h2>6 Kelompok Bibit, Puluhan Varietas Spesifik</h2>
+      <p>
+        Nama varietas kami tulis spesifik — misalnya Durian Bawor vs Musang
+        King, atau Alpukat Miki vs Aligator — supaya tidak keliru saat pesan.
+      </p>
+    </div>
+
+    <div class="kategori-grid">
+      {
+        kategoriBibit.map((kat) => (
+          <a class="kategori-card" href={kat.href}>
+            <span class="kategori-icon" aria-hidden="true">{kat.icon}</span>
+            <span class="kategori-info">
+              <b>{kat.label}</b>
+              <span>{kat.description}</span>
+            </span>
+          </a>
+        ))
+      }
+    </div>
+
+    <p class="kategori-cta">
+      <a class="btn btn-outline" href="/katalog">Lihat Katalog Lengkap →</a>
+    </p>
+  </div>
+</section>
+
+<style>
+  .kategori {
+    background: var(--color-mist);
+  }
+
+  .kategori-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-bottom: 32px;
+  }
+
+  .kategori-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    background: var(--color-paper);
+    border: 1px solid var(--color-line);
+    border-radius: var(--radius);
+    padding: 20px;
+    transition:
+      transform 0.15s ease,
+      box-shadow 0.15s ease;
+  }
+
+  .kategori-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 24px rgba(22, 74, 74, 0.12);
+  }
+
+  .kategori-icon {
+    font-size: 26px;
+    flex-shrink: 0;
+  }
+
+  .kategori-info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .kategori-info b {
+    font-size: 15px;
+    color: var(--color-charcoal);
+  }
+
+  .kategori-info span {
+    font-size: 13px;
+    color: var(--color-charcoal-soft);
+    line-height: 1.4;
+  }
+
+  .kategori-cta {
+    text-align: center;
+  }
+
+  @media (max-width: 880px) {
+    .kategori-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  @media (max-width: 520px) {
+    .kategori-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

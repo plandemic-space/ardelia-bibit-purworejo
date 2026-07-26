@@ -1,0 +1,193 @@
+---
+import Icon from './Icon.astro';
+import WhatsAppButton from './WhatsAppButton.astro';
+import { site } from '../data/site';
+
+const year = new Date().getFullYear();
+---
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">
+          <img src="/images/logo/logo-ardelia-bibit.jpg" alt={`Logo ${site.name}`} width="34" height="34" />
+          <span>{site.name}</span>
+        </div>
+        <p class="footer-tagline">{site.tagline}</p>
+        <div class="footer-social">
+          <a href={site.social.youtube} target="_blank" rel="noopener" aria-label="YouTube Ardelia Bibit">
+            <Icon name="youtube" size={20} />
+          </a>
+          <a href={site.social.facebook} target="_blank" rel="noopener" aria-label="Facebook Ardelia Bibit">
+            <Icon name="facebook" size={20} />
+          </a>
+        </div>
+      </div>
+
+      <div>
+        <h2>Link Penting</h2>
+        <ul>
+          <li><a href="/katalog">Katalog Bibit</a></li>
+          <li><a href="/cara-beli">Cara Beli</a></li>
+          <li><a href="/artikel">Artikel</a></li>
+          <li><a href="/tentang">Tentang Kami</a></li>
+          <li><a href="/kontak">Lokasi</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h2>Kontak</h2>
+        <ul class="footer-contact">
+          <li>
+            <Icon name="phone" size={18} />
+            {site.contact.whatsappDisplay}
+          </li>
+          <li>
+            <Icon name="map-pin" size={18} />
+            Dsn. Ngemplak, {site.contact.address.district}, {site.contact.address.regency}, {site.contact.address.province}
+          </li>
+        </ul>
+        <p class="footer-cta">
+          <WhatsAppButton size="sm" />
+        </p>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>&copy; {year} {site.name}. Semua hak cipta dilindungi.</span>
+      <span>Nursery bibit tanaman &middot; Kemiri, Purworejo</span>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    background: var(--color-teal-dark);
+    color: rgba(255, 255, 255, 0.88);
+    padding: 56px 0 24px;
+  }
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr;
+    gap: 40px;
+    padding-bottom: 40px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+  }
+
+  .footer-brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 19px;
+    color: #fff;
+    margin-bottom: 14px;
+  }
+
+  .footer-brand img {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+  .footer-tagline {
+    font-size: 14px;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.68);
+    max-width: 320px;
+    margin-bottom: 20px;
+  }
+
+  .footer-social {
+    display: flex;
+    gap: 14px;
+  }
+
+  .footer-social a {
+    color: rgba(255, 255, 255, 0.8);
+    transition: color 0.15s;
+  }
+
+  .footer-social a:hover {
+    color: var(--color-leaf);
+  }
+
+  h2 {
+    font-family: var(--font-body);
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #fff;
+    margin: 0 0 16px;
+  }
+
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  ul li a {
+    font-size: 14.5px;
+    color: rgba(255, 255, 255, 0.72);
+    transition: color 0.15s;
+  }
+
+  ul li a:hover {
+    color: var(--color-leaf);
+  }
+
+  .footer-contact li {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.72);
+    line-height: 1.5;
+  }
+
+  .footer-contact :global(svg) {
+    flex-shrink: 0;
+    margin-top: 2px;
+    color: var(--color-leaf);
+  }
+
+  .footer-cta {
+    margin-top: 18px;
+  }
+
+  .footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding-top: 22px;
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.55);
+  }
+
+  @media (max-width: 780px) {
+    .footer-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  @media (max-width: 520px) {
+    .footer-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .footer-bottom {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+</style>

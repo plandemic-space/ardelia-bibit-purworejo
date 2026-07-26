@@ -1,0 +1,495 @@
+---
+import Icon from './Icon.astro';
+import WhatsAppButton from './WhatsAppButton.astro';
+import { site } from '../data/site';
+import { kategoriBibit, kebutuhan, tentangKami, navUtama } from '../data/nav';
+---
+
+<header class="site-header">
+  <div class="nav wrap">
+    <a class="brand" href="/" aria-label={`${site.name} — Beranda`}>
+      <img src="/images/logo/logo-ardelia-bibit.jpg" alt={`Logo ${site.name}`} width="34" height="34" />
+      <span>{site.name}</span>
+    </a>
+
+    <!-- Navigasi desktop dengan mega menu -->
+    <nav class="nav-links" aria-label="Navigasi utama">
+      <div class="has-mega">
+        <a class="nav-trigger" href="/katalog">
+          Katalog Bibit <Icon name="chevron-down" />
+        </a>
+        <div class="mega mega-katalog">
+          <div class="mega-katalog-cats">
+            {
+              kategoriBibit.map((kat) => (
+                <a class="mega-cat" href={kat.href}>
+                  <b>{kat.label}</b>
+                  <span>{kat.description}</span>
+                </a>
+              ))
+            }
+          </div>
+          <div class="mega-side">
+            <b>Belum tahu mau pilih yang mana?</b>
+            <p>Ceritakan kebutuhan Anda. Kami bantu mulai dari pilihan tanamannya — gratis, tanpa kewajiban beli.</p>
+            <a class="btn btn-primary" href="/kontak">Konsultasi Bibit</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="has-mega">
+        <a class="nav-trigger" href="/katalog">
+          Cari Berdasarkan Kebutuhan <Icon name="chevron-down" />
+        </a>
+        <div class="mega mega-kebutuhan">
+          {
+            kebutuhan.map((k) => (
+              <a class={`mega-need ${k.highlight ? 'highlight' : ''}`} href={k.href}>
+                <b>{k.label}</b>
+                <span style={k.highlight ? 'color:var(--color-teal-dark);font-weight:700' : undefined}>
+                  {k.description}
+                </span>
+              </a>
+            ))
+          }
+        </div>
+      </div>
+
+      <a href="/cara-beli">Cara Beli</a>
+      <a href="/artikel">Artikel</a>
+
+      <div class="has-mega">
+        <a class="nav-trigger" href="/tentang">
+          Tentang Kami <Icon name="chevron-down" />
+        </a>
+        <div class="mega mega-about">
+          {tentangKami.map((item) => <a href={item.href}>{item.label}</a>)}
+        </div>
+      </div>
+    </nav>
+
+    <div class="nav-right">
+      <WhatsAppButton label="Chat WhatsApp" />
+      <button
+        class="menu-toggle"
+        type="button"
+        aria-label="Buka menu navigasi"
+        aria-expanded="false"
+        aria-controls="mobile-drawer"
+        data-menu-toggle
+      >
+        <Icon name="menu" size={24} />
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- Drawer mobile: menutupi gap dari mockup v4 yang cuma display:none tanpa pengganti -->
+<div class="drawer-backdrop" data-drawer-backdrop hidden></div>
+<aside id="mobile-drawer" class="drawer" data-drawer aria-hidden="true">
+  <div class="drawer-head">
+    <a class="brand" href="/">
+      <img src="/images/logo/logo-ardelia-bibit.jpg" alt={`Logo ${site.name}`} width="30" height="30" />
+      <span>{site.name}</span>
+    </a>
+    <button class="drawer-close" type="button" aria-label="Tutup menu" data-drawer-close>
+      <Icon name="close" size={22} />
+    </button>
+  </div>
+
+  <nav class="drawer-nav" aria-label="Navigasi mobile">
+    {navUtama.map((item) => <a href={item.href}>{item.label}</a>)}
+  </nav>
+
+  <div class="drawer-foot">
+    <WhatsAppButton label="Chat WhatsApp Sekarang" class="drawer-wa" />
+  </div>
+</aside>
+
+<style>
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: rgba(250, 249, 244, 0.94);
+    backdrop-filter: blur(6px);
+    border-bottom: 1px solid var(--color-line);
+  }
+
+  .nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 24px;
+  }
+
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 19px;
+    color: var(--color-teal-dark);
+  }
+
+  .brand img {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+  /* --- Navigasi desktop + mega menu --- */
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 26px;
+    font-size: 14.5px;
+    font-weight: 500;
+    color: var(--color-charcoal-soft);
+  }
+
+  .nav-links > a:hover {
+    color: var(--color-teal);
+  }
+
+  .has-mega {
+    position: relative;
+  }
+
+  .nav-trigger {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+  }
+
+  .nav-trigger :global(svg) {
+    transition: transform 0.15s;
+  }
+
+  .has-mega:hover .nav-trigger :global(svg),
+  .has-mega:focus-within .nav-trigger :global(svg) {
+    transform: rotate(180deg);
+  }
+
+  .mega {
+    position: absolute;
+    top: calc(100% + 18px);
+    left: 50%;
+    transform: translateX(-50%) translateY(8px);
+    background: #fff;
+    border: 1px solid var(--color-line);
+    border-radius: 18px;
+    box-shadow: 0 24px 48px rgba(22, 74, 74, 0.16);
+    padding: 26px;
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.18s ease;
+    z-index: 50;
+  }
+
+  .mega::before {
+    content: '';
+    position: absolute;
+    top: -18px;
+    left: 0;
+    right: 0;
+    height: 18px;
+  }
+
+  .has-mega:hover .mega,
+  .has-mega:focus-within .mega {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+  }
+
+  .mega-katalog {
+    width: 620px;
+    display: grid;
+    grid-template-columns: 1.6fr 1fr;
+    gap: 0;
+    padding: 0;
+    overflow: hidden;
+  }
+
+  .mega-katalog-cats {
+    padding: 24px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4px 20px;
+  }
+
+  .mega-cat {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    padding: 10px 12px;
+    border-radius: 10px;
+    transition: 0.12s;
+  }
+
+  .mega-cat:hover {
+    background: var(--color-paper);
+  }
+
+  .mega-cat b {
+    font-size: 14px;
+    color: var(--color-charcoal);
+  }
+
+  .mega-cat span {
+    font-size: 12.5px;
+    color: var(--color-charcoal-soft);
+  }
+
+  .mega-side {
+    background: var(--color-teal-dark);
+    padding: 26px 22px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .mega-side b {
+    color: #fff;
+    font-size: 15px;
+    line-height: 1.35;
+  }
+
+  .mega-side p {
+    color: rgba(255, 255, 255, 0.75);
+    font-size: 13px;
+    line-height: 1.5;
+  }
+
+  .mega-side a.btn {
+    align-self: flex-start;
+    margin-top: 4px;
+    padding: 9px 16px;
+    font-size: 13px;
+  }
+
+  .mega-kebutuhan {
+    width: 660px;
+    padding: 22px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 6px;
+  }
+
+  .mega-need {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    padding: 12px 14px;
+    border-radius: 12px;
+    border: 1px solid transparent;
+    transition: 0.12s;
+  }
+
+  .mega-need:hover {
+    background: var(--color-paper);
+    border-color: var(--color-line);
+  }
+
+  .mega-need b {
+    font-size: 13.5px;
+    color: var(--color-charcoal);
+  }
+
+  .mega-need span {
+    font-size: 12px;
+    color: var(--color-charcoal-soft);
+    line-height: 1.4;
+  }
+
+  .mega-need.highlight {
+    background: var(--color-paper);
+    border-color: var(--color-leaf);
+    grid-column: span 3;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .mega-about {
+    width: 220px;
+    padding: 10px;
+  }
+
+  .mega-about a {
+    display: block;
+    padding: 10px 14px;
+    border-radius: 10px;
+    font-size: 14px;
+    color: var(--color-charcoal);
+  }
+
+  .mega-about a:hover {
+    background: var(--color-paper);
+    color: var(--color-teal-dark);
+  }
+
+  /* --- Sisi kanan: tombol WA + toggle mobile --- */
+  .nav-right {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    padding: 4px;
+    color: var(--color-teal-dark);
+    cursor: pointer;
+  }
+
+  /* --- Drawer mobile --- */
+  .drawer-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(14, 53, 53, 0.45);
+    z-index: 60;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+  }
+
+  .drawer-backdrop.is-visible {
+    opacity: 1;
+  }
+
+  .drawer {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: min(320px, 84vw);
+    background: var(--color-ivory);
+    z-index: 61;
+    display: flex;
+    flex-direction: column;
+    transform: translateX(100%);
+    transition: transform 0.25s ease;
+    box-shadow: -12px 0 32px rgba(14, 53, 53, 0.18);
+  }
+
+  .drawer.is-open {
+    transform: translateX(0);
+  }
+
+  .drawer-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 20px;
+    border-bottom: 1px solid var(--color-line);
+  }
+
+  .drawer-close {
+    background: none;
+    border: none;
+    color: var(--color-teal-dark);
+    padding: 6px;
+    cursor: pointer;
+  }
+
+  .drawer-nav {
+    display: flex;
+    flex-direction: column;
+    padding: 12px 8px;
+    overflow-y: auto;
+  }
+
+  .drawer-nav a {
+    padding: 14px 16px;
+    font-size: 15.5px;
+    font-weight: 600;
+    color: var(--color-charcoal);
+    border-radius: 10px;
+  }
+
+  .drawer-nav a:hover,
+  .drawer-nav a:focus-visible {
+    background: var(--color-mist);
+    color: var(--color-teal-dark);
+  }
+
+  .drawer-foot {
+    margin-top: auto;
+    padding: 18px 20px 24px;
+    border-top: 1px solid var(--color-line);
+  }
+
+  .drawer-foot :global(.drawer-wa) {
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* --- Breakpoint: sembunyikan nav desktop, tampilkan toggle --- */
+  @media (max-width: 900px) {
+    .nav-links {
+      display: none;
+    }
+
+    .menu-toggle {
+      display: inline-flex;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .nav-right :global(.btn-primary) {
+      display: none;
+    }
+  }
+</style>
+
+<script>
+  // Interaksi drawer mobile: buka/tutup + kunci scroll body saat drawer aktif.
+  // Mega menu desktop murni CSS (:hover / :focus-within), tidak butuh JS.
+  const toggle = document.querySelector<HTMLButtonElement>('[data-menu-toggle]');
+  const drawer = document.querySelector<HTMLElement>('[data-drawer]');
+  const backdrop = document.querySelector<HTMLElement>('[data-drawer-backdrop]');
+  const closeBtn = document.querySelector<HTMLButtonElement>('[data-drawer-close]');
+
+  function openDrawer() {
+    if (!drawer || !backdrop || !toggle) return;
+    drawer.classList.add('is-open');
+    backdrop.hidden = false;
+    requestAnimationFrame(() => backdrop.classList.add('is-visible'));
+    drawer.setAttribute('aria-hidden', 'false');
+    toggle.setAttribute('aria-expanded', 'true');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeDrawer() {
+    if (!drawer || !backdrop || !toggle) return;
+    drawer.classList.remove('is-open');
+    backdrop.classList.remove('is-visible');
+    drawer.setAttribute('aria-hidden', 'true');
+    toggle.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+    setTimeout(() => {
+      backdrop.hidden = true;
+    }, 200);
+  }
+
+  toggle?.addEventListener('click', openDrawer);
+  closeBtn?.addEventListener('click', closeDrawer);
+  backdrop?.addEventListener('click', closeDrawer);
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeDrawer();
+  });
+
+  // Tutup drawer otomatis kalau layar diperbesar melewati breakpoint mobile
+  const mq = window.matchMedia('(max-width: 900px)');
+  mq.addEventListener('change', (e) => {
+    if (!e.matches) closeDrawer();
+  });
+</script>

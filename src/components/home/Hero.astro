@@ -1,0 +1,176 @@
+---
+import Icon from '../Icon.astro';
+import WhatsAppButton from '../WhatsAppButton.astro';
+
+/**
+ * Pola hero: kolase multi-foto (bukan 1 foto tunggal) — dipilih sesuai
+ * playbook §2b karena positioning Ardelia Bibit "palugada, banyak kategori
+ * sekaligus".
+ */
+const collageTiles = [
+  { src: '/images/produk/mahoni.webp', alt: 'Bibit mahoni dalam polybag di nursery', label: 'Kayu Keras', big: true },
+  { src: '/images/produk/pucuk-merah.webp', alt: 'Bibit pucuk merah siap tanam', label: 'Tanaman Hias' },
+  { src: '/images/hero/area-nursery.webp', alt: 'Area nursery Ardelia Bibit dengan bibit tersusun rapi', label: 'Area Nursery' },
+  { src: '/images/owner/owner-yarohim-2.webp', alt: 'Pak Yarohim merawat bibit di kebun', label: 'Pak Yarohim Merawat Bibit' },
+];
+---
+
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <p class="eyebrow">Nursery Bibit Tanaman &middot; Kemiri, Purworejo</p>
+      <h1>
+        Satu Nursery, <span class="mark">Puluhan Pilihan Bibit</span>
+      </h1>
+      <p class="hero-sub">
+        Dari bibit buah, kayu keras untuk penghijauan, tanaman hias, sampai rempah
+        dapur — semuanya kami rawat sendiri di kebun Kemiri, Purworejo. Datang
+        langsung untuk lihat kondisi bibitnya, atau chat dulu kalau belum yakin
+        mau tanam apa.
+      </p>
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="/katalog">Lihat Katalog Bibit</a>
+        <WhatsAppButton variant="outline" label="Konsultasi Dulu" />
+      </div>
+      <ul class="trust-chips">
+        <li><Icon name="check" size={16} /> Nursery bisa dikunjungi langsung</li>
+        <li><Icon name="check" size={16} /> Konsultasi pilih bibit gratis</li>
+      </ul>
+    </div>
+
+    <div class="hero-collage">
+      {
+        collageTiles.map((tile) => (
+          <div class={`collage-tile ${tile.big ? 'is-big' : ''}`}>
+            <img src={tile.src} alt={tile.alt} loading="eager" decoding="async" />
+            <span class="collage-caption" aria-hidden="true">{tile.label}</span>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero {
+    padding: 56px 0 64px;
+    background: linear-gradient(180deg, var(--color-mist) 0%, var(--color-ivory) 65%);
+  }
+
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: 52px;
+    align-items: center;
+  }
+
+  .hero-copy h1 {
+    font-size: clamp(32px, 4.2vw, 50px);
+    line-height: 1.1;
+    margin: 16px 0 20px;
+    letter-spacing: -0.01em;
+  }
+
+  .hero-copy h1 .mark {
+    font-style: italic;
+    color: var(--color-burnt-text);
+  }
+
+  .hero-sub {
+    font-size: 17px;
+    color: var(--color-charcoal-soft);
+    max-width: 480px;
+    margin-bottom: 26px;
+  }
+
+  .hero-cta {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+    margin-bottom: 28px;
+  }
+
+  .trust-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .trust-chips li {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 13.5px;
+    font-weight: 500;
+    color: var(--color-teal-dark);
+    background: var(--color-paper);
+    border: 1px solid var(--color-line);
+    padding: 8px 14px;
+    border-radius: 999px;
+  }
+
+  .trust-chips :global(svg) {
+    color: var(--color-leaf-dark);
+    flex-shrink: 0;
+  }
+
+  /* --- Kolase 4 foto --- */
+  .hero-collage {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 14px;
+    height: 420px;
+  }
+
+  .collage-tile {
+    position: relative;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 14px 32px rgba(14, 53, 53, 0.18);
+    background: var(--color-mist);
+  }
+
+  .collage-tile img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .collage-tile.is-big {
+    grid-row: 1 / 3;
+  }
+
+  .collage-caption {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 20px 14px 10px;
+    background: linear-gradient(180deg, rgba(14, 53, 53, 0) 0%, rgba(14, 53, 53, 0.75) 100%);
+    color: #fff;
+    font-size: 12.5px;
+    font-weight: 600;
+  }
+
+  @media (max-width: 880px) {
+    .hero-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .hero-collage {
+      height: 320px;
+    }
+  }
+
+  @media (max-width: 520px) {
+    .hero-collage {
+      grid-template-columns: 1fr 1fr;
+      height: 260px;
+    }
+  }
+</style>

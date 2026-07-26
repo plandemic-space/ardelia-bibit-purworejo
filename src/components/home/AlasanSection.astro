@@ -1,0 +1,92 @@
+---
+/**
+ * 3 alasan/keunggulan — hanya klaim yang sudah dikonfirmasi (nursery sendiri,
+ * bisa konsultasi via WA, lokasi bisa dikunjungi). Tidak ada angka tahun
+ * berdiri/jumlah pelanggan karena belum ada datanya (lihat aturan konten).
+ */
+const alasan = [
+  {
+    icon: '🌱',
+    title: 'Dirawat di Nursery Sendiri',
+    desc: 'Bibit tumbuh dan dirawat langsung di kebun kami di Kemiri — bukan titip jual dari nursery lain.',
+  },
+  {
+    icon: '💬',
+    title: 'Bisa Konsultasi Dulu',
+    desc: 'Belum yakin mau tanam apa atau bibit mana yang cocok untuk lahan Anda? Chat dulu, kami bantu arahkan.',
+  },
+  {
+    icon: '📍',
+    title: 'Lokasi Bisa Dikunjungi',
+    desc: 'Nursery di Dsn. Ngemplak, Kemiri, Purworejo terbuka untuk kunjungan langsung — lihat sendiri kondisi bibitnya.',
+  },
+];
+---
+
+<section class="alasan">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Kenapa Ardelia Bibit</p>
+      <h2>Nursery Sungguhan, Bukan Sekadar Katalog Online</h2>
+    </div>
+
+    <div class="alasan-grid">
+      {
+        alasan.map((item) => (
+          <div class="alasan-card">
+            <div class="alasan-icon" aria-hidden="true">{item.icon}</div>
+            <h3>{item.title}</h3>
+            <p>{item.desc}</p>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<style>
+  .alasan {
+    background: var(--color-paper);
+  }
+
+  .alasan-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+  }
+
+  .alasan-card {
+    border: 1px solid var(--color-line);
+    border-radius: var(--radius);
+    padding: 28px 24px;
+  }
+
+  .alasan-icon {
+    width: 42px;
+    height: 42px;
+    border-radius: 10px;
+    background: var(--color-mist);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    margin-bottom: 16px;
+  }
+
+  .alasan-card h3 {
+    font-size: 17px;
+    margin-bottom: 8px;
+  }
+
+  .alasan-card p {
+    font-size: 14px;
+    color: var(--color-charcoal-soft);
+    line-height: 1.6;
+  }
+
+  @media (max-width: 780px) {
+    .alasan-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

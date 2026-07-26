@@ -1,0 +1,149 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PageIntro from '../components/PageIntro.astro';
+import GaleriGrid from '../components/GaleriGrid.astro';
+import WhatsAppButton from '../components/WhatsAppButton.astro';
+
+const galeriTiles = [
+  { image: '/images/produk/alpukat-aligator.webp', alt: 'Bibit alpukat tersusun rapi di area nursery', label: 'Area Nursery' },
+  { emoji: '🌱', label: 'Rak Pembibitan' },
+  { image: '/images/produk/jati.webp', alt: 'Bibit jati dalam polybag', label: 'Koleksi Kayu Keras' },
+  { image: '/images/produk/pucuk-merah.webp', alt: 'Bibit pucuk merah', label: 'Tanaman Hias' },
+  { emoji: '📦', label: 'Proses Packing' },
+  { image: '/images/galeri/pengiriman.webp', alt: 'Pengiriman bibit kelapa gading kuning ke luar kota', label: 'Pengiriman Keluar Kota' },
+  { image: '/images/owner/owner-yarohim-3.webp', alt: 'Pak Yarohim di kebun bibit', label: 'Pak Yarohim di Kebun' },
+  { emoji: '🤝', label: 'Kunjungan Pembeli' },
+];
+---
+
+<Layout
+  title="Tentang Kami — Ardelia Bibit"
+  description="Cerita di balik Ardelia Bibit, nursery bibit tanaman di Kemiri, Purworejo yang dirawat langsung oleh Yarohim — dari bibit buah, kayu keras, sampai tanaman hias."
+  breadcrumbs={[{ name: 'Tentang Kami', path: '/tentang' }]}
+>
+  <PageIntro
+    eyebrow="Tentang Kami"
+    title="Nursery yang Dirawat Sendiri, Bukan Sekadar Reseller"
+  />
+
+  <section class="cerita-lengkap">
+    <div class="wrap cerita-grid">
+      <div class="cerita-photo">
+        <img src="/images/owner/owner-yarohim-1.webp" alt="Pak Yarohim, pemilik Ardelia Bibit" loading="lazy" decoding="async" />
+      </div>
+
+      <div class="cerita-text">
+        <p>
+          Ardelia Bibit berjalan dari kebun milik Yarohim di Dusun Ngemplak,
+          Kemiri, Purworejo. Bukan gudang penyimpanan atau tempat titip jual
+          — bibit yang ada di sini memang tumbuh dan dirawat di lahan sendiri,
+          mulai dari fase semai sampai siap dikirim ke pembeli.
+        </p>
+        <p>
+          Karena dirawat sendiri, jenis bibit yang tersedia jadi cukup
+          beragam — bukan cuma satu-dua spesialisasi. Ada bibit buah seperti
+          durian dan alpukat, kayu keras untuk penghijauan seperti jati dan
+          sengon, tanaman hias untuk mempercantik halaman, sampai rempah
+          dapur seperti jahe dan kunyit. Kalau Anda datang dengan kebutuhan
+          yang berbeda-beda dalam satu waktu, kemungkinan besar semuanya
+          bisa terpenuhi dari satu tempat.
+        </p>
+        <p>
+          Kami juga terbuka soal jangkauan pengiriman — sejauh ini pernah
+          mengirim bibit sampai ke Jepara, dan prosesnya didokumentasikan di
+          halaman Facebook kami. Untuk kota-kota lain, kami tidak mau asal
+          janji "kirim ke seluruh Indonesia" sebelum benar-benar dicoba —
+          jadi kalau lokasi Anda jauh, tanyakan dulu lewat WhatsApp supaya
+          kami cek dulu cara pengiriman paling amannya.
+        </p>
+        <p>
+          Kalau ada waktu, kami justru senang kalau calon pembeli mau datang
+          langsung ke nursery — lihat sendiri kondisi bibitnya, tanya-tanya
+          soal perawatan, sebelum memutuskan beli.
+        </p>
+        <WhatsAppButton
+          message="Halo Ardelia Bibit, saya ingin tahu lebih lanjut soal nursery-nya"
+          label="Ngobrol via WhatsApp"
+          variant="outline"
+        />
+      </div>
+    </div>
+  </section>
+
+  <section class="galeri-section">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Galeri</p>
+        <h2>Sedikit Gambaran dari Kebun Kami</h2>
+        <p>
+          Foto-foto asli sedang kami siapkan. Sambil menunggu, ini gambaran
+          bagian-bagian nursery yang akan kami dokumentasikan.
+        </p>
+      </div>
+      <GaleriGrid tiles={galeriTiles} />
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .cerita-lengkap {
+    padding-top: 56px;
+  }
+
+  .cerita-grid {
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: 48px;
+    align-items: start;
+  }
+
+  .cerita-photo {
+    aspect-ratio: 4 / 5;
+    border-radius: 16px;
+    background: linear-gradient(135deg, var(--color-mist), #e7ecdf);
+    border: 1px dashed var(--color-line);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    position: sticky;
+    top: 100px;
+  }
+
+  .cerita-emoji {
+    font-size: 46px;
+    opacity: 0.6;
+  }
+
+  .cerita-photo-label {
+    font-size: 12px;
+    color: var(--color-charcoal-soft);
+  }
+
+  .cerita-text p {
+    font-size: 15.5px;
+    line-height: 1.75;
+    color: var(--color-charcoal);
+    margin-bottom: 18px;
+  }
+
+  .cerita-text :global(.btn) {
+    margin-top: 6px;
+  }
+
+  @media (max-width: 880px) {
+    .cerita-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .cerita-photo {
+      position: static;
+      aspect-ratio: 16 / 9;
+    }
+  }
+
+  .galeri-section {
+    background: var(--color-mist);
+  }
+</style>

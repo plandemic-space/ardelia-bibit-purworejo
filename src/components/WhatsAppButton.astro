@@ -1,0 +1,42 @@
+---
+import Icon from './Icon.astro';
+import { site, waLink } from '../data/site';
+
+interface Props {
+  /** Pesan prefilled. Kalau kosong, pakai link WA polos tanpa pesan. */
+  message?: string;
+  label?: string;
+  variant?: 'primary' | 'outline';
+  size?: 'md' | 'sm';
+  class?: string;
+}
+
+const {
+  message,
+  label = 'Chat WhatsApp',
+  variant = 'primary',
+  size = 'md',
+  class: className = '',
+} = Astro.props;
+
+const href = message ? waLink(message) : site.contact.whatsappLink;
+const variantClass = variant === 'primary' ? 'btn-primary' : 'btn-outline';
+const sizeClass = size === 'sm' ? 'btn-sm' : '';
+---
+
+<a
+  class={`btn ${variantClass} ${sizeClass} ${className}`}
+  href={href}
+  target="_blank"
+  rel="noopener"
+>
+  <Icon name="whatsapp" size={18} />
+  {label}
+</a>
+
+<style>
+  .btn-sm {
+    padding: 9px 16px;
+    font-size: 13px;
+  }
+</style>

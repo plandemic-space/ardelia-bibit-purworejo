@@ -1,0 +1,74 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import PageIntro from '../../components/PageIntro.astro';
+import ArtikelCard from '../../components/ArtikelCard.astro';
+
+const semuaArtikel = (await getCollection('artikel')).sort(
+  (a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf()
+);
+---
+
+<Layout
+  title="Artikel Edukasi Tanaman — Ardelia Bibit"
+  description="Tips dan panduan praktis seputar menanam dan merawat bibit — dari bibit buah, kayu keras, sampai tanaman hias — ditulis oleh Ardelia Bibit."
+  breadcrumbs={[{ name: 'Artikel', path: '/artikel' }]}
+>
+  <PageIntro
+    eyebrow="Artikel"
+    title="Tips Menanam & Merawat Bibit"
+    subtitle="Catatan praktis dari pengalaman kami di nursery — supaya bibit yang Anda beli tumbuh maksimal, bukan cuma sekadar tertanam."
+  />
+
+  <section class="artikel-index">
+    <div class="wrap">
+      <h2 class="visually-hidden">Semua Artikel</h2>
+      {
+        semuaArtikel.length > 0 ? (
+          <div class="artikel-grid">
+            {semuaArtikel.map((entry) => (
+              <ArtikelCard
+                title={entry.data.title}
+                description={entry.data.description}
+                publishDate={entry.data.publishDate}
+                href={`/artikel/${entry.id}`}
+              />
+            ))}
+          </div>
+        ) : (
+          <p class="artikel-empty">Artikel belum tersedia — nantikan tips pertama kami di sini.</p>
+        )
+      }
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .artikel-index {
+    padding-top: 48px;
+  }
+
+  .artikel-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+  }
+
+  .artikel-empty {
+    text-align: center;
+    padding: 60px 0;
+    color: var(--color-charcoal-soft);
+  }
+
+  @media (max-width: 880px) {
+    .artikel-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  @media (max-width: 560px) {
+    .artikel-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

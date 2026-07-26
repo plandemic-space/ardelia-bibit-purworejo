@@ -1,0 +1,45 @@
+---
+import WhatsAppButton from '../WhatsAppButton.astro';
+---
+
+<section class="konsultasi" id="konsultasi">
+  <div class="wrap">
+    <p class="eyebrow eyebrow-light">Belum Tahu Mau Tanam Apa?</p>
+    <h2>Ceritakan Saja Lahan dan Rencananya</h2>
+    <p class="konsultasi-sub">
+      Tidak semua orang datang sambil sudah tahu nama bibitnya. Cukup ceritakan
+      kondisi lahan dan mau dipakai untuk apa — kami bantu arahkan ke bibit
+      yang paling cocok, tanpa kewajiban beli.
+    </p>
+    <WhatsAppButton message="Halo Ardelia Bibit, saya mau konsultasi pilih bibit" label="Chat & Konsultasi via WhatsApp" />
+  </div>
+</section>
+
+<style>
+  .konsultasi {
+    background: var(--color-teal-dark);
+    text-align: center;
+  }
+
+  .konsultasi .wrap {
+    max-width: 640px;
+  }
+
+  .eyebrow-light {
+    color: var(--color-leaf);
+  }
+
+  .konsultasi h2 {
+    color: #fff;
+    margin: 14px 0 12px;
+    font-size: clamp(24px, 3vw, 32px);
+  }
+
+  .konsultasi-sub {
+    color: rgba(255, 255, 255, 0.78);
+    max-width: 480px;
+    margin: 0 auto 26px;
+    font-size: 15.5px;
+    line-height: 1.6;
+  }
+</style>

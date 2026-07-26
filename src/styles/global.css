@@ -1,0 +1,272 @@
+/* ==========================================================================
+   Ardelia Bibit — Design Tokens & Global Styles
+   Sumber: ardelia-bibit-mockup-v4.html (identitas visual — jangan diganti
+   tanpa alasan kuat, lihat data-ardelia-bibit.md)
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+  /* Warna utama */
+  --color-teal: #164a4a;
+  --color-teal-dark: #0e3535;
+  --color-ivory: #faf9f4;
+  --color-mist: #f0f5f0;
+  --color-leaf: #8dbf45;
+  --color-leaf-dark: #6d9934;
+  --color-charcoal: #1d2b2b;
+  --color-charcoal-soft: #4d5c5c;
+  --color-burnt: #d97941;
+  --color-burnt-dark: #b8622f;
+  /* Versi lebih gelap dari burnt-dark, khusus teks kecil di atas ivory/putih
+     supaya kontras >= 4.5:1 (WCAG AA). burnt-dark tetap dipakai untuk
+     border/background non-teks. */
+  --color-burnt-text: #7a411f;
+  --color-line: #e4e2d8;
+  --color-paper: #ffffff;
+
+  /* Tipografi */
+  --font-display: 'Fraunces', serif;
+  --font-body: 'Inter', system-ui, -apple-system, sans-serif;
+
+  /* Bentuk & tata letak */
+  --radius: 12px;
+  --radius-sm: 7px;
+  --max-width: 1180px;
+
+  /* Spasi antar section (dipakai konsisten tiap halaman) */
+  --space-section: 72px;
+  --space-section-mobile: 48px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--color-ivory);
+  color: var(--color-charcoal);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+img,
+picture,
+video {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  margin: 0;
+  color: var(--color-teal-dark);
+}
+
+p {
+  margin: 0;
+}
+
+/* Kontainer standar tiap section */
+.wrap {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+section {
+  padding: var(--space-section) 0;
+}
+
+@media (max-width: 720px) {
+  section {
+    padding: var(--space-section-mobile) 0;
+  }
+}
+
+.section-head {
+  max-width: 640px;
+  margin-bottom: 36px;
+}
+
+.section-head h2 {
+  font-size: clamp(26px, 3vw, 36px);
+  margin: 14px 0 12px;
+  line-height: 1.15;
+}
+
+.section-head p {
+  color: var(--color-charcoal-soft);
+  font-size: 16px;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-burnt-text);
+}
+
+.eyebrow::before {
+  content: '';
+  width: 18px;
+  height: 2px;
+  background: var(--color-burnt);
+  display: inline-block;
+}
+
+/* Tombol — dipakai lintas komponen (Header, Footer, CTA, dst) */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 11px 20px;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 14.5px;
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease,
+    background-color 0.15s ease,
+    color 0.15s ease;
+  cursor: pointer;
+  border: none;
+  font-family: var(--font-body);
+}
+
+.btn-primary {
+  background: var(--color-leaf);
+  color: var(--color-teal-dark);
+}
+
+.btn-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(141, 191, 69, 0.35);
+}
+
+.btn-outline {
+  border: 1.5px solid var(--color-teal);
+  color: var(--color-teal-dark);
+  background: transparent;
+}
+
+.btn-outline:hover {
+  background: var(--color-teal);
+  color: #fff;
+}
+
+.btn-ghost {
+  color: var(--color-teal-dark);
+  font-weight: 600;
+}
+
+/* Utility aksesibilitas — skip-to-content link (wajib per checklist playbook §7) */
+.skip-link {
+  position: absolute;
+  left: 12px;
+  top: -60px;
+  background: var(--color-teal-dark);
+  color: #fff;
+  padding: 10px 16px;
+  border-radius: var(--radius-sm);
+  font-size: 14px;
+  font-weight: 600;
+  z-index: 100;
+  transition: top 0.15s ease;
+}
+
+.skip-link:focus {
+  top: 12px;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Styling konten markdown artikel (dipakai di /artikel/[slug]) */
+.prose {
+  font-size: 16.5px;
+  line-height: 1.8;
+  color: var(--color-charcoal);
+  max-width: 680px;
+}
+
+.prose > * + * {
+  margin-top: 1.1em;
+}
+
+.prose h2 {
+  font-size: 24px;
+  margin-top: 1.7em;
+  line-height: 1.3;
+}
+
+.prose h3 {
+  font-size: 19px;
+  margin-top: 1.5em;
+}
+
+.prose p {
+  margin: 0;
+}
+
+.prose ul,
+.prose ol {
+  padding-left: 1.3em;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4em;
+}
+
+.prose li::marker {
+  color: var(--color-leaf-dark);
+}
+
+.prose a {
+  color: var(--color-teal-dark);
+  text-decoration: underline;
+  text-decoration-color: var(--color-leaf);
+  text-underline-offset: 2px;
+}
+
+.prose strong {
+  color: var(--color-teal-dark);
+}
+
+.prose blockquote {
+  margin: 0;
+  padding: 4px 20px;
+  border-left: 3px solid var(--color-leaf);
+  color: var(--color-charcoal-soft);
+  font-style: italic;
+}

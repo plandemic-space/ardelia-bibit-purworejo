@@ -1,0 +1,317 @@
+[
+  {
+    "id": "durian-bawor",
+    "nama": "Durian Bawor",
+    "grup": "bibit-buah",
+    "ukuran": "Planterbag 35, tinggi 1,5–2 m",
+    "foto": "/images/produk/durian-bawor.webp",
+    "fotoTersedia": true
+  },
+  {
+    "id": "durian-musang-king",
+    "nama": "Durian Musang King",
+    "grup": "bibit-buah",
+    "ukuran": "Planterbag 35, tinggi 1,5–2 m",
+    "foto": "/images/produk/durian-musang-king.webp",
+    "fotoTersedia": true
+  },
+  {
+    "id": "durian-duri-hitam",
+    "nama": "Durian Duri Hitam",
+    "grup": "bibit-buah",
+    "ukuran": "Planterbag 35, tinggi 1,5–2 m",
+    "foto": "/images/produk/durian-duri-hitam.webp",
+    "fotoTersedia": true
+  },
+  {
+    "id": "alpukat-miki",
+    "nama": "Alpukat Miki",
+    "grup": "bibit-buah",
+    "ukuran": "±120 cm",
+    "foto": "/images/produk/alpukat-miki.webp",
+    "fotoTersedia": true
+  },
+  {
+    "id": "alpukat-pluang",
+    "nama": "Alpukat Pluang",
+    "grup": "bibit-buah",
+    "ukuran": "±120 cm",
+    "foto": "/images/produk/alpukat-pluang.webp",
+    "fotoTersedia": true
+  },
+  {
+    "id": "alpukat-aligator",
+    "nama": "Alpukat Aligator",
+    "grup": "bibit-buah",
+    "ukuran": "±120 cm",
+    "foto": "/images/produk/alpukat-aligator.webp",
+    "fotoTersedia": true
+  },
+  {
+    "id": "alpukat-red-vietnam",
+    "nama": "Alpukat Red Vietnam",
+    "grup": "bibit-buah",
+    "foto": "/images/produk/alpukat-red-vietnam.webp",
+    "fotoTersedia": true
+  },
+  {
+    "id": "manggis",
+    "nama": "Manggis",
+    "grup": "bibit-buah",
+    "foto": "/images/produk/manggis.webp",
+    "fotoTersedia": true
+  },
+  {
+    "id": "sawo-manila",
+    "nama": "Sawo Manila",
+    "grup": "bibit-buah",
+    "foto": "/images/produk/sawo-manila.webp",
+    "fotoTersedia": true
+  },
+  {
+    "id": "sawo-jumbo",
+    "nama": "Sawo Jumbo (Mamey Sapote)",
+    "grup": "bibit-buah",
+    "foto": "/images/produk/sawo-jumbo.webp",
+    "fotoTersedia": true
+  },
+  {
+    "id": "sawo-black-sapote",
+    "nama": "Sawo Black Sapote",
+    "grup": "bibit-buah",
+    "placeholderEmoji": "🍫"
+  },
+  {
+    "id": "mangga",
+    "nama": "Mangga",
+    "grup": "bibit-buah",
+    "placeholderEmoji": "🥭"
+  },
+  {
+    "id": "kelengkeng",
+    "nama": "Kelengkeng",
+    "grup": "bibit-buah",
+    "placeholderEmoji": "🫐"
+  },
+  {
+    "id": "nangka",
+    "nama": "Nangka",
+    "grup": "bibit-buah",
+    "placeholderEmoji": "🍈"
+  },
+  {
+    "id": "jeruk",
+    "nama": "Jeruk",
+    "grup": "bibit-buah",
+    "placeholderEmoji": "🍊"
+  },
+  {
+    "id": "kelapa",
+    "nama": "Kelapa",
+    "grup": "bibit-buah",
+    "placeholderEmoji": "🥥"
+  },
+  {
+    "id": "srikaya",
+    "nama": "Srikaya",
+    "grup": "bibit-buah",
+    "placeholderEmoji": "🍏"
+  },
+  {
+    "id": "duku",
+    "nama": "Duku",
+    "grup": "bibit-buah",
+    "placeholderEmoji": "🍈"
+  },
+  {
+    "id": "matoa",
+    "nama": "Matoa",
+    "grup": "bibit-buah",
+    "placeholderEmoji": "🍈"
+  },
+  {
+    "id": "pohon-kurma",
+    "nama": "Pohon Kurma",
+    "grup": "bibit-buah",
+    "foto": "/images/produk/pohon-kurma.webp",
+    "fotoTersedia": true
+  },
+  {
+    "id": "pucuk-merah",
+    "nama": "Pucuk Merah",
+    "grup": "tanaman-hias",
+    "ukuran": "2,5–3 m",
+    "foto": "/images/produk/pucuk-merah.webp",
+    "fotoTersedia": true
+  },
+  {
+    "id": "palem-merah",
+    "nama": "Palem Merah",
+    "grup": "tanaman-hias",
+    "ukuran": "1–3 m",
+    "foto": "/images/produk/palem-merah.webp",
+    "fotoTersedia": true
+  },
+  {
+    "id": "palem-kuning",
+    "nama": "Palem Kuning",
+    "grup": "tanaman-hias",
+    "foto": "/images/produk/palem-kuning.webp",
+    "fotoTersedia": true
+  },
+  {
+    "id": "palem-kol",
+    "nama": "Palem Kol",
+    "grup": "tanaman-hias",
+    "foto": "/images/produk/palem-kol.webp",
+    "fotoTersedia": true
+  },
+  {
+    "id": "kelapa-gading-kuning",
+    "nama": "Kelapa Gading Kuning",
+    "grup": "tanaman-hias",
+    "ukuran": "Dongkelan — pohon siap tanam, bukan bibit kecil",
+    "foto": "/images/produk/kelapa-gading-kuning.webp",
+    "fotoTersedia": true
+  },
+  {
+    "id": "lohansung",
+    "nama": "Lohansung",
+    "grup": "tanaman-hias",
+    "foto": "/images/produk/lohansung.webp",
+    "fotoTersedia": true
+  },
+  {
+    "id": "tanaman-hias-brokoli",
+    "nama": "Tanaman Hias Brokoli",
+    "grup": "tanaman-hias",
+    "foto": "/images/produk/tanaman-hias-brokoli.webp",
+    "fotoTersedia": true
+  },
+  {
+    "id": "balsa",
+    "nama": "Balsa",
+    "grup": "pohon-kayu",
+    "ukuran": "Siap dikebunkan — bukan bibit kecil",
+    "foto": "/images/produk/balsa.webp",
+    "fotoTersedia": true
+  },
+  {
+    "id": "albasia-sengon",
+    "nama": "Albasia (Sengon Laut)",
+    "grup": "pohon-kayu",
+    "foto": "/images/produk/albasia-sengon.webp",
+    "fotoTersedia": true
+  },
+  {
+    "id": "jabon",
+    "nama": "Jabon",
+    "grup": "pohon-kayu",
+    "foto": "/images/produk/jabon.webp",
+    "fotoTersedia": true
+  },
+  {
+    "id": "mahoni",
+    "nama": "Mahoni",
+    "grup": "pohon-kayu",
+    "foto": "/images/produk/mahoni.webp",
+    "fotoTersedia": true
+  },
+  {
+    "id": "jati",
+    "nama": "Jati",
+    "grup": "pohon-kayu",
+    "foto": "/images/produk/jati.webp",
+    "fotoTersedia": true
+  },
+  {
+    "id": "beringin",
+    "nama": "Beringin",
+    "grup": "pohon-kayu",
+    "foto": "/images/produk/beringin.webp",
+    "fotoTersedia": true
+  },
+  {
+    "id": "jahe",
+    "nama": "Jahe",
+    "grup": "rempah",
+    "placeholderEmoji": "🫚"
+  },
+  {
+    "id": "kunyit",
+    "nama": "Kunyit",
+    "grup": "rempah",
+    "placeholderEmoji": "🫚"
+  },
+  {
+    "id": "kencur",
+    "nama": "Kencur",
+    "grup": "rempah",
+    "placeholderEmoji": "🫚"
+  },
+  {
+    "id": "temulawak",
+    "nama": "Temulawak",
+    "grup": "rempah",
+    "placeholderEmoji": "🫚"
+  },
+  {
+    "id": "lengkuas",
+    "nama": "Lengkuas",
+    "grup": "rempah",
+    "placeholderEmoji": "🫚"
+  },
+  {
+    "id": "jeruk-purut",
+    "nama": "Jeruk Purut",
+    "grup": "rempah",
+    "foto": "/images/produk/jeruk-purut.webp",
+    "fotoTersedia": true
+  },
+  {
+    "id": "dewandaru",
+    "nama": "Dewandaru",
+    "grup": "rempah",
+    "placeholderEmoji": "🍒"
+  },
+  {
+    "id": "pala",
+    "nama": "Pala",
+    "grup": "rempah",
+    "perluKonfirmasi": true,
+    "foto": "/images/produk/pala.webp",
+    "fotoTersedia": true
+  },
+  {
+    "id": "kopi",
+    "nama": "Kopi",
+    "grup": "perkebunan",
+    "placeholderEmoji": "☕"
+  },
+  {
+    "id": "kakao",
+    "nama": "Kakao",
+    "grup": "perkebunan",
+    "placeholderEmoji": "🍫"
+  },
+  {
+    "id": "lada-perdu",
+    "nama": "Lada Perdu",
+    "grup": "perkebunan",
+    "perluKonfirmasi": true,
+    "foto": "/images/produk/lada-perdu.webp",
+    "fotoTersedia": true
+  },
+  {
+    "id": "indigofera",
+    "nama": "Indigofera",
+    "grup": "pakan-ternak",
+    "placeholderEmoji": "🌿"
+  },
+  {
+    "id": "kaliandra",
+    "nama": "Kaliandra",
+    "grup": "pakan-ternak",
+    "placeholderEmoji": "🌿"
+  }
+]

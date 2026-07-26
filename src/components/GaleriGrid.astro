@@ -1,0 +1,77 @@
+---
+interface Tile {
+  emoji?: string;
+  image?: string;
+  alt?: string;
+  label: string;
+}
+
+interface Props {
+  tiles: Tile[];
+}
+
+const { tiles } = Astro.props;
+---
+
+<div class="galeri-grid">
+  {
+    tiles.map((tile) =>
+      tile.image ? (
+        <div class="galeri-tile galeri-tile-photo">
+          <img src={tile.image} alt={tile.alt ?? tile.label} loading="lazy" decoding="async" />
+          <span class="galeri-caption" aria-hidden="true">{tile.label}</span>
+        </div>
+      ) : (
+        <div class="galeri-tile">
+          <span class="galeri-emoji" aria-hidden="true">{tile.emoji}</span>
+          <span class="galeri-label">{tile.label}</span>
+        </div>
+      )
+    )
+  }
+</div>
+
+<style>
+  .galeri-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+  }
+
+  .galeri-tile {
+    aspect-ratio: 1;
+    border-radius: 14px;
+    background: linear-gradient(135deg, var(--color-mist), #e7ecdf);
+    border: 1px dashed var(--color-line);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    text-align: center;
+    padding: 10px;
+  }
+
+  .galeri-emoji {
+    font-size: 30px;
+    opacity: 0.6;
+  }
+
+  .galeri-label {
+    font-size: 11.5px;
+    font-weight: 500;
+    color: var(--color-charcoal-soft);
+  }
+
+  @media (max-width: 780px) {
+    .galeri-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  @media (max-width: 480px) {
+    .galeri-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+</style>

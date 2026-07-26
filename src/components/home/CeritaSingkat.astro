@@ -1,0 +1,90 @@
+---
+/**
+ * Cerita singkat pemilik. Kutipan ditulis ulang dengan kata-kata sendiri
+ * (bukan disalin dari mockup/sumber lain) — tetap merujuk fakta yang sama:
+ * Pak Yarohim merawat sendiri bibit di kebun Kemiri.
+ */
+---
+
+<section class="cerita">
+  <div class="wrap cerita-grid">
+    <div class="cerita-photo">
+      <img src="/images/owner/owner-yarohim-3.webp" alt="Pak Yarohim di kebun bibit Ardelia Bibit" loading="lazy" decoding="async" />
+    </div>
+
+    <div class="cerita-copy">
+      <p class="eyebrow eyebrow-light">Cerita Kami</p>
+      <blockquote>
+        "Setiap bibit yang keluar dari nursery ini saya pantau sendiri
+        prosesnya — dari semai sampai siap dikirim. Biar pembeli yang jauh
+        pun tetap dapat bibit yang benar-benar sehat."
+      </blockquote>
+      <p class="cerita-name">Yarohim, Pemilik Ardelia Bibit</p>
+      <a class="btn btn-outline btn-light" href="/tentang">Baca Cerita Lengkap →</a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .cerita {
+    background: var(--color-teal);
+    color: #fff;
+  }
+
+  .cerita-grid {
+    display: grid;
+    grid-template-columns: 0.8fr 1.2fr;
+    gap: 48px;
+    align-items: center;
+  }
+
+  .cerita-photo {
+    aspect-ratio: 4 / 3;
+    border-radius: 16px;
+    overflow: hidden;
+    background: var(--color-teal-dark);
+  }
+
+  .cerita-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .cerita-copy .eyebrow-light {
+    color: var(--color-leaf);
+  }
+
+  .cerita-copy blockquote {
+    font-family: var(--font-display);
+    font-size: clamp(19px, 2.2vw, 25px);
+    line-height: 1.4;
+    font-weight: 500;
+    font-style: italic;
+    margin: 14px 0 16px;
+  }
+
+  .cerita-name {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.75);
+    font-weight: 600;
+    margin-bottom: 20px;
+  }
+
+  .btn-light {
+    border-color: rgba(255, 255, 255, 0.5);
+    color: #fff;
+  }
+
+  .btn-light:hover {
+    background: #fff;
+    color: var(--color-teal-dark);
+  }
+
+  @media (max-width: 880px) {
+    .cerita-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
