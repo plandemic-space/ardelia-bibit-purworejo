@@ -1,283 +1,181 @@
 ---
-import { getCollection } from 'astro:content';
 import Layout from '../layouts/Layout.astro';
-import ProdukCard from '../components/ProdukCard.astro';
+import PageIntro from '../components/PageIntro.astro';
 import WhatsAppButton from '../components/WhatsAppButton.astro';
-import { kategoriBibit, kebutuhanMap } from '../data/nav';
+import Icon from '../components/Icon.astro';
+import { site } from '../data/site';
 
-const semuaProduk = await getCollection('produk');
-
-// Urutkan sesuai urutan grup di kategoriBibit, lalu alfabet dalam grup
-const urutanGrup = kategoriBibit.map((k) => k.slug);
-const produkTerurut = [...semuaProduk].sort((a, b) => {
-  const grupDiff = urutanGrup.indexOf(a.data.grup) - urutanGrup.indexOf(b.data.grup);
-  if (grupDiff !== 0) return grupDiff;
-  return a.data.nama.localeCompare(b.data.nama, 'id');
-});
-
-const jumlahPerGrup = (slug: string) => semuaProduk.filter((p) => p.data.grup === slug).length;
-
-function grupLabel(slug: string) {
-  return kategoriBibit.find((k) => k.slug === slug)?.label ?? slug;
-}
+const mapEmbedSrc = `https://www.google.com/maps?q=${encodeURIComponent(site.contact.address.full)}&output=embed`;
 ---
 
 <Layout
-  title={`Katalog Bibit (${semuaProduk.length} Varietas) — Ardelia Bibit`}
-  description={`Katalog ${semuaProduk.length} varietas bibit dari Ardelia Bibit: buah, tanaman hias, kayu keras, rempah, perkebunan, dan pakan ternak. Tanya stok & harga langsung via WhatsApp.`}
-  breadcrumbs={[{ name: 'Katalog Bibit', path: '/katalog' }]}
+  title="Kontak & Lokasi — Ardelia Bibit"
+  description="Hubungi Ardelia Bibit via WhatsApp atau kunjungi langsung nursery kami di Dsn. Ngemplak, Kemiri, Purworejo. Lihat lokasi di peta dan ikuti media sosial kami."
+  breadcrumbs={[{ name: 'Kontak', path: '/kontak' }]}
 >
-  <section class="katalog-head">
-    <div class="wrap">
-      <p class="eyebrow">Katalog Bibit</p>
-      <h1>{semuaProduk.length} Varietas dalam 6 Kelompok</h1>
-      <p class="katalog-sub">
-        Harga dan stok kami infokan langsung lewat WhatsApp — tergantung
-        ukuran dan jumlah pesanan. Tekan tombol di tiap kartu untuk tanya
-        cepat.
-      </p>
-    </div>
-  </section>
+  <PageIntro
+    eyebrow="Kontak"
+    title="Hubungi atau Kunjungi Langsung"
+    subtitle="Cara tercepat menghubungi kami adalah WhatsApp. Kalau mau lihat kondisi bibit dulu, nursery kami juga terbuka untuk kunjungan langsung."
+  />
 
-  <section class="katalog-body">
-    <div class="wrap">
-      <div
-        class="filter-bar"
-        role="group"
-        aria-label="Filter kelompok bibit"
-        data-filter-bar
-        data-kebutuhan-map={JSON.stringify(kebutuhanMap)}
-      >
-        <button class="filter-chip is-active" type="button" data-filter="semua">
-          Semua <span>{semuaProduk.length}</span>
-        </button>
-        {
-          kategoriBibit.map((kat) => (
-            <button class="filter-chip" type="button" data-filter={kat.slug}>
-              {kat.icon} {kat.label} <span>{jumlahPerGrup(kat.slug)}</span>
-            </button>
-          ))
-        }
-      </div>
+  <section class="kontak-section">
+    <div class="wrap kontak-grid">
+      <div class="kontak-info">
+        <div class="info-card">
+          <div class="info-icon"><Icon name="whatsapp" size={22} /></div>
+          <div>
+            <h2>WhatsApp</h2>
+            <p>{site.contact.whatsappDisplay}</p>
+            <WhatsAppButton size="sm" label="Chat Sekarang" />
+          </div>
+        </div>
 
-      <p class="filter-empty" data-filter-empty hidden>
-        Tidak ada produk di kelompok ini.
-      </p>
+        <div class="info-card">
+          <div class="info-icon"><Icon name="map-pin" size={22} /></div>
+          <div>
+            <h2>Alamat Nursery</h2>
+            <p>{site.contact.address.full}</p>
+            <a class="btn btn-outline btn-sm-link" href={site.contact.googleMapsUrl} target="_blank" rel="noopener">
+              Buka di Google Maps →
+            </a>
+          </div>
+        </div>
 
-      <h2 class="visually-hidden">Daftar Semua Varietas Bibit</h2>
-      <div class="produk-grid" data-produk-grid>
-        {
-          produkTerurut.map((item) => (
-            <div class="produk-item" data-grup={item.data.grup}>
-              <ProdukCard
-                nama={item.data.nama}
-                grupLabel={grupLabel(item.data.grup)}
-                ukuran={item.data.ukuran}
-                perluKonfirmasi={item.data.perluKonfirmasi}
-                foto={item.data.foto}
-                placeholderEmoji={item.data.placeholderEmoji}
-              />
+        <div class="info-card">
+          <div class="info-icon" aria-hidden="true">🕒</div>
+          <div>
+            <h2>Jam Kunjungan</h2>
+            <p>
+              Jam kunjungan cukup fleksibel — supaya tidak kosong, konfirmasi
+              dulu waktu kedatangan Anda via WhatsApp.
+            </p>
+          </div>
+        </div>
+
+        <div class="info-card">
+          <div class="info-icon" aria-hidden="true">📣</div>
+          <div>
+            <h2>Media Sosial</h2>
+            <p>Lihat dokumentasi kegiatan nursery dan pengiriman kami.</p>
+            <div class="sosmed-links">
+              <a href={site.social.youtube} target="_blank" rel="noopener">
+                <Icon name="youtube" size={18} /> YouTube
+              </a>
+              <a href={site.social.facebook} target="_blank" rel="noopener">
+                <Icon name="facebook" size={18} /> Facebook
+              </a>
             </div>
-          ))
-        }
+          </div>
+        </div>
       </div>
-    </div>
-  </section>
 
-  <section class="katalog-cta">
-    <div class="wrap katalog-cta-inner">
-      <div>
-        <h2>Tidak Ketemu Bibit yang Dicari?</h2>
-        <p>Kadang ada varietas yang belum sempat kami masukkan ke katalog. Tanya saja langsung.</p>
+      <div class="kontak-map">
+        <iframe
+          src={mapEmbedSrc}
+          width="100%"
+          height="100%"
+          style="border:0;"
+          allowfullscreen
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title={`Peta lokasi ${site.name}`}
+        ></iframe>
       </div>
-      <WhatsAppButton message="Halo Ardelia Bibit, saya mau tanya bibit yang tidak ada di katalog" label="Tanya via WhatsApp" />
     </div>
   </section>
 </Layout>
 
 <style>
-  .katalog-head {
-    padding: 48px 0 28px;
-    background: var(--color-mist);
+  .kontak-section {
+    padding-top: 48px;
   }
 
-  .katalog-head h1 {
-    font-size: clamp(28px, 3.6vw, 40px);
-    margin: 12px 0 12px;
-  }
-
-  .katalog-sub {
-    color: var(--color-charcoal-soft);
-    max-width: 560px;
-    font-size: 15.5px;
-  }
-
-  .katalog-body {
-    padding-top: 40px;
-  }
-
-  .filter-bar {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin-bottom: 28px;
-  }
-
-  .filter-chip {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    padding: 9px 16px;
-    border-radius: 999px;
-    border: 1px solid var(--color-line);
-    background: var(--color-paper);
-    font-size: 13.5px;
-    font-weight: 600;
-    color: var(--color-charcoal-soft);
-    cursor: pointer;
-    transition: 0.15s;
-  }
-
-  .filter-chip span {
-    font-size: 11.5px;
-    font-weight: 700;
-    color: var(--color-charcoal-soft);
-    background: var(--color-mist);
-    border-radius: 999px;
-    padding: 1px 7px;
-  }
-
-  .filter-chip:hover {
-    border-color: var(--color-teal);
-    color: var(--color-teal-dark);
-  }
-
-  .filter-chip.is-active {
-    background: var(--color-teal-dark);
-    border-color: var(--color-teal-dark);
-    color: #fff;
-  }
-
-  .filter-chip.is-active span {
-    background: rgba(255, 255, 255, 0.18);
-    color: #fff;
-  }
-
-  .filter-empty {
-    text-align: center;
-    padding: 40px 0;
-    color: var(--color-charcoal-soft);
-  }
-
-  .produk-grid {
+  .kontak-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 18px;
-    padding-bottom: 32px;
+    grid-template-columns: 0.85fr 1.15fr;
+    gap: 32px;
+    align-items: start;
   }
 
-  @media (max-width: 980px) {
-    .produk-grid {
-      grid-template-columns: repeat(3, 1fr);
-    }
+  .kontak-info {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
   }
 
-  @media (max-width: 700px) {
-    .produk-grid {
-      grid-template-columns: repeat(2, 1fr);
-    }
+  .info-card {
+    display: flex;
+    gap: 14px;
+    padding: 20px;
+    background: var(--color-paper);
+    border: 1px solid var(--color-line);
+    border-radius: var(--radius);
   }
 
-  @media (max-width: 420px) {
-    .produk-grid {
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
-    }
-  }
-
-  .katalog-cta {
-    background: var(--color-teal-dark);
-  }
-
-  .katalog-cta-inner {
+  .info-icon {
+    width: 42px;
+    height: 42px;
+    border-radius: 10px;
+    background: var(--color-mist);
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    gap: 24px;
-    flex-wrap: wrap;
+    justify-content: center;
+    color: var(--color-teal-dark);
+    font-size: 18px;
+    flex-shrink: 0;
   }
 
-  .katalog-cta h2 {
-    color: #fff;
-    font-size: clamp(20px, 2.4vw, 26px);
+  .info-card h2 {
+    font-size: 15.5px;
     margin-bottom: 6px;
   }
 
-  .katalog-cta p {
-    color: rgba(255, 255, 255, 0.72);
-    font-size: 14px;
-    max-width: 420px;
+  .info-card p {
+    font-size: 13.5px;
+    color: var(--color-charcoal-soft);
+    line-height: 1.55;
+    margin-bottom: 10px;
   }
 
-  @media (max-width: 700px) {
-    .katalog-cta-inner {
-      flex-direction: column;
-      text-align: center;
+  .btn-sm-link {
+    padding: 8px 14px;
+    font-size: 13px;
+  }
+
+  .sosmed-links {
+    display: flex;
+    gap: 14px;
+  }
+
+  .sosmed-links a {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13.5px;
+    font-weight: 600;
+    color: var(--color-teal-dark);
+  }
+
+  .sosmed-links a:hover {
+    color: var(--color-leaf-dark);
+  }
+
+  .kontak-map {
+    min-height: 420px;
+    border-radius: var(--radius);
+    overflow: hidden;
+    border: 1px solid var(--color-line);
+  }
+
+  @media (max-width: 900px) {
+    .kontak-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .kontak-map {
+      min-height: 320px;
+      order: -1;
     }
   }
 </style>
-
-<script>
-  // Filter grid berdasarkan grup, murni client-side (tanpa reload).
-  // Kalau datang dari link mega menu (#slug), filter otomatis ke grup itu.
-  const chips = document.querySelectorAll<HTMLButtonElement>('[data-filter]');
-  const items = document.querySelectorAll<HTMLElement>('[data-produk-grid] [data-grup]');
-  const emptyMsg = document.querySelector<HTMLElement>('[data-filter-empty]');
-
-  function applyFilter(slug: string) {
-    let visibleCount = 0;
-    items.forEach((item) => {
-      const match = slug === 'semua' || item.dataset.grup === slug;
-      item.style.display = match ? '' : 'none';
-      if (match) visibleCount++;
-    });
-
-    chips.forEach((chip) => {
-      chip.classList.toggle('is-active', chip.dataset.filter === slug);
-    });
-
-    if (emptyMsg) emptyMsg.hidden = visibleCount !== 0;
-  }
-
-  chips.forEach((chip) => {
-    chip.addEventListener('click', () => {
-      const slug = chip.dataset.filter ?? 'semua';
-      applyFilter(slug);
-      history.replaceState(null, '', slug === 'semua' ? '/katalog' : `/katalog#${slug}`);
-    });
-  });
-
-  // Prioritas 1: link mega menu kategori pakai #hash (mis. /katalog#bibit-buah)
-  const initialSlug = window.location.hash.replace('#', '');
-
-  if (initialSlug) {
-    applyFilter(initialSlug);
-  } else {
-    // Prioritas 2: link "Cari Berdasarkan Kebutuhan" pakai ?kebutuhan=
-    // (mis. /katalog?kebutuhan=pekarangan) — sebelumnya nilai ini tidak
-    // pernah dibaca sama sekali sehingga filter tidak pernah aktif.
-    const filterBar = document.querySelector<HTMLElement>('[data-filter-bar]');
-    const kebutuhanMapRaw = filterBar?.dataset.kebutuhanMap;
-    const kebutuhanValue = new URLSearchParams(window.location.search).get('kebutuhan');
-
-    if (kebutuhanValue && kebutuhanMapRaw) {
-      try {
-        const kebutuhanMap = JSON.parse(kebutuhanMapRaw) as Record<string, string>;
-        const grupSlug = kebutuhanMap[kebutuhanValue];
-        if (grupSlug) applyFilter(grupSlug);
-      } catch {
-        // Data tidak valid — biarkan tampilan default (semua produk), jangan error.
-      }
-    }
-  }
-</script>
