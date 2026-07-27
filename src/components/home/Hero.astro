@@ -18,23 +18,25 @@ const collageTiles = [
 <section class="hero">
   <div class="wrap hero-grid">
     <div class="hero-copy">
-      <p class="eyebrow">Nursery Bibit Tanaman &middot; Kemiri, Purworejo</p>
-      <h1>
-        Satu Nursery, <span class="mark">Puluhan Pilihan Bibit</span>
-      </h1>
+      <p class="eyebrow">Ardelia Bibit &middot; Kemiri, Purworejo</p>
+      <h1>Mulai dari Satu Tanaman</h1>
       <p class="hero-sub">
-        Bibit buah, kayu keras, tanaman hias, sampai rempah dapur — semuanya
-        kami rawat sendiri di kebun Kemiri, Purworejo. Datang langsung untuk
-        lihat kondisi bibitnya, atau chat dulu kalau belum yakin mau tanam apa.
+        Ada banyak cara untuk mulai menanam. Temukan berbagai bibit tanaman
+        untuk kebun, pekarangan, penghijauan, dan ruang yang ingin Anda
+        hidupkan.
       </p>
       <div class="hero-cta">
-        <a class="btn btn-primary" href="/katalog">Lihat Katalog Bibit</a>
-        <WhatsAppButton variant="outline" label="Konsultasi Dulu" />
+        <a class="btn btn-primary" href="/katalog">Jelajahi Tanaman</a>
+        <WhatsAppButton
+          variant="outline"
+          label="Bantu Saya Memilih"
+          message="Halo Ardelia Bibit, saya belum tahu mau pilih bibit apa — boleh dibantu?"
+        />
       </div>
       <ul class="trust-chips">
-        <li><Icon name="check" size={16} /> Nursery bisa dikunjungi langsung</li>
-        <li><Icon name="check" size={16} /> Konsultasi pilih bibit gratis</li>
-        <li><Icon name="check" size={16} /> Bisa dibantu untuk pengiriman ke luar kota</li>
+        <li><Icon name="check" size={16} /> Bisa melihat tanaman langsung</li>
+        <li><Icon name="check" size={16} /> Bisa bertanya sebelum memilih</li>
+        <li><Icon name="check" size={16} /> Bisa dibantu untuk pengiriman</li>
       </ul>
     </div>
 
@@ -69,11 +71,6 @@ const collageTiles = [
     line-height: 1.1;
     margin: 16px 0 20px;
     letter-spacing: -0.01em;
-  }
-
-  .hero-copy h1 .mark {
-    font-style: italic;
-    color: var(--color-burnt-text);
   }
 
   .hero-sub {
@@ -112,13 +109,6 @@ const collageTiles = [
     border-radius: 999px;
   }
 
-  @media (max-width: 480px) {
-    .trust-chips li {
-      font-size: 12.5px;
-      padding: 7px 12px;
-    }
-  }
-
   .trust-chips :global(svg) {
     color: var(--color-leaf-dark);
     flex-shrink: 0;
@@ -126,6 +116,7 @@ const collageTiles = [
 
   /* --- Kolase 4 foto --- */
   .hero-collage {
+    position: relative;
     display: grid;
     grid-template-columns: 1.1fr 0.9fr;
     grid-template-rows: 1fr 1fr;

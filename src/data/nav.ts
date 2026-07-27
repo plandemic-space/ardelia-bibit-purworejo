@@ -1,6 +1,8 @@
 /**
  * Struktur navigasi utama (mega menu) — sinkron dengan taksonomi produk
- * di data-ardelia-bibit.md (46 varietas, 6 grup).
+ * di data-ardelia-bibit.md (48 varietas, 6 grup — termasuk Solobium dan
+ * Durian Super Tembaga yang ditambahkan dari foto susulan, lihat
+ * CATATAN-UNTUK-OWNER.md).
  *
  * Catatan: label "Cari Berdasarkan Kebutuhan" memetakan grup produk ke
  * skenario kebutuhan pengunjung (pekarangan, kebun buah, dst) — pola ini
@@ -105,23 +107,6 @@ export const kebutuhan: MegaNeed[] = [
     highlight: true,
   },
 ];
-
-/**
- * Pemetaan nilai `kebutuhan` (dipakai di query string /katalog?kebutuhan=...)
- * ke slug grup produk yang sudah didukung filter di katalog.astro
- * (harus salah satu dari kategoriBibit[].slug di atas).
- *
- * Ini satu-satunya tempat pemetaan ini didefinisikan — katalog.astro
- * membaca konstanta ini, tidak mendefinisikan ulang.
- */
-export const kebutuhanMap: Record<string, string> = {
-  pekarangan: 'tanaman-hias',
-  'kebun-buah': 'bibit-buah',
-  landscape: 'tanaman-hias',
-  penghijauan: 'pohon-kayu',
-  perkebunan: 'perkebunan',
-  'pakan-ternak': 'pakan-ternak',
-};
 
 export const tentangKami = [
   { label: 'Cerita Ardelia Bibit', href: '/tentang' },

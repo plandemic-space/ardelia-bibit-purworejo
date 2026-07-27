@@ -91,13 +91,13 @@
     "id": "kelengkeng",
     "nama": "Kelengkeng",
     "grup": "bibit-buah",
-    "placeholderEmoji": "🫐"
+    "placeholderEmoji": "🍇"
   },
   {
     "id": "nangka",
     "nama": "Nangka",
     "grup": "bibit-buah",
-    "placeholderEmoji": "🍈"
+    "placeholderEmoji": "🍐"
   },
   {
     "id": "jeruk",
@@ -121,13 +121,13 @@
     "id": "duku",
     "nama": "Duku",
     "grup": "bibit-buah",
-    "placeholderEmoji": "🍈"
+    "placeholderEmoji": "🟡"
   },
   {
     "id": "matoa",
     "nama": "Matoa",
     "grup": "bibit-buah",
-    "placeholderEmoji": "🍈"
+    "placeholderEmoji": "🌰"
   },
   {
     "id": "pohon-kurma",
@@ -241,25 +241,25 @@
     "id": "kunyit",
     "nama": "Kunyit",
     "grup": "rempah",
-    "placeholderEmoji": "🫚"
+    "placeholderEmoji": "🟠"
   },
   {
     "id": "kencur",
     "nama": "Kencur",
     "grup": "rempah",
-    "placeholderEmoji": "🫚"
+    "placeholderEmoji": "🌾"
   },
   {
     "id": "temulawak",
     "nama": "Temulawak",
     "grup": "rempah",
-    "placeholderEmoji": "🫚"
+    "placeholderEmoji": "🍠"
   },
   {
     "id": "lengkuas",
     "nama": "Lengkuas",
     "grup": "rempah",
-    "placeholderEmoji": "🫚"
+    "placeholderEmoji": "🧄"
   },
   {
     "id": "jeruk-purut",
@@ -292,7 +292,7 @@
     "id": "kakao",
     "nama": "Kakao",
     "grup": "perkebunan",
-    "placeholderEmoji": "🍫"
+    "placeholderEmoji": "🟤"
   },
   {
     "id": "lada-perdu",
@@ -312,6 +312,22 @@
     "id": "kaliandra",
     "nama": "Kaliandra",
     "grup": "pakan-ternak",
-    "placeholderEmoji": "🌿"
+    "placeholderEmoji": "🌸"
+  },
+  {
+    "id": "solobium",
+    "nama": "Solobium",
+    "grup": "tanaman-hias",
+    "foto": "/images/produk/solobium.webp",
+    "fotoTersedia": true,
+    "perluKonfirmasi": true
+  },
+  {
+    "id": "durian-super-tembaga",
+    "nama": "Durian Super Tembaga",
+    "grup": "bibit-buah",
+    "foto": "/images/produk/durian-super-tembaga.webp",
+    "fotoTersedia": true,
+    "perluKonfirmasi": true
   }
 ]
