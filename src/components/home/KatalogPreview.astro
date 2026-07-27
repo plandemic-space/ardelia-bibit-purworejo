@@ -171,7 +171,7 @@ function grupLabel(slug: string) {
 <script>
   // Filter ringan khusus preview homepage (independen dari filter di /katalog)
   const chips = document.querySelectorAll<HTMLButtonElement>('[data-filter-bar] [data-filter]');
-  const items = document.querySelectorAll<HTMLElement>('[data-preview-grid] [data-grup]');
+  const items = document.querySelectorAll<HTMLElement>('[data-preview-grid] > .preview-item');
 
   chips.forEach((chip) => {
     chip.addEventListener('click', () => {
