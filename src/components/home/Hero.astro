@@ -23,10 +23,9 @@ const collageTiles = [
         Satu Nursery, <span class="mark">Puluhan Pilihan Bibit</span>
       </h1>
       <p class="hero-sub">
-        Dari bibit buah, kayu keras untuk penghijauan, tanaman hias, sampai rempah
-        dapur — semuanya kami rawat sendiri di kebun Kemiri, Purworejo. Datang
-        langsung untuk lihat kondisi bibitnya, atau chat dulu kalau belum yakin
-        mau tanam apa.
+        Bibit buah, kayu keras, tanaman hias, sampai rempah dapur — semuanya
+        kami rawat sendiri di kebun Kemiri, Purworejo. Datang langsung untuk
+        lihat kondisi bibitnya, atau chat dulu kalau belum yakin mau tanam apa.
       </p>
       <div class="hero-cta">
         <a class="btn btn-primary" href="/katalog">Lihat Katalog Bibit</a>
@@ -35,6 +34,7 @@ const collageTiles = [
       <ul class="trust-chips">
         <li><Icon name="check" size={16} /> Nursery bisa dikunjungi langsung</li>
         <li><Icon name="check" size={16} /> Konsultasi pilih bibit gratis</li>
+        <li><Icon name="check" size={16} /> Bisa dibantu untuk pengiriman ke luar kota</li>
       </ul>
     </div>
 
@@ -110,6 +110,13 @@ const collageTiles = [
     border: 1px solid var(--color-line);
     padding: 8px 14px;
     border-radius: 999px;
+  }
+
+  @media (max-width: 480px) {
+    .trust-chips li {
+      font-size: 12.5px;
+      padding: 7px 12px;
+    }
   }
 
   .trust-chips :global(svg) {
