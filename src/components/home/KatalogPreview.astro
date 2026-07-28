@@ -177,9 +177,20 @@ function grupLabel(slug: string) {
   chips.forEach((chip) => {
     chip.addEventListener('click', () => {
       const slug = chip.dataset.filter ?? 'semua';
+      let visibleCount = 0;
       items.forEach((item) => {
-        item.style.display = slug === 'semua' || item.dataset.grup === slug ? '' : 'none';
+        const match = slug === 'semua' || item.dataset.grup === slug;
+        item.style.display = match ? '' : 'none';
+        if (match) visibleCount++;
       });
+
+      // Fail-safe: jangan sampai grid kosong total kalau ada mismatch data.
+      if (visibleCount === 0) {
+        items.forEach((item) => {
+          item.style.display = '';
+        });
+      }
+
       chips.forEach((c) => c.classList.toggle('is-active', c === chip));
     });
   });

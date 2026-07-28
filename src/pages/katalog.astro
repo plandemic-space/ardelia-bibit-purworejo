@@ -228,6 +228,7 @@ function grupLabel(slug: string) {
   const chips = document.querySelectorAll<HTMLButtonElement>('[data-filter]');
   const items = document.querySelectorAll<HTMLElement>('[data-produk-grid] [data-grup]');
   const emptyMsg = document.querySelector<HTMLElement>('[data-filter-empty]');
+  const validSlugs = new Set(Array.from(chips).map((c) => c.dataset.filter));
 
   function applyFilter(slug: string) {
     let visibleCount = 0;
@@ -241,6 +242,17 @@ function grupLabel(slug: string) {
       chip.classList.toggle('is-active', chip.dataset.filter === slug);
     });
 
+    // Fail-safe: kalau karena alasan apa pun tidak ada satu kartu pun yang
+    // cocok (mis. slug dari URL hash tidak persis sama), JANGAN biarkan
+    // grid kosong total — tampilkan semua daripada halaman kelihatan blank.
+    if (visibleCount === 0) {
+      items.forEach((item) => {
+        item.style.display = '';
+      });
+      chips.forEach((chip) => chip.classList.toggle('is-active', chip.dataset.filter === 'semua'));
+      visibleCount = items.length;
+    }
+
     if (emptyMsg) emptyMsg.hidden = visibleCount !== 0;
   }
 
@@ -252,6 +264,11 @@ function grupLabel(slug: string) {
     });
   });
 
+  // Hanya jalankan filter otomatis dari hash URL kalau nilainya benar-benar
+  // salah satu slug yang valid — kalau tidak dikenali, biarkan default
+  // (semua kartu tampil) daripada memaksa filter ke nilai yang salah.
   const initialSlug = window.location.hash.replace('#', '');
-  if (initialSlug) applyFilter(initialSlug);
+  if (initialSlug && validSlugs.has(initialSlug)) {
+    applyFilter(initialSlug);
+  }
 </script>
