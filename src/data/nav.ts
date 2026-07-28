@@ -14,7 +14,7 @@ export type MegaCategory = {
   description: string;
   href: string;
   slug: string;
-  icon: string;
+  icon: 'fruit' | 'flower' | 'tree' | 'root' | 'coffee-cup' | 'grass';
 };
 
 export type MegaNeed = {
@@ -30,42 +30,42 @@ export const kategoriBibit: MegaCategory[] = [
     description: 'Durian, alpukat, kelengkeng, mangga & lainnya',
     href: '/katalog#bibit-buah',
     slug: 'bibit-buah',
-    icon: '🍈',
+    icon: 'fruit',
   },
   {
     label: 'Tanaman Hias & Landscape',
     description: 'Palem, pucuk merah, tanaman taman',
     href: '/katalog#tanaman-hias',
     slug: 'tanaman-hias',
-    icon: '🌺',
+    icon: 'flower',
   },
   {
     label: 'Pohon Kayu & Kehutanan',
     description: 'Jati, mahoni, sengon, jabon, balsa',
     href: '/katalog#pohon-kayu',
     slug: 'pohon-kayu',
-    icon: '🌳',
+    icon: 'tree',
   },
   {
     label: 'Rempah & Tanaman Obat',
     description: 'Jahe, kunyit, kencur, temulawak',
     href: '/katalog#rempah',
     slug: 'rempah',
-    icon: '🫚',
+    icon: 'root',
   },
   {
     label: 'Tanaman Perkebunan',
     description: 'Kopi, kakao, lada perdu',
     href: '/katalog#perkebunan',
     slug: 'perkebunan',
-    icon: '☕',
+    icon: 'coffee-cup',
   },
   {
     label: 'Pakan Ternak',
     description: 'Indigofera dan kaliandra',
     href: '/katalog#pakan-ternak',
     slug: 'pakan-ternak',
-    icon: '🐄',
+    icon: 'grass',
   },
 ];
 

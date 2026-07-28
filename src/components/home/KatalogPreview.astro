@@ -1,6 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 import ProdukCard from '../ProdukCard.astro';
+import Icon from '../Icon.astro';
 import { kategoriBibit } from '../../data/nav';
 
 /**
@@ -46,7 +47,7 @@ function grupLabel(slug: string) {
       {
         kategoriBibit.map((kat) => (
           <button class="chip" type="button" data-filter={kat.slug}>
-            {kat.icon} {kat.label} <span>{jumlahPerGrup(kat.slug)}</span>
+            <Icon name={kat.icon} size={15} /> {kat.label} <span>{jumlahPerGrup(kat.slug)}</span>
           </button>
         ))
       }
