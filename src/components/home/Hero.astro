@@ -7,10 +7,10 @@ import WhatsAppButton from '../WhatsAppButton.astro';
  * sekaligus".
  */
 const collageTiles = [
-  { src: '/images/hero/area-nursery.webp', alt: 'Area nursery Ardelia Bibit dengan bibit tersusun rapi', label: 'Nursery', big: true },
-  { src: '/images/owner/owner-yarohim-2.webp', alt: 'Pak Yarohim merawat bibit di kebun', label: 'Owner' },
-  { src: '/images/produk/durian-bawor.webp', alt: 'Bibit durian bawor dalam planterbag', label: 'Produk' },
-  { src: '/images/galeri/pengiriman.webp', alt: 'Proses pengiriman bibit Ardelia Bibit', label: 'Kirim Bibit' },
+  { role: 'nursery', src: '/images/hero/area-nursery.webp', alt: 'Area nursery Ardelia Bibit dengan bibit tersusun rapi', label: 'Nursery' },
+  { role: 'owner', src: '/images/owner/owner-yarohim-4.webp', alt: 'Pak Yarohim, pemilik Ardelia Bibit', label: 'Owner' },
+  { role: 'produk', src: '/images/produk/durian-bawor.webp', alt: 'Bibit durian bawor dalam planterbag', label: 'Produk' },
+  { role: 'kirim', src: '/images/galeri/pengiriman.webp', alt: 'Proses pengiriman bibit Ardelia Bibit', label: 'Kirim Bibit' },
 ];
 ---
 
@@ -37,7 +37,7 @@ const collageTiles = [
     <div class="hero-collage">
       {
         collageTiles.map((tile) => (
-          <div class={`collage-tile ${tile.big ? 'is-big' : ''}`}>
+          <div class={`collage-tile tile-${tile.role}`}>
             <img src={tile.src} alt={tile.alt} loading="eager" decoding="async" />
             <span class="collage-caption" aria-hidden="true">{tile.label}</span>
           </div>
@@ -81,14 +81,13 @@ const collageTiles = [
     margin-bottom: 28px;
   }
 
-  /* --- Kolase 4 foto --- */
+  /* --- Kolase 4 foto: Nursery besar di kiri, Owner+Produk ditumpuk kanan, Kirim Bibit jadi strip penuh di bawah --- */
   .hero-collage {
     position: relative;
     display: grid;
-    grid-template-columns: 1.1fr 0.9fr;
-    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1.1fr 1fr;
+    grid-template-rows: 168px 168px 120px;
     gap: 14px;
-    height: 420px;
   }
 
   .collage-tile {
@@ -106,8 +105,24 @@ const collageTiles = [
     display: block;
   }
 
-  .collage-tile.is-big {
+  .tile-nursery {
+    grid-column: 1;
     grid-row: 1 / 3;
+  }
+
+  .tile-owner {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  .tile-produk {
+    grid-column: 2;
+    grid-row: 2;
+  }
+
+  .tile-kirim {
+    grid-column: 1 / 3;
+    grid-row: 3;
   }
 
   .collage-caption {
@@ -128,14 +143,14 @@ const collageTiles = [
     }
 
     .hero-collage {
-      height: 320px;
+      grid-template-rows: 140px 140px 100px;
     }
   }
 
   @media (max-width: 520px) {
     .hero-collage {
       grid-template-columns: 1fr 1fr;
-      height: 260px;
+      grid-template-rows: 120px 120px 90px;
     }
   }
 </style>

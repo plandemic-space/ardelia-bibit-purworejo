@@ -28,10 +28,10 @@ const isActive = (href: string) => (href === '/' ? currentPath === '/' : current
 
     <div class="nav-right">
       <div class="search-wrap" data-search-wrap>
-        <button class="search-toggle" type="button" aria-label="Cari" aria-expanded="false" data-search-toggle>
-          <Icon name="search" size={18} />
-        </button>
         <form class="search-form" action="/katalog" method="get" data-search-form>
+          <button type="button" class="search-clear" aria-label="Tutup pencarian" data-search-close>
+            <Icon name="close" size={14} />
+          </button>
           <input
             type="search"
             name="cari"
@@ -40,6 +40,9 @@ const isActive = (href: string) => (href === '/' ? currentPath === '/' : current
             data-search-input
           />
         </form>
+        <button class="search-toggle" type="button" aria-label="Cari" aria-expanded="false" data-search-toggle>
+          <Icon name="search" size={18} />
+        </button>
       </div>
       <button
         class="menu-toggle"
@@ -216,31 +219,52 @@ const isActive = (href: string) => (href === '/' ? currentPath === '/' : current
 
   .search-form {
     position: absolute;
-    top: calc(100% + 10px);
-    right: 0;
-    width: 240px;
+    top: 50%;
+    right: 38px;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    width: 0;
+    overflow: hidden;
     background: var(--color-paper);
-    border: 1px solid var(--color-line);
-    border-radius: var(--radius-sm, 10px);
-    box-shadow: 0 12px 28px rgba(14, 53, 53, 0.14);
-    padding: 6px;
+    border: 1px solid transparent;
+    border-radius: 999px;
     opacity: 0;
-    visibility: hidden;
-    transform: translateY(-4px);
-    transition: opacity 0.15s ease, transform 0.15s ease, visibility 0.15s;
+    transition: width 0.22s ease, opacity 0.15s ease, border-color 0.15s ease;
+    pointer-events: none;
   }
 
   .search-wrap.is-open .search-form {
+    width: 220px;
     opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
+    border-color: var(--color-line);
+    box-shadow: 0 8px 20px rgba(14, 53, 53, 0.1);
+    pointer-events: auto;
+  }
+
+  .search-clear {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 30px;
+    height: 30px;
+    background: none;
+    border: none;
+    color: var(--color-charcoal-soft);
+    cursor: pointer;
+  }
+
+  .search-clear:hover {
+    color: var(--color-teal-dark);
   }
 
   .search-form input {
-    width: 100%;
+    min-width: 0;
+    flex: 1;
     border: none;
     background: transparent;
-    padding: 8px 10px;
+    padding: 6px 12px 6px 0;
     font-size: 14px;
     font-family: inherit;
     color: var(--color-charcoal);
@@ -343,8 +367,8 @@ const isActive = (href: string) => (href === '/' ? currentPath === '/' : current
   }
 
   @media (max-width: 480px) {
-    .search-form {
-      width: min(240px, 78vw);
+    .search-wrap.is-open .search-form {
+      width: min(200px, 60vw);
     }
   }
 </style>
@@ -370,6 +394,7 @@ const isActive = (href: string) => (href === '/' ? currentPath === '/' : current
   const searchWrap = document.querySelector<HTMLElement>('[data-search-wrap]');
   const searchToggle = document.querySelector<HTMLButtonElement>('[data-search-toggle]');
   const searchInput = document.querySelector<HTMLInputElement>('[data-search-input]');
+  const searchClose = document.querySelector<HTMLButtonElement>('[data-search-close]');
 
   function openSearch() {
     if (!searchWrap || !searchToggle) return;
@@ -390,6 +415,11 @@ const isActive = (href: string) => (href === '/' ? currentPath === '/' : current
     } else {
       openSearch();
     }
+  });
+
+  searchClose?.addEventListener('click', () => {
+    if (searchInput) searchInput.value = '';
+    closeSearch();
   });
 
   document.addEventListener('click', (e) => {
