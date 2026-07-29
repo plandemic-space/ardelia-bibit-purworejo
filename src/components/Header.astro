@@ -29,7 +29,8 @@ const isActive = (href: string) => (href === '/' ? currentPath === '/' : current
     <div class="nav-right">
       <div class="search-wrap" data-search-wrap>
         <button class="search-toggle" type="button" aria-label="Cari" aria-expanded="false" data-search-toggle>
-          <Icon name="search" size={19} />
+          <Icon name="search" size={18} class="search-icon-search" />
+          <Icon name="close" size={17} class="search-icon-close" />
         </button>
         <form class="search-form" action="/katalog" method="get" data-search-form>
           <input
@@ -41,7 +42,6 @@ const isActive = (href: string) => (href === '/' ? currentPath === '/' : current
           />
         </form>
       </div>
-      <WhatsAppButton label="Hubungi Kami" class="nav-cta" />
       <button
         class="menu-toggle"
         type="button"
@@ -187,50 +187,85 @@ const isActive = (href: string) => (href === '/' ? currentPath === '/' : current
   .search-wrap {
     display: flex;
     align-items: center;
+    border-radius: 999px;
+    transition: background-color 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .search-wrap.is-open {
+    background: var(--color-paper);
+    box-shadow: 0 4px 14px rgba(14, 53, 53, 0.1);
   }
 
   .search-toggle {
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    position: relative;
+    width: 32px;
+    height: 32px;
+    flex-shrink: 0;
+    border-radius: 50%;
     background: none;
     border: none;
-    padding: 4px;
     color: var(--color-charcoal-soft);
     cursor: pointer;
+    transition: color 0.2s ease;
+  }
+
+  .search-wrap.is-open .search-toggle {
+    color: var(--color-teal-dark);
   }
 
   .search-toggle:hover {
     color: var(--color-teal-dark);
   }
 
+  .search-toggle :global(svg) {
+    position: absolute;
+    transition: opacity 0.15s ease, transform 0.15s ease;
+  }
+
+  .search-icon-close {
+    opacity: 0;
+    transform: rotate(-90deg) scale(0.7);
+  }
+
+  .search-wrap.is-open .search-icon-search {
+    opacity: 0;
+    transform: rotate(90deg) scale(0.7);
+  }
+
+  .search-wrap.is-open .search-icon-close {
+    opacity: 1;
+    transform: rotate(0) scale(1);
+  }
+
   .search-form {
     display: grid;
     grid-template-columns: 0fr;
+    opacity: 0;
     overflow: hidden;
-    transition: grid-template-columns 0.2s ease;
+    transition: grid-template-columns 0.25s ease, opacity 0.2s ease;
   }
 
   .search-wrap.is-open .search-form {
     grid-template-columns: 1fr;
-    margin-left: 8px;
+    opacity: 1;
   }
 
   .search-form input {
     min-width: 0;
-    width: 180px;
-    border: 1px solid var(--color-line);
-    border-radius: var(--radius-sm, 8px);
-    padding: 6px 10px;
+    width: 190px;
+    border: none;
+    background: transparent;
+    padding: 6px 14px 6px 2px;
     font-size: 14px;
     font-family: inherit;
     color: var(--color-charcoal);
-    background: var(--color-paper);
   }
 
   .search-form input:focus {
     outline: none;
-    border-color: var(--color-teal);
   }
 
   /* --- Drawer mobile --- */
@@ -317,10 +352,6 @@ const isActive = (href: string) => (href === '/' ? currentPath === '/' : current
   /* --- Breakpoint: sembunyikan nav desktop, tampilkan toggle --- */
   @media (max-width: 900px) {
     .nav-links {
-      display: none;
-    }
-
-    .nav-right :global(.nav-cta) {
       display: none;
     }
 
