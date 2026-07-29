@@ -4,14 +4,17 @@ import WhatsAppButton from '../WhatsAppButton.astro';
 
 <section class="closing">
   <div class="wrap closing-inner">
-    <h2>Tinggal Chat, Bibitnya Kami Siapkan</h2>
+    <div class="closing-text">
+      <h2>Masih Bingung Memilih Bibit?</h2>
+      <p>Ceritakan lokasi dan kebutuhan Anda, kami bantu memilih bibit yang sesuai.</p>
+    </div>
     <WhatsAppButton label="Chat WhatsApp Sekarang" />
   </div>
 </section>
 
 <style>
   .closing {
-    background: var(--color-leaf);
+    background: var(--color-teal-dark);
   }
 
   .closing-inner {
@@ -22,15 +25,17 @@ import WhatsAppButton from '../WhatsAppButton.astro';
     flex-wrap: wrap;
   }
 
-  .closing h2 {
+  .closing-text h2 {
     font-size: clamp(22px, 2.6vw, 30px);
-    color: var(--color-teal-dark);
-    max-width: 520px;
+    color: #fff;
+    max-width: 480px;
+    margin-bottom: 6px;
   }
 
-  .closing :global(.btn-primary) {
-    background: var(--color-teal-dark);
-    color: #fff;
+  .closing-text p {
+    color: rgba(255, 255, 255, 0.75);
+    font-size: 14.5px;
+    max-width: 460px;
   }
 
   @media (max-width: 780px) {

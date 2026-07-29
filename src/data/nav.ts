@@ -114,12 +114,12 @@ export const tentangKami = [
   { label: 'Pertanyaan Umum', href: '/cara-beli#faq' },
 ];
 
-/** Menu flat untuk drawer mobile (tanpa mega menu, cukup accordion sederhana) */
+/** Menu untuk drawer mobile — urutan & isi disamakan dengan mockup (11 Mobile Menu.png) */
 export const navUtama = [
-  { label: 'Katalog Bibit', href: '/katalog' },
-  { label: 'Cari Berdasarkan Kebutuhan', href: '/katalog' },
-  { label: 'Cara Beli', href: '/cara-beli' },
-  { label: 'Artikel', href: '/artikel' },
+  { label: 'Beranda', href: '/' },
+  { label: 'Katalog', href: '/katalog' },
   { label: 'Tentang Kami', href: '/tentang' },
+  { label: 'Artikel', href: '/artikel' },
+  { label: 'Cara Beli', href: '/cara-beli' },
   { label: 'Kontak', href: '/kontak' },
 ];

@@ -1,0 +1,102 @@
+---
+/**
+ * Kolase foto aktivitas nursery (pola dari mockup homepage). Semua foto
+ * yang dipakai di sini sudah ada di project (dipakai juga di galeri
+ * Tentang Kami / hero), jadi tidak menambah aset baru.
+ */
+---
+
+<section class="aktivitas">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Di Balik Layar</p>
+      <h2>Aktivitas di Nursery</h2>
+    </div>
+
+    <div class="aktivitas-grid">
+      <figure class="aktivitas-big">
+        <img src="/images/owner/owner-yarohim-2.webp" alt="Pak Yarohim merawat bibit di nursery" loading="lazy" decoding="async" />
+        <figcaption>Pak Yarohim merawat bibit yang siap dikirim</figcaption>
+      </figure>
+
+      <figure class="aktivitas-small">
+        <img src="/images/galeri/rak-pembibitan.webp" alt="Rak pembibitan di nursery" loading="lazy" decoding="async" />
+        <figcaption>Merawat bibit</figcaption>
+      </figure>
+
+      <figure class="aktivitas-small">
+        <img src="/images/galeri/proses-packing.webp" alt="Proses packing bibit" loading="lazy" decoding="async" />
+        <figcaption>Packing bibit</figcaption>
+      </figure>
+
+      <figure class="aktivitas-small">
+        <img src="/images/galeri/kunjungan-pembeli.webp" alt="Pengunjung di nursery" loading="lazy" decoding="async" />
+        <figcaption>Pengunjung nursery</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<style>
+  .aktivitas {
+    background: var(--color-paper);
+  }
+
+  .aktivitas-grid {
+    display: grid;
+    grid-template-columns: 1.6fr 1fr;
+    grid-template-rows: repeat(3, auto);
+    gap: 12px;
+  }
+
+  .aktivitas-grid figure {
+    margin: 0;
+    position: relative;
+    border-radius: var(--radius);
+    overflow: hidden;
+    background: var(--color-mist);
+  }
+
+  .aktivitas-big {
+    grid-row: 1 / span 3;
+  }
+
+  .aktivitas-grid img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .aktivitas-big img {
+    min-height: 280px;
+  }
+
+  .aktivitas-small img {
+    min-height: 88px;
+  }
+
+  .aktivitas-grid figcaption {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 10px 12px;
+    font-size: 12.5px;
+    font-weight: 600;
+    color: #fff;
+    background: linear-gradient(to top, rgba(14, 53, 41, 0.78), transparent);
+  }
+
+  @media (max-width: 780px) {
+    .aktivitas-grid {
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: auto;
+    }
+
+    .aktivitas-big {
+      grid-column: 1 / span 2;
+      grid-row: auto;
+    }
+  }
+</style>

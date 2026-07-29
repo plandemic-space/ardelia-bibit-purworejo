@@ -2,15 +2,8 @@
 import Icon from './Icon.astro';
 import WhatsAppButton from './WhatsAppButton.astro';
 import { site } from '../data/site';
-import { kategoriBibit, kebutuhan, tentangKami, navUtama } from '../data/nav';
+import { navUtama } from '../data/nav';
 ---
-
-<div class="topbar">
-  <div class="wrap topbar-inner">
-    <span><Icon name="map-pin" size={13} /> Nursery bisa dikunjungi langsung di Kemiri, Purworejo</span>
-    <span><Icon name="whatsapp" size={13} /> Konsultasi gratis via WhatsApp</span>
-  </div>
-</div>
 
 <header class="site-header">
   <div class="nav wrap">
@@ -19,63 +12,19 @@ import { kategoriBibit, kebutuhan, tentangKami, navUtama } from '../data/nav';
       <span>{site.name}</span>
     </a>
 
-    <!-- Navigasi desktop dengan mega menu -->
+    <!-- Navigasi desktop — flat, sesuai mockup (tanpa dropdown) -->
     <nav class="nav-links" aria-label="Navigasi utama">
-      <div class="has-mega">
-        <a class="nav-trigger" href="/katalog">
-          Katalog Bibit <Icon name="chevron-down" />
-        </a>
-        <div class="mega mega-katalog">
-          <div class="mega-katalog-cats">
-            {
-              kategoriBibit.map((kat) => (
-                <a class="mega-cat" href={kat.href}>
-                  <b>{kat.label}</b>
-                  <span>{kat.description}</span>
-                </a>
-              ))
-            }
-          </div>
-          <div class="mega-side">
-            <b>Belum tahu mau pilih yang mana?</b>
-            <p>Ceritakan kebutuhan Anda. Kami bantu mulai dari pilihan tanamannya — gratis, tanpa kewajiban beli.</p>
-            <a class="btn btn-primary" href="/kontak">Konsultasi Bibit</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="has-mega">
-        <a class="nav-trigger" href="/katalog">
-          Cari Berdasarkan Kebutuhan <Icon name="chevron-down" />
-        </a>
-        <div class="mega mega-kebutuhan">
-          {
-            kebutuhan.map((k) => (
-              <a class={`mega-need ${k.highlight ? 'highlight' : ''}`} href={k.href}>
-                <b>{k.label}</b>
-                <span style={k.highlight ? 'color:var(--color-teal-dark);font-weight:700' : undefined}>
-                  {k.description}
-                </span>
-              </a>
-            ))
-          }
-        </div>
-      </div>
-
-      <a href="/cara-beli">Cara Beli</a>
+      <a href="/katalog">Katalog</a>
+      <a href="/tentang">Tentang Kami</a>
       <a href="/artikel">Artikel</a>
-
-      <div class="has-mega">
-        <a class="nav-trigger" href="/tentang">
-          Tentang Kami <Icon name="chevron-down" />
-        </a>
-        <div class="mega mega-about">
-          {tentangKami.map((item) => <a href={item.href}>{item.label}</a>)}
-        </div>
-      </div>
+      <a href="/cara-beli">Cara Beli</a>
+      <a href="/kontak">Kontak</a>
     </nav>
 
     <div class="nav-right">
+      <button class="search-toggle" type="button" aria-label="Cari">
+        <Icon name="search" size={19} />
+      </button>
       <WhatsAppButton label="Chat via WhatsApp" />
       <button
         class="menu-toggle"
@@ -114,37 +63,6 @@ import { kategoriBibit, kebutuhan, tentangKami, navUtama } from '../data/nav';
 </aside>
 
 <style>
-  .topbar {
-    background: var(--color-teal-dark);
-    color: rgba(255, 255, 255, 0.88);
-  }
-
-  .topbar-inner {
-    display: flex;
-    align-items: center;
-    gap: 22px;
-    padding: 7px 24px;
-    font-size: 12.5px;
-    font-weight: 500;
-  }
-
-  .topbar-inner span {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-  }
-
-  .topbar-inner :global(svg) {
-    color: var(--color-leaf);
-    flex-shrink: 0;
-  }
-
-  @media (max-width: 720px) {
-    .topbar-inner span:last-child {
-      display: none;
-    }
-  }
-
   .site-header {
     position: sticky;
     top: 0;
@@ -192,187 +110,7 @@ import { kategoriBibit, kebutuhan, tentangKami, navUtama } from '../data/nav';
     color: var(--color-teal);
   }
 
-  .has-mega {
-    position: relative;
-  }
-
-  .nav-trigger {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    cursor: pointer;
-  }
-
-  .nav-trigger :global(svg) {
-    transition: transform 0.15s;
-  }
-
-  .has-mega:hover .nav-trigger :global(svg),
-  .has-mega:focus-within .nav-trigger :global(svg) {
-    transform: rotate(180deg);
-  }
-
-  .mega {
-    position: absolute;
-    top: calc(100% + 18px);
-    left: 50%;
-    transform: translateX(-50%) translateY(8px);
-    background: #fff;
-    border: 1px solid var(--color-line);
-    border-radius: 18px;
-    box-shadow: 0 24px 48px rgba(22, 74, 74, 0.16);
-    padding: 26px;
-    opacity: 0;
-    visibility: hidden;
-    transition: 0.18s ease;
-    z-index: 50;
-  }
-
-  .mega::before {
-    content: '';
-    position: absolute;
-    top: -18px;
-    left: 0;
-    right: 0;
-    height: 18px;
-  }
-
-  .has-mega:hover .mega,
-  .has-mega:focus-within .mega {
-    opacity: 1;
-    visibility: visible;
-    transform: translateX(-50%) translateY(0);
-  }
-
-  .mega-katalog {
-    width: 620px;
-    display: grid;
-    grid-template-columns: 1.6fr 1fr;
-    gap: 0;
-    padding: 0;
-    overflow: hidden;
-  }
-
-  .mega-katalog-cats {
-    padding: 24px;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4px 20px;
-  }
-
-  .mega-cat {
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
-    padding: 10px 12px;
-    border-radius: 10px;
-    transition: 0.12s;
-  }
-
-  .mega-cat:hover {
-    background: var(--color-paper);
-  }
-
-  .mega-cat b {
-    font-size: 14px;
-    color: var(--color-charcoal);
-  }
-
-  .mega-cat span {
-    font-size: 12.5px;
-    color: var(--color-charcoal-soft);
-  }
-
-  .mega-side {
-    background: var(--color-teal-dark);
-    padding: 26px 22px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 10px;
-  }
-
-  .mega-side b {
-    color: #fff;
-    font-size: 15px;
-    line-height: 1.35;
-  }
-
-  .mega-side p {
-    color: rgba(255, 255, 255, 0.75);
-    font-size: 13px;
-    line-height: 1.5;
-  }
-
-  .mega-side a.btn {
-    align-self: flex-start;
-    margin-top: 4px;
-    padding: 9px 16px;
-    font-size: 13px;
-  }
-
-  .mega-kebutuhan {
-    width: 660px;
-    padding: 22px;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 6px;
-  }
-
-  .mega-need {
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
-    padding: 12px 14px;
-    border-radius: 12px;
-    border: 1px solid transparent;
-    transition: 0.12s;
-  }
-
-  .mega-need:hover {
-    background: var(--color-paper);
-    border-color: var(--color-line);
-  }
-
-  .mega-need b {
-    font-size: 13.5px;
-    color: var(--color-charcoal);
-  }
-
-  .mega-need span {
-    font-size: 12px;
-    color: var(--color-charcoal-soft);
-    line-height: 1.4;
-  }
-
-  .mega-need.highlight {
-    background: var(--color-paper);
-    border-color: var(--color-leaf);
-    grid-column: span 3;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-  }
-
-  .mega-about {
-    width: 220px;
-    padding: 10px;
-  }
-
-  .mega-about a {
-    display: block;
-    padding: 10px 14px;
-    border-radius: 10px;
-    font-size: 14px;
-    color: var(--color-charcoal);
-  }
-
-  .mega-about a:hover {
-    background: var(--color-paper);
-    color: var(--color-teal-dark);
-  }
-
-  /* --- Sisi kanan: tombol WA + toggle mobile --- */
+  /* --- Sisi kanan: search + tombol WA + toggle mobile --- */
   .nav-right {
     display: flex;
     align-items: center;
@@ -386,6 +124,21 @@ import { kategoriBibit, kebutuhan, tentangKami, navUtama } from '../data/nav';
     padding: 4px;
     color: var(--color-teal-dark);
     cursor: pointer;
+  }
+
+  .search-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    border: none;
+    padding: 4px;
+    color: var(--color-charcoal-soft);
+    cursor: pointer;
+  }
+
+  .search-toggle:hover {
+    color: var(--color-teal-dark);
   }
 
   /* --- Drawer mobile --- */
