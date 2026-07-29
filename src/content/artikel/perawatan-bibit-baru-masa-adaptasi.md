@@ -2,6 +2,7 @@
 title: "3 Hal yang Perlu Diperhatikan Saat Bibit Baru Sampai di Rumah"
 description: "Bibit yang baru datang dari pengiriman butuh perlakuan berbeda dibanding bibit yang sudah lama beradaptasi di satu tempat. Ini yang perlu dicek pertama kali."
 publishDate: 2026-07-18
+coverImage: "/images/artikel/bibit-baru-sampai.webp"
 ---
 
 Bibit yang baru sampai — baik diambil langsung dari nursery maupun dikirim dari jauh — sedang dalam kondisi rentan. Perjalanan, perubahan suhu, dan proses pengemasan bisa membuat bibit sedikit stres meskipun kondisinya sehat. Sebelum buru-buru menanamnya langsung ke lahan, ada baiknya perhatikan tiga hal ini dulu.

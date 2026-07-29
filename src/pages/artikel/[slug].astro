@@ -43,9 +43,17 @@ const relatedKategori = entry.data.relatedCategorySlug
     </div>
 
     <div class="wrap">
-      <div class="artikel-cover-big">
-        <span aria-hidden="true">🌱</span>
-      </div>
+      {
+        entry.data.coverImage ? (
+          <div class="artikel-cover-big artikel-cover-photo">
+            <img src={entry.data.coverImage} alt={entry.data.title} loading="lazy" decoding="async" />
+          </div>
+        ) : (
+          <div class="artikel-cover-big">
+            <span aria-hidden="true">🌱</span>
+          </div>
+        )
+      }
     </div>
 
     <div class="wrap">
@@ -120,6 +128,17 @@ const relatedKategori = entry.data.relatedCategorySlug
     font-size: 42px;
     opacity: 0.7;
     margin-bottom: 36px;
+  }
+
+  .artikel-cover-photo {
+    overflow: hidden;
+  }
+
+  .artikel-cover-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
   }
 
   .related-box {

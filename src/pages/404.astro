@@ -1,156 +1,207 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Icon from '../components/Icon.astro';
 import WhatsAppButton from '../components/WhatsAppButton.astro';
+import Icon from '../components/Icon.astro';
 
-const links = [
-  { icon: 'leaf', title: 'Katalog Bibit', desc: 'Lihat berbagai pilihan bibit unggulan', href: '/katalog' },
-  { icon: 'root', title: 'Artikel', desc: 'Tips & informasi seputar tanaman', href: '/artikel' },
-  { icon: 'shield-check', title: 'Cara Beli', desc: 'Panduan mudah pemesanan bibit', href: '/cara-beli' },
-  { icon: 'whatsapp', title: 'Hubungi Kami', desc: 'Konsultasi langsung via WhatsApp', href: 'https://wa.me/6282221085354' },
-] as const;
+const quickLinks = [
+  {
+    icon: 'leaf' as const,
+    title: 'Katalog Bibit',
+    desc: 'Lihat berbagai pilihan bibit unggulan',
+    href: '/katalog',
+  },
+  {
+    icon: 'document' as const,
+    title: 'Artikel',
+    desc: 'Tips & informasi seputar tanaman',
+    href: '/artikel',
+  },
+  {
+    icon: 'cart' as const,
+    title: 'Cara Beli',
+    desc: 'Panduan mudah pemesanan bibit',
+    href: '/cara-beli',
+  },
+  {
+    icon: 'whatsapp' as const,
+    title: 'Hubungi Kami',
+    desc: 'Konsultasi langsung via WhatsApp',
+    href: 'https://wa.me/6282221085354',
+  },
+];
 ---
 
 <Layout
   title="Halaman Tidak Ditemukan — Ardelia Bibit"
-  description="Halaman yang Anda cari tidak ditemukan. Kembali ke beranda Ardelia Bibit atau jelajahi katalog bibit tanaman kami."
+  description="Halaman yang Anda cari tidak ditemukan. Kembali ke beranda Ardelia Bibit atau jelajahi katalog bibit kami."
 >
-  <section class="notfound">
-    <div class="wrap notfound-wrap">
-      <p class="code">404</p>
+  <section class="notfound-hero">
+    <div class="wrap">
+      <p class="notfound-code">404</p>
       <h1>Halaman Tidak Ditemukan</h1>
-      <p class="desc">
+      <p class="notfound-sub">
         Maaf, halaman yang Anda cari mungkin sudah dipindahkan, dihapus, atau
         alamatnya salah.
       </p>
-      <a class="btn btn-primary" href="/"><Icon name="leaf" size={16} /> Kembali ke Beranda</a>
+      <a class="btn btn-primary" href="/">Kembali ke Beranda</a>
     </div>
+  </section>
 
+  <section class="notfound-banner">
+    <img src="/images/hero/area-nursery.webp" alt="Area nursery Ardelia Bibit" loading="lazy" decoding="async" />
+  </section>
+
+  <section class="notfound-links">
     <div class="wrap">
-      <div class="section-head" style="margin: 56px auto 0; text-align:center; max-width:520px;">
-        <h2 style="font-size:22px;">Mungkin Anda mencari ini?</h2>
+      <div class="section-head" style="margin: 0 auto 32px; text-align: center;">
+        <h2>Mungkin Anda Mencari Ini?</h2>
       </div>
-      <div class="notfound-links">
+      <div class="links-grid">
         {
-          links.map((l) => (
-            <a class="notfound-link card" href={l.href}>
-              <span class="icon"><Icon name={l.icon} size={20} /></span>
-              <b>{l.title}</b>
-              <span class="desc-sm">{l.desc}</span>
+          quickLinks.map((item) => (
+            <a class="link-card" href={item.href} target={item.href.startsWith('http') ? '_blank' : undefined} rel={item.href.startsWith('http') ? 'noopener' : undefined}>
+              <span class="link-icon"><Icon name={item.icon} size={24} /></span>
+              <b>{item.title}</b>
+              <span class="link-desc">{item.desc}</span>
             </a>
           ))
         }
       </div>
+    </div>
+  </section>
 
-      <div class="notfound-cta">
-        <div>
-          <b>Masih bingung mencari bibit yang cocok?</b>
-          <p>Tim kami siap membantu Anda menemukan bibit terbaik.</p>
-        </div>
-        <WhatsAppButton label="Chat WhatsApp" message="Halo Ardelia Bibit, saya nyasar di halaman yang tidak ada — boleh dibantu?" />
+  <section class="notfound-cta">
+    <div class="wrap notfound-cta-inner">
+      <div>
+        <h2>Masih Bingung Mencari Bibit yang Cocok?</h2>
+        <p>Tim kami siap membantu Anda menemukan bibit terbaik.</p>
       </div>
+      <WhatsAppButton label="Chat WhatsApp" />
     </div>
   </section>
 </Layout>
 
 <style>
-  .notfound {
-    padding: 64px 0 72px;
-  }
-
-  .notfound-wrap {
+  .notfound-hero {
+    padding: 64px 0 40px;
+    background: var(--color-mist);
     text-align: center;
-    max-width: 560px;
   }
 
-  .code {
+  .notfound-code {
     font-family: var(--font-display);
-    font-weight: 800;
-    font-size: clamp(64px, 12vw, 120px);
-    line-height: 1;
+    font-weight: 700;
+    font-size: clamp(64px, 10vw, 96px);
     color: var(--color-teal-dark);
-    margin: 0;
+    line-height: 1;
+    margin-bottom: 8px;
   }
 
-  .notfound h1 {
+  .notfound-hero h1 {
     font-size: clamp(24px, 3vw, 32px);
-    margin: 8px 0 14px;
+    margin-bottom: 12px;
   }
 
-  .desc {
+  .notfound-sub {
     color: var(--color-charcoal-soft);
-    margin-bottom: 26px;
+    max-width: 460px;
+    margin: 0 auto 24px;
+    font-size: 15.5px;
   }
 
-  .notfound-wrap .btn {
-    margin: 0 auto;
+  .notfound-banner {
+    max-height: 320px;
+    overflow: hidden;
   }
 
-  .notfound-links {
+  .notfound-banner img {
+    width: 100%;
+    height: 320px;
+    object-fit: cover;
+  }
+
+  .links-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 16px;
-    margin-top: 28px;
   }
 
-  .notfound-link {
-    padding: 22px 18px;
-    text-align: center;
+  .link-card {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 6px;
+    text-align: center;
+    gap: 8px;
+    padding: 24px 16px;
+    border: 1px solid var(--color-line);
+    border-radius: var(--radius);
+    background: var(--color-paper);
+    transition:
+      transform 0.15s ease,
+      box-shadow 0.15s ease;
   }
 
-  .notfound-link .icon {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 42px;
-    height: 42px;
+  .link-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 26px rgba(22, 74, 74, 0.1);
+  }
+
+  .link-icon {
+    width: 46px;
+    height: 46px;
     border-radius: 50%;
     background: var(--color-mist);
-    color: var(--color-leaf-dark);
-    margin-bottom: 6px;
-  }
-
-  .notfound-link b {
-    font-size: 14.5px;
-    color: var(--color-charcoal);
-  }
-
-  .desc-sm {
-    font-size: 12.5px;
-    color: var(--color-charcoal-soft);
-  }
-
-  .notfound-cta {
-    margin-top: 40px;
-    background: var(--color-mist);
-    border-radius: var(--radius);
-    padding: 24px 28px;
+    color: var(--color-teal-dark);
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    gap: 20px;
-    flex-wrap: wrap;
-  }
-
-  .notfound-cta b {
-    display: block;
-    font-size: 15.5px;
-    color: var(--color-teal-dark);
+    justify-content: center;
     margin-bottom: 4px;
   }
 
-  .notfound-cta p {
-    font-size: 13.5px;
-    color: var(--color-charcoal-soft);
+  .link-card b {
+    font-size: 15px;
+    color: var(--color-charcoal);
   }
 
-  @media (max-width: 720px) {
-    .notfound-links {
+  .link-desc {
+    font-size: 12.5px;
+    color: var(--color-charcoal-soft);
+    line-height: 1.4;
+  }
+
+  .notfound-cta {
+    background: var(--color-teal-dark);
+  }
+
+  .notfound-cta-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+
+  .notfound-cta h2 {
+    color: #fff;
+    font-size: clamp(20px, 2.4vw, 26px);
+    margin-bottom: 6px;
+  }
+
+  .notfound-cta p {
+    color: rgba(255, 255, 255, 0.72);
+    font-size: 14px;
+  }
+
+  @media (max-width: 900px) {
+    .links-grid {
       grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 700px) {
+    .notfound-cta-inner {
+      flex-direction: column;
+      text-align: center;
     }
   }
 </style>

@@ -32,6 +32,7 @@ const semuaArtikel = (await getCollection('artikel')).sort(
                 description={entry.data.description}
                 publishDate={entry.data.publishDate}
                 href={`/artikel/${entry.id}`}
+                coverImage={entry.data.coverImage}
               />
             ))}
           </div>

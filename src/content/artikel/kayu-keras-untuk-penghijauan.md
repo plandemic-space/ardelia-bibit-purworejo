@@ -2,6 +2,7 @@
 title: "Kenapa Pohon Kayu Keras Penting untuk Penghijauan Lahan Kosong"
 description: "Jati, mahoni, sengon, dan jabon sering dipilih untuk penghijauan bukan cuma karena kayunya bernilai — ini alasan praktis di baliknya."
 publishDate: 2026-07-02
+coverImage: "/images/artikel/kayu-keras-penghijauan.webp"
 relatedCategorySlug: "pohon-kayu"
 relatedCategoryLabel: "Pohon Kayu & Kehutanan"
 ---
