@@ -1,0 +1,100 @@
+---
+/**
+ * Versi ringkas dari 4 langkah di /cara-beli — teksnya sama persis dengan
+ * halaman itu supaya tidak ada klaim yang berbeda antara homepage & halaman
+ * detail.
+ */
+const langkah = [
+  { no: '1', title: 'Pilih Bibit', desc: 'Lihat katalog, atau langsung chat kalau sudah tahu mau tanam apa.' },
+  { no: '2', title: 'Chat WhatsApp', desc: 'Kami infokan stok, ukuran, dan harga saat itu juga.' },
+  { no: '3', title: 'Sepakati Pengiriman', desc: 'Diambil sendiri atau dikirim, dibicarakan langsung di chat.' },
+  { no: '4', title: 'Bibit Siap', desc: 'Setelah sepakat, bibit kami siapkan untuk diambil atau dikirim.' },
+];
+---
+
+<section class="cara-memesan">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Cara Memesan</p>
+      <h2>Prosesnya Sederhana, Semua Lewat Chat</h2>
+    </div>
+
+    <div class="cara-grid">
+      {
+        langkah.map((item) => (
+          <div class="cara-card">
+            <span class="cara-no">{item.no}</span>
+            <h3>{item.title}</h3>
+            <p>{item.desc}</p>
+          </div>
+        ))
+      }
+    </div>
+
+    <p class="cara-cta">
+      <a class="btn btn-outline" href="/cara-beli">Selengkapnya Soal Cara Beli →</a>
+    </p>
+  </div>
+</section>
+
+<style>
+  .cara-memesan {
+    background: var(--color-paper);
+  }
+
+  .cara-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+    margin-bottom: 28px;
+  }
+
+  .cara-card {
+    position: relative;
+    border: 1px solid var(--color-line);
+    border-radius: var(--radius);
+    padding: 22px 18px 18px;
+  }
+
+  .cara-no {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: var(--color-teal);
+    color: #fff;
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 14px;
+    margin-bottom: 12px;
+  }
+
+  .cara-card h3 {
+    font-size: 15.5px;
+    margin-bottom: 6px;
+  }
+
+  .cara-card p {
+    font-size: 13.5px;
+    color: var(--color-charcoal-soft);
+    line-height: 1.55;
+  }
+
+  .cara-cta {
+    text-align: center;
+  }
+
+  @media (max-width: 780px) {
+    .cara-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .cara-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

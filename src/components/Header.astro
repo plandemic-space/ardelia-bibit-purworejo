@@ -5,11 +5,18 @@ import { site } from '../data/site';
 import { kategoriBibit, kebutuhan, tentangKami, navUtama } from '../data/nav';
 ---
 
+<div class="topbar">
+  <div class="wrap topbar-inner">
+    <span><Icon name="map-pin" size={13} /> Nursery bisa dikunjungi langsung di Kemiri, Purworejo</span>
+    <span><Icon name="whatsapp" size={13} /> Konsultasi gratis via WhatsApp</span>
+  </div>
+</div>
+
 <header class="site-header">
   <div class="nav wrap">
     <a class="brand" href="/" aria-label={`${site.name} — Beranda`}>
-      <span class="brand-mark"><Icon name="leaf" size={18} /></span>
-      <span class="brand-name">Ardelia<b>BIBIT</b></span>
+      <img src="/images/logo/logo-ardelia-bibit.jpg" alt={`Logo ${site.name}`} width="34" height="34" />
+      <span>{site.name}</span>
     </a>
 
     <!-- Navigasi desktop dengan mega menu -->
@@ -69,7 +76,7 @@ import { kategoriBibit, kebutuhan, tentangKami, navUtama } from '../data/nav';
     </nav>
 
     <div class="nav-right">
-      <WhatsAppButton label="Chat WhatsApp" />
+      <WhatsAppButton label="Chat via WhatsApp" />
       <button
         class="menu-toggle"
         type="button"
@@ -89,8 +96,8 @@ import { kategoriBibit, kebutuhan, tentangKami, navUtama } from '../data/nav';
 <aside id="mobile-drawer" class="drawer" data-drawer aria-hidden="true">
   <div class="drawer-head">
     <a class="brand" href="/">
-      <span class="brand-mark"><Icon name="leaf" size={16} /></span>
-      <span class="brand-name">Ardelia<b>BIBIT</b></span>
+      <img src="/images/logo/logo-ardelia-bibit.jpg" alt={`Logo ${site.name}`} width="30" height="30" />
+      <span>{site.name}</span>
     </a>
     <button class="drawer-close" type="button" aria-label="Tutup menu" data-drawer-close>
       <Icon name="close" size={22} />
@@ -107,6 +114,37 @@ import { kategoriBibit, kebutuhan, tentangKami, navUtama } from '../data/nav';
 </aside>
 
 <style>
+  .topbar {
+    background: var(--color-teal-dark);
+    color: rgba(255, 255, 255, 0.88);
+  }
+
+  .topbar-inner {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+    padding: 7px 24px;
+    font-size: 12.5px;
+    font-weight: 500;
+  }
+
+  .topbar-inner span {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .topbar-inner :global(svg) {
+    color: var(--color-leaf);
+    flex-shrink: 0;
+  }
+
+  @media (max-width: 720px) {
+    .topbar-inner span:last-child {
+      display: none;
+    }
+  }
+
   .site-header {
     position: sticky;
     top: 0;
@@ -126,33 +164,18 @@ import { kategoriBibit, kebutuhan, tentangKami, navUtama } from '../data/nav';
   .brand {
     display: flex;
     align-items: center;
-    gap: 9px;
+    gap: 10px;
     font-family: var(--font-display);
     font-weight: 700;
     font-size: 19px;
     color: var(--color-teal-dark);
-    line-height: 1.1;
   }
 
-  .brand-mark {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 32px;
-    height: 32px;
+  .brand img {
+    width: 34px;
+    height: 34px;
     border-radius: 50%;
-    background: var(--color-mist);
-    color: var(--color-leaf-dark);
-    flex-shrink: 0;
-  }
-
-  .brand-name b {
-    display: block;
-    font-family: var(--font-body);
-    font-weight: 800;
-    font-size: 11px;
-    letter-spacing: 0.14em;
-    color: var(--color-leaf-dark);
+    object-fit: cover;
   }
 
   /* --- Navigasi desktop + mega menu --- */

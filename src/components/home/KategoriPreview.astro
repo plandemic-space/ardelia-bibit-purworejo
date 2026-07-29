@@ -1,11 +1,20 @@
 ---
 import { kategoriBibit } from '../../data/nav';
+
+/** Foto representatif per kategori — hanya pakai foto asli yang sudah ada. */
+const fotoPerKategori: Record<string, string> = {
+  'bibit-buah': '/images/produk/durian-bawor.webp',
+  'tanaman-hias': '/images/produk/pucuk-merah.webp',
+  'pohon-kayu': '/images/produk/jati.webp',
+  rempah: '/images/produk/pala.webp',
+  perkebunan: '/images/produk/lada-perdu.webp',
+};
 ---
 
 <section class="kategori">
   <div class="wrap">
     <div class="section-head">
-      <p class="eyebrow">Katalog Bibit</p>
+      <p class="eyebrow">Jelajahi Berdasarkan Kebutuhan</p>
       <h2>6 Kelompok Bibit, Puluhan Varietas Spesifik</h2>
       <p>
         Nama varietas kami tulis spesifik — misalnya Durian Bawor vs Musang
@@ -17,7 +26,13 @@ import { kategoriBibit } from '../../data/nav';
       {
         kategoriBibit.map((kat) => (
           <a class="kategori-card" href={kat.href}>
-            <span class="kategori-icon" aria-hidden="true">{kat.icon}</span>
+            <span class="kategori-photo">
+              {fotoPerKategori[kat.slug] ? (
+                <img src={fotoPerKategori[kat.slug]} alt={kat.label} loading="lazy" decoding="async" />
+              ) : (
+                <span class="kategori-photo-emoji" aria-hidden="true">🌿</span>
+              )}
+            </span>
             <span class="kategori-info">
               <b>{kat.label}</b>
               <span>{kat.description}</span>
@@ -47,12 +62,11 @@ import { kategoriBibit } from '../../data/nav';
 
   .kategori-card {
     display: flex;
-    align-items: flex-start;
-    gap: 14px;
+    flex-direction: column;
     background: var(--color-paper);
     border: 1px solid var(--color-line);
     border-radius: var(--radius);
-    padding: 20px;
+    overflow: hidden;
     transition:
       transform 0.15s ease,
       box-shadow 0.15s ease;
@@ -63,15 +77,33 @@ import { kategoriBibit } from '../../data/nav';
     box-shadow: 0 10px 24px rgba(22, 74, 74, 0.12);
   }
 
-  .kategori-icon {
-    font-size: 26px;
-    flex-shrink: 0;
+  .kategori-photo {
+    aspect-ratio: 16 / 10;
+    background: var(--color-mist);
+    display: block;
+  }
+
+  .kategori-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .kategori-photo-emoji {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
   }
 
   .kategori-info {
     display: flex;
     flex-direction: column;
     gap: 4px;
+    padding: 16px 18px 20px;
   }
 
   .kategori-info b {

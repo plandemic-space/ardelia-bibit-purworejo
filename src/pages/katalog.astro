@@ -27,12 +27,11 @@ const jumlahPerGrup = (slug: string) => semuaProduk.filter((p) => p.data.grup ==
   <section class="katalog-head">
     <div class="wrap">
       <p class="eyebrow">Katalog Bibit</p>
-      <h1>Katalog Bibit Tanaman</h1>
+      <h1>{semuaProduk.length} Varietas dalam 6 Kelompok</h1>
       <p class="katalog-sub">
-        {semuaProduk.length} varietas dalam 6 kelompok untuk kebun,
-        pekarangan, penghijauan, dan proyek Anda. Harga dan stok kami
-        infokan langsung lewat WhatsApp — tekan tombol di tiap kartu untuk
-        tanya cepat.
+        Harga dan stok kami infokan langsung lewat WhatsApp — tergantung
+        ukuran dan jumlah pesanan. Tekan tombol di tiap kartu untuk tanya
+        cepat.
       </p>
     </div>
   </section>
@@ -88,36 +87,17 @@ const jumlahPerGrup = (slug: string) => semuaProduk.filter((p) => p.data.grup ==
 
 <style>
   .katalog-head {
-    position: relative;
-    padding: 64px 0 56px;
-    background: url('/images/hero/area-nursery.webp') center/cover no-repeat, var(--color-teal-dark);
-    isolation: isolate;
-  }
-
-  .katalog-head::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(100deg, rgba(15, 42, 33, 0.94) 0%, rgba(15, 42, 33, 0.8) 45%, rgba(15, 42, 33, 0.55) 100%);
-    z-index: -1;
-  }
-
-  .katalog-head .eyebrow {
-    color: var(--color-leaf);
-  }
-
-  .katalog-head .eyebrow::before {
-    background: var(--color-leaf);
+    padding: 48px 0 28px;
+    background: var(--color-mist);
   }
 
   .katalog-head h1 {
     font-size: clamp(28px, 3.6vw, 40px);
     margin: 12px 0 12px;
-    color: #fff;
   }
 
   .katalog-sub {
-    color: rgba(255, 255, 255, 0.82);
+    color: var(--color-charcoal-soft);
     max-width: 560px;
     font-size: 15.5px;
   }

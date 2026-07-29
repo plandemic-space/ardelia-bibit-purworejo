@@ -4,37 +4,35 @@
    tanpa alasan kuat, lihat data-ardelia-bibit.md)
    ========================================================================== */
 
-@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700;9..144,800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap');
 
 :root {
-  /* Warna utama — disamakan dengan Style Guide mockup terbaru */
-  --color-teal: #1b4332;
-  --color-teal-dark: #0f2a21;
-  --color-ivory: #faf7f0;
-  --color-mist: #edf2e9;
-  --color-leaf: #a8d14c;
-  --color-leaf-dark: #7fa834;
-  --color-charcoal: #2d3b36;
-  --color-charcoal-soft: #6b7a73;
-  --color-burnt: #e08a4b;
-  --color-burnt-dark: #c06b2e;
+  /* Warna utama — disamakan dengan Style Guide mockup (12 Style Guide.png) */
+  --color-teal: #164a3b;
+  --color-teal-dark: #0f3329;
+  --color-ivory: #f7f5f2;
+  --color-mist: #e8f2e3;
+  --color-leaf: #7daa34;
+  --color-leaf-dark: #5f8527;
+  --color-charcoal: #222222;
+  --color-charcoal-soft: #6b6b6b;
+  --color-burnt: #d97941;
+  --color-burnt-dark: #b8622f;
   /* Versi lebih gelap dari burnt-dark, khusus teks kecil di atas ivory/putih
      supaya kontras >= 4.5:1 (WCAG AA). burnt-dark tetap dipakai untuk
      border/background non-teks. */
-  --color-burnt-text: #8a4a1f;
-  --color-line: #e5e1d6;
+  --color-burnt-text: #7a411f;
+  --color-line: #e4e2d8;
   --color-paper: #ffffff;
 
   /* Tipografi */
   --font-display: 'Fraunces', serif;
-  --font-body: 'Plus Jakarta Sans', 'Inter', system-ui, -apple-system, sans-serif;
+  --font-body: 'Inter', system-ui, -apple-system, sans-serif;
 
   /* Bentuk & tata letak */
-  --radius: 20px;
-  --radius-sm: 10px;
+  --radius: 12px;
+  --radius-sm: 7px;
   --max-width: 1180px;
-  --shadow-card: 0 2px 10px rgba(15, 42, 33, 0.06);
-  --shadow-card-hover: 0 14px 32px rgba(15, 42, 33, 0.14);
 
   /* Spasi antar section (dipakai konsisten tiap halaman) */
   --space-section: 72px;
@@ -128,14 +126,14 @@ section {
   font-weight: 600;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: var(--color-burnt-text);
+  color: var(--color-leaf-dark);
 }
 
 .eyebrow::before {
   content: '';
   width: 18px;
   height: 2px;
-  background: var(--color-burnt);
+  background: var(--color-leaf-dark);
   display: inline-block;
 }
 
@@ -182,49 +180,6 @@ section {
 .btn-ghost {
   color: var(--color-teal-dark);
   font-weight: 600;
-}
-
-/* Badge pill — dipakai untuk label status/kategori kecil (stok, best seller, dll) */
-.badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  padding: 5px 12px;
-  border-radius: 999px;
-  font-size: 12.5px;
-  font-weight: 700;
-  line-height: 1.4;
-}
-
-.badge-leaf {
-  background: var(--color-mist);
-  color: var(--color-leaf-dark);
-}
-
-.badge-burnt {
-  background: #fdf0e4;
-  color: var(--color-burnt-text);
-}
-
-.badge-teal {
-  background: rgba(27, 67, 50, 0.08);
-  color: var(--color-teal-dark);
-}
-
-/* Kartu umum — dipakai lintas komponen (produk, artikel, alasan, dsb) */
-.card {
-  background: var(--color-paper);
-  border: 1px solid var(--color-line);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow-card);
-  transition:
-    transform 0.2s ease,
-    box-shadow 0.2s ease;
-}
-
-.card:hover {
-  transform: translateY(-3px);
-  box-shadow: var(--shadow-card-hover);
 }
 
 /* Utility aksesibilitas — skip-to-content link (wajib per checklist playbook §7) */

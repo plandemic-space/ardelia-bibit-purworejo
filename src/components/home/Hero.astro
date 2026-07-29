@@ -1,5 +1,4 @@
 ---
-import Icon from '../Icon.astro';
 import WhatsAppButton from '../WhatsAppButton.astro';
 
 /**
@@ -8,45 +7,31 @@ import WhatsAppButton from '../WhatsAppButton.astro';
  * sekaligus".
  */
 const collageTiles = [
-  { src: '/images/produk/mahoni.webp', alt: 'Bibit mahoni dalam polybag di nursery', label: 'Kayu Keras', big: true },
-  { src: '/images/produk/pucuk-merah.webp', alt: 'Bibit pucuk merah siap tanam', label: 'Tanaman Hias' },
-  { src: '/images/hero/area-nursery.webp', alt: 'Area nursery Ardelia Bibit dengan bibit tersusun rapi', label: 'Area Nursery' },
-  { src: '/images/owner/owner-yarohim-2.webp', alt: 'Pak Yarohim merawat bibit di kebun', label: 'Pak Yarohim Merawat Bibit' },
+  { src: '/images/hero/area-nursery.webp', alt: 'Area nursery Ardelia Bibit dengan bibit tersusun rapi', label: 'Nursery', big: true },
+  { src: '/images/owner/owner-yarohim-2.webp', alt: 'Pak Yarohim merawat bibit di kebun', label: 'Owner' },
+  { src: '/images/produk/durian-bawor.webp', alt: 'Bibit durian bawor dalam planterbag', label: 'Produk' },
+  { src: '/images/galeri/pengiriman.webp', alt: 'Proses pengiriman bibit Ardelia Bibit', label: 'Kirim Bibit' },
 ];
 ---
 
 <section class="hero">
   <div class="wrap hero-grid">
     <div class="hero-copy">
-      <span class="hero-badge"><Icon name="leaf" size={14} /> Nursery di Kemiri, Purworejo</span>
-      <h1>Bibit Tanaman Unggul untuk Kebun &amp; Penghijauan Anda</h1>
+      <p class="eyebrow">Ardelia Bibit &middot; Kemiri, Purworejo</p>
+      <h1>Mulai dari Satu Tanaman</h1>
       <p class="hero-sub">
-        Menyediakan bibit buah, kayu keras, tanaman hias, rempah, tanaman
-        perkebunan, hingga pakan ternak. Kami bantu Anda memilih bibit yang
-        sesuai untuk pekarangan, kebun, maupun penghijauan.
+        Ada banyak cara untuk mulai menanam. Temukan berbagai bibit tanaman
+        untuk kebun, pekarangan, penghijauan, dan ruang yang ingin Anda
+        hidupkan.
       </p>
       <div class="hero-cta">
         <a class="btn btn-primary" href="/katalog">Jelajahi Katalog</a>
         <WhatsAppButton
           variant="outline"
-          label="Chat WhatsApp"
+          label="Chat via WhatsApp"
           message="Halo Ardelia Bibit, saya belum tahu mau pilih bibit apa — boleh dibantu?"
         />
       </div>
-      <ul class="hero-stats">
-        <li>
-          <b>48+</b>
-          <span>Varietas Bibit</span>
-        </li>
-        <li>
-          <b>6</b>
-          <span>Kategori Tanaman</span>
-        </li>
-        <li>
-          <b>Bisa</b>
-          <span>Dikunjungi Langsung</span>
-        </li>
-      </ul>
     </div>
 
     <div class="hero-collage">
@@ -58,13 +43,6 @@ const collageTiles = [
           </div>
         ))
       }
-      <div class="hero-floating-badge">
-        <span class="badge-icon"><Icon name="shield-check" size={18} /></span>
-        <div>
-          <b>Bibit Berkualitas</b>
-          <span>Diseleksi &amp; dirawat dengan baik</span>
-        </div>
-      </div>
     </div>
   </div>
 </section>
@@ -82,23 +60,10 @@ const collageTiles = [
     align-items: center;
   }
 
-  .hero-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 7px;
-    background: var(--color-mist);
-    color: var(--color-leaf-dark);
-    font-size: 13px;
-    font-weight: 700;
-    padding: 7px 14px;
-    border-radius: 999px;
-    margin-bottom: 18px;
-  }
-
   .hero-copy h1 {
     font-size: clamp(32px, 4.2vw, 50px);
-    line-height: 1.12;
-    margin: 0 0 20px;
+    line-height: 1.1;
+    margin: 16px 0 20px;
     letter-spacing: -0.01em;
   }
 
@@ -113,36 +78,7 @@ const collageTiles = [
     display: flex;
     gap: 14px;
     flex-wrap: wrap;
-    margin-bottom: 34px;
-  }
-
-  .hero-stats {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 28px;
-    list-style: none;
-    margin: 0;
-    padding: 22px 0 0;
-    border-top: 1px solid var(--color-line);
-  }
-
-  .hero-stats li {
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
-  }
-
-  .hero-stats b {
-    font-family: var(--font-display);
-    font-size: 26px;
-    color: var(--color-teal-dark);
-    line-height: 1;
-  }
-
-  .hero-stats span {
-    font-size: 13px;
-    color: var(--color-charcoal-soft);
-    font-weight: 500;
+    margin-bottom: 28px;
   }
 
   /* --- Kolase 4 foto --- */
@@ -186,46 +122,6 @@ const collageTiles = [
     font-weight: 600;
   }
 
-  .hero-floating-badge {
-    position: absolute;
-    left: -18px;
-    bottom: -22px;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    background: #fff;
-    border: 1px solid var(--color-line);
-    border-radius: var(--radius);
-    box-shadow: 0 16px 32px rgba(15, 42, 33, 0.16);
-    padding: 14px 18px;
-    max-width: 240px;
-  }
-
-  .hero-floating-badge .badge-icon {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 38px;
-    height: 38px;
-    border-radius: 50%;
-    background: var(--color-mist);
-    color: var(--color-leaf-dark);
-    flex-shrink: 0;
-  }
-
-  .hero-floating-badge b {
-    display: block;
-    font-size: 13.5px;
-    color: var(--color-teal-dark);
-  }
-
-  .hero-floating-badge span {
-    display: block;
-    font-size: 12px;
-    color: var(--color-charcoal-soft);
-    margin-top: 1px;
-  }
-
   @media (max-width: 880px) {
     .hero-grid {
       grid-template-columns: 1fr;
@@ -233,11 +129,6 @@ const collageTiles = [
 
     .hero-collage {
       height: 320px;
-      margin-top: 8px;
-    }
-
-    .hero-floating-badge {
-      display: none;
     }
   }
 

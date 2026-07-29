@@ -1,26 +1,29 @@
 ---
 /**
- * Cerita singkat pemilik. Kutipan ditulis ulang dengan kata-kata sendiri
- * (bukan disalin dari mockup/sumber lain) — tetap merujuk fakta yang sama:
- * Pak Yarohim merawat sendiri bibit di kebun Kemiri.
+ * Teaser "Tentang Ardelia Bibit" di homepage — versi ringkas dari cerita
+ * lengkap yang tayang di /tentang. Faktanya sama: mulai sekitar 2010,
+ * awalnya lewat WhatsApp & rekomendasi, koleksi variatif, mengutamakan
+ * foto & dokumentasi asli.
  */
 ---
 
 <section class="cerita">
   <div class="wrap cerita-grid">
     <div class="cerita-photo">
-      <img src="/images/owner/owner-yarohim-3.webp" alt="Pak Yarohim di kebun bibit Ardelia Bibit" loading="lazy" decoding="async" />
+      <img src="/images/owner/owner-yarohim-3.webp" alt="Pak Yarohim, pemilik Ardelia Bibit, di kebun bibit" loading="lazy" decoding="async" />
     </div>
 
     <div class="cerita-copy">
-      <p class="eyebrow eyebrow-light">Cerita Kami</p>
-      <blockquote>
-        "Setiap bibit yang keluar dari nursery ini saya pantau sendiri
-        prosesnya — dari semai sampai siap dikirim. Biar pembeli yang jauh
-        pun tetap dapat bibit yang benar-benar sehat."
-      </blockquote>
-      <p class="cerita-name">Yarohim, Pemilik Ardelia Bibit</p>
-      <a class="btn btn-outline btn-light" href="/tentang">Baca Cerita Lengkap →</a>
+      <p class="eyebrow eyebrow-light">Tentang Ardelia Bibit</p>
+      <h2>Merawat Bibit Sejak Sekitar 2010</h2>
+      <p class="cerita-text">
+        Perjalanan Ardelia Bibit di dunia pembibitan dimulai sekitar tahun
+        2010 — awalnya lewat komunikasi langsung, rekomendasi dari mulut ke
+        mulut, dan WhatsApp. Kini kami menyediakan bibit buah, tanaman hias,
+        kayu keras, rempah, sampai pakan ternak, dengan foto asli dan
+        dokumentasi pengiriman sebagai bukti aktivitas nursery kami.
+      </p>
+      <a class="btn btn-outline btn-light" href="/tentang">Baca Selengkapnya →</a>
     </div>
   </div>
 </section>
@@ -56,20 +59,18 @@
     color: var(--color-leaf);
   }
 
-  .cerita-copy blockquote {
-    font-family: var(--font-display);
-    font-size: clamp(19px, 2.2vw, 25px);
-    line-height: 1.4;
-    font-weight: 500;
-    font-style: italic;
-    margin: 14px 0 16px;
+  .cerita-copy h2 {
+    color: #fff;
+    font-size: clamp(22px, 2.6vw, 30px);
+    margin: 14px 0 14px;
   }
 
-  .cerita-name {
-    font-size: 14px;
-    color: rgba(255, 255, 255, 0.75);
-    font-weight: 600;
-    margin-bottom: 20px;
+  .cerita-text {
+    font-size: 15.5px;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.82);
+    margin-bottom: 24px;
+    max-width: 560px;
   }
 
   .btn-light {

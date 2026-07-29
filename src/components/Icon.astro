@@ -20,10 +20,7 @@ interface Props {
     | 'tree'
     | 'root'
     | 'coffee-cup'
-    | 'grass'
-    | 'leaf'
-    | 'shield-check'
-    | 'sparkle';
+    | 'grass';
   size?: number;
   class?: string;
 }
@@ -148,32 +145,6 @@ const { name, size = 18, class: className = '' } = Astro.props;
       <path d="M6 20c-.5-4.5.5-8 3-10.5" />
       <path d="M12 20c-.8-6 .5-10 3.5-12.5" />
       <path d="M18 20c-.4-3.5.3-6 2-8" />
-    </svg>
-  )
-}
-
-{
-  name === 'leaf' && (
-    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" class={className} aria-hidden="true">
-      <path d="M5 19c-1-6.5 2-13 13-14 1 9.5-4.5 13.5-13 14Z" />
-      <path d="M6.5 17.5 15 9" />
-    </svg>
-  )
-}
-
-{
-  name === 'shield-check' && (
-    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" class={className} aria-hidden="true">
-      <path d="M12 3.5 19 6v6c0 4.5-3 7.5-7 8.5-4-1-7-4-7-8.5V6l7-2.5Z" />
-      <path d="M9 12l2 2 4-4.5" />
-    </svg>
-  )
-}
-
-{
-  name === 'sparkle' && (
-    <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" class={className} aria-hidden="true">
-      <path d="M12 2l1.8 6.2L20 10l-6.2 1.8L12 18l-1.8-6.2L4 10l6.2-1.8L12 2Z" />
     </svg>
   )
 }

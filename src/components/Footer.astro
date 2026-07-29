@@ -2,6 +2,7 @@
 import Icon from './Icon.astro';
 import WhatsAppButton from './WhatsAppButton.astro';
 import { site } from '../data/site';
+import { kategoriBibit } from '../data/nav';
 
 const year = new Date().getFullYear();
 ---
@@ -33,6 +34,13 @@ const year = new Date().getFullYear();
           <li><a href="/artikel">Artikel</a></li>
           <li><a href="/tentang">Tentang Kami</a></li>
           <li><a href="/kontak">Lokasi</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h2>Kategori</h2>
+        <ul>
+          {kategoriBibit.map((kat) => <li><a href={kat.href}>{kat.label}</a></li>)}
         </ul>
       </div>
 
@@ -70,8 +78,8 @@ const year = new Date().getFullYear();
 
   .footer-grid {
     display: grid;
-    grid-template-columns: 1.4fr 1fr 1fr;
-    gap: 40px;
+    grid-template-columns: 1.3fr 0.9fr 1fr 1fr;
+    gap: 32px;
     padding-bottom: 40px;
     border-bottom: 1px solid rgba(255, 255, 255, 0.14);
   }
@@ -174,7 +182,7 @@ const year = new Date().getFullYear();
     color: rgba(255, 255, 255, 0.55);
   }
 
-  @media (max-width: 780px) {
+  @media (max-width: 880px) {
     .footer-grid {
       grid-template-columns: 1fr 1fr;
     }

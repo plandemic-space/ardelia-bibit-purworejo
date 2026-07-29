@@ -2,71 +2,33 @@
 interface Props {
   eyebrow: string;
   title: string;
-  /** Baris kedua judul, ditampilkan dengan warna aksen lime (opsional). */
-  accent?: string;
   subtitle?: string;
-  /** Path gambar latar. Default: foto area nursery. */
-  image?: string;
 }
 
-const {
-  eyebrow,
-  title,
-  accent,
-  subtitle,
-  image = '/images/hero/area-nursery.webp',
-} = Astro.props;
+const { eyebrow, title, subtitle } = Astro.props;
 ---
 
-<section class="page-intro" style={`--intro-image:url(${image})`}>
+<section class="page-intro">
   <div class="wrap">
     <p class="eyebrow">{eyebrow}</p>
-    <h1>
-      {title}
-      {accent && <span class="accent">{accent}</span>}
-    </h1>
+    <h1>{title}</h1>
     {subtitle && <p class="page-intro-sub">{subtitle}</p>}
   </div>
 </section>
 
 <style>
   .page-intro {
-    position: relative;
-    padding: 64px 0 56px;
-    background: var(--intro-image) center/cover no-repeat, var(--color-teal-dark);
-    isolation: isolate;
-  }
-
-  .page-intro::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(100deg, rgba(15, 42, 33, 0.94) 0%, rgba(15, 42, 33, 0.8) 45%, rgba(15, 42, 33, 0.55) 100%);
-    z-index: -1;
-  }
-
-  .page-intro .eyebrow {
-    color: var(--color-leaf);
-  }
-
-  .page-intro .eyebrow::before {
-    background: var(--color-leaf);
+    padding: 48px 0 32px;
+    background: var(--color-mist);
   }
 
   .page-intro h1 {
-    font-size: clamp(28px, 3.6vw, 42px);
-    line-height: 1.15;
+    font-size: clamp(28px, 3.6vw, 40px);
     margin: 12px 0 12px;
-    color: #fff;
-  }
-
-  .page-intro h1 .accent {
-    display: block;
-    color: var(--color-leaf);
   }
 
   .page-intro-sub {
-    color: rgba(255, 255, 255, 0.82);
+    color: var(--color-charcoal-soft);
     max-width: 560px;
     font-size: 15.5px;
   }
