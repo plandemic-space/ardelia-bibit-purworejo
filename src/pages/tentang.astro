@@ -14,6 +14,14 @@ const galeriTiles = [
   { image: '/images/owner/owner-yarohim-3.webp', alt: 'Pak Yarohim di kebun bibit', label: 'Pak Yarohim di Kebun' },
   { image: '/images/galeri/kunjungan-pembeli.webp', alt: 'Pengunjung mencoba melihat bibit pucuk merah di nursery', label: 'Kunjungan Pembeli' },
 ];
+
+const nilaiKami = [
+  { emoji: '🌱', text: 'Merawat setiap bibit dengan perhatian.' },
+  { emoji: '🤝', text: 'Melayani pelanggan dengan ramah dan jujur.' },
+  { emoji: '📦', text: 'Berusaha mengirim bibit dalam kondisi terbaik.' },
+  { emoji: '📷', text: 'Mengutamakan dokumentasi asli dan informasi yang transparan.' },
+  { emoji: '🌿', text: 'Terus belajar dan berkembang mengikuti kebutuhan pelanggan.' },
+];
 ---
 
 <Layout
@@ -23,7 +31,8 @@ const galeriTiles = [
 >
   <PageIntro
     eyebrow="Tentang Kami"
-    title="Nursery yang Berjalan dari Kebun di Kemiri"
+    title="Tentang Ardelia Bibit"
+    subtitle="Merawat bibit dengan sepenuh hati, melayani pelanggan dengan jujur."
   />
 
   <section class="cerita-lengkap">
@@ -34,30 +43,41 @@ const galeriTiles = [
 
       <div class="cerita-text">
         <p>
-          Ardelia Bibit berjalan dari kebun milik Yarohim di Dusun Ngemplak,
-          Kemiri, Purworejo. Setiap bibit yang keluar dari sini sudah kami
-          cek dan sortir sendiri kondisinya sebelum sampai ke pembeli.
+          Perjalanan Ardelia Bibit di dunia pembibitan dimulai sekitar tahun
+          2010. Selama bertahun-tahun, kami lebih banyak melayani pelanggan
+          melalui komunikasi langsung, rekomendasi dari mulut ke mulut, serta
+          WhatsApp.
         </p>
         <p>
-          Jenis bibit yang tersedia cukup beragam — ada bibit buah seperti
-          durian dan alpukat, kayu keras untuk penghijauan seperti jati dan
-          sengon, tanaman hias untuk mempercantik halaman, sampai rempah
-          dapur seperti jahe dan kunyit. Kalau Anda datang dengan kebutuhan
-          yang berbeda-beda dalam satu waktu, kemungkinan besar semuanya
-          bisa terpenuhi dari satu tempat.
+          Fokus kami sejak awal bukan membangun kehadiran di internet,
+          melainkan merawat bibit dengan baik dan membantu pelanggan
+          mendapatkan tanaman yang sesuai dengan kebutuhannya. Karena itulah,
+          sebagian besar perjalanan kami terdokumentasi dalam percakapan
+          dengan pelanggan, bukan di media sosial atau website.
         </p>
         <p>
-          Kami juga terbuka soal jangkauan pengiriman — sejauh ini pernah
-          mengirim bibit sampai ke Jepara, dan prosesnya didokumentasikan di
-          halaman Facebook kami. Untuk kota-kota lain, kami tidak mau asal
-          janji "kirim ke seluruh Indonesia" sebelum benar-benar dicoba —
-          jadi kalau lokasi Anda jauh, tanyakan dulu lewat WhatsApp supaya
-          kami cek dulu cara pengiriman paling amannya.
+          Seiring berkembangnya teknologi dan semakin banyak orang mencari
+          bibit secara online, kami mulai membangun website ini sebagai
+          langkah baru agar informasi tentang produk, dokumentasi pengiriman,
+          dan cara menghubungi kami menjadi lebih mudah diakses oleh siapa
+          saja.
         </p>
         <p>
-          Kalau ada waktu, kami justru senang kalau calon pembeli mau datang
-          langsung ke nursery — lihat sendiri kondisi bibitnya, tanya-tanya
-          soal perawatan, sebelum memutuskan beli.
+          Hingga saat ini, Ardelia Bibit menyediakan berbagai jenis bibit
+          tanaman, mulai dari bibit buah, tanaman hias, tanaman perkebunan,
+          pohon kayu, rempah, hingga tanaman pakan. Setiap bibit dipilih dan
+          dirawat dengan perhatian agar sampai ke tangan pelanggan dalam
+          kondisi yang baik.
+        </p>
+        <p>
+          Bagi kami, kepercayaan dibangun melalui proses, bukan sekadar
+          kata-kata. Karena itu, kami berkomitmen menampilkan foto asli,
+          memberikan informasi yang jelas, dan terus menambah dokumentasi
+          pengiriman sebagai bukti aktivitas nursery kami.
+        </p>
+        <p>
+          Website ini memang baru. Semangat kami dalam merawat bibit telah
+          tumbuh jauh lebih dulu.
         </p>
         <WhatsAppButton
           message="Halo Ardelia Bibit, saya ingin tahu lebih lanjut soal nursery-nya"
@@ -68,17 +88,47 @@ const galeriTiles = [
     </div>
   </section>
 
+  <section class="nilai-section">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Nilai-Nilai Kami</p>
+        <h2>Yang Kami Pegang di Setiap Pesanan</h2>
+      </div>
+
+      <div class="nilai-grid">
+        {
+          nilaiKami.map((item) => (
+            <div class="nilai-card">
+              <span class="nilai-emoji" aria-hidden="true">{item.emoji}</span>
+              <p>{item.text}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
   <section class="galeri-section">
     <div class="wrap">
       <div class="section-head">
         <p class="eyebrow">Galeri</p>
         <h2>Sedikit Gambaran dari Kebun Kami</h2>
         <p>
-          Foto-foto asli sedang kami siapkan. Sambil menunggu, ini gambaran
-          bagian-bagian nursery yang akan kami dokumentasikan.
+          Foto asli dari aktivitas sehari-hari di nursery kami — mulai dari
+          bibit yang tersusun rapi sampai proses packing dan pengiriman.
         </p>
       </div>
       <GaleriGrid tiles={galeriTiles} />
+    </div>
+  </section>
+
+  <section class="penutup-section">
+    <div class="wrap">
+      <p class="penutup-text">
+        Terima kasih telah mengunjungi website Ardelia Bibit. Semoga kami
+        dapat membantu Anda menemukan bibit yang tepat dan menjadi bagian
+        dari perjalanan menanam yang menyenangkan.
+      </p>
     </div>
   </section>
 </Layout>
@@ -135,5 +185,73 @@ const galeriTiles = [
 
   .galeri-section {
     background: var(--color-mist);
+  }
+
+  .nilai-section {
+    background: var(--color-paper);
+  }
+
+  .nilai-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 18px;
+  }
+
+  .nilai-card {
+    border: 1px solid var(--color-line);
+    border-radius: var(--radius);
+    padding: 24px 18px;
+    text-align: center;
+  }
+
+  .nilai-emoji {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    margin: 0 auto 14px;
+    border-radius: 10px;
+    background: var(--color-mist);
+    font-size: 20px;
+  }
+
+  .nilai-card p {
+    font-size: 13.5px;
+    color: var(--color-charcoal-soft);
+    line-height: 1.6;
+  }
+
+  @media (max-width: 980px) {
+    .nilai-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  @media (max-width: 620px) {
+    .nilai-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  .penutup-section {
+    padding: 0 0 var(--space-section);
+  }
+
+  .penutup-text {
+    max-width: 620px;
+    margin: 0 auto;
+    text-align: center;
+    font-family: var(--font-display);
+    font-size: 19px;
+    font-style: italic;
+    color: var(--color-teal-dark);
+    line-height: 1.6;
+  }
+
+  @media (max-width: 720px) {
+    .penutup-section {
+      padding-bottom: var(--space-section-mobile);
+    }
   }
 </style>
