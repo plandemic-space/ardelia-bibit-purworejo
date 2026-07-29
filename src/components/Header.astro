@@ -3,29 +3,44 @@ import Icon from './Icon.astro';
 import WhatsAppButton from './WhatsAppButton.astro';
 import { site } from '../data/site';
 import { navUtama } from '../data/nav';
+
+const currentPath = Astro.url.pathname;
+const isActive = (href: string) => (href === '/' ? currentPath === '/' : currentPath.startsWith(href));
 ---
 
-<header class="site-header">
+<header class="site-header" data-site-header>
   <div class="nav wrap">
     <a class="brand" href="/" aria-label={`${site.name} — Beranda`}>
       <img src="/images/logo/logo-ardelia-bibit.jpg" alt={`Logo ${site.name}`} width="34" height="34" />
       <span>{site.name}</span>
     </a>
 
-    <!-- Navigasi desktop — flat, sesuai mockup (tanpa dropdown) -->
+    <!-- Navigasi desktop — flat, sesuai mockup (tanpa dropdown), pakai navUtama supaya selalu sinkron dengan drawer mobile -->
     <nav class="nav-links" aria-label="Navigasi utama">
-      <a href="/katalog">Katalog</a>
-      <a href="/tentang">Tentang Kami</a>
-      <a href="/artikel">Artikel</a>
-      <a href="/cara-beli">Cara Beli</a>
-      <a href="/kontak">Kontak</a>
+      {
+        navUtama.map((item) => (
+          <a href={item.href} aria-current={isActive(item.href) ? 'page' : undefined} class={isActive(item.href) ? 'is-active' : ''}>
+            {item.label}
+          </a>
+        ))
+      }
     </nav>
 
     <div class="nav-right">
-      <button class="search-toggle" type="button" aria-label="Cari">
-        <Icon name="search" size={19} />
-      </button>
-      <WhatsAppButton label="Chat via WhatsApp" />
+      <div class="search-wrap" data-search-wrap>
+        <button class="search-toggle" type="button" aria-label="Cari" aria-expanded="false" data-search-toggle>
+          <Icon name="search" size={19} />
+        </button>
+        <form class="search-form" action="/katalog" method="get" data-search-form>
+          <input
+            type="search"
+            name="cari"
+            placeholder="Cari bibit..."
+            aria-label="Cari bibit"
+            data-search-input
+          />
+        </form>
+      </div>
       <button
         class="menu-toggle"
         type="button"
@@ -67,9 +82,17 @@ import { navUtama } from '../data/nav';
     position: sticky;
     top: 0;
     z-index: 50;
-    background: rgba(250, 249, 244, 0.94);
+    background: rgba(250, 249, 244, 0.7);
     backdrop-filter: blur(6px);
-    border-bottom: 1px solid var(--color-line);
+    border-bottom: 1px solid transparent;
+    box-shadow: none;
+    transition: background-color 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  }
+
+  .site-header.is-scrolled {
+    background: rgba(250, 249, 244, 0.96);
+    border-bottom-color: var(--color-line);
+    box-shadow: 0 4px 16px rgba(14, 53, 53, 0.08);
   }
 
   .nav {
@@ -106,11 +129,32 @@ import { navUtama } from '../data/nav';
     color: var(--color-charcoal-soft);
   }
 
+  .nav-links > a {
+    position: relative;
+    padding: 4px 0;
+  }
+
   .nav-links > a:hover {
     color: var(--color-teal);
   }
 
-  /* --- Sisi kanan: search + tombol WA + toggle mobile --- */
+  .nav-links > a.is-active {
+    color: var(--color-teal-dark);
+    font-weight: 700;
+  }
+
+  .nav-links > a.is-active::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -6px;
+    height: 2px;
+    border-radius: 2px;
+    background: var(--color-teal);
+  }
+
+  /* --- Sisi kanan: search + toggle mobile --- */
   .nav-right {
     display: flex;
     align-items: center;
@@ -126,6 +170,11 @@ import { navUtama } from '../data/nav';
     cursor: pointer;
   }
 
+  .search-wrap {
+    display: flex;
+    align-items: center;
+  }
+
   .search-toggle {
     display: inline-flex;
     align-items: center;
@@ -139,6 +188,35 @@ import { navUtama } from '../data/nav';
 
   .search-toggle:hover {
     color: var(--color-teal-dark);
+  }
+
+  .search-form {
+    display: grid;
+    grid-template-columns: 0fr;
+    overflow: hidden;
+    transition: grid-template-columns 0.2s ease;
+  }
+
+  .search-wrap.is-open .search-form {
+    grid-template-columns: 1fr;
+    margin-left: 8px;
+  }
+
+  .search-form input {
+    min-width: 0;
+    width: 180px;
+    border: 1px solid var(--color-line);
+    border-radius: var(--radius-sm, 8px);
+    padding: 6px 10px;
+    font-size: 14px;
+    font-family: inherit;
+    color: var(--color-charcoal);
+    background: var(--color-paper);
+  }
+
+  .search-form input:focus {
+    outline: none;
+    border-color: var(--color-teal);
   }
 
   /* --- Drawer mobile --- */
@@ -234,8 +312,8 @@ import { navUtama } from '../data/nav';
   }
 
   @media (max-width: 480px) {
-    .nav-right :global(.btn-primary) {
-      display: none;
+    .search-wrap.is-open .search-form input {
+      width: 42vw;
     }
   }
 </style>
@@ -247,6 +325,47 @@ import { navUtama } from '../data/nav';
   const drawer = document.querySelector<HTMLElement>('[data-drawer]');
   const backdrop = document.querySelector<HTMLElement>('[data-drawer-backdrop]');
   const closeBtn = document.querySelector<HTMLButtonElement>('[data-drawer-close]');
+
+  // Header berubah solid + shadow begitu halaman sudah di-scroll
+  const header = document.querySelector<HTMLElement>('[data-site-header]');
+  function updateScrollState() {
+    if (!header) return;
+    header.classList.toggle('is-scrolled', window.scrollY > 8);
+  }
+  updateScrollState();
+  window.addEventListener('scroll', updateScrollState, { passive: true });
+
+  // Toggle kotak pencarian di navbar — submit mengarahkan ke /katalog?cari=...
+  const searchWrap = document.querySelector<HTMLElement>('[data-search-wrap]');
+  const searchToggle = document.querySelector<HTMLButtonElement>('[data-search-toggle]');
+  const searchInput = document.querySelector<HTMLInputElement>('[data-search-input]');
+
+  function openSearch() {
+    if (!searchWrap || !searchToggle) return;
+    searchWrap.classList.add('is-open');
+    searchToggle.setAttribute('aria-expanded', 'true');
+    searchInput?.focus();
+  }
+
+  function closeSearch() {
+    if (!searchWrap || !searchToggle) return;
+    searchWrap.classList.remove('is-open');
+    searchToggle.setAttribute('aria-expanded', 'false');
+  }
+
+  searchToggle?.addEventListener('click', () => {
+    if (searchWrap?.classList.contains('is-open')) {
+      closeSearch();
+    } else {
+      openSearch();
+    }
+  });
+
+  document.addEventListener('click', (e) => {
+    if (!searchWrap?.classList.contains('is-open')) return;
+    if (!(e.target instanceof Node)) return;
+    if (!searchWrap.contains(e.target)) closeSearch();
+  });
 
   function openDrawer() {
     if (!drawer || !backdrop || !toggle) return;
@@ -275,7 +394,10 @@ import { navUtama } from '../data/nav';
   backdrop?.addEventListener('click', closeDrawer);
 
   document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') closeDrawer();
+    if (e.key === 'Escape') {
+      closeDrawer();
+      closeSearch();
+    }
   });
 
   // Tutup drawer otomatis kalau layar diperbesar melewati breakpoint mobile

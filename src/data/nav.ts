@@ -114,12 +114,13 @@ export const tentangKami = [
   { label: 'Pertanyaan Umum', href: '/cara-beli#faq' },
 ];
 
-/** Menu untuk drawer mobile — urutan & isi disamakan dengan mockup (11 Mobile Menu.png) */
+/** Menu untuk drawer mobile & desktop — urutan & isi disamakan dengan mockup (11 Mobile Menu.png) */
 export const navUtama = [
   { label: 'Beranda', href: '/' },
   { label: 'Katalog', href: '/katalog' },
   { label: 'Tentang Kami', href: '/tentang' },
   { label: 'Artikel', href: '/artikel' },
   { label: 'Cara Beli', href: '/cara-beli' },
+  { label: 'Dokumentasi', href: '/dokumentasi' },
   { label: 'Kontak', href: '/kontak' },
 ];

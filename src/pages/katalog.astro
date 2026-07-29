@@ -59,7 +59,7 @@ const jumlahPerGrup = (slug: string) => semuaProduk.filter((p) => p.data.grup ==
       <div class="produk-grid" data-produk-grid>
         {
           produkTerurut.map((item) => (
-            <div class="produk-item" data-grup={item.data.grup}>
+            <div class="produk-item" data-grup={item.data.grup} data-nama={item.data.nama}>
               <ProdukCard
                 nama={item.data.nama}
                 ukuran={item.data.ukuran}
@@ -265,5 +265,19 @@ const jumlahPerGrup = (slug: string) => semuaProduk.filter((p) => p.data.grup ==
   const initialSlug = window.location.hash.replace('#', '');
   if (initialSlug && validSlugs.has(initialSlug)) {
     applyFilter(initialSlug);
+  }
+
+  // Pencarian dari ikon search di navbar (?cari=kata-kunci) — filter berdasarkan nama produk
+  const cariParam = new URLSearchParams(window.location.search).get('cari');
+  if (cariParam && cariParam.trim()) {
+    const kata = cariParam.trim().toLowerCase();
+    let visibleCount = 0;
+    items.forEach((item) => {
+      const match = (item.dataset.nama ?? '').toLowerCase().includes(kata);
+      item.style.display = match ? '' : 'none';
+      if (match) visibleCount++;
+    });
+    chips.forEach((chip) => chip.classList.remove('is-active'));
+    if (emptyMsg) emptyMsg.hidden = visibleCount !== 0;
   }
 </script>

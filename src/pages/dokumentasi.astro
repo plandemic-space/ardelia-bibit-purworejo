@@ -1,0 +1,43 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PageIntro from '../components/PageIntro.astro';
+import WhatsAppButton from '../components/WhatsAppButton.astro';
+---
+
+<Layout
+  title="Dokumentasi Pengiriman — Ardelia Bibit"
+  description="Dokumentasi proses pengemasan dan pengiriman bibit dari Ardelia Bibit. Halaman ini sedang disiapkan."
+  breadcrumbs={[{ name: 'Dokumentasi', path: '/dokumentasi' }]}
+>
+  <PageIntro
+    eyebrow="Dokumentasi"
+    title="Dokumentasi Pengiriman"
+    subtitle="Halaman ini sedang kami siapkan. Sementara itu, tanyakan langsung soal proses pengemasan dan pengiriman bibit lewat WhatsApp."
+  />
+
+  <section class="placeholder-section">
+    <div class="wrap placeholder-inner">
+      <p class="placeholder-note">Konten sedang disiapkan.</p>
+      <WhatsAppButton message="Halo Ardelia Bibit, saya mau tanya soal dokumentasi pengiriman bibit" label="Tanya via WhatsApp" />
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .placeholder-section {
+    padding: 56px 0 72px;
+  }
+
+  .placeholder-inner {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+  }
+
+  .placeholder-note {
+    color: var(--color-charcoal-soft);
+    font-size: 15px;
+  }
+</style>
