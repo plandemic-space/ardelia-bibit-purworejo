@@ -55,7 +55,7 @@ const pesanWa = `Halo Ardelia Bibit, saya mau tanya stok & harga ${nama}`;
 
   .produk-card:hover {
     transform: translateY(-2px);
-    box-shadow: 0 12px 26px rgba(22, 74, 74, 0.1);
+    box-shadow: var(--shadow-card-hover);
   }
 
   .produk-photo {
@@ -89,16 +89,17 @@ const pesanWa = `Halo Ardelia Bibit, saya mau tanya stok & harga ${nama}`;
 
   .produk-badge {
     position: absolute;
-    top: 8px;
-    right: 8px;
+    top: 10px;
+    right: 10px;
     background: var(--color-burnt);
     color: #fff;
     font-size: 10px;
     font-weight: 700;
-    padding: 4px 8px;
+    padding: 5px 10px;
     border-radius: 999px;
     text-transform: uppercase;
     letter-spacing: 0.03em;
+    box-shadow: 0 4px 10px rgba(192, 107, 46, 0.35);
   }
 
   .produk-body {

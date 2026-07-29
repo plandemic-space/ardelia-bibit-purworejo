@@ -8,8 +8,8 @@ import { kategoriBibit, kebutuhan, tentangKami, navUtama } from '../data/nav';
 <header class="site-header">
   <div class="nav wrap">
     <a class="brand" href="/" aria-label={`${site.name} — Beranda`}>
-      <img src="/images/logo/logo-ardelia-bibit.jpg" alt={`Logo ${site.name}`} width="34" height="34" />
-      <span>{site.name}</span>
+      <span class="brand-mark"><Icon name="leaf" size={18} /></span>
+      <span class="brand-name">Ardelia<b>BIBIT</b></span>
     </a>
 
     <!-- Navigasi desktop dengan mega menu -->
@@ -89,8 +89,8 @@ import { kategoriBibit, kebutuhan, tentangKami, navUtama } from '../data/nav';
 <aside id="mobile-drawer" class="drawer" data-drawer aria-hidden="true">
   <div class="drawer-head">
     <a class="brand" href="/">
-      <img src="/images/logo/logo-ardelia-bibit.jpg" alt={`Logo ${site.name}`} width="30" height="30" />
-      <span>{site.name}</span>
+      <span class="brand-mark"><Icon name="leaf" size={16} /></span>
+      <span class="brand-name">Ardelia<b>BIBIT</b></span>
     </a>
     <button class="drawer-close" type="button" aria-label="Tutup menu" data-drawer-close>
       <Icon name="close" size={22} />
@@ -126,18 +126,33 @@ import { kategoriBibit, kebutuhan, tentangKami, navUtama } from '../data/nav';
   .brand {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 9px;
     font-family: var(--font-display);
     font-weight: 700;
     font-size: 19px;
     color: var(--color-teal-dark);
+    line-height: 1.1;
   }
 
-  .brand img {
-    width: 34px;
-    height: 34px;
+  .brand-mark {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
     border-radius: 50%;
-    object-fit: cover;
+    background: var(--color-mist);
+    color: var(--color-leaf-dark);
+    flex-shrink: 0;
+  }
+
+  .brand-name b {
+    display: block;
+    font-family: var(--font-body);
+    font-weight: 800;
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    color: var(--color-leaf-dark);
   }
 
   /* --- Navigasi desktop + mega menu --- */
