@@ -4,19 +4,18 @@ import { waLink } from '../data/site';
 
 interface Props {
   nama: string;
-  grupLabel: string;
   ukuran?: string;
   perluKonfirmasi?: boolean;
   foto?: string;
   placeholderEmoji?: string;
 }
 
-const { nama, grupLabel, ukuran, perluKonfirmasi = false, foto, placeholderEmoji = '🌱' } = Astro.props;
+const { nama, ukuran, perluKonfirmasi = false, foto, placeholderEmoji = '🌱' } = Astro.props;
 
 const pesanWa = `Halo Ardelia Bibit, saya mau tanya stok & harga ${nama}`;
 ---
 
-<article class="produk-card" data-grup={grupLabel}>
+<article class="produk-card">
   <div class="produk-photo">
     {
       foto ? (

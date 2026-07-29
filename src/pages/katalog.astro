@@ -17,10 +17,6 @@ const produkTerurut = [...semuaProduk].sort((a, b) => {
 });
 
 const jumlahPerGrup = (slug: string) => semuaProduk.filter((p) => p.data.grup === slug).length;
-
-function grupLabel(slug: string) {
-  return kategoriBibit.find((k) => k.slug === slug)?.label ?? slug;
-}
 ---
 
 <Layout
@@ -66,7 +62,6 @@ function grupLabel(slug: string) {
             <div class="produk-item" data-grup={item.data.grup}>
               <ProdukCard
                 nama={item.data.nama}
-                grupLabel={grupLabel(item.data.grup)}
                 ukuran={item.data.ukuran}
                 perluKonfirmasi={item.data.perluKonfirmasi}
                 foto={item.data.foto}
