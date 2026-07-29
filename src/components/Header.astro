@@ -41,6 +41,7 @@ const isActive = (href: string) => (href === '/' ? currentPath === '/' : current
           />
         </form>
       </div>
+      <WhatsAppButton label="Hubungi Kami" class="nav-cta" />
       <button
         class="menu-toggle"
         type="button"
@@ -96,10 +97,23 @@ const isActive = (href: string) => (href === '/' ? currentPath === '/' : current
   }
 
   .nav {
-    display: flex;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
     align-items: center;
-    justify-content: space-between;
-    padding: 12px 24px;
+    gap: 16px;
+    padding: 16px 24px;
+  }
+
+  .brand {
+    justify-self: start;
+  }
+
+  .nav-links {
+    justify-self: center;
+  }
+
+  .nav-right {
+    justify-self: end;
   }
 
   .brand {
@@ -303,6 +317,10 @@ const isActive = (href: string) => (href === '/' ? currentPath === '/' : current
   /* --- Breakpoint: sembunyikan nav desktop, tampilkan toggle --- */
   @media (max-width: 900px) {
     .nav-links {
+      display: none;
+    }
+
+    .nav-right :global(.nav-cta) {
       display: none;
     }
 
