@@ -1,57 +1,75 @@
 [
   {
-    "id": "durian-bawor",
-    "nama": "Durian Bawor",
+    "id": "alpukat-aligator",
+    "nama": "Alpukat Aligator",
     "grup": "bibit-buah",
-    "ukuran": "Planterbag 35, tinggi 1,5–2 m",
-    "foto": "/images/produk/durian-bawor.webp",
+    "foto": "/images/produk/alpukat-aligator.webp",
     "fotoTersedia": true
   },
   {
-    "id": "durian-musang-king",
-    "nama": "Durian Musang King",
+    "id": "alpukat-hass",
+    "nama": "Alpukat Hass",
     "grup": "bibit-buah",
-    "ukuran": "Planterbag 35, tinggi 1,5–2 m",
-    "foto": "/images/produk/durian-musang-king.webp",
-    "fotoTersedia": true
-  },
-  {
-    "id": "durian-duri-hitam",
-    "nama": "Durian Duri Hitam",
-    "grup": "bibit-buah",
-    "ukuran": "Planterbag 35, tinggi 1,5–2 m",
-    "foto": "/images/produk/durian-duri-hitam.webp",
+    "foto": "/images/produk/alpukat-hass.webp",
     "fotoTersedia": true
   },
   {
     "id": "alpukat-miki",
     "nama": "Alpukat Miki",
     "grup": "bibit-buah",
-    "ukuran": "±120 cm",
+    "ukuran": "120–130 cm, planterbag 35",
     "foto": "/images/produk/alpukat-miki.webp",
     "fotoTersedia": true
   },
   {
-    "id": "alpukat-pluang",
-    "nama": "Alpukat Pluang",
+    "id": "alpukat-mentega",
+    "nama": "Alpukat Mentega",
     "grup": "bibit-buah",
-    "ukuran": "±120 cm",
-    "foto": "/images/produk/alpukat-pluang.webp",
+    "foto": "/images/produk/alpukat-mentega.webp",
     "fotoTersedia": true
   },
   {
-    "id": "alpukat-aligator",
-    "nama": "Alpukat Aligator",
+    "id": "durian-bawor",
+    "nama": "Durian Bawor",
     "grup": "bibit-buah",
-    "ukuran": "±120 cm",
-    "foto": "/images/produk/alpukat-aligator.webp",
+    "foto": "/images/produk/durian-bawor.webp",
     "fotoTersedia": true
   },
   {
-    "id": "alpukat-red-vietnam",
-    "nama": "Alpukat Red Vietnam",
+    "id": "durian-duri-hitam",
+    "nama": "Durian Duri Hitam",
     "grup": "bibit-buah",
-    "foto": "/images/produk/alpukat-red-vietnam.webp",
+    "ukuran": "Black Tom, tinggi ±2,5 m, planterbag 50x50 (jumbo)",
+    "foto": "/images/produk/durian-duri-hitam.webp",
+    "fotoTersedia": true
+  },
+  {
+    "id": "durian-musang-king",
+    "nama": "Durian Musang King",
+    "grup": "bibit-buah",
+    "ukuran": "60 cm – 1 m up, siap tanam",
+    "foto": "/images/produk/durian-musang-king.webp",
+    "fotoTersedia": true
+  },
+  {
+    "id": "kelengkeng-itoh",
+    "nama": "Kelengkeng Itoh",
+    "grup": "bibit-buah",
+    "foto": "/images/produk/kelengkeng-itoh.webp",
+    "fotoTersedia": true
+  },
+  {
+    "id": "kelengkeng-new-crystal",
+    "nama": "Kelengkeng New Crystal",
+    "grup": "bibit-buah",
+    "foto": "/images/produk/kelengkeng-new-crystal.webp",
+    "fotoTersedia": true
+  },
+  {
+    "id": "mangga-kiojay",
+    "nama": "Mangga Kiojay",
+    "grup": "bibit-buah",
+    "foto": "/images/produk/mangga-kiojay.webp",
     "fotoTersedia": true
   },
   {
@@ -59,6 +77,13 @@
     "nama": "Manggis",
     "grup": "bibit-buah",
     "foto": "/images/produk/manggis.webp",
+    "fotoTersedia": true
+  },
+  {
+    "id": "nangka-madu",
+    "nama": "Nangka Madu",
+    "grup": "bibit-buah",
+    "foto": "/images/produk/nangka-madu.webp",
     "fotoTersedia": true
   },
   {
@@ -70,75 +95,37 @@
   },
   {
     "id": "sawo-jumbo",
-    "nama": "Sawo Jumbo (Mamey Sapote)",
+    "nama": "Sawo Jumbo",
     "grup": "bibit-buah",
     "foto": "/images/produk/sawo-jumbo.webp",
     "fotoTersedia": true
   },
   {
-    "id": "mangga-kiojay",
-    "nama": "Mangga Kiojay",
-    "grup": "bibit-buah",
-    "foto": "/images/produk/mangga-kiojay.webp",
-    "fotoTersedia": true
-  },
-  {
-    "id": "kelengkeng-itoh",
-    "nama": "Kelengkeng Itoh",
-    "grup": "bibit-buah",
-    "foto": "/images/produk/kelengkeng-itoh.webp",
-    "fotoTersedia": true
-  },
-  {
-    "id": "nangka-madu",
-    "nama": "Nangka Madu",
-    "grup": "bibit-buah",
-    "foto": "/images/produk/nangka-madu.webp",
-    "fotoTersedia": true
-  },
-  {
-    "id": "pohon-kurma",
-    "nama": "Pohon Kurma",
-    "grup": "bibit-buah",
-    "foto": "/images/produk/pohon-kurma.webp",
-    "fotoTersedia": true
-  },
-  {
-    "id": "pucuk-merah",
-    "nama": "Pucuk Merah",
-    "grup": "tanaman-hias",
-    "ukuran": "2,5–3 m",
-    "foto": "/images/produk/pucuk-merah.webp",
-    "fotoTersedia": true
-  },
-  {
-    "id": "palem-merah",
-    "nama": "Palem Merah",
-    "grup": "tanaman-hias",
-    "ukuran": "1–3 m",
-    "foto": "/images/produk/palem-merah.webp",
-    "fotoTersedia": true
-  },
-  {
-    "id": "palem-kuning",
-    "nama": "Palem Kuning",
-    "grup": "tanaman-hias",
-    "foto": "/images/produk/palem-kuning.webp",
-    "fotoTersedia": true
-  },
-  {
-    "id": "palem-kol",
-    "nama": "Palem Kol",
-    "grup": "tanaman-hias",
-    "foto": "/images/produk/palem-kol.webp",
-    "fotoTersedia": true
-  },
-  {
     "id": "kelapa-gading-kuning",
     "nama": "Kelapa Gading Kuning",
-    "grup": "tanaman-hias",
-    "ukuran": "Dongkelan — pohon siap tanam, bukan bibit kecil",
+    "grup": "bibit-buah",
     "foto": "/images/produk/kelapa-gading-kuning.webp",
+    "fotoTersedia": true
+  },
+  {
+    "id": "kurma",
+    "nama": "Kurma",
+    "grup": "bibit-buah",
+    "foto": "/images/produk/kurma.webp",
+    "fotoTersedia": true
+  },
+  {
+    "id": "beringin",
+    "nama": "Beringin",
+    "grup": "tanaman-hias",
+    "foto": "/images/produk/beringin.webp",
+    "fotoTersedia": true
+  },
+  {
+    "id": "glodogan-tiang",
+    "nama": "Glodogan Tiang",
+    "grup": "tanaman-hias",
+    "foto": "/images/produk/glodogan-tiang.webp",
     "fotoTersedia": true
   },
   {
@@ -149,17 +136,45 @@
     "fotoTersedia": true
   },
   {
+    "id": "palem-kol",
+    "nama": "Palem Kol",
+    "grup": "tanaman-hias",
+    "foto": "/images/produk/palem-kol.webp",
+    "fotoTersedia": true
+  },
+  {
+    "id": "palem-kuning",
+    "nama": "Palem Kuning",
+    "grup": "tanaman-hias",
+    "foto": "/images/produk/palem-kuning.webp",
+    "fotoTersedia": true
+  },
+  {
+    "id": "palem-merah",
+    "nama": "Palem Merah",
+    "grup": "tanaman-hias",
+    "foto": "/images/produk/palem-merah.webp",
+    "fotoTersedia": true
+  },
+  {
+    "id": "pucuk-merah",
+    "nama": "Pucuk Merah",
+    "grup": "tanaman-hias",
+    "foto": "/images/produk/pucuk-merah.webp",
+    "fotoTersedia": true
+  },
+  {
+    "id": "solobium",
+    "nama": "Solobium",
+    "grup": "tanaman-hias",
+    "foto": "/images/produk/solobium.webp",
+    "fotoTersedia": true
+  },
+  {
     "id": "tanaman-hias-brokoli",
     "nama": "Tanaman Hias Brokoli",
     "grup": "tanaman-hias",
     "foto": "/images/produk/tanaman-hias-brokoli.webp",
-    "fotoTersedia": true
-  },
-  {
-    "id": "glodogan-tiang",
-    "nama": "Glodogan Tiang",
-    "grup": "tanaman-hias",
-    "foto": "/images/produk/glodogan-tiang.webp",
     "fotoTersedia": true
   },
   {
@@ -171,10 +186,10 @@
     "fotoTersedia": true
   },
   {
-    "id": "albasia-sengon",
-    "nama": "Albasia (Sengon Laut)",
+    "id": "gaharu",
+    "nama": "Gaharu",
     "grup": "pohon-kayu",
-    "foto": "/images/produk/albasia-sengon.webp",
+    "foto": "/images/produk/gaharu.webp",
     "fotoTersedia": true
   },
   {
@@ -185,13 +200,6 @@
     "fotoTersedia": true
   },
   {
-    "id": "mahoni",
-    "nama": "Mahoni",
-    "grup": "pohon-kayu",
-    "foto": "/images/produk/mahoni.webp",
-    "fotoTersedia": true
-  },
-  {
     "id": "jati",
     "nama": "Jati",
     "grup": "pohon-kayu",
@@ -199,31 +207,38 @@
     "fotoTersedia": true
   },
   {
-    "id": "beringin",
-    "nama": "Beringin",
+    "id": "mahoni",
+    "nama": "Mahoni",
     "grup": "pohon-kayu",
-    "foto": "/images/produk/beringin.webp",
+    "foto": "/images/produk/mahoni.webp",
     "fotoTersedia": true
   },
   {
-    "id": "kayu-gaharu",
-    "nama": "Kayu Gaharu",
+    "id": "sengon-albasia",
+    "nama": "Sengon Laut (Albasia)",
     "grup": "pohon-kayu",
-    "foto": "/images/produk/kayu-gaharu.webp",
+    "foto": "/images/produk/sengon-albasia.webp",
     "fotoTersedia": true
   },
   {
-    "id": "jeruk-purut",
-    "nama": "Jeruk Purut",
-    "grup": "rempah",
-    "foto": "/images/produk/jeruk-purut.webp",
+    "id": "sengon-solomon",
+    "nama": "Sengon Solomon",
+    "grup": "pohon-kayu",
+    "foto": "/images/produk/sengon-solomon.webp",
     "fotoTersedia": true
   },
   {
-    "id": "pala",
-    "nama": "Pala",
+    "id": "bidara",
+    "nama": "Bidara",
     "grup": "rempah",
-    "foto": "/images/produk/pala.webp",
+    "foto": "/images/produk/bidara.webp",
+    "fotoTersedia": true
+  },
+  {
+    "id": "bidara-cina",
+    "nama": "Bidara Cina",
+    "grup": "rempah",
+    "foto": "/images/produk/bidara-cina.webp",
     "fotoTersedia": true
   },
   {
@@ -234,17 +249,38 @@
     "fotoTersedia": true
   },
   {
+    "id": "cengkeh-sansibar",
+    "nama": "Cengkeh Sansibar",
+    "grup": "rempah",
+    "foto": "/images/produk/cengkeh-sansibar.webp",
+    "fotoTersedia": true
+  },
+  {
+    "id": "jeruk-purut",
+    "nama": "Jeruk Purut",
+    "grup": "rempah",
+    "foto": "/images/produk/jeruk-purut.webp",
+    "fotoTersedia": true
+  },
+  {
     "id": "lada-perdu",
     "nama": "Lada Perdu",
-    "grup": "perkebunan",
+    "grup": "rempah",
     "foto": "/images/produk/lada-perdu.webp",
     "fotoTersedia": true
   },
   {
-    "id": "cengkeh-sansibar",
-    "nama": "Cengkeh Sansibar",
+    "id": "pala",
+    "nama": "Pala",
+    "grup": "rempah",
+    "foto": "/images/produk/pala.webp",
+    "fotoTersedia": true
+  },
+  {
+    "id": "petai",
+    "nama": "Petai",
     "grup": "perkebunan",
-    "foto": "/images/produk/cengkeh-sansibar.webp",
+    "foto": "/images/produk/petai.webp",
     "fotoTersedia": true
   },
   {
@@ -260,21 +296,5 @@
     "grup": "pakan-ternak",
     "foto": "/images/produk/kaliandra.webp",
     "fotoTersedia": true
-  },
-  {
-    "id": "solobium",
-    "nama": "Solobium",
-    "grup": "tanaman-hias",
-    "foto": "/images/produk/solobium.webp",
-    "fotoTersedia": true,
-    "perluKonfirmasi": true
-  },
-  {
-    "id": "durian-super-tembaga",
-    "nama": "Durian Super Tembaga",
-    "grup": "bibit-buah",
-    "foto": "/images/produk/durian-super-tembaga.webp",
-    "fotoTersedia": true,
-    "perluKonfirmasi": true
   }
 ]

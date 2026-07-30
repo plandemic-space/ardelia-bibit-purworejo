@@ -27,7 +27,7 @@ const produk = defineCollection({
     perluKonfirmasi: z.boolean().optional().default(false),
     /** Path foto asli di public/images/produk/ — kosong berarti belum ada foto */
     foto: z.string().optional(),
-    /** Emoji placeholder yang representatif kalau foto belum ada (mis. kopi untuk Kopi) */
+    /** Emoji placeholder yang representatif kalau foto belum ada */
     placeholderEmoji: z.string().optional(),
     /** True kalau foto asli sudah tersedia di public/images/produk */
     fotoTersedia: z.boolean().optional().default(false),

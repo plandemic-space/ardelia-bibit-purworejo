@@ -1,8 +1,7 @@
 /**
  * Struktur navigasi utama (mega menu) — sinkron dengan taksonomi produk
- * di data-ardelia-bibit.md (48 varietas, 6 grup — termasuk Solobium dan
- * Durian Super Tembaga yang ditambahkan dari foto susulan, lihat
- * CATATAN-UNTUK-OWNER.md).
+ * di src/data/produk.json (42 varietas, 6 grup — daftar katalog revisi
+ * terbaru dari owner, menggantikan daftar 48 varietas sebelumnya).
  *
  * Catatan: label "Cari Berdasarkan Kebutuhan" memetakan grup produk ke
  * skenario kebutuhan pengunjung (pekarangan, kebun buah, dst) — pola ini
@@ -48,14 +47,14 @@ export const kategoriBibit: MegaCategory[] = [
   },
   {
     label: 'Rempah & Tanaman Obat',
-    description: 'Jahe, kunyit, kencur, temulawak',
+    description: 'Pala, cengkeh, lada perdu, jeruk purut & lainnya',
     href: '/katalog#rempah',
     slug: 'rempah',
     icon: 'root',
   },
   {
     label: 'Tanaman Perkebunan',
-    description: 'Kopi, kakao, lada perdu',
+    description: 'Petai',
     href: '/katalog#perkebunan',
     slug: 'perkebunan',
     icon: 'coffee-cup',
@@ -92,7 +91,7 @@ export const kebutuhan: MegaNeed[] = [
   },
   {
     label: 'Perkebunan',
-    description: 'Kopi dan kakao untuk lahan produktif',
+    description: 'Petai untuk lahan produktif',
     href: '/katalog?kebutuhan=perkebunan',
   },
   {
