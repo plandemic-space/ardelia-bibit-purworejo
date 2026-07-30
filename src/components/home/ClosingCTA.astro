@@ -1,12 +1,15 @@
 ---
 import WhatsAppButton from '../WhatsAppButton.astro';
+import Icon from '../Icon.astro';
 ---
 
 <section class="closing">
   <div class="wrap">
     <div class="closing-card">
       <div class="closing-text">
-        <span class="closing-icon" aria-hidden="true">🌱</span>
+        <span class="closing-icon" aria-hidden="true">
+          <Icon name="leaf" size={17} />
+        </span>
         <div>
           <h2>Masih Bingung Pilih Bibit?</h2>
           <p>Chat WhatsApp, kami bantu pilihkan yang cocok.</p>
@@ -49,7 +52,7 @@ import WhatsAppButton from '../WhatsAppButton.astro';
     height: 34px;
     border-radius: 50%;
     background: rgba(255, 255, 255, 0.12);
-    font-size: 16px;
+    color: #fff;
   }
 
   .closing-text h2 {

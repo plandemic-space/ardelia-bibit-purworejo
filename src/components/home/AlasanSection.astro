@@ -6,24 +6,26 @@
  * /cara-beli.astro (opsi ambil sendiri / dikirim, sesuaikan ukuran) —
  * bukan klaim baru.
  */
+import Icon from '../Icon.astro';
+
 const alasan = [
   {
-    icon: '🌱',
+    icon: 'leaf' as const,
     title: 'Bibit Terseleksi',
     desc: 'Setiap bibit dipilih dan dirawat sebelum dijual.',
   },
   {
-    icon: '💬',
+    icon: 'message-circle' as const,
     title: 'Konsultasi Dulu',
     desc: 'Belum yakin? Kami bantu memilih yang terbaik.',
   },
   {
-    icon: '📍',
+    icon: 'map-pin' as const,
     title: 'Nursery Bisa Dikunjungi',
     desc: 'Lihat kondisi bibit secara langsung sebelum membeli.',
   },
   {
-    icon: '🚚',
+    icon: 'truck' as const,
     title: 'Pengiriman Fleksibel',
     desc: 'Menyesuaikan ukuran bibit dan lokasi tujuan.',
   },
@@ -40,7 +42,9 @@ const alasan = [
     {
       alasan.map((item) => (
         <div class="alasan-card">
-          <div class="alasan-icon" aria-hidden="true">{item.icon}</div>
+          <div class="alasan-icon" aria-hidden="true">
+            <Icon name={item.icon} size={19} />
+          </div>
           <div class="alasan-copy">
             <h3>{item.title}</h3>
             <p>{item.desc}</p>
@@ -84,10 +88,10 @@ const alasan = [
     flex-shrink: 0;
     border-radius: 10px;
     background: var(--color-mist);
+    color: var(--color-leaf-dark);
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 18px;
   }
 
   .alasan-card h3 {

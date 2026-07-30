@@ -6,6 +6,7 @@
  * tetap ringkas berdampingan dengan DokumentasiPreview.
  */
 import { getCollection } from 'astro:content';
+import Icon from '../Icon.astro';
 
 const semuaArtikel = await getCollection('artikel');
 const terbaru = semuaArtikel
@@ -29,7 +30,7 @@ const terbaru = semuaArtikel
             </div>
           ) : (
             <div class="artikel-mini-cover artikel-mini-cover-emoji">
-              <span aria-hidden="true">🌱</span>
+              <Icon name="leaf" size={22} />
             </div>
           )}
           <div class="artikel-mini-body">
@@ -92,8 +93,8 @@ const terbaru = semuaArtikel
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 26px;
-    opacity: 0.6;
+    color: var(--color-leaf-dark);
+    opacity: 0.5;
   }
 
   .artikel-mini-body {

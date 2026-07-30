@@ -1,43 +1,201 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import PageIntro from '../components/PageIntro.astro';
+import GaleriGrid from '../components/GaleriGrid.astro';
 import WhatsAppButton from '../components/WhatsAppButton.astro';
+
+/**
+ * Dokumentasi pengiriman — pakai foto asli yang sudah ada di
+ * /public/images/dokumentasi (bukan video, situs belum punya video).
+ * Sinkron dengan preview di homepage (DokumentasiPreview.astro), tapi
+ * di sini ditampilkan lengkap dengan keterangan lebih detail per foto.
+ */
+const dokumentasi = [
+  {
+    image: '/images/dokumentasi/kirim-semarang.webp',
+    label: 'Kirim ke Semarang',
+    desc: 'Pengiriman bibit jambu, kelengkeng, mangga, pucuk merah, dan palem ke Semarang.',
+  },
+  {
+    image: '/images/dokumentasi/kirim-kuningan.webp',
+    label: 'Terkirim ke Kuningan',
+    desc: 'Bibit alpukat dan durian terkirim aman ke Kuningan, Jawa Barat.',
+  },
+  {
+    image: '/images/dokumentasi/kirim-kelapa-gading-kuning.webp',
+    label: 'Muat Bibit Kelapa Gading Kuning',
+    desc: 'Proses muat bibit kelapa gading kuning sebelum dikirim ke pembeli.',
+  },
+  {
+    image: '/images/dokumentasi/dongkel-kelapa-gading-kuning.webp',
+    label: 'Dongkel Kelapa Gading Kuning',
+    desc: 'Proses dongkel/bongkar bibit kelapa gading kuning dari lahan nursery.',
+  },
+  {
+    image: '/images/dokumentasi/packing-jabon.webp',
+    label: 'Packing Bibit Jabon',
+    desc: 'Bibit jabon dikemas rapi sebelum dikirim ke lokasi tujuan.',
+  },
+  {
+    image: '/images/dokumentasi/pengunjung-pucuk-merah.webp',
+    label: 'Kunjungan & Pucuk Merah',
+    desc: 'Pengunjung nursery melihat langsung koleksi bibit pucuk merah.',
+  },
+];
+
+const stats = [
+  { label: 'Dokumentasi Pengiriman', value: `${dokumentasi.length}+` },
+  { label: 'Wilayah Terjangkau', value: 'Jawa, Bali, Sumatera & sekitarnya' },
+  { label: 'Cara Kirim', value: 'Ekspedisi & ambil sendiri di nursery' },
+];
 ---
 
 <Layout
   title="Dokumentasi Pengiriman — Ardelia Bibit"
-  description="Dokumentasi proses pengemasan dan pengiriman bibit dari Ardelia Bibit. Halaman ini sedang disiapkan."
+  description="Lihat dokumentasi asli proses pengemasan dan pengiriman bibit Ardelia Bibit ke berbagai daerah di Indonesia — dikemas rapi dan aman sampai tujuan."
   breadcrumbs={[{ name: 'Dokumentasi', path: '/dokumentasi' }]}
 >
   <PageIntro
     eyebrow="Dokumentasi"
-    title="Dokumentasi Pengiriman"
-    subtitle="Halaman ini sedang kami siapkan. Sementara itu, tanyakan langsung soal proses pengemasan dan pengiriman bibit lewat WhatsApp."
+    title="Dokumentasi Pengiriman Bibit"
+    subtitle="Beberapa dokumentasi asli proses pengemasan dan pengiriman bibit kami ke berbagai daerah — supaya Anda tahu bibit dikemas dan dikirim dengan cara yang aman."
   />
 
-  <section class="placeholder-section">
-    <div class="wrap placeholder-inner">
-      <p class="placeholder-note">Konten sedang disiapkan.</p>
-      <WhatsAppButton message="Halo Ardelia Bibit, saya mau tanya soal dokumentasi pengiriman bibit" label="Tanya via WhatsApp" />
+  <section class="dok-stats">
+    <div class="wrap dok-stats-grid">
+      {
+        stats.map((item) => (
+          <div class="dok-stat">
+            <b>{item.value}</b>
+            <span>{item.label}</span>
+          </div>
+        ))
+      }
+    </div>
+  </section>
+
+  <section class="dok-gallery">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Bukti Kirim</p>
+        <h2>Dokumentasi Terbaru</h2>
+        <p>
+          Foto asli dari proses pengemasan hingga pengiriman bibit —
+          dokumentasi ini terus kami tambahkan seiring pengiriman berjalan.
+        </p>
+      </div>
+
+      <GaleriGrid tiles={dokumentasi.map((d) => ({ image: d.image, label: d.label, alt: d.label }))} />
+
+      <div class="dok-desc-list">
+        {
+          dokumentasi.map((item) => (
+            <p><b>{item.label}.</b> {item.desc}</p>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="dok-cta-section">
+    <div class="wrap dok-cta-inner">
+      <div>
+        <h2>Mau Kirim ke Daerah Anda?</h2>
+        <p>Tanyakan ketersediaan bibit dan estimasi ongkos kirim ke daerah Anda langsung lewat WhatsApp.</p>
+      </div>
+      <WhatsAppButton
+        message="Halo Ardelia Bibit, saya mau tanya soal pengiriman bibit ke daerah saya"
+        label="Tanya Pengiriman"
+      />
     </div>
   </section>
 </Layout>
 
 <style>
-  .placeholder-section {
-    padding: 56px 0 72px;
+  .dok-stats {
+    padding: 40px 0 8px;
   }
 
-  .placeholder-inner {
+  .dok-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
     text-align: center;
+  }
+
+  .dok-stat {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    gap: 18px;
+    gap: 4px;
+    padding: 18px;
+    background: var(--color-mist);
+    border-radius: var(--radius);
   }
 
-  .placeholder-note {
+  .dok-stat b {
+    font-family: var(--font-display);
+    font-size: 20px;
+    color: var(--color-teal-dark);
+  }
+
+  .dok-stat span {
+    font-size: 12.5px;
     color: var(--color-charcoal-soft);
-    font-size: 15px;
+  }
+
+  .dok-desc-list {
+    margin-top: 28px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px 24px;
+  }
+
+  .dok-desc-list p {
+    font-size: 13.5px;
+    line-height: 1.6;
+    color: var(--color-charcoal-soft);
+  }
+
+  .dok-desc-list b {
+    color: var(--color-charcoal);
+  }
+
+  .dok-cta-section {
+    background: var(--color-teal-dark);
+  }
+
+  .dok-cta-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+
+  .dok-cta-inner h2 {
+    color: #fff;
+    font-size: clamp(20px, 2.4vw, 26px);
+    margin-bottom: 6px;
+  }
+
+  .dok-cta-inner p {
+    color: rgba(255, 255, 255, 0.75);
+    font-size: 14px;
+    max-width: 420px;
+  }
+
+  @media (max-width: 720px) {
+    .dok-stats-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .dok-desc-list {
+      grid-template-columns: 1fr;
+    }
+
+    .dok-cta-inner {
+      flex-direction: column;
+      text-align: center;
+    }
   }
 </style>

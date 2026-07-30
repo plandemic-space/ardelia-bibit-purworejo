@@ -29,26 +29,29 @@ const year = new Date().getFullYear();
       </div>
 
       <div>
-        <h2>Menu</h2>
+        <p class="footer-heading">Menu</p>
         <ul>
           <li><a href="/katalog">Katalog Bibit</a></li>
           <li><a href="/cara-beli">Cara Beli</a></li>
           <li><a href="/artikel">Artikel</a></li>
           <li><a href="/dokumentasi">Dokumentasi Pengiriman</a></li>
           <li><a href="/tentang">Tentang Kami</a></li>
+          <li><a href="/kontak">Kontak</a></li>
         </ul>
       </div>
 
       <div>
-        <h2>Kontak</h2>
+        <p class="footer-heading">Kontak</p>
         <ul class="footer-contact">
           <li>
             <Icon name="phone" size={18} />
-            {site.contact.whatsappDisplay}
+            <a href={`tel:+${site.contact.whatsappNumber}`}>{site.contact.whatsappDisplay}</a>
           </li>
           <li>
             <Icon name="map-pin" size={18} />
-            Dsn. Ngemplak, {site.contact.address.district}, {site.contact.address.regency}, {site.contact.address.province}
+            <a href={site.contact.googleMapsUrl} target="_blank" rel="noopener">
+              Dsn. Ngemplak, {site.contact.address.district}, {site.contact.address.regency}, {site.contact.address.province}
+            </a>
           </li>
         </ul>
         <p class="footer-cta">
@@ -118,7 +121,7 @@ const year = new Date().getFullYear();
     color: var(--color-leaf);
   }
 
-  h2 {
+  .footer-heading {
     font-family: var(--font-body);
     font-size: 14px;
     font-weight: 700;
@@ -154,6 +157,15 @@ const year = new Date().getFullYear();
     font-size: 14px;
     color: rgba(255, 255, 255, 0.72);
     line-height: 1.5;
+  }
+
+  .footer-contact a {
+    color: inherit;
+    transition: color 0.15s;
+  }
+
+  .footer-contact a:hover {
+    color: var(--color-leaf);
   }
 
   .footer-contact :global(svg) {
