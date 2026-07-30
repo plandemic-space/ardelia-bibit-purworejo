@@ -52,7 +52,7 @@ const produkSampel = idTerkurasi
     <div class="preview-grid" data-preview-grid>
       {
         produkSampel.map((item) => (
-          <div class="preview-item" data-grup={item!.data.grup}>
+          <div class="preview-item" data-grup={item!.data.grup} data-id={item!.id}>
             <ProdukCard
               nama={item!.data.nama}
               ukuran={item!.data.ukuran}
@@ -78,7 +78,12 @@ const produkSampel = idTerkurasi
 
   .katalog-head {
     max-width: 640px;
-    margin-bottom: 24px;
+    margin: 0 auto 24px;
+    text-align: center;
+  }
+
+  .katalog-head .eyebrow {
+    justify-content: center;
   }
 
   .katalog-head h2 {
@@ -89,6 +94,7 @@ const produkSampel = idTerkurasi
   .filter-bar {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
     gap: 10px;
     margin-bottom: 26px;
   }
@@ -168,24 +174,53 @@ const produkSampel = idTerkurasi
   // Filter ringan khusus preview homepage (independen dari filter di /katalog)
   const chips = document.querySelectorAll<HTMLButtonElement>('[data-filter-bar] [data-filter]');
   const items = document.querySelectorAll<HTMLElement>('[data-preview-grid] [data-grup]');
+  const JUMLAH_TAMPIL_SEMUA = 6;
+
+  // Acak urutan (Fisher-Yates) supaya varian yang tampil di tab "Semua"
+  // berbeda-beda setiap kali halaman dimuat ulang.
+  function acakArray<T>(arr: T[]): T[] {
+    const hasil = [...arr];
+    for (let i = hasil.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [hasil[i], hasil[j]] = [hasil[j], hasil[i]];
+    }
+    return hasil;
+  }
+
+  function tampilkanSemuaAcak() {
+    const acak = acakArray(Array.from(items));
+    acak.forEach((item, i) => {
+      item.style.display = i < JUMLAH_TAMPIL_SEMUA ? '' : 'none';
+    });
+  }
+
+  function tampilkanKategori(slug: string) {
+    let visibleCount = 0;
+    items.forEach((item) => {
+      const match = item.dataset.grup === slug;
+      item.style.display = match ? '' : 'none';
+      if (match) visibleCount++;
+    });
+
+    // Fail-safe: jangan sampai grid kosong total kalau ada mismatch data.
+    if (visibleCount === 0) {
+      items.forEach((item) => {
+        item.style.display = '';
+      });
+    }
+  }
+
+  // Tampilan awal: tab "Semua" dengan 6 varian acak.
+  tampilkanSemuaAcak();
 
   chips.forEach((chip) => {
     chip.addEventListener('click', () => {
       const slug = chip.dataset.filter ?? 'semua';
-      let visibleCount = 0;
-      items.forEach((item) => {
-        const match = slug === 'semua' || item.dataset.grup === slug;
-        item.style.display = match ? '' : 'none';
-        if (match) visibleCount++;
-      });
-
-      // Fail-safe: jangan sampai grid kosong total kalau ada mismatch data.
-      if (visibleCount === 0) {
-        items.forEach((item) => {
-          item.style.display = '';
-        });
+      if (slug === 'semua') {
+        tampilkanSemuaAcak();
+      } else {
+        tampilkanKategori(slug);
       }
-
       chips.forEach((c) => c.classList.toggle('is-active', c === chip));
     });
   });

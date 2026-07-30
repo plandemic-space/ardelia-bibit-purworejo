@@ -3,23 +3,33 @@ import WhatsAppButton from '../WhatsAppButton.astro';
 ---
 
 <section class="closing">
-  <div class="closing-bg">
-    <img src="/images/owner/owner-yarohim-1.webp" alt="" aria-hidden="true" loading="lazy" decoding="async" />
-  </div>
-  <div class="wrap closing-inner">
-    <div class="closing-text">
-      <h2>Masih Bingung Memilih Bibit?</h2>
-      <p>Ceritakan lokasi dan kebutuhan Anda, kami bantu memilih bibit yang sesuai.</p>
+  <div class="wrap">
+    <div class="closing-card">
+      <div class="closing-bg">
+        <img src="/images/owner/owner-yarohim-1.webp" alt="" aria-hidden="true" loading="lazy" decoding="async" />
+      </div>
+      <div class="closing-inner">
+        <div class="closing-text">
+          <h2>Masih Bingung Memilih Bibit?</h2>
+          <p>Ceritakan lokasi dan kebutuhan Anda, kami bantu memilih bibit yang sesuai.</p>
+        </div>
+        <WhatsAppButton label="Chat WhatsApp Sekarang" variant="outline" class="btn-on-dark" />
+      </div>
     </div>
-    <WhatsAppButton label="Chat WhatsApp Sekarang" variant="outline" class="btn-on-dark" />
   </div>
 </section>
 
 <style>
   .closing {
+    background: var(--color-ivory);
+    padding: 40px 0 56px;
+  }
+
+  .closing-card {
     position: relative;
-    background: var(--color-teal-dark);
+    border-radius: var(--radius);
     overflow: hidden;
+    background: var(--color-teal-dark);
   }
 
   .closing-bg {
@@ -48,6 +58,7 @@ import WhatsAppButton from '../WhatsAppButton.astro';
     justify-content: space-between;
     gap: 24px;
     flex-wrap: wrap;
+    padding: 40px 44px;
   }
 
   .closing-text h2 {
@@ -77,6 +88,7 @@ import WhatsAppButton from '../WhatsAppButton.astro';
     .closing-inner {
       flex-direction: column;
       text-align: center;
+      padding: 32px 28px;
     }
   }
 </style>

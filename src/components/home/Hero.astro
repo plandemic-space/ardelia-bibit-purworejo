@@ -81,17 +81,18 @@ const collageTiles = [
     margin-bottom: 28px;
   }
 
-  /* --- Kolase 4 foto: Nursery besar di kiri, Owner+Produk ditumpuk kanan, Kirim Bibit jadi strip penuh di bawah --- */
+  /* --- Kolase 4 foto: 4 kotak sejajar sama besar (2x2), sesuai mockup --- */
   .hero-collage {
     position: relative;
     display: grid;
-    grid-template-columns: 1.1fr 1fr;
-    grid-template-rows: 168px 168px 120px;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
     gap: 14px;
   }
 
   .collage-tile {
     position: relative;
+    aspect-ratio: 1 / 1;
     border-radius: 16px;
     overflow: hidden;
     box-shadow: 0 14px 32px rgba(14, 53, 53, 0.18);
@@ -102,27 +103,8 @@ const collageTiles = [
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: center top;
     display: block;
-  }
-
-  .tile-nursery {
-    grid-column: 1;
-    grid-row: 1 / 3;
-  }
-
-  .tile-owner {
-    grid-column: 2;
-    grid-row: 1;
-  }
-
-  .tile-produk {
-    grid-column: 2;
-    grid-row: 2;
-  }
-
-  .tile-kirim {
-    grid-column: 1 / 3;
-    grid-row: 3;
   }
 
   .collage-caption {
@@ -140,17 +122,6 @@ const collageTiles = [
   @media (max-width: 880px) {
     .hero-grid {
       grid-template-columns: 1fr;
-    }
-
-    .hero-collage {
-      grid-template-rows: 140px 140px 100px;
-    }
-  }
-
-  @media (max-width: 520px) {
-    .hero-collage {
-      grid-template-columns: 1fr 1fr;
-      grid-template-rows: 120px 120px 90px;
     }
   }
 </style>

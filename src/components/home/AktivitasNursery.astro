@@ -14,22 +14,22 @@
   </div>
 
   <div class="aktivitas-grid">
-    <figure class="aktivitas-big">
-      <img src="/images/owner/owner-yarohim-2.webp" alt="Pak Yarohim merawat bibit di nursery" loading="lazy" decoding="async" />
-      <figcaption>Pak Yarohim merawat bibit yang siap dikirim</figcaption>
+    <figure class="aktivitas-item">
+      <img src="/images/owner/owner-yarohim-4.webp" alt="Pak Yarohim memilih bibit di nursery" loading="lazy" decoding="async" />
+      <figcaption>Pak Yarohim memilih bibit</figcaption>
     </figure>
 
-    <figure class="aktivitas-small">
+    <figure class="aktivitas-item">
       <img src="/images/galeri/rak-pembibitan.webp" alt="Rak pembibitan di nursery" loading="lazy" decoding="async" />
       <figcaption>Merawat bibit</figcaption>
     </figure>
 
-    <figure class="aktivitas-small">
+    <figure class="aktivitas-item">
       <img src="/images/galeri/proses-packing.webp" alt="Proses packing bibit" loading="lazy" decoding="async" />
       <figcaption>Packing bibit</figcaption>
     </figure>
 
-    <figure class="aktivitas-small">
+    <figure class="aktivitas-item">
       <img src="/images/galeri/kunjungan-pembeli.webp" alt="Pengunjung di nursery" loading="lazy" decoding="async" />
       <figcaption>Pengunjung nursery</figcaption>
     </figure>
@@ -39,6 +39,11 @@
 <style>
   .col-head {
     margin-bottom: 20px;
+    text-align: center;
+  }
+
+  .col-head .eyebrow {
+    justify-content: center;
   }
 
   .col-head h2 {
@@ -48,36 +53,25 @@
 
   .aktivitas-grid {
     display: grid;
-    grid-template-columns: 1.4fr 1fr;
-    grid-template-rows: repeat(3, auto);
+    grid-template-columns: repeat(2, 1fr);
     gap: 10px;
   }
 
   .aktivitas-grid figure {
     margin: 0;
     position: relative;
-    border-radius: var(--radius);
+    aspect-ratio: 1 / 1;
+    border-radius: var(--radius-sm);
     overflow: hidden;
     background: var(--color-mist);
-  }
-
-  .aktivitas-big {
-    grid-row: 1 / span 3;
   }
 
   .aktivitas-grid img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: center top;
     display: block;
-  }
-
-  .aktivitas-big img {
-    min-height: 220px;
-  }
-
-  .aktivitas-small img {
-    min-height: 68px;
   }
 
   .aktivitas-grid figcaption {
@@ -94,13 +88,7 @@
 
   @media (max-width: 480px) {
     .aktivitas-grid {
-      grid-template-columns: 1fr 1fr;
-      grid-template-rows: auto;
-    }
-
-    .aktivitas-big {
-      grid-column: 1 / span 2;
-      grid-row: auto;
+      gap: 8px;
     }
   }
 </style>
