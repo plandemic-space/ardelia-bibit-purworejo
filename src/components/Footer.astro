@@ -23,7 +23,7 @@ const facebookLabel = site.name;
       <div>
         <p class="footer-heading">Kontak</p>
         <ul class="footer-list">
-          <li><a href={`tel:+${site.contact.whatsappNumber}`}>WhatsApp: {site.contact.whatsappDisplay}</a></li>
+          <li><a href={site.contact.whatsappLink} target="_blank" rel="noopener">WhatsApp: {site.contact.whatsappDisplay}</a></li>
           <li><a href={site.social.tiktok} target="_blank" rel="noopener">TikTok: {tiktokHandle}</a></li>
           <li><a href={site.social.facebook} target="_blank" rel="noopener">Facebook: {facebookLabel}</a></li>
           <li>
