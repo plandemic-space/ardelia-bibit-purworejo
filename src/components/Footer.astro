@@ -1,9 +1,12 @@
 ---
-import Icon from './Icon.astro';
-import WhatsAppButton from './WhatsAppButton.astro';
 import { site } from '../data/site';
 
 const year = new Date().getFullYear();
+
+// Turunkan handle TikTok & nama halaman Facebook dari URL di site.ts,
+// biar tetap satu sumber data (bukan hardcode ulang di sini).
+const tiktokHandle = `@${new URL(site.social.tiktok).pathname.replace(/^\/@?/, '')}`;
+const facebookLabel = site.name;
 ---
 
 <footer class="site-footer">
@@ -15,53 +18,34 @@ const year = new Date().getFullYear();
           <span>{site.name}</span>
         </div>
         <p class="footer-tagline">{site.tagline}</p>
-        <div class="footer-social">
-          <a href={site.social.youtube} target="_blank" rel="noopener" aria-label="YouTube Ardelia Bibit">
-            <Icon name="youtube" size={20} />
-          </a>
-          <a href={site.social.facebook} target="_blank" rel="noopener" aria-label="Facebook Ardelia Bibit">
-            <Icon name="facebook" size={20} />
-          </a>
-          <a href={site.social.tiktok} target="_blank" rel="noopener" aria-label="TikTok Ardelia Bibit">
-            <Icon name="tiktok" size={20} />
-          </a>
-        </div>
-      </div>
-
-      <div>
-        <p class="footer-heading">Menu</p>
-        <ul>
-          <li><a href="/katalog">Katalog Bibit</a></li>
-          <li><a href="/cara-beli">Cara Beli</a></li>
-          <li><a href="/artikel">Artikel</a></li>
-          <li><a href="/dokumentasi">Dokumentasi Pengiriman</a></li>
-          <li><a href="/tentang">Tentang Kami</a></li>
-          <li><a href="/kontak">Kontak</a></li>
-        </ul>
       </div>
 
       <div>
         <p class="footer-heading">Kontak</p>
-        <ul class="footer-contact">
+        <ul class="footer-list">
+          <li><a href={`tel:+${site.contact.whatsappNumber}`}>WhatsApp: {site.contact.whatsappDisplay}</a></li>
+          <li><a href={site.social.tiktok} target="_blank" rel="noopener">TikTok: {tiktokHandle}</a></li>
+          <li><a href={site.social.facebook} target="_blank" rel="noopener">Facebook: {facebookLabel}</a></li>
           <li>
-            <Icon name="phone" size={18} />
-            <a href={`tel:+${site.contact.whatsappNumber}`}>{site.contact.whatsappDisplay}</a>
-          </li>
-          <li>
-            <Icon name="map-pin" size={18} />
-            <a href={site.contact.googleMapsUrl} target="_blank" rel="noopener">
-              Dsn. Ngemplak, {site.contact.address.district}, {site.contact.address.regency}, {site.contact.address.province}
-            </a>
+            <a href={site.contact.googleMapsUrl} target="_blank" rel="noopener">Lihat lokasi di Google Maps →</a>
           </li>
         </ul>
-        <p class="footer-cta">
-          <WhatsAppButton size="sm" />
+      </div>
+
+      <div>
+        <p class="footer-heading">Kirim Dari</p>
+        <p class="footer-address">
+          {site.contact.address.street},<br />
+          {site.contact.address.district}, {site.contact.address.regency},<br />
+          {site.contact.address.province} {site.contact.address.postalCode}
         </p>
+        <p class="footer-note">Chat WA dibalas cepat setiap hari</p>
       </div>
     </div>
 
     <div class="footer-bottom">
       <span>&copy; {year} {site.name}. Semua hak cipta dilindungi.</span>
+      <span>Melayani sepenuh hati dari Purworejo</span>
     </div>
   </div>
 </footer>
@@ -75,7 +59,7 @@ const year = new Date().getFullYear();
 
   .footer-grid {
     display: grid;
-    grid-template-columns: 1.3fr 0.9fr 1fr 1fr;
+    grid-template-columns: 1.2fr 1fr 1fr;
     gap: 32px;
     padding-bottom: 40px;
     border-bottom: 1px solid rgba(255, 255, 255, 0.14);
@@ -104,34 +88,19 @@ const year = new Date().getFullYear();
     line-height: 1.6;
     color: rgba(255, 255, 255, 0.68);
     max-width: 320px;
-    margin-bottom: 20px;
-  }
-
-  .footer-social {
-    display: flex;
-    gap: 14px;
-  }
-
-  .footer-social a {
-    color: rgba(255, 255, 255, 0.8);
-    transition: color 0.15s;
-  }
-
-  .footer-social a:hover {
-    color: var(--color-leaf);
   }
 
   .footer-heading {
     font-family: var(--font-body);
-    font-size: 14px;
+    font-size: 13px;
     font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 0.05em;
-    color: #fff;
+    letter-spacing: 0.08em;
+    color: var(--color-burnt);
     margin: 0 0 16px;
   }
 
-  ul {
+  .footer-list {
     list-style: none;
     margin: 0;
     padding: 0;
@@ -140,42 +109,27 @@ const year = new Date().getFullYear();
     gap: 10px;
   }
 
-  ul li a {
+  .footer-list a {
     font-size: 14.5px;
-    color: rgba(255, 255, 255, 0.72);
+    color: rgba(255, 255, 255, 0.78);
     transition: color 0.15s;
   }
 
-  ul li a:hover {
+  .footer-list a:hover {
     color: var(--color-leaf);
   }
 
-  .footer-contact li {
-    display: flex;
-    align-items: flex-start;
-    gap: 8px;
-    font-size: 14px;
-    color: rgba(255, 255, 255, 0.72);
-    line-height: 1.5;
+  .footer-address {
+    font-size: 14.5px;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.78);
+    margin: 0 0 16px;
   }
 
-  .footer-contact a {
-    color: inherit;
-    transition: color 0.15s;
-  }
-
-  .footer-contact a:hover {
-    color: var(--color-leaf);
-  }
-
-  .footer-contact :global(svg) {
-    flex-shrink: 0;
-    margin-top: 2px;
-    color: var(--color-leaf);
-  }
-
-  .footer-cta {
-    margin-top: 18px;
+  .footer-note {
+    font-size: 13.5px;
+    color: rgba(255, 255, 255, 0.55);
+    margin: 0;
   }
 
   .footer-bottom {
