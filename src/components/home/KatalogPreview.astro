@@ -5,38 +5,38 @@ import Icon from '../Icon.astro';
 import { kategoriBibit } from '../../data/nav';
 
 /**
- * Preview katalog di homepage — mekanisme filter chip ala jualpohon.com
- * (referensi: mockup v7, sudah direview & di-acc). Cuma tampilkan sampel
- * produk (bukan 48 sekaligus) supaya homepage tetap ringan & tidak
- * bertele-tele; link "Lihat Katalog Lengkap" di bawah untuk sisanya.
+ * Preview katalog di homepage — mekanisme filter chip ala jualpohon.com.
+ *
+ * Sistem "rolling": setiap kategori punya pool produk (semua varietas di
+ * grup itu yang sudah punya foto asli). Di client-side:
+ * - Tab "Semua" -> 1 produk dipilih ACAK dari tiap kategori (6 kategori =
+ *   6 kartu), supaya kombinasinya bervariasi tiap kali halaman dimuat,
+ *   tapi tetap mewakili keenam kategori.
+ * - Tab kategori (mis. "Bibit Buah") -> tampilkan 6 produk ACAK dari pool
+ *   kategori itu. Kalau pool kategori itu <= 6 varietas, semuanya tampil
+ *   apa adanya (tidak ada yang perlu dirolling) — otomatis mulai rolling
+ *   begitu variestasnya bertambah jadi 7+.
+ *
+ * Semua produk (bukan cuma sampel) dirender ke DOM (hidden by default)
+ * supaya pool rolling-nya benar-benar mencakup seluruh varietas per
+ * kategori; link "Lihat Katalog Lengkap" tetap ada untuk yang mau lihat
+ * semuanya sekaligus dalam 1 halaman.
  */
 const semuaProduk = await getCollection('produk');
 const totalVarietas = semuaProduk.length;
 
-const jumlahPerGrup = (slug: string) => semuaProduk.filter((p) => p.data.grup === slug).length;
+const poolPerGrup: Record<string, typeof semuaProduk> = {};
+for (const kat of kategoriBibit) {
+  poolPerGrup[kat.slug] = semuaProduk.filter(
+    (p) => p.data.grup === kat.slug && p.data.fotoTersedia && p.data.foto
+  );
+}
 
-// Sampel terkurasi per grup, urut sesuai kategoriBibit (buah → hias → kayu
-// → rempah → perkebunan → pakan ternak). Item PERTAMA di tiap grup dipakai
-// sebagai wakil tetap di tab "Semua" (bukan acak) — supaya urutannya selalu
-// konsisten: foto 1 = buah, foto 2 = hias, dst. Sengaja tidak memakai foto
-// yang sudah dipakai KategoriPreview di atasnya, biar tidak dobel.
-const idTerkurasi = [
-  'durian-bawor', 'durian-musang-king', 'mangga-kiojay', 'manggis',
-  'pucuk-merah', 'palem-merah', 'kelapa-gading-kuning',
-  'jati', 'mahoni', 'jabon',
-  'jeruk-purut', 'cabe-jawa',
-  'lada-perdu',
-  'indigofera',
-];
-const produkSampel = idTerkurasi
-  .map((id) => semuaProduk.find((p) => p.id === id))
-  .filter((p): p is NonNullable<typeof p> => Boolean(p));
+const jumlahPerGrup = (slug: string) => poolPerGrup[slug]?.length ?? 0;
 
-// Satu wakil tetap per grup, urut sesuai kategoriBibit — inilah yang tampil
-// duluan di tab "Semua".
-const wakilPerGrup = kategoriBibit
-  .map((kat) => produkSampel.find((p) => p.data.grup === kat.slug))
-  .filter((p): p is NonNullable<typeof p> => Boolean(p));
+// Urut sesuai kategoriBibit (buah -> hias -> kayu -> rempah -> perkebunan ->
+// pakan ternak) supaya urutan tampil di grid selalu konsisten per kategori.
+const semuaItemUntukRender = kategoriBibit.flatMap((kat) => poolPerGrup[kat.slug] ?? []);
 ---
 
 <section class="katalog-preview">
@@ -59,20 +59,19 @@ const wakilPerGrup = kategoriBibit
       }
     </div>
 
-    <div class="preview-grid" data-preview-grid>
+    <div
+      class="preview-grid"
+      data-preview-grid
+      data-grup-order={JSON.stringify(kategoriBibit.map((k) => k.slug))}
+    >
       {
-        produkSampel.map((item) => (
-          <div
-            class="preview-item"
-            data-grup={item!.data.grup}
-            data-id={item!.id}
-            data-wakil={wakilPerGrup.some((w) => w!.id === item!.id) ? 'true' : 'false'}
-          >
+        semuaItemUntukRender.map((item) => (
+          <div class="preview-item" data-grup={item.data.grup} data-id={item.id} style="display:none">
             <ProdukCard
-              nama={item!.data.nama}
-              perluKonfirmasi={item!.data.perluKonfirmasi}
-              foto={item!.data.foto}
-              placeholderEmoji={item!.data.placeholderEmoji}
+              nama={item.data.nama}
+              perluKonfirmasi={item.data.perluKonfirmasi}
+              foto={item.data.foto}
+              placeholderEmoji={item.data.placeholderEmoji}
             />
           </div>
         ))
@@ -185,42 +184,72 @@ const wakilPerGrup = kategoriBibit
 </style>
 
 <script>
-  // Filter ringan khusus preview homepage (independen dari filter di /katalog)
+  // Filter + "rolling" ringan khusus preview homepage (independen dari
+  // filter lengkap di /katalog).
   const chips = document.querySelectorAll<HTMLButtonElement>('[data-filter-bar] [data-filter]');
-  const items = document.querySelectorAll<HTMLElement>('[data-preview-grid] [data-grup]');
+  const grid = document.querySelector<HTMLElement>('[data-preview-grid]');
+  const items = Array.from(document.querySelectorAll<HTMLElement>('[data-preview-grid] [data-grup]'));
 
-  function tampilkanWakilTetap() {
-    // Tab "Semua": satu produk wakil per kategori, urutannya tetap
-    // (buah → hias → kayu → rempah → perkebunan → pakan ternak), tidak acak.
+  const grupOrder: string[] = grid?.dataset.grupOrder ? JSON.parse(grid.dataset.grupOrder) : [];
+
+  const MAKS_TAMPIL = 6;
+
+  function acak<T>(arr: T[]): T[] {
+    const hasil = [...arr];
+    for (let i = hasil.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [hasil[i], hasil[j]] = [hasil[j], hasil[i]];
+    }
+    return hasil;
+  }
+
+  function sembunyikanSemua() {
     items.forEach((item) => {
-      item.style.display = item.dataset.wakil === 'true' ? '' : 'none';
+      item.style.display = 'none';
+    });
+  }
+
+  function tampilkanSemua() {
+    // Tab "Semua": 1 produk dipilih ACAK dari tiap kategori (rolling),
+    // urutan kartu tetap ikut urutan kategori (buah -> hias -> ... ).
+    sembunyikanSemua();
+    grupOrder.forEach((slug) => {
+      const poolKategori = items.filter((item) => item.dataset.grup === slug);
+      if (poolKategori.length === 0) return;
+      const pilihan = poolKategori[Math.floor(Math.random() * poolKategori.length)];
+      pilihan.style.display = '';
     });
   }
 
   function tampilkanKategori(slug: string) {
-    let visibleCount = 0;
-    items.forEach((item) => {
-      const match = item.dataset.grup === slug;
-      item.style.display = match ? '' : 'none';
-      if (match) visibleCount++;
-    });
+    const poolKategori = items.filter((item) => item.dataset.grup === slug);
+    sembunyikanSemua();
 
-    // Fail-safe: jangan sampai grid kosong total kalau ada mismatch data.
-    if (visibleCount === 0) {
+    if (poolKategori.length === 0) {
+      // Fail-safe: jangan sampai grid kosong total kalau ada mismatch data.
       items.forEach((item) => {
         item.style.display = '';
       });
+      return;
     }
+
+    // <= 6 varietas: tampilkan semuanya apa adanya (tidak perlu dirolling).
+    // > 6 varietas: pilih 6 ACAK dari pool (rolling), otomatis aktif begitu
+    // varietas kategori itu bertambah jadi 7+.
+    const tampil = poolKategori.length <= MAKS_TAMPIL ? poolKategori : acak(poolKategori).slice(0, MAKS_TAMPIL);
+    tampil.forEach((item) => {
+      item.style.display = '';
+    });
   }
 
-  // Tampilan awal: tab "Semua" dengan 1 wakil tetap per kategori.
-  tampilkanWakilTetap();
+  // Tampilan awal: tab "Semua", rolling 1 produk acak per kategori.
+  tampilkanSemua();
 
   chips.forEach((chip) => {
     chip.addEventListener('click', () => {
       const slug = chip.dataset.filter ?? 'semua';
       if (slug === 'semua') {
-        tampilkanWakilTetap();
+        tampilkanSemua();
       } else {
         tampilkanKategori(slug);
       }
