@@ -5,7 +5,6 @@ import WhatsAppButton from '../components/WhatsAppButton.astro';
 import Icon from '../components/Icon.astro';
 import { site } from '../data/site';
 
-const mapEmbedSrc = `https://www.google.com/maps?q=${encodeURIComponent(site.contact.address.full)}&z=15&output=embed`;
 const telHref = `tel:+${site.contact.whatsappNumber}`;
 
 const kunjungiPoin = [
@@ -90,19 +89,53 @@ const kunjungiPoin = [
       </div>
 
       <div class="kontak-map">
-        <iframe
-          src={mapEmbedSrc}
-          width="100%"
-          height="100%"
-          style="border:0;"
-          allowfullscreen
-          loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade"
-          title={`Peta lokasi ${site.name}`}
-        ></iframe>
+        <a class="map-open-link" href={site.contact.googleMapsUrl} target="_blank" rel="noopener">
+          Buka di Google Maps <Icon name="arrow-up" size={14} class="map-open-icon" />
+        </a>
+        <div
+          id="peta-lokasi"
+          data-lat={site.contact.coordinates.lat}
+          data-lng={site.contact.coordinates.lng}
+          data-nama={site.name}
+        >
+        </div>
       </div>
     </div>
   </section>
+
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+  <script is:inline src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+  <script is:inline>
+    // Peta custom (OpenStreetMap via Leaflet) — sengaja bukan Google Maps
+    // embed, supaya hanya menampilkan SATU pin (nursery kami sendiri) tanpa
+    // pin bisnis pesaing di sekitar yang ikut muncul di embed Google biasa.
+    (function () {
+      const el = document.getElementById('peta-lokasi');
+      if (!el || typeof L === 'undefined') return;
+
+      const lat = parseFloat(el.dataset.lat);
+      const lng = parseFloat(el.dataset.lng);
+      const nama = el.dataset.nama || 'Lokasi';
+
+      const map = L.map('peta-lokasi', {
+        scrollWheelZoom: false,
+      }).setView([lat, lng], 16);
+
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; OpenStreetMap contributors',
+        maxZoom: 19,
+      }).addTo(map);
+
+      const icon = L.divIcon({
+        className: 'peta-marker',
+        html: '<span></span>',
+        iconSize: [22, 22],
+        iconAnchor: [11, 11],
+      });
+
+      L.marker([lat, lng], { icon }).addTo(map).bindPopup(nama).openPopup();
+    })();
+  </script>
 </Layout>
 
 <style>
@@ -229,10 +262,50 @@ const kunjungiPoin = [
   }
 
   .kontak-map {
+    position: relative;
     min-height: 380px;
     border-radius: var(--radius);
     overflow: hidden;
     border: 1px solid var(--color-line);
+  }
+
+  #peta-lokasi {
+    width: 100%;
+    height: 100%;
+    min-height: 380px;
+    background: var(--color-mist);
+  }
+
+  .map-open-link {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    z-index: 500;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: #fff;
+    padding: 8px 12px;
+    border-radius: var(--radius-sm);
+    font-size: 12.5px;
+    font-weight: 600;
+    color: var(--color-teal-dark);
+    box-shadow: 0 4px 12px rgba(14, 53, 41, 0.18);
+  }
+
+  .map-open-link :global(.map-open-icon) {
+    transform: rotate(45deg);
+  }
+
+  :global(.peta-marker span) {
+    display: block;
+    width: 22px;
+    height: 22px;
+    border-radius: 50% 50% 50% 0;
+    background: var(--color-teal-dark);
+    transform: rotate(-45deg);
+    border: 2px solid #fff;
+    box-shadow: 0 2px 6px rgba(14, 53, 41, 0.4);
   }
 
   @media (max-width: 900px) {
