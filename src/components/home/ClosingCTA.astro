@@ -5,16 +5,14 @@ import WhatsAppButton from '../WhatsAppButton.astro';
 <section class="closing">
   <div class="wrap">
     <div class="closing-card">
-      <div class="closing-bg">
-        <img src="/images/owner/owner-yarohim-1.webp" alt="" aria-hidden="true" loading="lazy" decoding="async" />
-      </div>
-      <div class="closing-inner">
-        <div class="closing-text">
-          <h2>Masih Bingung Memilih Bibit?</h2>
-          <p>Ceritakan lokasi dan kebutuhan Anda, kami bantu memilih bibit yang sesuai.</p>
+      <div class="closing-text">
+        <span class="closing-icon" aria-hidden="true">🌱</span>
+        <div>
+          <h2>Masih Bingung Pilih Bibit?</h2>
+          <p>Chat WhatsApp, kami bantu pilihkan yang cocok.</p>
         </div>
-        <WhatsAppButton label="Chat WhatsApp Sekarang" variant="outline" size="sm" class="btn-on-dark" />
       </div>
+      <WhatsAppButton label="Chat WhatsApp Sekarang" variant="outline" size="sm" class="btn-on-dark" />
     </div>
   </div>
 </section>
@@ -22,73 +20,75 @@ import WhatsAppButton from '../WhatsAppButton.astro';
 <style>
   .closing {
     background: var(--color-ivory);
-    padding: 20px 0 28px;
+    padding: 12px 0 24px;
   }
 
   .closing-card {
-    position: relative;
-    border-radius: var(--radius);
-    overflow: hidden;
-    background: var(--color-teal-dark);
-  }
-
-  .closing-bg {
-    position: absolute;
-    inset: 0;
-  }
-
-  .closing-bg img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    opacity: 0.35;
-  }
-
-  .closing-bg::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(90deg, rgba(15, 51, 41, 0.96) 0%, rgba(15, 51, 41, 0.82) 100%);
-  }
-
-  .closing-inner {
-    position: relative;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 16px;
+    gap: 14px;
     flex-wrap: wrap;
-    padding: 18px 26px;
+    background: var(--color-teal-dark);
+    border-radius: var(--radius);
+    padding: 14px 22px;
+  }
+
+  .closing-text {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .closing-icon {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.12);
+    font-size: 16px;
   }
 
   .closing-text h2 {
-    font-size: clamp(15.5px, 1.6vw, 19px);
+    font-size: 15px;
     color: #fff;
-    max-width: 480px;
-    margin-bottom: 2px;
+    line-height: 1.3;
+    margin-bottom: 1px;
   }
 
   .closing-text p {
-    color: rgba(255, 255, 255, 0.75);
-    font-size: 12.5px;
-    max-width: 420px;
+    color: rgba(255, 255, 255, 0.72);
+    font-size: 12px;
+    white-space: nowrap;
   }
 
-  .closing-inner :global(.btn-on-dark) {
+  .closing-card :global(.btn-on-dark) {
+    flex-shrink: 0;
     border-color: rgba(255, 255, 255, 0.5);
     color: #fff;
   }
 
-  .closing-inner :global(.btn-on-dark:hover) {
+  .closing-card :global(.btn-on-dark:hover) {
     background: #fff;
     color: var(--color-teal-dark);
   }
 
-  @media (max-width: 780px) {
-    .closing-inner {
+  @media (max-width: 620px) {
+    .closing-card {
       flex-direction: column;
       text-align: center;
-      padding: 22px 20px;
+      padding: 20px 18px;
+    }
+
+    .closing-text {
+      flex-direction: column;
+    }
+
+    .closing-text p {
+      white-space: normal;
     }
   }
 </style>

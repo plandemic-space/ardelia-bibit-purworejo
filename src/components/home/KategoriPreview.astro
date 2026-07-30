@@ -1,13 +1,16 @@
 ---
 import { kategoriBibit } from '../../data/nav';
 
-/** Foto representatif per kategori — hanya pakai foto asli yang sudah ada. */
+/** Foto representatif per kategori — dipilih yang gaya framing-nya senada
+ * (fokus ke satu tanaman, background blur) supaya tidak ada yang terasa
+ * "ngganjel" dibanding yang lain. Sengaja beda dari foto yang dipakai di
+ * KatalogPreview di bawahnya, supaya tidak ada foto dobel di satu halaman. */
 const fotoPerKategori: Record<string, string> = {
-  'bibit-buah': '/images/produk/durian-musang-king.webp',
-  'tanaman-hias': '/images/produk/kelapa-gading-kuning.webp',
+  'bibit-buah': '/images/produk/alpukat-aligator.webp',
+  'tanaman-hias': '/images/produk/palem-kuning.webp',
   'pohon-kayu': '/images/produk/albasia-sengon.webp',
   rempah: '/images/produk/pala.webp',
-  perkebunan: '/images/produk/lada-perdu.webp',
+  perkebunan: '/images/produk/cengkeh-sansibar.webp',
   'pakan-ternak': '/images/produk/kaliandra.webp',
 };
 

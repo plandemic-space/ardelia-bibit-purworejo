@@ -76,58 +76,25 @@
     "fotoTersedia": true
   },
   {
-    "id": "sawo-black-sapote",
-    "nama": "Sawo Black Sapote",
+    "id": "mangga-kiojay",
+    "nama": "Mangga Kiojay",
     "grup": "bibit-buah",
-    "placeholderEmoji": "🍫"
+    "foto": "/images/produk/mangga-kiojay.webp",
+    "fotoTersedia": true
   },
   {
-    "id": "mangga",
-    "nama": "Mangga",
+    "id": "kelengkeng-itoh",
+    "nama": "Kelengkeng Itoh",
     "grup": "bibit-buah",
-    "placeholderEmoji": "🥭"
+    "foto": "/images/produk/kelengkeng-itoh.webp",
+    "fotoTersedia": true
   },
   {
-    "id": "kelengkeng",
-    "nama": "Kelengkeng",
+    "id": "nangka-madu",
+    "nama": "Nangka Madu",
     "grup": "bibit-buah",
-    "placeholderEmoji": "🍇"
-  },
-  {
-    "id": "nangka",
-    "nama": "Nangka",
-    "grup": "bibit-buah",
-    "placeholderEmoji": "🍐"
-  },
-  {
-    "id": "jeruk",
-    "nama": "Jeruk",
-    "grup": "bibit-buah",
-    "placeholderEmoji": "🍊"
-  },
-  {
-    "id": "kelapa",
-    "nama": "Kelapa",
-    "grup": "bibit-buah",
-    "placeholderEmoji": "🥥"
-  },
-  {
-    "id": "srikaya",
-    "nama": "Srikaya",
-    "grup": "bibit-buah",
-    "placeholderEmoji": "🍏"
-  },
-  {
-    "id": "duku",
-    "nama": "Duku",
-    "grup": "bibit-buah",
-    "placeholderEmoji": "🟡"
-  },
-  {
-    "id": "matoa",
-    "nama": "Matoa",
-    "grup": "bibit-buah",
-    "placeholderEmoji": "🌰"
+    "foto": "/images/produk/nangka-madu.webp",
+    "fotoTersedia": true
   },
   {
     "id": "pohon-kurma",
@@ -189,6 +156,13 @@
     "fotoTersedia": true
   },
   {
+    "id": "glodogan-tiang",
+    "nama": "Glodogan Tiang",
+    "grup": "tanaman-hias",
+    "foto": "/images/produk/glodogan-tiang.webp",
+    "fotoTersedia": true
+  },
+  {
     "id": "balsa",
     "nama": "Balsa",
     "grup": "pohon-kayu",
@@ -232,34 +206,11 @@
     "fotoTersedia": true
   },
   {
-    "id": "jahe",
-    "nama": "Jahe",
-    "grup": "rempah",
-    "placeholderEmoji": "🫚"
-  },
-  {
-    "id": "kunyit",
-    "nama": "Kunyit",
-    "grup": "rempah",
-    "placeholderEmoji": "🟠"
-  },
-  {
-    "id": "kencur",
-    "nama": "Kencur",
-    "grup": "rempah",
-    "placeholderEmoji": "🌾"
-  },
-  {
-    "id": "temulawak",
-    "nama": "Temulawak",
-    "grup": "rempah",
-    "placeholderEmoji": "🍠"
-  },
-  {
-    "id": "lengkuas",
-    "nama": "Lengkuas",
-    "grup": "rempah",
-    "placeholderEmoji": "🧄"
+    "id": "kayu-gaharu",
+    "nama": "Kayu Gaharu",
+    "grup": "pohon-kayu",
+    "foto": "/images/produk/kayu-gaharu.webp",
+    "fotoTersedia": true
   },
   {
     "id": "jeruk-purut",
@@ -269,37 +220,31 @@
     "fotoTersedia": true
   },
   {
-    "id": "dewandaru",
-    "nama": "Dewandaru",
-    "grup": "rempah",
-    "placeholderEmoji": "🍒"
-  },
-  {
     "id": "pala",
     "nama": "Pala",
     "grup": "rempah",
-    "perluKonfirmasi": true,
     "foto": "/images/produk/pala.webp",
     "fotoTersedia": true
   },
   {
-    "id": "kopi",
-    "nama": "Kopi",
-    "grup": "perkebunan",
-    "placeholderEmoji": "☕"
-  },
-  {
-    "id": "kakao",
-    "nama": "Kakao",
-    "grup": "perkebunan",
-    "placeholderEmoji": "🟤"
+    "id": "cabe-jawa",
+    "nama": "Cabe Jawa",
+    "grup": "rempah",
+    "foto": "/images/produk/cabe-jawa.webp",
+    "fotoTersedia": true
   },
   {
     "id": "lada-perdu",
     "nama": "Lada Perdu",
     "grup": "perkebunan",
-    "perluKonfirmasi": true,
     "foto": "/images/produk/lada-perdu.webp",
+    "fotoTersedia": true
+  },
+  {
+    "id": "cengkeh-sansibar",
+    "nama": "Cengkeh Sansibar",
+    "grup": "perkebunan",
+    "foto": "/images/produk/cengkeh-sansibar.webp",
     "fotoTersedia": true
   },
   {

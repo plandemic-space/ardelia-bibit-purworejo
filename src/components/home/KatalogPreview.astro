@@ -15,17 +15,27 @@ const totalVarietas = semuaProduk.length;
 
 const jumlahPerGrup = (slug: string) => semuaProduk.filter((p) => p.data.grup === slug).length;
 
-// Sampel terkurasi per grup — diprioritaskan yang sudah punya foto asli.
+// Sampel terkurasi per grup, urut sesuai kategoriBibit (buah → hias → kayu
+// → rempah → perkebunan → pakan ternak). Item PERTAMA di tiap grup dipakai
+// sebagai wakil tetap di tab "Semua" (bukan acak) — supaya urutannya selalu
+// konsisten: foto 1 = buah, foto 2 = hias, dst. Sengaja tidak memakai foto
+// yang sudah dipakai KategoriPreview di atasnya, biar tidak dobel.
 const idTerkurasi = [
-  'durian-bawor', 'alpukat-miki', 'manggis',
-  'pucuk-merah', 'palem-merah',
-  'jati', 'mahoni', 'balsa',
-  'jeruk-purut',
-  'kopi',
-  'indigofera', 'kaliandra',
+  'durian-bawor', 'durian-musang-king', 'mangga-kiojay', 'manggis',
+  'pucuk-merah', 'palem-merah', 'kelapa-gading-kuning',
+  'jati', 'mahoni', 'jabon',
+  'jeruk-purut', 'cabe-jawa',
+  'lada-perdu',
+  'indigofera',
 ];
 const produkSampel = idTerkurasi
   .map((id) => semuaProduk.find((p) => p.id === id))
+  .filter((p): p is NonNullable<typeof p> => Boolean(p));
+
+// Satu wakil tetap per grup, urut sesuai kategoriBibit — inilah yang tampil
+// duluan di tab "Semua".
+const wakilPerGrup = kategoriBibit
+  .map((kat) => produkSampel.find((p) => p.data.grup === kat.slug))
   .filter((p): p is NonNullable<typeof p> => Boolean(p));
 ---
 
@@ -52,10 +62,14 @@ const produkSampel = idTerkurasi
     <div class="preview-grid" data-preview-grid>
       {
         produkSampel.map((item) => (
-          <div class="preview-item" data-grup={item!.data.grup} data-id={item!.id}>
+          <div
+            class="preview-item"
+            data-grup={item!.data.grup}
+            data-id={item!.id}
+            data-wakil={wakilPerGrup.some((w) => w!.id === item!.id) ? 'true' : 'false'}
+          >
             <ProdukCard
               nama={item!.data.nama}
-              ukuran={item!.data.ukuran}
               perluKonfirmasi={item!.data.perluKonfirmasi}
               foto={item!.data.foto}
               placeholderEmoji={item!.data.placeholderEmoji}
@@ -174,23 +188,12 @@ const produkSampel = idTerkurasi
   // Filter ringan khusus preview homepage (independen dari filter di /katalog)
   const chips = document.querySelectorAll<HTMLButtonElement>('[data-filter-bar] [data-filter]');
   const items = document.querySelectorAll<HTMLElement>('[data-preview-grid] [data-grup]');
-  const JUMLAH_TAMPIL_SEMUA = 6;
 
-  // Acak urutan (Fisher-Yates) supaya varian yang tampil di tab "Semua"
-  // berbeda-beda setiap kali halaman dimuat ulang.
-  function acakArray<T>(arr: T[]): T[] {
-    const hasil = [...arr];
-    for (let i = hasil.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [hasil[i], hasil[j]] = [hasil[j], hasil[i]];
-    }
-    return hasil;
-  }
-
-  function tampilkanSemuaAcak() {
-    const acak = acakArray(Array.from(items));
-    acak.forEach((item, i) => {
-      item.style.display = i < JUMLAH_TAMPIL_SEMUA ? '' : 'none';
+  function tampilkanWakilTetap() {
+    // Tab "Semua": satu produk wakil per kategori, urutannya tetap
+    // (buah → hias → kayu → rempah → perkebunan → pakan ternak), tidak acak.
+    items.forEach((item) => {
+      item.style.display = item.dataset.wakil === 'true' ? '' : 'none';
     });
   }
 
@@ -210,14 +213,14 @@ const produkSampel = idTerkurasi
     }
   }
 
-  // Tampilan awal: tab "Semua" dengan 6 varian acak.
-  tampilkanSemuaAcak();
+  // Tampilan awal: tab "Semua" dengan 1 wakil tetap per kategori.
+  tampilkanWakilTetap();
 
   chips.forEach((chip) => {
     chip.addEventListener('click', () => {
       const slug = chip.dataset.filter ?? 'semua';
       if (slug === 'semua') {
-        tampilkanSemuaAcak();
+        tampilkanWakilTetap();
       } else {
         tampilkanKategori(slug);
       }

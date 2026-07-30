@@ -2,7 +2,6 @@
 import Icon from './Icon.astro';
 import WhatsAppButton from './WhatsAppButton.astro';
 import { site } from '../data/site';
-import { kategoriBibit } from '../data/nav';
 
 const year = new Date().getFullYear();
 ---
@@ -30,20 +29,13 @@ const year = new Date().getFullYear();
       </div>
 
       <div>
-        <h2>Link Penting</h2>
+        <h2>Menu</h2>
         <ul>
           <li><a href="/katalog">Katalog Bibit</a></li>
           <li><a href="/cara-beli">Cara Beli</a></li>
           <li><a href="/artikel">Artikel</a></li>
+          <li><a href="/dokumentasi">Dokumentasi Pengiriman</a></li>
           <li><a href="/tentang">Tentang Kami</a></li>
-          <li><a href="/kontak">Lokasi</a></li>
-        </ul>
-      </div>
-
-      <div>
-        <h2>Kategori</h2>
-        <ul>
-          {kategoriBibit.map((kat) => <li><a href={kat.href}>{kat.label}</a></li>)}
         </ul>
       </div>
 
@@ -67,7 +59,6 @@ const year = new Date().getFullYear();
 
     <div class="footer-bottom">
       <span>&copy; {year} {site.name}. Semua hak cipta dilindungi.</span>
-      <span>Nursery bibit tanaman &middot; Kemiri, Purworejo</span>
     </div>
   </div>
 </footer>
