@@ -174,7 +174,9 @@ const isActive = (href: string) => (href === '/' ? currentPath === '/' : current
   .nav-right {
     display: flex;
     align-items: center;
+    justify-content: flex-end;
     gap: 14px;
+    min-width: 160px;
   }
 
   .menu-toggle {
@@ -235,7 +237,7 @@ const isActive = (href: string) => (href === '/' ? currentPath === '/' : current
   }
 
   .search-wrap.is-open .search-form {
-    width: 220px;
+    width: 200px;
     opacity: 1;
     border-color: var(--color-line);
     box-shadow: 0 8px 20px rgba(14, 53, 53, 0.1);

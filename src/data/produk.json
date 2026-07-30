@@ -306,13 +306,15 @@
     "id": "indigofera",
     "nama": "Indigofera",
     "grup": "pakan-ternak",
-    "placeholderEmoji": "🌿"
+    "foto": "/images/produk/indigofera.webp",
+    "fotoTersedia": true
   },
   {
     "id": "kaliandra",
     "nama": "Kaliandra",
     "grup": "pakan-ternak",
-    "placeholderEmoji": "🌸"
+    "foto": "/images/produk/kaliandra.webp",
+    "fotoTersedia": true
   },
   {
     "id": "solobium",

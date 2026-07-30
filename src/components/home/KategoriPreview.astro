@@ -8,14 +8,20 @@ const fotoPerKategori: Record<string, string> = {
   'pohon-kayu': '/images/produk/albasia-sengon.webp',
   rempah: '/images/produk/pala.webp',
   perkebunan: '/images/produk/lada-perdu.webp',
+  'pakan-ternak': '/images/produk/kaliandra.webp',
 };
+
+// Sementara cuma tampilkan kategori yang sudah punya foto asli (belum ada
+// placeholder di section ini) — jumlahnya dihitung otomatis biar tidak perlu
+// diubah manual tiap kali foto baru ditambahkan.
+const kategoriDenganFoto = kategoriBibit.filter((kat) => fotoPerKategori[kat.slug]);
 ---
 
 <section class="kategori">
   <div class="wrap">
     <div class="section-head">
       <p class="eyebrow">Jelajahi Berdasarkan Kebutuhan</p>
-      <h2>6 Kelompok Bibit, Puluhan Varietas Spesifik</h2>
+      <h2>{kategoriDenganFoto.length} Kategori Bibit, Puluhan Varietas Spesifik</h2>
       <p>
         Nama varietas kami tulis spesifik — misalnya Durian Bawor vs Musang
         King, atau Alpukat Miki vs Aligator — supaya tidak keliru saat pesan.
@@ -24,14 +30,10 @@ const fotoPerKategori: Record<string, string> = {
 
     <div class="kategori-grid">
       {
-        kategoriBibit.map((kat) => (
+        kategoriDenganFoto.map((kat) => (
           <a class="kategori-card" href={kat.href}>
             <span class="kategori-photo">
-              {fotoPerKategori[kat.slug] ? (
-                <img src={fotoPerKategori[kat.slug]} alt={kat.label} loading="lazy" decoding="async" />
-              ) : (
-                <span class="kategori-photo-emoji" aria-hidden="true">🌿</span>
-              )}
+              <img src={fotoPerKategori[kat.slug]} alt={kat.label} loading="lazy" decoding="async" />
             </span>
             <span class="kategori-info">
               <b>{kat.label}</b>
@@ -86,16 +88,8 @@ const fotoPerKategori: Record<string, string> = {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: center 25%;
     display: block;
-  }
-
-  .kategori-photo-emoji {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 30px;
   }
 
   .kategori-info {
