@@ -1,22 +1,24 @@
 ---
+import { getCollection } from 'astro:content';
 import { kategoriBibit } from '../../data/nav';
 
-/** Foto representatif per kategori — dipilih yang gaya framing-nya senada
- * (fokus ke satu tanaman, background blur) supaya tidak ada yang terasa
- * "ngganjel" dibanding yang lain. Sengaja beda dari foto yang dipakai di
- * KatalogPreview di bawahnya, supaya tidak ada foto dobel di satu halaman. */
-const fotoPerKategori: Record<string, string> = {
-  'bibit-buah': '/images/produk/alpukat-aligator.webp',
-  'tanaman-hias': '/images/produk/palem-kuning.webp',
-  'pohon-kayu': '/images/produk/sengon-albasia.webp',
-  rempah: '/images/produk/pala.webp',
-  perkebunan: '/images/produk/petai.webp',
-  'pakan-ternak': '/images/produk/kaliandra.webp',
-};
+/**
+ * Foto per kategori diambil otomatis dari semua produk (grup) yang sudah
+ * punya foto asli — bukan cuma 1 foto tetap. Di client-side, satu foto
+ * dipilih ACAK dari pool tiap kali halaman dimuat (lihat <script> di bawah),
+ * supaya tampilannya bervariasi tapi tetap representasi kategori yang benar.
+ */
+const semuaProduk = await getCollection('produk');
 
-// Sementara cuma tampilkan kategori yang sudah punya foto asli (belum ada
-// placeholder di section ini) — jumlahnya dihitung otomatis biar tidak perlu
-// diubah manual tiap kali foto baru ditambahkan.
+const fotoPerKategori: Record<string, string[]> = {};
+for (const kat of kategoriBibit) {
+  const fotos = semuaProduk
+    .filter((p) => p.data.grup === kat.slug && p.data.fotoTersedia && p.data.foto)
+    .map((p) => p.data.foto as string);
+  if (fotos.length > 0) fotoPerKategori[kat.slug] = fotos;
+}
+
+// Sementara cuma tampilkan kategori yang sudah punya minimal 1 foto asli.
 const kategoriDenganFoto = kategoriBibit.filter((kat) => fotoPerKategori[kat.slug]);
 ---
 
@@ -33,16 +35,19 @@ const kategoriDenganFoto = kategoriBibit.filter((kat) => fotoPerKategori[kat.slu
 
     <div class="kategori-grid">
       {
-        kategoriDenganFoto.map((kat) => (
-          <a class="kategori-card" href={kat.href}>
-            <span class="kategori-photo">
-              <img src={fotoPerKategori[kat.slug]} alt={kat.label} loading="lazy" decoding="async" />
-            </span>
-            <span class="kategori-info">
-              <b>{kat.label}</b>
-            </span>
-          </a>
-        ))
+        kategoriDenganFoto.map((kat) => {
+          const fotos = fotoPerKategori[kat.slug];
+          return (
+            <a class="kategori-card" href={kat.href}>
+              <span class="kategori-photo" data-fotos={JSON.stringify(fotos)}>
+                <img src={fotos[0]} alt={kat.label} loading="lazy" decoding="async" data-kategori-img />
+              </span>
+              <span class="kategori-info">
+                <b>{kat.label}</b>
+              </span>
+            </a>
+          );
+        })
       }
     </div>
 
@@ -85,6 +90,7 @@ const kategoriDenganFoto = kategoriBibit.filter((kat) => fotoPerKategori[kat.slu
     aspect-ratio: 1 / 1;
     background: var(--color-mist);
     display: block;
+    overflow: hidden;
   }
 
   .kategori-photo img {
@@ -93,6 +99,11 @@ const kategoriDenganFoto = kategoriBibit.filter((kat) => fotoPerKategori[kat.slu
     object-fit: cover;
     object-position: center 25%;
     display: block;
+    /* Zoom seragam supaya semua foto (apa pun framing aslinya) kelihatan
+       rapat/senada, tidak ada yang terasa "nge-frame" sendiri karena banyak
+       ruang kosong di sekitar tanamannya. */
+    transform: scale(1.18);
+    transform-origin: center;
   }
 
   .kategori-info {
@@ -126,3 +137,23 @@ const kategoriDenganFoto = kategoriBibit.filter((kat) => fotoPerKategori[kat.slu
     }
   }
 </style>
+
+<script>
+  // Pilih 1 foto acak dari pool tiap kategori, setiap halaman dimuat/reload —
+  // supaya pengunjung tidak melulu lihat foto yang sama, tapi tetap dalam
+  // kategori yang benar (pool foto sudah difilter per grup produk).
+  const photoEls = document.querySelectorAll<HTMLElement>('[data-fotos]');
+  photoEls.forEach((el) => {
+    const raw = el.dataset.fotos;
+    if (!raw) return;
+    try {
+      const fotos: string[] = JSON.parse(raw);
+      if (fotos.length <= 1) return;
+      const pilihan = fotos[Math.floor(Math.random() * fotos.length)];
+      const img = el.querySelector<HTMLImageElement>('[data-kategori-img]');
+      if (img && pilihan) img.src = pilihan;
+    } catch {
+      // Data rusak — biarkan foto default (server-rendered) tampil.
+    }
+  });
+</script>
