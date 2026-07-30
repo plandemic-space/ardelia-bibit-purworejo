@@ -6,6 +6,13 @@ import Icon from '../components/Icon.astro';
 import { site } from '../data/site';
 
 const mapEmbedSrc = `https://www.google.com/maps?q=${encodeURIComponent(site.contact.address.full)}&output=embed`;
+const telHref = `tel:+${site.contact.whatsappNumber}`;
+
+const kunjungiPoin = [
+  { icon: 'leaf', text: 'Lihat langsung kondisi bibit sebelum memutuskan beli' },
+  { icon: 'message-circle', text: 'Konsultasi gratis soal jenis & perawatan bibit' },
+  { icon: 'clock', text: 'Waktu fleksibel — konfirmasi dulu via WhatsApp' },
+];
 ---
 
 <Layout
@@ -19,58 +26,67 @@ const mapEmbedSrc = `https://www.google.com/maps?q=${encodeURIComponent(site.con
     subtitle="Cara tercepat menghubungi kami adalah WhatsApp. Kalau mau lihat kondisi bibit dulu, nursery kami juga terbuka untuk kunjungan langsung."
   />
 
+  <section class="kontak-cara">
+    <div class="wrap kontak-cara-grid">
+      <div class="cara-card">
+        <div class="cara-icon"><Icon name="whatsapp" size={20} /></div>
+        <h2>WhatsApp</h2>
+        <p>Konsultasi & Pemesanan</p>
+        <strong>{site.contact.whatsappDisplay}</strong>
+        <WhatsAppButton size="sm" label="Chat via WhatsApp" />
+      </div>
+
+      <div class="cara-card">
+        <div class="cara-icon"><Icon name="phone" size={20} /></div>
+        <h2>Telepon</h2>
+        <p>Untuk yang tidak pakai WhatsApp</p>
+        <strong>{site.contact.whatsappDisplay}</strong>
+        <a class="btn btn-outline btn-sm-link" href={telHref}>Telepon Sekarang →</a>
+      </div>
+
+      <div class="cara-card">
+        <div class="cara-icon"><Icon name="map-pin" size={20} /></div>
+        <h2>Lokasi Nursery</h2>
+        <p>Kemiri, Purworejo, Jawa Tengah</p>
+        <a class="btn btn-outline btn-sm-link" href={site.contact.googleMapsUrl} target="_blank" rel="noopener">
+          Lihat di Google Maps →
+        </a>
+      </div>
+
+      <div class="cara-card">
+        <div class="cara-icon" aria-hidden="true">🕒</div>
+        <h2>Waktu Kunjungan</h2>
+        <p>Jam kami fleksibel, menyesuaikan</p>
+        <strong>Konfirmasi dulu via WhatsApp</strong>
+      </div>
+    </div>
+  </section>
+
   <section class="kontak-section">
     <div class="wrap kontak-grid">
-      <div class="kontak-info">
-        <div class="info-card">
-          <div class="info-icon"><Icon name="whatsapp" size={22} /></div>
-          <div>
-            <h2>WhatsApp</h2>
-            <p>{site.contact.whatsappDisplay}</p>
-            <WhatsAppButton size="sm" label="Chat Sekarang" />
-          </div>
-        </div>
+      <div class="kunjungi-block">
+        <p class="eyebrow">Datang Langsung</p>
+        <h2>Kunjungi Langsung Nursery Kami</h2>
+        <p class="kunjungi-desc">
+          Kami terbuka untuk kunjungan langsung. Anda bisa melihat koleksi
+          bibit dan berkonsultasi langsung dengan kami di nursery.
+        </p>
 
-        <div class="info-card">
-          <div class="info-icon"><Icon name="map-pin" size={22} /></div>
-          <div>
-            <h2>Alamat Nursery</h2>
-            <p>{site.contact.address.full}</p>
-            <a class="btn btn-outline btn-sm-link" href={site.contact.googleMapsUrl} target="_blank" rel="noopener">
-              Buka di Google Maps →
-            </a>
-          </div>
-        </div>
+        <ul class="kunjungi-poin">
+          {
+            kunjungiPoin.map((poin) => (
+              <li>
+                <Icon name={poin.icon} size={18} />
+                <span>{poin.text}</span>
+              </li>
+            ))
+          }
+        </ul>
 
-        <div class="info-card">
-          <div class="info-icon" aria-hidden="true">🕒</div>
-          <div>
-            <h2>Jam Kunjungan</h2>
-            <p>
-              Jam kunjungan cukup fleksibel — supaya tidak kosong, konfirmasi
-              dulu waktu kedatangan Anda via WhatsApp.
-            </p>
-          </div>
-        </div>
-
-        <div class="info-card">
-          <div class="info-icon" aria-hidden="true">📣</div>
-          <div>
-            <h2>Media Sosial</h2>
-            <p>Lihat dokumentasi kegiatan nursery dan pengiriman kami.</p>
-            <div class="sosmed-links">
-              <a href={site.social.youtube} target="_blank" rel="noopener">
-                <Icon name="youtube" size={18} /> YouTube
-              </a>
-              <a href={site.social.facebook} target="_blank" rel="noopener">
-                <Icon name="facebook" size={18} /> Facebook
-              </a>
-              <a href={site.social.tiktok} target="_blank" rel="noopener">
-                <Icon name="tiktok" size={18} /> TikTok
-              </a>
-            </div>
-          </div>
-        </div>
+        <p class="kunjungi-alamat">
+          <Icon name="map-pin" size={16} />
+          {site.contact.address.full}
+        </p>
       </div>
 
       <div class="kontak-map">
@@ -90,33 +106,28 @@ const mapEmbedSrc = `https://www.google.com/maps?q=${encodeURIComponent(site.con
 </Layout>
 
 <style>
-  .kontak-section {
+  .kontak-cara {
     padding-top: 48px;
   }
 
-  .kontak-grid {
+  .kontak-cara-grid {
     display: grid;
-    grid-template-columns: 0.85fr 1.15fr;
-    gap: 32px;
-    align-items: start;
-  }
-
-  .kontak-info {
-    display: flex;
-    flex-direction: column;
+    grid-template-columns: repeat(4, 1fr);
     gap: 16px;
   }
 
-  .info-card {
-    display: flex;
-    gap: 14px;
-    padding: 20px;
+  .cara-card {
+    padding: 22px 18px;
     background: var(--color-paper);
     border: 1px solid var(--color-line);
     border-radius: var(--radius);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
-  .info-icon {
+  .cara-icon {
     width: 42px;
     height: 42px;
     border-radius: 10px;
@@ -126,19 +137,24 @@ const mapEmbedSrc = `https://www.google.com/maps?q=${encodeURIComponent(site.con
     justify-content: center;
     color: var(--color-teal-dark);
     font-size: 18px;
-    flex-shrink: 0;
+    margin-bottom: 12px;
   }
 
-  .info-card h2 {
-    font-size: 15.5px;
-    margin-bottom: 6px;
+  .cara-card h2 {
+    font-size: 15px;
+    margin-bottom: 4px;
   }
 
-  .info-card p {
-    font-size: 13.5px;
+  .cara-card p {
+    font-size: 12.5px;
     color: var(--color-charcoal-soft);
-    line-height: 1.55;
-    margin-bottom: 10px;
+    margin-bottom: 8px;
+  }
+
+  .cara-card strong {
+    font-size: 13.5px;
+    color: var(--color-teal-dark);
+    margin-bottom: 12px;
   }
 
   .btn-sm-link {
@@ -146,39 +162,97 @@ const mapEmbedSrc = `https://www.google.com/maps?q=${encodeURIComponent(site.con
     font-size: 13px;
   }
 
-  .sosmed-links {
-    display: flex;
-    gap: 14px;
+  .kontak-section {
+    padding-top: 8px;
   }
 
-  .sosmed-links a {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
+  .kontak-grid {
+    display: grid;
+    grid-template-columns: 0.85fr 1.15fr;
+    gap: 32px;
+    align-items: stretch;
+  }
+
+  .kunjungi-block {
+    background: var(--color-paper);
+    border: 1px solid var(--color-line);
+    border-radius: var(--radius);
+    padding: 28px;
+  }
+
+  .kunjungi-block h2 {
+    font-size: clamp(19px, 2vw, 23px);
+    margin: 6px 0 12px;
+  }
+
+  .kunjungi-desc {
     font-size: 13.5px;
-    font-weight: 600;
-    color: var(--color-teal-dark);
+    color: var(--color-charcoal-soft);
+    line-height: 1.6;
+    margin-bottom: 18px;
   }
 
-  .sosmed-links a:hover {
+  .kunjungi-poin {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+
+  .kunjungi-poin li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 13.5px;
+    color: var(--color-charcoal);
+  }
+
+  .kunjungi-poin :global(svg) {
+    flex-shrink: 0;
+    margin-top: 1px;
     color: var(--color-leaf-dark);
   }
 
+  .kunjungi-alamat {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    font-size: 12.5px;
+    color: var(--color-charcoal-soft);
+    padding-top: 16px;
+    border-top: 1px solid var(--color-line);
+  }
+
+  .kunjungi-alamat :global(svg) {
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
   .kontak-map {
-    min-height: 420px;
+    min-height: 380px;
     border-radius: var(--radius);
     overflow: hidden;
     border: 1px solid var(--color-line);
   }
 
   @media (max-width: 900px) {
+    .kontak-cara-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+
     .kontak-grid {
       grid-template-columns: 1fr;
     }
 
     .kontak-map {
-      min-height: 320px;
+      min-height: 300px;
       order: -1;
+    }
+  }
+
+  @media (max-width: 560px) {
+    .kontak-cara-grid {
+      grid-template-columns: 1fr;
     }
   }
 </style>
