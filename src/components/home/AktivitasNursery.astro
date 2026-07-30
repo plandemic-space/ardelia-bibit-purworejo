@@ -1,52 +1,56 @@
 ---
 /**
- * Kolase foto aktivitas nursery (pola dari mockup homepage). Semua foto
- * yang dipakai di sini sudah ada di project (dipakai juga di galeri
- * Tentang Kami / hero), jadi tidak menambah aset baru.
+ * Kolase foto aktivitas nursery — dipasangkan side-by-side dengan
+ * CeritaSingkat di index.astro (pola dari mockup homepage). Foto yang
+ * dipakai di sini unik untuk section ini (tidak dipakai ulang di section
+ * homepage lain).
  */
 ---
 
-<section class="aktivitas">
-  <div class="wrap">
-    <div class="section-head">
-      <p class="eyebrow">Di Balik Layar</p>
-      <h2>Aktivitas di Nursery</h2>
-    </div>
-
-    <div class="aktivitas-grid">
-      <figure class="aktivitas-big">
-        <img src="/images/owner/owner-yarohim-2.webp" alt="Pak Yarohim merawat bibit di nursery" loading="lazy" decoding="async" />
-        <figcaption>Pak Yarohim merawat bibit yang siap dikirim</figcaption>
-      </figure>
-
-      <figure class="aktivitas-small">
-        <img src="/images/galeri/rak-pembibitan.webp" alt="Rak pembibitan di nursery" loading="lazy" decoding="async" />
-        <figcaption>Merawat bibit</figcaption>
-      </figure>
-
-      <figure class="aktivitas-small">
-        <img src="/images/galeri/proses-packing.webp" alt="Proses packing bibit" loading="lazy" decoding="async" />
-        <figcaption>Packing bibit</figcaption>
-      </figure>
-
-      <figure class="aktivitas-small">
-        <img src="/images/galeri/kunjungan-pembeli.webp" alt="Pengunjung di nursery" loading="lazy" decoding="async" />
-        <figcaption>Pengunjung nursery</figcaption>
-      </figure>
-    </div>
+<div class="aktivitas-col">
+  <div class="col-head">
+    <p class="eyebrow">Di Balik Layar</p>
+    <h2>Aktivitas di Nursery</h2>
   </div>
-</section>
+
+  <div class="aktivitas-grid">
+    <figure class="aktivitas-big">
+      <img src="/images/owner/owner-yarohim-2.webp" alt="Pak Yarohim merawat bibit di nursery" loading="lazy" decoding="async" />
+      <figcaption>Pak Yarohim merawat bibit yang siap dikirim</figcaption>
+    </figure>
+
+    <figure class="aktivitas-small">
+      <img src="/images/galeri/rak-pembibitan.webp" alt="Rak pembibitan di nursery" loading="lazy" decoding="async" />
+      <figcaption>Merawat bibit</figcaption>
+    </figure>
+
+    <figure class="aktivitas-small">
+      <img src="/images/galeri/proses-packing.webp" alt="Proses packing bibit" loading="lazy" decoding="async" />
+      <figcaption>Packing bibit</figcaption>
+    </figure>
+
+    <figure class="aktivitas-small">
+      <img src="/images/galeri/kunjungan-pembeli.webp" alt="Pengunjung di nursery" loading="lazy" decoding="async" />
+      <figcaption>Pengunjung nursery</figcaption>
+    </figure>
+  </div>
+</div>
 
 <style>
-  .aktivitas {
-    background: var(--color-paper);
+  .col-head {
+    margin-bottom: 20px;
+  }
+
+  .col-head h2 {
+    font-size: clamp(20px, 2.4vw, 26px);
+    margin: 10px 0 0;
   }
 
   .aktivitas-grid {
     display: grid;
-    grid-template-columns: 1.6fr 1fr;
+    grid-template-columns: 1.4fr 1fr;
     grid-template-rows: repeat(3, auto);
-    gap: 12px;
+    gap: 10px;
   }
 
   .aktivitas-grid figure {
@@ -69,11 +73,11 @@
   }
 
   .aktivitas-big img {
-    min-height: 280px;
+    min-height: 220px;
   }
 
   .aktivitas-small img {
-    min-height: 88px;
+    min-height: 68px;
   }
 
   .aktivitas-grid figcaption {
@@ -81,14 +85,14 @@
     left: 0;
     right: 0;
     bottom: 0;
-    padding: 10px 12px;
-    font-size: 12.5px;
+    padding: 8px 10px;
+    font-size: 11.5px;
     font-weight: 600;
     color: #fff;
     background: linear-gradient(to top, rgba(14, 53, 41, 0.78), transparent);
   }
 
-  @media (max-width: 780px) {
+  @media (max-width: 480px) {
     .aktivitas-grid {
       grid-template-columns: 1fr 1fr;
       grid-template-rows: auto;

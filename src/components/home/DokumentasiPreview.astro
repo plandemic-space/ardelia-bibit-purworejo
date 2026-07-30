@@ -1,0 +1,97 @@
+---
+/**
+ * Preview "Dokumentasi Pengiriman" di homepage — dipasangkan side-by-side
+ * dengan ArtikelTerbaru di index.astro (pola dari mockup homepage).
+ * Halaman /dokumentasi masih placeholder ("sedang disiapkan"), jadi
+ * preview ini pakai foto asli yang sudah ada (bukan video — situs belum
+ * punya video, jadi tidak dibuat seolah-olah ada player video).
+ */
+const dokumentasi = [
+  { src: '/images/dokumentasi/kirim-semarang.webp', label: 'Kirim ke Semarang' },
+  { src: '/images/dokumentasi/packing-jabon.webp', label: 'Packing Bibit Jabon' },
+  { src: '/images/dokumentasi/dongkel-kelapa-gading-kuning.webp', label: 'Dongkel Kelapa Gading Kuning' },
+  { src: '/images/dokumentasi/kirim-kelapa-gading-kuning.webp', label: 'Muat Bibit Kelapa Gading Kuning' },
+  { src: '/images/dokumentasi/pengunjung-pucuk-merah.webp', label: 'Kunjungan & Pucuk Merah' },
+];
+---
+
+<div class="dok-col">
+  <div class="col-head col-head-row">
+    <div>
+      <p class="eyebrow">Bukti Kirim</p>
+      <h2>Dokumentasi Pengiriman</h2>
+    </div>
+  </div>
+
+  <div class="dok-grid">
+    {
+      dokumentasi.map((item) => (
+        <figure class="dok-item">
+          <img src={item.src} alt={item.label} loading="lazy" decoding="async" />
+          <figcaption>{item.label}</figcaption>
+        </figure>
+      ))
+    }
+  </div>
+
+  <p class="dok-cta">
+    <a class="btn btn-outline" href="/dokumentasi">Lihat Semua Dokumentasi →</a>
+  </p>
+</div>
+
+<style>
+  .col-head {
+    margin-bottom: 20px;
+  }
+
+  .col-head h2 {
+    font-size: clamp(20px, 2.4vw, 26px);
+    margin: 10px 0 0;
+  }
+
+  .dok-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+
+  .dok-item {
+    margin: 0;
+    position: relative;
+    aspect-ratio: 1 / 1;
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+    background: var(--color-mist);
+  }
+
+  .dok-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .dok-item figcaption {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 6px 8px;
+    font-size: 10.5px;
+    font-weight: 600;
+    line-height: 1.3;
+    color: #fff;
+    background: linear-gradient(to top, rgba(14, 53, 41, 0.82), transparent);
+  }
+
+  .dok-cta {
+    text-align: left;
+  }
+
+  @media (max-width: 480px) {
+    .dok-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+</style>

@@ -1,90 +1,102 @@
 ---
 /**
- * 3 alasan/keunggulan — hanya klaim yang sudah dikonfirmasi (nursery sendiri,
- * bisa konsultasi via WA, lokasi bisa dikunjungi). Tidak ada angka tahun
- * berdiri/jumlah pelanggan karena belum ada datanya (lihat aturan konten).
+ * "Kenapa Memilih Ardelia Bibit" — grid 2x2, dipasangkan side-by-side
+ * dengan CaraMemesan di index.astro (pola dari mockup homepage).
+ * Item ke-4 (Pengiriman Fleksibel) memakai klaim yang sama dengan
+ * /cara-beli.astro (opsi ambil sendiri / dikirim, sesuaikan ukuran) —
+ * bukan klaim baru.
  */
 const alasan = [
   {
     icon: '🌱',
     title: 'Bibit Terseleksi',
-    desc: 'Setiap bibit yang kami kirim sudah kami cek dulu kondisinya.',
+    desc: 'Setiap bibit dipilih dan dirawat sebelum dijual.',
   },
   {
     icon: '💬',
-    title: 'Bisa Konsultasi',
-    desc: 'Belum yakin mau tanam apa? Chat dulu, kami bantu arahkan.',
+    title: 'Konsultasi Dulu',
+    desc: 'Belum yakin? Kami bantu memilih yang terbaik.',
   },
   {
     icon: '📍',
-    title: 'Bisa Dikunjungi',
-    desc: 'Datang langsung ke nursery, lihat kondisi bibitnya sendiri.',
+    title: 'Nursery Bisa Dikunjungi',
+    desc: 'Lihat kondisi bibit secara langsung sebelum membeli.',
+  },
+  {
+    icon: '🚚',
+    title: 'Pengiriman Fleksibel',
+    desc: 'Menyesuaikan ukuran bibit dan lokasi tujuan.',
   },
 ];
 ---
 
-<section class="alasan">
-  <div class="wrap">
-    <div class="section-head">
-      <p class="eyebrow">Kenapa Memilih Kami</p>
-      <h2>Kenapa Memilih Ardelia Bibit?</h2>
-    </div>
+<div class="alasan-col">
+  <div class="col-head">
+    <p class="eyebrow">Kenapa Memilih Kami</p>
+    <h2>Kenapa Memilih Ardelia Bibit?</h2>
+  </div>
 
-    <div class="alasan-grid">
-      {
-        alasan.map((item) => (
-          <div class="alasan-card">
-            <div class="alasan-icon" aria-hidden="true">{item.icon}</div>
+  <div class="alasan-grid">
+    {
+      alasan.map((item) => (
+        <div class="alasan-card">
+          <div class="alasan-icon" aria-hidden="true">{item.icon}</div>
+          <div class="alasan-copy">
             <h3>{item.title}</h3>
             <p>{item.desc}</p>
           </div>
-        ))
-      }
-    </div>
+        </div>
+      ))
+    }
   </div>
-</section>
+</div>
 
 <style>
-  .alasan {
-    background: var(--color-paper);
+  .col-head {
+    margin-bottom: 24px;
+  }
+
+  .col-head h2 {
+    font-size: clamp(20px, 2.4vw, 26px);
+    margin: 10px 0 0;
   }
 
   .alasan-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 22px;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
   }
 
   .alasan-card {
-    border: 1px solid var(--color-line);
-    border-radius: var(--radius);
-    padding: 28px 24px;
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
   }
 
   .alasan-icon {
-    width: 42px;
-    height: 42px;
+    width: 38px;
+    height: 38px;
+    flex-shrink: 0;
     border-radius: 10px;
     background: var(--color-mist);
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 20px;
-    margin-bottom: 16px;
+    font-size: 18px;
   }
 
   .alasan-card h3 {
-    font-size: 17px;
-    margin-bottom: 8px;
+    font-size: 14.5px;
+    margin-bottom: 4px;
   }
 
   .alasan-card p {
-    font-size: 14px;
+    font-size: 13px;
     color: var(--color-charcoal-soft);
-    line-height: 1.6;
+    line-height: 1.5;
   }
 
-  @media (max-width: 780px) {
+  @media (max-width: 480px) {
     .alasan-grid {
       grid-template-columns: 1fr;
     }

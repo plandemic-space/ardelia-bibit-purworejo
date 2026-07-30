@@ -3,49 +3,45 @@
  * Teaser "Tentang Ardelia Bibit" di homepage — versi ringkas dari cerita
  * lengkap yang tayang di /tentang. Faktanya sama: mulai sekitar 2010,
  * awalnya lewat WhatsApp & rekomendasi, koleksi variatif, mengutamakan
- * foto & dokumentasi asli.
+ * foto & dokumentasi asli. Dipasangkan side-by-side dengan
+ * AktivitasNursery di index.astro (pola dari mockup homepage).
  */
 ---
 
-<section class="cerita">
-  <div class="wrap cerita-grid">
-    <div class="cerita-photo">
-      <img src="/images/owner/owner-yarohim-3.webp" alt="Pak Yarohim, pemilik Ardelia Bibit, di kebun bibit" loading="lazy" decoding="async" />
-    </div>
-
-    <div class="cerita-copy">
-      <p class="eyebrow eyebrow-light">Tentang Ardelia Bibit</p>
-      <h2>Merawat Bibit Sejak Sekitar 2010</h2>
-      <p class="cerita-text">
-        Perjalanan Ardelia Bibit di dunia pembibitan dimulai sekitar tahun
-        2010 — awalnya lewat komunikasi langsung, rekomendasi dari mulut ke
-        mulut, dan WhatsApp. Kini kami menyediakan bibit buah, tanaman hias,
-        kayu keras, rempah, sampai pakan ternak, dengan foto asli dan
-        dokumentasi pengiriman sebagai bukti aktivitas nursery kami.
-      </p>
-      <a class="btn btn-outline btn-light" href="/tentang">Baca Selengkapnya →</a>
-    </div>
+<div class="cerita-col">
+  <div class="cerita-photo">
+    <img src="/images/owner/owner-yarohim-3.webp" alt="Pak Yarohim, pemilik Ardelia Bibit, di kebun bibit" loading="lazy" decoding="async" />
+    <span class="cerita-badge">Pak Yarohim<br /><small>Pemilik Ardelia Bibit</small></span>
   </div>
-</section>
+
+  <div class="cerita-copy">
+    <p class="eyebrow">Tentang Ardelia Bibit</p>
+    <h2>Merawat Bibit Sejak Sekitar 2010</h2>
+    <p class="cerita-text">
+      Perjalanan Ardelia Bibit di dunia pembibitan dimulai sekitar tahun
+      2010 — awalnya lewat komunikasi langsung, rekomendasi dari mulut ke
+      mulut, dan WhatsApp. Kini kami menyediakan bibit buah, tanaman hias,
+      kayu keras, rempah, sampai pakan ternak, dengan foto asli dan
+      dokumentasi pengiriman sebagai bukti aktivitas nursery kami.
+    </p>
+    <a class="btn btn-primary" href="/tentang">Baca Selengkapnya →</a>
+  </div>
+</div>
 
 <style>
-  .cerita {
-    background: var(--color-teal);
-    color: #fff;
-  }
-
-  .cerita-grid {
-    display: grid;
-    grid-template-columns: 0.8fr 1.2fr;
-    gap: 48px;
-    align-items: center;
+  .cerita-col {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
   }
 
   .cerita-photo {
-    aspect-ratio: 4 / 3;
-    border-radius: 16px;
+    position: relative;
+    aspect-ratio: 16 / 10;
+    border-radius: var(--radius);
     overflow: hidden;
-    background: var(--color-teal-dark);
+    background: var(--color-mist);
+    margin-bottom: 20px;
   }
 
   .cerita-photo img {
@@ -55,37 +51,34 @@
     display: block;
   }
 
-  .cerita-copy .eyebrow-light {
-    color: var(--color-leaf);
+  .cerita-badge {
+    position: absolute;
+    left: 14px;
+    bottom: 14px;
+    background: var(--color-teal-dark);
+    color: #fff;
+    padding: 8px 14px;
+    border-radius: var(--radius-sm);
+    font-size: 12.5px;
+    font-weight: 600;
+    line-height: 1.4;
+  }
+
+  .cerita-badge small {
+    font-weight: 500;
+    opacity: 0.85;
+    font-size: 11px;
   }
 
   .cerita-copy h2 {
-    color: #fff;
-    font-size: clamp(22px, 2.6vw, 30px);
-    margin: 14px 0 14px;
+    font-size: clamp(20px, 2.4vw, 26px);
+    margin: 10px 0 12px;
   }
 
   .cerita-text {
-    font-size: 15.5px;
+    font-size: 14px;
     line-height: 1.7;
-    color: rgba(255, 255, 255, 0.82);
-    margin-bottom: 24px;
-    max-width: 560px;
-  }
-
-  .btn-light {
-    border-color: rgba(255, 255, 255, 0.5);
-    color: #fff;
-  }
-
-  .btn-light:hover {
-    background: #fff;
-    color: var(--color-teal-dark);
-  }
-
-  @media (max-width: 880px) {
-    .cerita-grid {
-      grid-template-columns: 1fr;
-    }
+    color: var(--color-charcoal-soft);
+    margin-bottom: 20px;
   }
 </style>
