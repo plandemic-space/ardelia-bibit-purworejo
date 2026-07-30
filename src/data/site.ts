@@ -36,6 +36,7 @@ export const site = {
   social: {
     youtube: 'https://www.youtube.com/@ardeliabibit',
     facebook: 'https://www.facebook.com/ardelia.bibit',
+    tiktok: 'https://www.tiktok.com/@ardeliabibit',
   },
 } as const;
 
