@@ -11,7 +11,7 @@ Banyak yang menanam bibit durian lalu kaget kenapa pertumbuhannya lambat, padaha
 
 ## Siapkan Lubang Tanam Lebih Dulu
 
-Idealnya lubang tanam disiapkan seminggu sebelum bibit dipindah, bukan hari itu juga. Ukuran lubang sekitar 50x50x50 cm sudah cukup untuk bibit ukuran polybag standar. Campur tanah galian dengan pupuk kandang yang sudah matang (bukan yang masih panas/baru), lalu biarkan campuran ini "istirahat" beberapa hari sebelum bibit ditanam. Tujuannya supaya panas dari proses fermentasi pupuk tidak langsung mengenai akar bibit yang masih sensitif.
+Idealnya lubang tanam disiapkan seminggu sebelum bibit dipindah, bukan hari itu juga. Ukuran lubang sekitar 50x50x50 cm sudah cukup untuk bibit ukuran polybag standar di tanah yang relatif gembur — tapi kalau tanahnya liat/padat atau bibitnya sudah cukup besar, sebaiknya diperbesar sampai 60x60x60 cm atau lebih supaya akar punya ruang tumbuh yang cukup. Campur tanah galian dengan pupuk kandang yang sudah matang (bukan yang masih panas/baru), lalu biarkan campuran ini "istirahat" beberapa hari sebelum bibit ditanam. Tujuannya supaya panas dari proses fermentasi pupuk tidak langsung mengenai akar bibit yang masih sensitif.
 
 ## Lepas Polybag dengan Hati-Hati
 
