@@ -61,8 +61,10 @@ import { site } from '../data/site';
     transition: transform 0.15s, opacity 0.15s;
   }
 
-  .fab:hover {
-    transform: translateY(-2px);
+  @media (hover: hover) {
+    .fab:hover {
+      transform: translateY(-2px);
+    }
   }
 
   .fab-top {

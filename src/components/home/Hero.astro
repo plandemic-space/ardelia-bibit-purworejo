@@ -55,7 +55,7 @@ const collageTiles = [
 
   .hero-grid {
     display: grid;
-    grid-template-columns: 1.05fr 0.95fr;
+    grid-template-columns: 1fr auto;
     gap: 40px;
     align-items: center;
   }
@@ -126,6 +126,11 @@ const collageTiles = [
   @media (max-width: 880px) {
     .hero-grid {
       grid-template-columns: 1fr;
+    }
+
+    .hero-collage {
+      margin-left: auto;
+      margin-right: auto;
     }
   }
 </style>

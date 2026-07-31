@@ -88,9 +88,11 @@ const {
     color: #fff;
   }
 
-  .closing-card :global(.btn-on-dark:hover) {
-    background: #fff;
-    color: var(--color-teal-dark);
+  @media (hover: hover) {
+    .closing-card :global(.btn-on-dark:hover) {
+      background: #fff;
+      color: var(--color-teal-dark);
+    }
   }
 
   @media (max-width: 620px) {

@@ -232,8 +232,10 @@ const faq = [
     transition: border-color 0.15s ease, box-shadow 0.15s ease;
   }
 
-  .faq-item:hover {
-    box-shadow: 0 6px 18px rgba(14, 53, 53, 0.07);
+  @media (hover: hover) {
+    .faq-item:hover {
+      box-shadow: 0 6px 18px rgba(14, 53, 53, 0.07);
+    }
   }
 
   .faq-item[open] {

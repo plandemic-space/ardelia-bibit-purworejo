@@ -136,9 +136,11 @@ const semuaItemUntukRender = kategoriBibit.flatMap((kat) => poolPerGrup[kat.slug
     padding: 1px 7px;
   }
 
-  .chip:hover {
-    border-color: var(--color-teal);
-    color: var(--color-teal-dark);
+  @media (hover: hover) {
+    .chip:hover {
+      border-color: var(--color-teal);
+      color: var(--color-teal-dark);
+    }
   }
 
   .chip.is-active {

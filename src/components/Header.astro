@@ -150,8 +150,10 @@ const isActive = (href: string) => (href === '/' ? currentPath === '/' : current
     padding: 4px 0;
   }
 
-  .nav-links > a:hover {
-    color: var(--color-teal);
+  @media (hover: hover) {
+    .nav-links > a:hover {
+      color: var(--color-teal);
+    }
   }
 
   .nav-links > a.is-active {
@@ -209,9 +211,11 @@ const isActive = (href: string) => (href === '/' ? currentPath === '/' : current
     transition: background-color 0.15s ease, color 0.15s ease;
   }
 
-  .search-toggle:hover {
-    background: var(--color-mist);
-    color: var(--color-teal-dark);
+  @media (hover: hover) {
+    .search-toggle:hover {
+      background: var(--color-mist);
+      color: var(--color-teal-dark);
+    }
   }
 
   .search-wrap.is-open .search-toggle {
@@ -257,8 +261,10 @@ const isActive = (href: string) => (href === '/' ? currentPath === '/' : current
     cursor: pointer;
   }
 
-  .search-clear:hover {
-    color: var(--color-teal-dark);
+  @media (hover: hover) {
+    .search-clear:hover {
+      color: var(--color-teal-dark);
+    }
   }
 
   .search-form input {
@@ -340,10 +346,16 @@ const isActive = (href: string) => (href === '/' ? currentPath === '/' : current
     border-radius: 10px;
   }
 
-  .drawer-nav a:hover,
   .drawer-nav a:focus-visible {
     background: var(--color-mist);
     color: var(--color-teal-dark);
+  }
+
+  @media (hover: hover) {
+    .drawer-nav a:hover {
+      background: var(--color-mist);
+      color: var(--color-teal-dark);
+    }
   }
 
   .drawer-foot {

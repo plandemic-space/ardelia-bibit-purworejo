@@ -315,8 +315,10 @@ const urlArtikelIni = `${site.url}/artikel/${entry.id}`;
     transition: background 0.15s ease;
   }
 
-  .share-btn:hover {
-    background: #dcebd4;
+  @media (hover: hover) {
+    .share-btn:hover {
+      background: #dcebd4;
+    }
   }
 
   .share-btn[data-copied]::after {

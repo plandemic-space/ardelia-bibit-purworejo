@@ -208,9 +208,11 @@ const jumlahPerGrup = (slug: string) => semuaProduk.filter((p) => p.data.grup ==
     transform: rotate(180deg);
   }
 
-  .filter-chip:hover {
-    border-color: var(--color-teal);
-    color: var(--color-teal-dark);
+  @media (hover: hover) {
+    .filter-chip:hover {
+      border-color: var(--color-teal);
+      color: var(--color-teal-dark);
+    }
   }
 
   .filter-chip.is-active {
@@ -270,10 +272,16 @@ const jumlahPerGrup = (slug: string) => semuaProduk.filter((p) => p.data.grup ==
     transition: border-color 0.15s ease;
   }
 
-  .katalog-sort select:hover,
   .katalog-sort select:focus-visible {
     border-color: var(--color-teal);
     outline: none;
+  }
+
+  @media (hover: hover) {
+    .katalog-sort select:hover {
+      border-color: var(--color-teal);
+      outline: none;
+    }
   }
 
   .katalog-sort :global(.katalog-sort-icon) {
@@ -315,9 +323,11 @@ const jumlahPerGrup = (slug: string) => semuaProduk.filter((p) => p.data.grup ==
       padding: 11px 12px;
     }
 
-    .filter-chip:not(.is-active):hover {
-      background: var(--color-mist);
-      color: var(--color-charcoal);
+    @media (hover: hover) {
+      .filter-chip:not(.is-active):hover {
+        background: var(--color-mist);
+        color: var(--color-charcoal);
+      }
     }
 
     .katalog-toolbar {

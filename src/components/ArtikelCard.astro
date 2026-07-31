@@ -49,9 +49,11 @@ const tanggal = publishDate.toLocaleDateString('id-ID', {
       box-shadow 0.15s ease;
   }
 
-  .artikel-card:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 12px 28px rgba(22, 74, 74, 0.12);
+  @media (hover: hover) {
+    .artikel-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 28px rgba(22, 74, 74, 0.12);
+    }
   }
 
   .artikel-cover {
