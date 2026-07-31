@@ -32,7 +32,7 @@ const pesanWa = `Halo Ardelia Bibit, saya mau tanya stok & harga ${nama}`;
 
   <div class="produk-body">
     <h3>{nama}</h3>
-    <p class="produk-ukuran">{ukuran || '\u00A0'}</p>
+    {ukuran && <p class="produk-ukuran">{ukuran}</p>}
     <a class="produk-wa" href={waLink(pesanWa)} target="_blank" rel="noopener">
       <Icon name="whatsapp" size={16} />
       Tanya Stok &amp; Harga
@@ -128,7 +128,6 @@ const pesanWa = `Halo Ardelia Bibit, saya mau tanya stok & harga ${nama}`;
     font-size: 11px;
     color: var(--color-charcoal-soft);
     line-height: 1.3;
-    min-height: 2.2em;
     display: -webkit-box;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
