@@ -39,14 +39,34 @@ const jumlahPerGrup = (slug: string) => semuaProduk.filter((p) => p.data.grup ==
 
   <section class="katalog-body">
     <div class="wrap">
-      <div class="filter-bar" role="group" aria-label="Filter kelompok bibit" data-filter-bar>
+      <button
+        class="filter-toggle"
+        type="button"
+        data-filter-toggle
+        aria-expanded="false"
+        aria-controls="filter-bar-panel"
+      >
+        <span>Kategori: <strong data-filter-toggle-label>Semua</strong></span>
+        <Icon name="chevron-down" size={14} class="filter-toggle-icon" />
+      </button>
+
+      <div
+        class="filter-bar"
+        role="group"
+        aria-label="Filter kelompok bibit"
+        data-filter-bar
+        id="filter-bar-panel"
+      >
         <button class="filter-chip is-active" type="button" data-filter="semua">
-          Semua <span>{semuaProduk.length}</span>
+          <span class="filter-chip-label">Semua</span>
+          <span class="filter-chip-count">{semuaProduk.length}</span>
         </button>
         {
           kategoriBibit.map((kat) => (
             <button class="filter-chip" type="button" data-filter={kat.slug}>
-              <Icon name={kat.icon} size={15} /> {kat.label} <span>{jumlahPerGrup(kat.slug)}</span>
+              <Icon name={kat.icon} size={15} />
+              <span class="filter-chip-label">{kat.label}</span>
+              <span class="filter-chip-count">{jumlahPerGrup(kat.slug)}</span>
             </button>
           ))
         }
@@ -139,13 +159,53 @@ const jumlahPerGrup = (slug: string) => semuaProduk.filter((p) => p.data.grup ==
     transition: 0.15s;
   }
 
-  .filter-chip span {
+  .filter-chip-count {
     font-size: 11.5px;
     font-weight: 700;
     color: var(--color-charcoal-soft);
     background: var(--color-mist);
     border-radius: 999px;
     padding: 1px 7px;
+  }
+
+  .filter-chip.is-active .filter-chip-count {
+    background: rgba(255, 255, 255, 0.18);
+    color: #fff;
+  }
+
+  /* Tombol dropdown kategori — cuma tampil di mobile (lihat media query
+     di bawah). Di desktop filter-bar tetap row chip sejajar seperti biasa. */
+  .filter-toggle {
+    display: none;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    padding: 12px 16px;
+    border-radius: 12px;
+    border: 1px solid var(--color-line);
+    background: var(--color-paper);
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--color-charcoal);
+    cursor: pointer;
+    margin-bottom: 12px;
+    text-align: left;
+  }
+
+  .filter-toggle strong {
+    color: var(--color-teal-dark);
+    font-weight: 700;
+  }
+
+  .filter-toggle :global(.filter-toggle-icon) {
+    flex-shrink: 0;
+    color: var(--color-charcoal-soft);
+    transition: transform 0.15s ease;
+  }
+
+  .filter-toggle[aria-expanded='true'] :global(.filter-toggle-icon) {
+    transform: rotate(180deg);
   }
 
   .filter-chip:hover {
@@ -156,11 +216,6 @@ const jumlahPerGrup = (slug: string) => semuaProduk.filter((p) => p.data.grup ==
   .filter-chip.is-active {
     background: var(--color-teal-dark);
     border-color: var(--color-teal-dark);
-    color: #fff;
-  }
-
-  .filter-chip.is-active span {
-    background: rgba(255, 255, 255, 0.18);
     color: #fff;
   }
 
@@ -229,32 +284,40 @@ const jumlahPerGrup = (slug: string) => semuaProduk.filter((p) => p.data.grup ==
   }
 
   @media (max-width: 780px) {
-    /* Chip kategori jadi satu baris yang bisa di-swipe, bukan wrap
-       berantakan — lebih rapi di layar sempit. */
-    .filter-bar {
-      flex-wrap: nowrap;
-      overflow-x: auto;
-      scrollbar-width: none;
-      -webkit-overflow-scrolling: touch;
-      margin: 0 -24px 20px;
-      padding: 0 24px 4px;
-      scroll-padding-left: 24px;
+    /* Ganti chip-geser dengan tombol dropdown "Kategori: ... ▾" — semua
+       pilihan langsung kelihatan begitu dibuka, tidak ada kategori yang
+       "ketutup" di luar layar seperti pola scroll sebelumnya. */
+    .filter-toggle {
+      display: flex;
     }
 
-    .filter-bar::-webkit-scrollbar {
+    .filter-bar {
       display: none;
+      flex-direction: column;
+      flex-wrap: nowrap;
+      gap: 4px;
+      margin: 0 0 16px;
+      padding: 8px;
+      border: 1px solid var(--color-line);
+      border-radius: 12px;
+      background: var(--color-paper);
+    }
+
+    .filter-bar.is-open {
+      display: flex;
     }
 
     .filter-chip {
-      flex-shrink: 0;
-      white-space: nowrap;
+      width: 100%;
+      justify-content: space-between;
+      border: none;
+      border-radius: 8px;
+      padding: 11px 12px;
     }
 
-    /* Icon kategori dibuang di layar sempit — pada ukuran kecil bentuknya
-       ambigu (mis. ikon bunga terbaca seperti tanda "+"), teks label saja
-       sudah cukup jelas di chip sekecil ini. */
-    .filter-chip :global(svg) {
-      display: none;
+    .filter-chip:not(.is-active):hover {
+      background: var(--color-mist);
+      color: var(--color-charcoal);
     }
 
     .katalog-toolbar {
@@ -308,6 +371,23 @@ const jumlahPerGrup = (slug: string) => semuaProduk.filter((p) => p.data.grup ==
   const countEl = document.querySelector<HTMLElement>('[data-katalog-count]');
   const validSlugs = new Set(Array.from(chips).map((c) => c.dataset.filter));
 
+  // Dropdown kategori (mobile) — tombol "Kategori: ... ▾" yang buka/tutup
+  // panel filter-bar. Di desktop elemen ini disembunyikan via CSS, jadi
+  // logicnya aman dijalankan di semua ukuran layar.
+  const filterToggle = document.querySelector<HTMLButtonElement>('[data-filter-toggle]');
+  const filterBar = document.querySelector<HTMLElement>('[data-filter-bar]');
+  const filterToggleLabel = document.querySelector<HTMLElement>('[data-filter-toggle-label]');
+
+  function closeFilterPanel() {
+    filterBar?.classList.remove('is-open');
+    filterToggle?.setAttribute('aria-expanded', 'false');
+  }
+
+  function openFilterPanel() {
+    filterBar?.classList.add('is-open');
+    filterToggle?.setAttribute('aria-expanded', 'true');
+  }
+
   function updateCount(n: number) {
     if (countEl) countEl.textContent = `${n} varietas ditemukan`;
   }
@@ -323,6 +403,15 @@ const jumlahPerGrup = (slug: string) => semuaProduk.filter((p) => p.data.grup ==
     chips.forEach((chip) => {
       chip.classList.toggle('is-active', chip.dataset.filter === slug);
     });
+
+    // Sinkronkan label tombol dropdown mobile dengan chip yang aktif.
+    const activeChip =
+      Array.from(chips).find((c) => c.dataset.filter === slug) ??
+      Array.from(chips).find((c) => c.dataset.filter === 'semua');
+    if (filterToggleLabel && activeChip) {
+      filterToggleLabel.textContent =
+        activeChip.querySelector('.filter-chip-label')?.textContent ?? 'Semua';
+    }
 
     // Fail-safe: kalau karena alasan apa pun tidak ada satu kartu pun yang
     // cocok (mis. slug dari URL hash tidak persis sama), JANGAN biarkan
@@ -365,7 +454,26 @@ const jumlahPerGrup = (slug: string) => semuaProduk.filter((p) => p.data.grup ==
       const slug = chip.dataset.filter ?? 'semua';
       applyFilter(slug);
       history.replaceState(null, '', slug === 'semua' ? '/katalog' : `/katalog#${slug}`);
+      closeFilterPanel();
     });
+  });
+
+  filterToggle?.addEventListener('click', () => {
+    if (filterBar?.classList.contains('is-open')) {
+      closeFilterPanel();
+    } else {
+      openFilterPanel();
+    }
+  });
+
+  // Tutup panel kalau user tap di luar tombol/panel (khusus mobile,
+  // di desktop panel selalu tampil jadi ini tidak berpengaruh).
+  document.addEventListener('click', (e) => {
+    if (!filterBar || !filterToggle) return;
+    const target = e.target as Node;
+    if (!filterBar.contains(target) && !filterToggle.contains(target)) {
+      closeFilterPanel();
+    }
   });
 
   // Hanya jalankan filter otomatis dari hash URL kalau nilainya benar-benar
