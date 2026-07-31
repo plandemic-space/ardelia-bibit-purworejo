@@ -23,12 +23,12 @@ export const site = {
       return `https://wa.me/${this.whatsappNumber}`;
     },
     address: {
-      street: 'Dsn. Ngemplak, RT.01/RW.02, Desa Samping',
+      street: 'Dusun Ngemplak RT.01/RW.02, Desa Samping',
       district: 'Kec. Kemiri',
       regency: 'Kabupaten Purworejo',
       province: 'Jawa Tengah',
       postalCode: '54262',
-      full: 'Dsn. Ngemplak, RT.01/RW.02, Desa Samping, Kec. Kemiri, Kabupaten Purworejo, Jawa Tengah 54262',
+      full: 'Dusun Ngemplak RT.01/RW.02, Desa Samping, Kec. Kemiri, Kabupaten Purworejo, Jawa Tengah 54262',
     },
     // Titik GPS presisi nursery — dipakai untuk peta custom (bukan hasil
     // pencarian teks) supaya tidak menampilkan pin bisnis lain di sekitar.

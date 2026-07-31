@@ -16,7 +16,7 @@ const kunjungiPoin = [
 
 <Layout
   title="Kontak & Lokasi — Ardelia Bibit"
-  description="Hubungi Ardelia Bibit via WhatsApp atau kunjungi langsung nursery kami di Dsn. Ngemplak, Kemiri, Purworejo. Lihat lokasi di peta dan ikuti media sosial kami."
+  description="Hubungi Ardelia Bibit via WhatsApp atau kunjungi langsung nursery kami di Dusun Ngemplak, Kemiri, Purworejo. Lihat lokasi di peta dan ikuti media sosial kami."
   breadcrumbs={[{ name: 'Kontak', path: '/kontak' }]}
 >
   <PageIntro
@@ -32,7 +32,7 @@ const kunjungiPoin = [
         <h2>WhatsApp</h2>
         <p>Konsultasi & Pemesanan</p>
         <strong>{site.contact.whatsappDisplay}</strong>
-        <WhatsAppButton size="sm" label="Chat via WhatsApp" />
+        <WhatsAppButton size="sm" variant="outline" label="Chat via WhatsApp" class="btn-sm-link" />
       </div>
 
       <div class="cara-card">
@@ -46,7 +46,8 @@ const kunjungiPoin = [
       <div class="cara-card">
         <div class="cara-icon"><Icon name="map-pin" size={20} /></div>
         <h2>Lokasi Nursery</h2>
-        <p>Kemiri, Purworejo, Jawa Tengah</p>
+        <p>Nursery bisa dikunjungi langsung</p>
+        <strong>Kemiri, Purworejo</strong>
         <a class="btn btn-outline btn-sm-link" href={site.contact.googleMapsUrl} target="_blank" rel="noopener">
           Lihat di Google Maps →
         </a>
@@ -56,7 +57,14 @@ const kunjungiPoin = [
         <div class="cara-icon"><Icon name="clock" size={20} /></div>
         <h2>Waktu Kunjungan</h2>
         <p>Jam kami fleksibel, menyesuaikan kebutuhan Anda</p>
-        <strong>Konfirmasi dulu via WhatsApp</strong>
+        <strong>Setiap hari</strong>
+        <WhatsAppButton
+          size="sm"
+          variant="outline"
+          label="Konfirmasi Dulu"
+          message="Halo Ardelia Bibit, saya mau tanya waktu yang pas untuk berkunjung ke nursery"
+          class="btn-sm-link"
+        />
       </div>
     </div>
   </section>
@@ -174,6 +182,11 @@ const kunjungiPoin = [
     display: flex;
     flex-direction: column;
     align-items: center;
+    height: 100%;
+  }
+
+  .cara-card :global(.btn) {
+    margin-top: auto;
   }
 
   .cara-icon {
@@ -226,33 +239,35 @@ const kunjungiPoin = [
     background: var(--color-paper);
     border: 1px solid var(--color-line);
     border-radius: var(--radius);
-    padding: 28px;
+    padding: 32px;
   }
 
   .kunjungi-block h2 {
     font-size: clamp(19px, 2vw, 23px);
-    margin: 6px 0 12px;
+    margin: 8px 0 14px;
   }
 
   .kunjungi-desc {
-    font-size: 13.5px;
+    font-size: 14.5px;
     color: var(--color-charcoal-soft);
-    line-height: 1.6;
-    margin-bottom: 18px;
+    line-height: 1.65;
+    margin-bottom: 24px;
   }
 
   .kunjungi-poin {
     display: flex;
     flex-direction: column;
-    gap: 12px;
-    margin-bottom: 20px;
+    gap: 14px;
+    margin-bottom: 24px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid var(--color-line);
   }
 
   .kunjungi-poin li {
     display: flex;
     align-items: flex-start;
     gap: 10px;
-    font-size: 13.5px;
+    font-size: 14px;
     color: var(--color-charcoal);
   }
 
@@ -266,10 +281,9 @@ const kunjungiPoin = [
     display: flex;
     align-items: flex-start;
     gap: 8px;
-    font-size: 12.5px;
+    font-size: 13px;
     color: var(--color-charcoal-soft);
-    padding-top: 16px;
-    border-top: 1px solid var(--color-line);
+    line-height: 1.5;
   }
 
   .kunjungi-alamat :global(svg) {
