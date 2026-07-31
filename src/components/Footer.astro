@@ -29,12 +29,11 @@ const facebookLabel = site.name;
           <li><a href="/artikel">Artikel</a></li>
           <li><a href="/dokumentasi">Dokumentasi Pengiriman</a></li>
           <li><a href="/tentang">Tentang Kami</a></li>
-          <li><a href="/kontak">Kontak</a></li>
         </ul>
       </div>
 
       <div>
-        <p class="footer-heading">Kontak</p>
+        <p class="footer-heading">Kontak &amp; Pengiriman</p>
         <ul class="footer-list footer-list-icon">
           <li>
             <Icon name="whatsapp" size={16} />
@@ -54,28 +53,16 @@ const facebookLabel = site.name;
           </li>
           <li>
             <Icon name="map-pin" size={16} />
-            <a href={site.contact.googleMapsUrl} target="_blank" rel="noopener">Lihat lokasi di Google Maps →</a>
+            <a href={site.contact.googleMapsUrl} target="_blank" rel="noopener">
+              {site.contact.address.street}, {site.contact.address.district},
+              {site.contact.address.regency} →
+            </a>
           </li>
         </ul>
-      </div>
-
-      <div>
-        <p class="footer-heading">Kirim Dari</p>
-        <p class="footer-address">
-          {site.contact.address.street},<br />
-          {site.contact.address.district}, {site.contact.address.regency},<br />
-          {site.contact.address.province} {site.contact.address.postalCode}
+        <p class="footer-shipping">
+          <Icon name="truck" size={14} />
+          Kirim ke Jawa, Bali, Sumatera &amp; sekitarnya — dikemas rapi sesuai jenis bibit.
         </p>
-        <ul class="footer-list-plain">
-          <li>
-            <Icon name="truck" size={15} />
-            <span>Kirim ke Jawa, Bali, Sumatera &amp; sekitarnya</span>
-          </li>
-          <li>
-            <Icon name="leaf" size={15} />
-            <span>Dikemas rapi sesuai jenis bibit</span>
-          </li>
-        </ul>
       </div>
     </div>
 
@@ -95,8 +82,8 @@ const facebookLabel = site.name;
 
   .footer-grid {
     display: grid;
-    grid-template-columns: 1.1fr 0.9fr 1fr 1fr;
-    gap: 28px;
+    grid-template-columns: 1fr 0.7fr 1.1fr;
+    gap: 40px;
     padding-bottom: 40px;
     border-bottom: 1px solid rgba(255, 255, 255, 0.14);
   }
@@ -157,41 +144,31 @@ const facebookLabel = site.name;
 
   .footer-list-icon li {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     gap: 8px;
   }
 
   .footer-list-icon :global(svg) {
     flex-shrink: 0;
+    margin-top: 2px;
     color: var(--color-leaf);
   }
 
-  .footer-address {
-    font-size: 14.5px;
-    line-height: 1.7;
-    color: rgba(255, 255, 255, 0.78);
-    margin: 0 0 16px;
-  }
-
-  .footer-list-plain {
-    list-style: none;
-    margin: 0;
-    padding: 0;
+  .footer-shipping {
     display: flex;
-    flex-direction: column;
-    gap: 8px;
-  }
-
-  .footer-list-plain li {
-    display: flex;
-    align-items: center;
+    align-items: flex-start;
     gap: 8px;
     font-size: 12.5px;
-    color: rgba(255, 255, 255, 0.62);
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.6);
+    margin: 16px 0 0;
+    padding-top: 16px;
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
   }
 
-  .footer-list-plain :global(svg) {
+  .footer-shipping :global(svg) {
     flex-shrink: 0;
+    margin-top: 2px;
     color: var(--color-leaf);
   }
 
@@ -208,6 +185,10 @@ const facebookLabel = site.name;
   @media (max-width: 880px) {
     .footer-grid {
       grid-template-columns: 1fr 1fr;
+    }
+
+    .footer-grid > div:first-child {
+      grid-column: 1 / -1;
     }
   }
 
