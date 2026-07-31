@@ -33,7 +33,7 @@ const pesanWa = `Halo Ardelia Bibit, saya mau tanya stok & harga ${nama}`;
   <div class="produk-body">
     <h3>{nama}</h3>
     {ukuran && <p class="produk-ukuran">{ukuran}</p>}
-    <a class="produk-wa" href={waLink(pesanWa)} target="_blank" rel="noopener">
+    <a class="produk-wa btn btn-outline" href={waLink(pesanWa)} target="_blank" rel="noopener">
       <Icon name="whatsapp" size={16} />
       Tanya Stok &amp; Harga
     </a>
@@ -136,17 +136,11 @@ const pesanWa = `Halo Ardelia Bibit, saya mau tanya stok & harga ${nama}`;
 
   .produk-wa {
     margin-top: auto;
-    padding-top: 4px;
-    display: flex;
-    align-items: center;
+    width: 100%;
     justify-content: center;
     gap: 6px;
-    font-size: 12.5px;
-    font-weight: 600;
-    color: var(--color-leaf-dark);
-  }
-
-  .produk-wa:hover {
-    color: var(--color-teal-dark);
+    padding: 8px 10px;
+    font-size: 12px;
+    border-width: 1.5px;
   }
 </style>
