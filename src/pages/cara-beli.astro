@@ -30,22 +30,27 @@ const langkah = [
 
 const faq = [
   {
+    icon: 'truck' as const,
     q: 'Apakah bisa kirim ke luar kota?',
     a: 'Bisa — kami pernah mengirim sampai ke Jepara. Untuk kota lain, konfirmasi dulu via WhatsApp supaya kami cek ongkos kirim dan cara pengiriman yang paling aman untuk jenis bibitnya.',
   },
   {
+    icon: 'cart' as const,
     q: 'Bagaimana cara pembayarannya?',
     a: 'Detail pembayaran kami sepakati langsung saat chat WhatsApp, menyesuaikan jumlah pesanan dan cara pengambilan/pengirimannya.',
   },
   {
+    icon: 'map-pin' as const,
     q: 'Bisa datang langsung ke lokasi nursery?',
     a: 'Bisa, kami senang kalau calon pembeli mau lihat langsung kondisi bibitnya. Alamat lengkap dan peta ada di halaman Kontak.',
   },
   {
+    icon: 'check' as const,
     q: 'Ukuran bibit yang saya terima sama seperti yang saya minta?',
     a: 'Ukuran bisa sedikit bervariasi tergantung stok saat itu — kami selalu infokan ukuran aktual sebelum Anda pesan, jadi tidak ada yang mengejutkan.',
   },
   {
+    icon: 'message-circle' as const,
     q: 'Bagaimana kalau bibit rusak/mati saat perjalanan?',
     a: 'Untuk pengiriman jarak jauh, tanyakan dulu ke kami sebelum order — kami jelaskan cara pengemasan dan opsi yang tersedia sesuai jenis bibit dan tujuan kirimnya.',
   },
@@ -103,7 +108,10 @@ const faq = [
           faq.map((item) => (
             <details class="faq-item">
               <summary>
-                {item.q}
+                <span class="faq-icon" aria-hidden="true">
+                  <Icon name={item.icon} size={16} />
+                </span>
+                <span class="faq-q">{item.q}</span>
                 <Icon name="chevron-down" size={16} class="faq-chevron" />
               </summary>
               <p>{item.a}</p>
@@ -205,15 +213,26 @@ const faq = [
   .faq-list {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 12px;
     max-width: 720px;
   }
 
   .faq-item {
     border: 1px solid var(--color-line);
+    border-left: 3px solid transparent;
     border-radius: var(--radius-sm);
-    padding: 4px 18px;
+    padding: 0 18px;
     background: var(--color-paper);
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  }
+
+  .faq-item:hover {
+    box-shadow: 0 6px 18px rgba(14, 53, 53, 0.07);
+  }
+
+  .faq-item[open] {
+    border-left-color: var(--color-leaf);
+    box-shadow: 0 10px 24px rgba(14, 53, 53, 0.09);
   }
 
   .faq-item summary {
@@ -224,12 +243,33 @@ const faq = [
     list-style: none;
     display: flex;
     align-items: center;
-    justify-content: space-between;
     gap: 12px;
   }
 
   .faq-item summary::-webkit-details-marker {
     display: none;
+  }
+
+  .faq-icon {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: var(--color-mist);
+    color: var(--color-teal-dark);
+    transition: background-color 0.15s ease;
+  }
+
+  .faq-item[open] .faq-icon {
+    background: var(--color-leaf);
+    color: #fff;
+  }
+
+  .faq-q {
+    flex: 1;
   }
 
   .faq-item :global(.faq-chevron) {
@@ -243,7 +283,7 @@ const faq = [
   }
 
   .faq-item p {
-    padding-bottom: 16px;
+    padding: 0 0 18px 44px;
     font-size: 14px;
     color: var(--color-charcoal-soft);
     line-height: 1.6;

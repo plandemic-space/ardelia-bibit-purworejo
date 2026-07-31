@@ -55,7 +55,7 @@ const kunjungiPoin = [
       <div class="cara-card">
         <div class="cara-icon"><Icon name="clock" size={20} /></div>
         <h2>Waktu Kunjungan</h2>
-        <p>Jam kami fleksibel, menyesuaikan</p>
+        <p>Jam kami fleksibel, menyesuaikan kebutuhan Anda</p>
         <strong>Konfirmasi dulu via WhatsApp</strong>
       </div>
     </div>
@@ -67,8 +67,8 @@ const kunjungiPoin = [
         <p class="eyebrow">Datang Langsung</p>
         <h2>Kunjungi Langsung Nursery Kami</h2>
         <p class="kunjungi-desc">
-          Kami terbuka untuk kunjungan langsung. Anda bisa melihat koleksi
-          bibit dan berkonsultasi langsung dengan kami di nursery.
+          Kami terbuka untuk kunjungan langsung — datang saja ke nursery
+          untuk melihat koleksi bibit dan berkonsultasi dengan kami.
         </p>
 
         <ul class="kunjungi-poin">
@@ -86,6 +86,19 @@ const kunjungiPoin = [
           <Icon name="map-pin" size={16} />
           {site.contact.address.full}
         </p>
+
+        <div class="kunjungi-social">
+          <span>Ikuti Kami</span>
+          <a href={site.social.youtube} target="_blank" rel="noopener" aria-label="YouTube Ardelia Bibit">
+            <Icon name="youtube" size={17} />
+          </a>
+          <a href={site.social.facebook} target="_blank" rel="noopener" aria-label="Facebook Ardelia Bibit">
+            <Icon name="facebook" size={17} />
+          </a>
+          <a href={site.social.tiktok} target="_blank" rel="noopener" aria-label="TikTok Ardelia Bibit">
+            <Icon name="tiktok" size={17} />
+          </a>
+        </div>
       </div>
 
       <div class="kontak-map">
@@ -262,6 +275,33 @@ const kunjungiPoin = [
   .kunjungi-alamat :global(svg) {
     flex-shrink: 0;
     margin-top: 2px;
+  }
+
+  .kunjungi-social {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 14px;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--color-charcoal-soft);
+  }
+
+  .kunjungi-social a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: var(--color-mist);
+    color: var(--color-teal-dark);
+    transition: background-color 0.15s ease, color 0.15s ease;
+  }
+
+  .kunjungi-social a:hover {
+    background: var(--color-teal-dark);
+    color: #fff;
   }
 
   .kontak-map {
