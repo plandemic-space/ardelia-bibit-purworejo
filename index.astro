@@ -1,0 +1,95 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/home/Hero.astro';
+import TrustBar from '../components/home/TrustBar.astro';
+import KategoriPreview from '../components/home/KategoriPreview.astro';
+import KatalogPreview from '../components/home/KatalogPreview.astro';
+import AlasanSection from '../components/home/AlasanSection.astro';
+import CaraMemesan from '../components/home/CaraMemesan.astro';
+import AktivitasNursery from '../components/home/AktivitasNursery.astro';
+import CeritaSingkat from '../components/home/CeritaSingkat.astro';
+import DokumentasiPreview from '../components/home/DokumentasiPreview.astro';
+import ArtikelTerbaru from '../components/home/ArtikelTerbaru.astro';
+import ClosingCTA from '../components/home/ClosingCTA.astro';
+---
+
+<Layout
+  title="Ardelia Bibit — Nursery Bibit Tanaman di Kemiri, Purworejo"
+  description="Nursery bibit tanaman di Kemiri, Purworejo: bibit buah, kayu keras, tanaman hias, sampai rempah dapur. Kunjungi langsung atau konsultasi via WhatsApp."
+>
+  <Hero />
+  <TrustBar />
+  <KategoriPreview />
+  <KatalogPreview />
+
+  <section class="pair-section pair-mist">
+    <div class="wrap pair-grid">
+      <div class="pair-card">
+        <AlasanSection />
+      </div>
+      <div class="pair-card">
+        <CaraMemesan />
+      </div>
+    </div>
+  </section>
+
+  <section class="pair-section">
+    <div class="wrap pair-grid">
+      <div class="pair-card">
+        <AktivitasNursery />
+      </div>
+      <div class="pair-card">
+        <CeritaSingkat />
+      </div>
+    </div>
+  </section>
+
+  <section class="pair-section pair-mist">
+    <div class="wrap pair-grid">
+      <div class="pair-card">
+        <DokumentasiPreview />
+      </div>
+      <div class="pair-card">
+        <ArtikelTerbaru />
+      </div>
+    </div>
+  </section>
+
+  <ClosingCTA />
+</Layout>
+
+<style>
+  .pair-section {
+    background: var(--color-paper);
+  }
+
+  .pair-mist {
+    background: var(--color-mist);
+  }
+
+  .pair-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    align-items: stretch;
+  }
+
+  .pair-card {
+    background: var(--color-paper);
+    border: 1px solid var(--color-line);
+    border-radius: var(--radius);
+    padding: 28px;
+  }
+
+  @media (max-width: 880px) {
+    .pair-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 720px) {
+    .pair-card {
+      padding: 22px;
+    }
+  }
+</style>
