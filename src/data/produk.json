@@ -17,7 +17,6 @@
     "id": "alpukat-miki",
     "nama": "Alpukat Miki",
     "grup": "bibit-buah",
-    "ukuran": "Tinggi 120–130 cm · Planterbag 35",
     "foto": "/images/produk/alpukat-miki.webp",
     "fotoTersedia": true
   },
@@ -25,7 +24,6 @@
     "id": "alpukat-pluwang",
     "nama": "Alpukat Pluwang",
     "grup": "bibit-buah",
-    "ukuran": "Tinggi 120–130 cm · Planterbag 35",
     "foto": "/images/produk/alpukat-pluwang.webp",
     "fotoTersedia": true
   },
@@ -46,7 +44,6 @@
   {
     "id": "durian-bawor",
     "nama": "Durian Bawor",
-    "ukuran": "Tinggi 1,5–2 m · Planterbag 35",
     "grup": "bibit-buah",
     "foto": "/images/produk/durian-bawor.webp",
     "fotoTersedia": true
@@ -55,7 +52,6 @@
     "id": "durian-duri-hitam",
     "nama": "Durian Duri Hitam",
     "grup": "bibit-buah",
-    "ukuran": "Tinggi 1,5–2 m · Planterbag 35",
     "foto": "/images/produk/durian-duri-hitam.webp",
     "fotoTersedia": true
   },
@@ -63,7 +59,6 @@
     "id": "durian-musang-king",
     "nama": "Durian Musang King",
     "grup": "bibit-buah",
-    "ukuran": "Tinggi 1,5–2 m · Planterbag 35",
     "foto": "/images/produk/durian-musang-king.webp",
     "fotoTersedia": true
   },
@@ -182,7 +177,6 @@
   {
     "id": "palem-merah",
     "nama": "Palem Merah",
-    "ukuran": "Tinggi 1,2–3 m",
     "grup": "tanaman-hias",
     "foto": "/images/produk/palem-merah.webp",
     "fotoTersedia": true
@@ -190,7 +184,6 @@
   {
     "id": "pucuk-merah",
     "nama": "Pucuk Merah",
-    "ukuran": "Tinggi 2,5–3 m",
     "grup": "tanaman-hias",
     "foto": "/images/produk/pucuk-merah.webp",
     "fotoTersedia": true
