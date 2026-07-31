@@ -105,6 +105,8 @@ const pesanWa = `Halo Ardelia Bibit, saya mau tanya stok & harga ${nama}`;
     padding: 12px 14px 14px;
     display: flex;
     flex-direction: column;
+    align-items: center;
+    text-align: center;
     gap: 4px;
     flex: 1;
   }
@@ -115,9 +117,9 @@ const pesanWa = `Halo Ardelia Bibit, saya mau tanya stok & harga ${nama}`;
     font-family: var(--font-body);
     color: var(--color-charcoal);
     line-height: 1.25;
-    min-height: 2.5em;
+    min-height: 1.25em;
     display: -webkit-box;
-    -webkit-line-clamp: 2;
+    -webkit-line-clamp: 1;
     -webkit-box-orient: vertical;
     overflow: hidden;
   }
@@ -135,9 +137,10 @@ const pesanWa = `Halo Ardelia Bibit, saya mau tanya stok & harga ${nama}`;
 
   .produk-wa {
     margin-top: auto;
-    padding-top: 6px;
+    padding-top: 4px;
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 6px;
     font-size: 12.5px;
     font-weight: 600;
