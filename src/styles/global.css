@@ -270,8 +270,19 @@ section {
 
 .prose blockquote {
   margin: 0;
-  padding: 4px 20px;
+  padding: 14px 18px;
+  background: var(--color-mist);
   border-left: 3px solid var(--color-leaf);
-  color: var(--color-charcoal-soft);
-  font-style: italic;
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  color: var(--color-charcoal);
+  font-size: 15px;
+  font-style: normal;
+}
+
+.prose blockquote p {
+  margin: 0;
+}
+
+.prose blockquote strong {
+  color: var(--color-leaf-dark);
 }
