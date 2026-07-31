@@ -34,8 +34,9 @@ const pesanWa = `Halo Ardelia Bibit, saya mau tanya stok & harga ${nama}`;
     <h3>{nama}</h3>
     {ukuran && <p class="produk-ukuran">{ukuran}</p>}
     <a class="produk-wa btn btn-outline" href={waLink(pesanWa)} target="_blank" rel="noopener">
-      <Icon name="whatsapp" size={16} />
-      Tanya Stok &amp; Harga
+      <Icon name="whatsapp" size={15} />
+      <span class="produk-wa-full">Tanya Stok &amp; Harga</span>
+      <span class="produk-wa-short">Tanya Harga</span>
     </a>
   </div>
 </article>
@@ -138,9 +139,34 @@ const pesanWa = `Halo Ardelia Bibit, saya mau tanya stok & harga ${nama}`;
     margin-top: auto;
     width: 100%;
     justify-content: center;
-    gap: 6px;
-    padding: 8px 10px;
+    gap: 5px;
+    padding: 8px 8px;
     font-size: 12px;
+    line-height: 1.2;
     border-width: 1.5px;
+    white-space: nowrap;
+  }
+
+  .produk-wa-short {
+    display: none;
+  }
+
+  /* Di layar sempit (grid 2 kolom), teks penuh "Tanya Stok & Harga" kepaksa
+     wrap 2 baris dan bikin tombolnya keliatan gede/gemuk — ganti versi
+     singkat khusus di sini. Tablet/desktop (kartu lebih lebar) tetap teks lengkap. */
+  @media (max-width: 480px) {
+    .produk-wa {
+      padding: 7px 6px;
+      font-size: 11.5px;
+      gap: 4px;
+    }
+
+    .produk-wa-full {
+      display: none;
+    }
+
+    .produk-wa-short {
+      display: inline;
+    }
   }
 </style>
