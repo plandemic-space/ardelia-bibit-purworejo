@@ -3,12 +3,19 @@ interface Props {
   eyebrow: string;
   title: string;
   subtitle?: string;
+  /** Opsional — kalau diisi, page-intro jadi hero foto dengan overlay gelap */
+  image?: string;
 }
 
-const { eyebrow, title, subtitle } = Astro.props;
+const { eyebrow, title, subtitle, image } = Astro.props;
 ---
 
-<section class="page-intro">
+<section class:list={['page-intro', { 'page-intro-photo': !!image }]}>
+  {image && (
+    <div class="page-intro-bg">
+      <img src={image} alt="" loading="eager" decoding="async" />
+    </div>
+  )}
   <div class="wrap">
     <p class="eyebrow">{eyebrow}</p>
     <h1>{title}</h1>
@@ -31,5 +38,45 @@ const { eyebrow, title, subtitle } = Astro.props;
     color: var(--color-charcoal-soft);
     max-width: 560px;
     font-size: 15.5px;
+  }
+
+  .page-intro-photo {
+    position: relative;
+    padding: 64px 0;
+    background: var(--color-teal-dark);
+    overflow: hidden;
+    isolation: isolate;
+  }
+
+  .page-intro-bg {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+  }
+
+  .page-intro-bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.55;
+  }
+
+  .page-intro-bg::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, rgba(15, 51, 41, 0.92) 0%, rgba(15, 51, 41, 0.55) 65%, rgba(15, 51, 41, 0.35) 100%);
+  }
+
+  .page-intro-photo .eyebrow {
+    color: var(--color-leaf);
+  }
+
+  .page-intro-photo h1 {
+    color: #fff;
+  }
+
+  .page-intro-photo .page-intro-sub {
+    color: rgba(255, 255, 255, 0.85);
   }
 </style>

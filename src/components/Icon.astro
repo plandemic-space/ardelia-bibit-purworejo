@@ -29,7 +29,8 @@ interface Props {
     | 'truck'
     | 'message-circle'
     | 'arrow-up'
-    | 'clock';
+    | 'clock'
+    | 'link';
   size?: number;
   class?: string;
 }
@@ -242,6 +243,15 @@ const { name, size = 18, class: className = '' } = Astro.props;
     <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class={className} aria-hidden="true">
       <circle cx="12" cy="12" r="9" />
       <path d="M12 7v5l3.5 2" />
+    </svg>
+  )
+}
+
+{
+  name === 'link' && (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class={className} aria-hidden="true">
+      <path d="M10 13a5 5 0 0 0 7.5.5l2-2a5 5 0 0 0-7-7l-1.5 1.5" />
+      <path d="M14 11a5 5 0 0 0-7.5-.5l-2 2a5 5 0 0 0 7 7l1.5-1.5" />
     </svg>
   )
 }
