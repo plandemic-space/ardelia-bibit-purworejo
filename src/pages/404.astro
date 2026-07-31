@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import WhatsAppButton from '../components/WhatsAppButton.astro';
 import Icon from '../components/Icon.astro';
+import { waLink } from '../data/site';
 
 const quickLinks = [
   {
@@ -26,7 +27,7 @@ const quickLinks = [
     icon: 'whatsapp' as const,
     title: 'Hubungi Kami',
     desc: 'Konsultasi langsung via WhatsApp',
-    href: 'https://wa.me/6282221085354',
+    href: waLink('Halo Ardelia Bibit, saya butuh bantuan (dari halaman tidak ditemukan)'),
   },
 ];
 ---

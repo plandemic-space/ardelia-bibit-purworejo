@@ -34,7 +34,7 @@ const produk = defineCollection({
   }),
 });
 
-/** Siap dipakai saat artikel/blog mulai diisi — belum ada file .md di dalamnya */
+/** Koleksi artikel — file .md ada di src/content/artikel/ */
 const artikel = defineCollection({
   loader: glob({ pattern: '**/*.md', base: './src/content/artikel' }),
   schema: z.object({
