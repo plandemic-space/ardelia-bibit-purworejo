@@ -32,7 +32,7 @@ const pesanWa = `Halo Ardelia Bibit, saya mau tanya stok & harga ${nama}`;
 
   <div class="produk-body">
     <h3>{nama}</h3>
-    {ukuran && <p class="produk-ukuran">{ukuran}</p>}
+    <p class="produk-ukuran">{ukuran || '\u00A0'}</p>
     <a class="produk-wa" href={waLink(pesanWa)} target="_blank" rel="noopener">
       <Icon name="whatsapp" size={16} />
       Tanya Stok &amp; Harga
@@ -102,20 +102,20 @@ const pesanWa = `Halo Ardelia Bibit, saya mau tanya stok & harga ${nama}`;
   }
 
   .produk-body {
-    padding: 14px 16px 16px;
+    padding: 12px 14px 14px;
     display: flex;
     flex-direction: column;
-    gap: 6px;
+    gap: 4px;
     flex: 1;
   }
 
   .produk-body h3 {
-    font-size: 14.5px;
+    font-size: 14px;
     font-weight: 600;
     font-family: var(--font-body);
     color: var(--color-charcoal);
-    line-height: 1.3;
-    min-height: 2.6em;
+    line-height: 1.25;
+    min-height: 2.5em;
     display: -webkit-box;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
@@ -123,19 +123,19 @@ const pesanWa = `Halo Ardelia Bibit, saya mau tanya stok & harga ${nama}`;
   }
 
   .produk-ukuran {
-    font-size: 12px;
+    font-size: 11.5px;
     color: var(--color-charcoal-soft);
-    line-height: 1.4;
-    min-height: 2.8em;
+    line-height: 1.3;
+    min-height: 1.3em;
     display: -webkit-box;
-    -webkit-line-clamp: 2;
+    -webkit-line-clamp: 1;
     -webkit-box-orient: vertical;
     overflow: hidden;
   }
 
   .produk-wa {
     margin-top: auto;
-    padding-top: 8px;
+    padding-top: 6px;
     display: flex;
     align-items: center;
     gap: 6px;
