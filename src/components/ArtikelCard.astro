@@ -2,18 +2,12 @@
 interface Props {
   title: string;
   description: string;
-  publishDate: Date;
   href: string;
   coverImage?: string;
+  readingMinutes?: number;
 }
 
-const { title, description, publishDate, href, coverImage } = Astro.props;
-
-const tanggal = publishDate.toLocaleDateString('id-ID', {
-  day: 'numeric',
-  month: 'long',
-  year: 'numeric',
-});
+const { title, description, href, coverImage, readingMinutes } = Astro.props;
 ---
 
 <a class="artikel-card" href={href}>
@@ -29,7 +23,7 @@ const tanggal = publishDate.toLocaleDateString('id-ID', {
     )
   }
   <div class="artikel-body">
-    <span class="artikel-date">{tanggal}</span>
+    {readingMinutes && <span class="artikel-date">{readingMinutes} menit baca</span>}
     <h3>{title}</h3>
     <p>{description}</p>
     <span class="artikel-readmore">Baca selengkapnya →</span>

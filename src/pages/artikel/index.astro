@@ -3,6 +3,7 @@ import { getCollection } from 'astro:content';
 import Layout from '../../layouts/Layout.astro';
 import PageIntro from '../../components/PageIntro.astro';
 import ArtikelCard from '../../components/ArtikelCard.astro';
+import { estimasiWaktuBaca } from '../../lib/readingTime';
 
 const semuaArtikel = (await getCollection('artikel')).sort(
   (a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf()
@@ -31,9 +32,9 @@ const semuaArtikel = (await getCollection('artikel')).sort(
               <ArtikelCard
                 title={entry.data.title}
                 description={entry.data.description}
-                publishDate={entry.data.publishDate}
                 href={`/artikel/${entry.id}`}
                 coverImage={entry.data.coverImage}
+                readingMinutes={estimasiWaktuBaca(entry.body ?? '')}
               />
             ))}
           </div>
