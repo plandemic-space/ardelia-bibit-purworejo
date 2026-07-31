@@ -84,6 +84,9 @@ const collageTiles = [
   /* --- Kolase 4 foto: 4 kotak sejajar sama besar (2x2), sesuai mockup --- */
   .hero-collage {
     position: relative;
+    width: min(100%, 360px);
+    aspect-ratio: 1 / 1;
+    margin-left: auto;
     display: grid;
     grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
     grid-template-rows: minmax(0, 1fr) minmax(0, 1fr);
