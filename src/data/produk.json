@@ -37,9 +37,16 @@
     "fotoTersedia": true
   },
   {
+    "id": "alpukat-siger",
+    "nama": "Alpukat Siger",
+    "grup": "bibit-buah",
+    "foto": "/images/produk/alpukat-siger.webp",
+    "fotoTersedia": true
+  },
+  {
     "id": "durian-bawor",
     "nama": "Durian Bawor",
-    "ukuran": "Planterbag 35 · Tinggi 1,5–2 m",
+    "ukuran": "Tinggi 1,5–2 m · Planterbag 35",
     "grup": "bibit-buah",
     "foto": "/images/produk/durian-bawor.webp",
     "fotoTersedia": true
@@ -48,7 +55,7 @@
     "id": "durian-duri-hitam",
     "nama": "Durian Duri Hitam",
     "grup": "bibit-buah",
-    "ukuran": "Planterbag 35 · Tinggi 1,5–2 m",
+    "ukuran": "Tinggi 1,5–2 m · Planterbag 35",
     "foto": "/images/produk/durian-duri-hitam.webp",
     "fotoTersedia": true
   },
@@ -56,8 +63,15 @@
     "id": "durian-musang-king",
     "nama": "Durian Musang King",
     "grup": "bibit-buah",
-    "ukuran": "Planterbag 35 · Tinggi 1,5–2 m",
+    "ukuran": "Tinggi 1,5–2 m · Planterbag 35",
     "foto": "/images/produk/durian-musang-king.webp",
+    "fotoTersedia": true
+  },
+  {
+    "id": "durian-super-tembaga",
+    "nama": "Durian Super Tembaga",
+    "grup": "bibit-buah",
+    "foto": "/images/produk/durian-super-tembaga.webp",
     "fotoTersedia": true
   },
   {
@@ -72,6 +86,13 @@
     "nama": "Kelengkeng New Crystal",
     "grup": "bibit-buah",
     "foto": "/images/produk/kelengkeng-new-crystal.webp",
+    "fotoTersedia": true
+  },
+  {
+    "id": "kelengkeng-merah",
+    "nama": "Kelengkeng Merah",
+    "grup": "bibit-buah",
+    "foto": "/images/produk/kelengkeng-merah.webp",
     "fotoTersedia": true
   },
   {
