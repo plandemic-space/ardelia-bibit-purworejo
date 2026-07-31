@@ -4,6 +4,7 @@ import Layout from '../layouts/Layout.astro';
 import ProdukCard from '../components/ProdukCard.astro';
 import WhatsAppButton from '../components/WhatsAppButton.astro';
 import Icon from '../components/Icon.astro';
+import ClosingCTA from '../components/home/ClosingCTA.astro';
 import { kategoriBibit } from '../data/nav';
 
 const semuaProduk = await getCollection('produk');
@@ -74,15 +75,12 @@ const jumlahPerGrup = (slug: string) => semuaProduk.filter((p) => p.data.grup ==
     </div>
   </section>
 
-  <section class="katalog-cta">
-    <div class="wrap katalog-cta-inner">
-      <div>
-        <h2>Tidak Ketemu Bibit yang Dicari?</h2>
-        <p>Kadang ada varietas yang belum sempat kami masukkan ke katalog. Tanya saja langsung.</p>
-      </div>
-      <WhatsAppButton message="Halo Ardelia Bibit, saya mau tanya bibit yang tidak ada di katalog" label="Tanya via WhatsApp" />
-    </div>
-  </section>
+  <ClosingCTA
+    heading="Tidak Ketemu Bibit yang Dicari?"
+    subtitle="Kadang ada varietas yang belum sempat kami masukkan ke katalog."
+    message="Halo Ardelia Bibit, saya mau tanya bibit yang tidak ada di katalog"
+    label="Tanya via WhatsApp"
+  />
 </Layout>
 
 <style>
@@ -182,37 +180,6 @@ const jumlahPerGrup = (slug: string) => semuaProduk.filter((p) => p.data.grup ==
     .produk-grid {
       grid-template-columns: 1fr 1fr;
       gap: 12px;
-    }
-  }
-
-  .katalog-cta {
-    background: var(--color-teal-dark);
-  }
-
-  .katalog-cta-inner {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 24px;
-    flex-wrap: wrap;
-  }
-
-  .katalog-cta h2 {
-    color: #fff;
-    font-size: clamp(20px, 2.4vw, 26px);
-    margin-bottom: 6px;
-  }
-
-  .katalog-cta p {
-    color: rgba(255, 255, 255, 0.72);
-    font-size: 14px;
-    max-width: 420px;
-  }
-
-  @media (max-width: 700px) {
-    .katalog-cta-inner {
-      flex-direction: column;
-      text-align: center;
     }
   }
 </style>

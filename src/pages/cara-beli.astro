@@ -3,6 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import PageIntro from '../components/PageIntro.astro';
 import WhatsAppButton from '../components/WhatsAppButton.astro';
 import Icon from '../components/Icon.astro';
+import ClosingCTA from '../components/home/ClosingCTA.astro';
 
 const langkah = [
   {
@@ -58,7 +59,7 @@ const faq = [
 >
   <PageIntro
     eyebrow="Cara Beli"
-    title="Prosesnya Sederhana, Semua Lewat Chat"
+    title="4 Langkah Mudah Pesan Bibit"
     subtitle="Kami tidak pakai keranjang belanja online — semua pesanan dibicarakan langsung via WhatsApp supaya Anda dapat kepastian stok dan ukuran sebelum bayar."
   />
 
@@ -83,23 +84,12 @@ const faq = [
     </div>
   </section>
 
-  <section class="partai-besar">
-    <div class="wrap partai-inner">
-      <div>
-        <p class="eyebrow eyebrow-light">Kebutuhan Lebih Besar</p>
-        <h2>Pesan untuk Proyek atau Partai Besar?</h2>
-        <p>
-          Kalau kebutuhannya untuk penghijauan, proyek landscape, atau
-          pesanan dalam jumlah banyak, sebutkan saja jumlah dan jenis
-          bibitnya lewat WhatsApp — kami bantu cek ketersediaan stoknya.
-        </p>
-      </div>
-      <WhatsAppButton
-        message="Halo Ardelia Bibit, saya mau tanya untuk pesanan partai besar/proyek"
-        label="Tanya Partai Besar"
-      />
-    </div>
-  </section>
+  <ClosingCTA
+    heading="Pesan untuk Proyek atau Partai Besar?"
+    subtitle="Sebutkan jumlah dan jenis bibitnya, kami bantu cek ketersediaan stok."
+    message="Halo Ardelia Bibit, saya mau tanya untuk pesanan partai besar/proyek"
+    label="Tanya Partai Besar"
+  />
 
   <section class="faq-section" id="faq">
     <div class="wrap">
@@ -209,45 +199,6 @@ const faq = [
 
     .langkah-card {
       padding: 0;
-    }
-  }
-
-  .partai-besar {
-    background: var(--color-teal-dark);
-  }
-
-  .partai-inner {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 28px;
-    flex-wrap: wrap;
-  }
-
-  .partai-inner > div {
-    max-width: 520px;
-  }
-
-  .eyebrow-light {
-    color: var(--color-leaf);
-  }
-
-  .partai-besar h2 {
-    color: #fff;
-    font-size: clamp(22px, 2.6vw, 30px);
-    margin: 10px 0 10px;
-  }
-
-  .partai-besar p {
-    color: rgba(255, 255, 255, 0.75);
-    font-size: 14.5px;
-    line-height: 1.6;
-  }
-
-  @media (max-width: 700px) {
-    .partai-inner {
-      flex-direction: column;
-      text-align: center;
     }
   }
 

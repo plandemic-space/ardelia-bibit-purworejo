@@ -1,6 +1,20 @@
 ---
 import WhatsAppButton from '../WhatsAppButton.astro';
 import Icon from '../Icon.astro';
+
+interface Props {
+  heading?: string;
+  subtitle?: string;
+  message?: string;
+  label?: string;
+}
+
+const {
+  heading = 'Masih Bingung Pilih Bibit?',
+  subtitle = 'Chat WhatsApp, kami bantu pilihkan yang cocok.',
+  message,
+  label = 'Chat WhatsApp Sekarang',
+} = Astro.props;
 ---
 
 <section class="closing">
@@ -11,11 +25,11 @@ import Icon from '../Icon.astro';
           <Icon name="leaf" size={17} />
         </span>
         <div>
-          <h2>Masih Bingung Pilih Bibit?</h2>
-          <p>Chat WhatsApp, kami bantu pilihkan yang cocok.</p>
+          <h2>{heading}</h2>
+          <p>{subtitle}</p>
         </div>
       </div>
-      <WhatsAppButton label="Chat WhatsApp Sekarang" variant="outline" size="sm" class="btn-on-dark" />
+      <WhatsAppButton message={message} label={label} variant="outline" size="sm" class="btn-on-dark" />
     </div>
   </div>
 </section>
