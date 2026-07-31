@@ -1,6 +1,6 @@
 /**
  * Struktur navigasi utama (mega menu) — sinkron dengan taksonomi produk
- * di src/data/produk.json (43 varietas, 6 grup — daftar katalog revisi
+ * di src/data/produk.json (47 varietas, 6 grup — daftar katalog revisi
  * terbaru dari owner, menggantikan daftar 48 varietas sebelumnya).
  *
  * Catatan: label "Cari Berdasarkan Kebutuhan" memetakan grup produk ke

@@ -203,6 +203,13 @@
     "fotoTersedia": true
   },
   {
+    "id": "tabebuya",
+    "nama": "Tabebuya",
+    "grup": "tanaman-hias",
+    "foto": "/images/produk/tabebuya.webp",
+    "fotoTersedia": true
+  },
+  {
     "id": "balsa",
     "nama": "Balsa",
     "grup": "pohon-kayu",
