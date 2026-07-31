@@ -17,7 +17,7 @@
     "id": "alpukat-miki",
     "nama": "Alpukat Miki",
     "grup": "bibit-buah",
-    "ukuran": "120–130 cm, planterbag 35",
+    "ukuran": "Tinggi 120–130 cm · Planterbag 35",
     "foto": "/images/produk/alpukat-miki.webp",
     "fotoTersedia": true
   },
@@ -39,7 +39,7 @@
     "id": "durian-duri-hitam",
     "nama": "Durian Duri Hitam",
     "grup": "bibit-buah",
-    "ukuran": "Black Tom, tinggi ±2,5 m, planterbag 50x50 (jumbo)",
+    "ukuran": "Black Tom · Tinggi ±2,5 m · Planterbag 50x50 (jumbo)",
     "foto": "/images/produk/durian-duri-hitam.webp",
     "fotoTersedia": true
   },
@@ -47,7 +47,7 @@
     "id": "durian-musang-king",
     "nama": "Durian Musang King",
     "grup": "bibit-buah",
-    "ukuran": "60 cm – 1 m up, siap tanam",
+    "ukuran": "Tinggi 60 cm–1 m up · Siap tanam",
     "foto": "/images/produk/durian-musang-king.webp",
     "fotoTersedia": true
   },
@@ -181,7 +181,7 @@
     "id": "balsa",
     "nama": "Balsa",
     "grup": "pohon-kayu",
-    "ukuran": "Siap dikebunkan — bukan bibit kecil",
+    "ukuran": "Siap dikebunkan · Bukan bibit kecil",
     "foto": "/images/produk/balsa.webp",
     "fotoTersedia": true
   },
