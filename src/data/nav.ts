@@ -57,7 +57,7 @@ export const kategoriBibit: MegaCategory[] = [
     description: 'Petai',
     href: '/katalog#perkebunan',
     slug: 'perkebunan',
-    icon: 'coffee-cup',
+    icon: 'tree',
   },
   {
     label: 'Pakan Ternak',
@@ -117,6 +117,7 @@ export const tentangKami = [
 export const navUtama = [
   { label: 'Beranda', href: '/' },
   { label: 'Katalog', href: '/katalog' },
+  { label: 'Cara Beli', href: '/cara-beli' },
   { label: 'Tentang Kami', href: '/tentang' },
   { label: 'Artikel', href: '/artikel' },
   { label: 'Dokumentasi', href: '/dokumentasi' },

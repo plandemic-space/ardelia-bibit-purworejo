@@ -3,18 +3,22 @@ import { getCollection } from 'astro:content';
 import Icon from '../Icon.astro';
 
 /**
- * Bar 4 poin di bawah hero (pola dari mockup homepage). Semua klaim di sini
- * sudah terverifikasi di tempat lain di situs (AlasanSection, tentang.astro,
- * cara-beli.astro) — bukan klaim baru. Jumlah varietas dihitung otomatis
- * dari data/produk.json supaya tidak pernah basi.
+ * Bar 4 poin di bawah hero (pola dari mockup homepage). Sengaja dibuat
+ * BEDA isinya dari AlasanSection ("Kenapa Memilih Ardelia Bibit?") yang
+ * ada lebih ke bawah di halaman ini — supaya pengunjung tidak baca klaim
+ * yang sama dua kali dalam satu scroll. Semua klaim di sini tetap
+ * terverifikasi di tempat lain di situs:
+ * - Pengiriman Aman → lihat /dokumentasi ("dikemas rapi ... aman sampai tujuan")
+ * - Ramah & Jujur → lihat /tentang ("melayani pelanggan dengan ramah dan jujur")
+ * Jumlah varietas dihitung otomatis dari data/produk.json supaya tidak pernah basi.
  */
 const semuaProduk = await getCollection('produk');
 const totalVarietas = semuaProduk.length;
 
 const items = [
   { icon: 'grass', title: `${totalVarietas}+ Varietas`, desc: 'Pilihan bibit lengkap untuk berbagai kebutuhan' },
-  { icon: 'check', title: 'Bibit Terseleksi', desc: 'Setiap bibit dicek dulu kondisinya sebelum dikirim' },
-  { icon: 'whatsapp', title: 'Konsultasi Dulu', desc: 'Belum yakin? Kami bantu arahkan lewat WhatsApp' },
+  { icon: 'truck', title: 'Pengiriman Aman', desc: 'Dikemas rapi, aman sampai tujuan' },
+  { icon: 'check', title: 'Ramah & Jujur', desc: 'Terbuka soal kondisi bibit ke pembeli' },
   { icon: 'map-pin', title: 'Bisa Dikunjungi', desc: 'Nursery terbuka untuk dilihat langsung' },
 ];
 ---
