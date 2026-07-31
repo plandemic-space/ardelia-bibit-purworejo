@@ -36,8 +36,7 @@ export const site = {
       lat: -7.6634876,
       lng: 109.8774283,
     },
-    googleMapsUrl:
-      'https://www.google.com/maps/place/Ardelia+Bibit/@-7.6634876,109.8748534,653m/data=!3m2!1e3!4b1!4m6!3m5!1s0x2e7ac1ed7ea51af1:0xdef8d8ab50ed9286!8m2!3d-7.6634876!4d109.8774283!16s%2Fg%2F11vksk5rr2',
+    googleMapsUrl: 'https://maps.app.goo.gl/u9B7z3J6TEJudp5v7',
   },
 
   social: {
