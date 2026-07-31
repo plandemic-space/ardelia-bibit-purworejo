@@ -52,6 +52,19 @@ const jumlahPerGrup = (slug: string) => semuaProduk.filter((p) => p.data.grup ==
         }
       </div>
 
+      <div class="katalog-toolbar">
+        <p class="katalog-count" data-katalog-count>{semuaProduk.length} varietas ditemukan</p>
+        <label class="katalog-sort">
+          <span>Urutkan</span>
+          <select data-sort aria-label="Urutkan produk">
+            <option value="default">Rekomendasi</option>
+            <option value="az">Nama A-Z</option>
+            <option value="za">Nama Z-A</option>
+          </select>
+          <Icon name="chevron-down" size={12} class="katalog-sort-icon" />
+        </label>
+      </div>
+
       <p class="filter-empty" data-filter-empty hidden>
         Tidak ada produk di kelompok ini.
       </p>
@@ -108,7 +121,7 @@ const jumlahPerGrup = (slug: string) => semuaProduk.filter((p) => p.data.grup ==
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
-    margin-bottom: 28px;
+    margin-bottom: 20px;
   }
 
   .filter-chip {
@@ -157,6 +170,108 @@ const jumlahPerGrup = (slug: string) => semuaProduk.filter((p) => p.data.grup ==
     color: var(--color-charcoal-soft);
   }
 
+  /* --- Toolbar: jumlah hasil + sort --- */
+  .katalog-toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding-top: 14px;
+    margin-bottom: 24px;
+    border-top: 1px solid var(--color-line);
+  }
+
+  .katalog-count {
+    font-size: 13px;
+    color: var(--color-charcoal-soft);
+  }
+
+  .katalog-sort {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    flex-shrink: 0;
+  }
+
+  .katalog-sort span {
+    font-size: 12.5px;
+    color: var(--color-charcoal-soft);
+    font-weight: 600;
+  }
+
+  .katalog-sort select {
+    appearance: none;
+    -webkit-appearance: none;
+    border: 1px solid var(--color-line);
+    background: var(--color-paper);
+    border-radius: 999px;
+    padding: 7px 30px 7px 14px;
+    font-size: 13px;
+    font-weight: 600;
+    font-family: inherit;
+    color: var(--color-charcoal);
+    cursor: pointer;
+    transition: border-color 0.15s ease;
+  }
+
+  .katalog-sort select:hover,
+  .katalog-sort select:focus-visible {
+    border-color: var(--color-teal);
+    outline: none;
+  }
+
+  .katalog-sort :global(.katalog-sort-icon) {
+    position: absolute;
+    right: 12px;
+    pointer-events: none;
+    color: var(--color-charcoal-soft);
+  }
+
+  @media (max-width: 780px) {
+    /* Chip kategori jadi satu baris yang bisa di-swipe, bukan wrap
+       berantakan — lebih rapi di layar sempit. */
+    .filter-bar {
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      scrollbar-width: none;
+      -webkit-overflow-scrolling: touch;
+      margin: 0 -24px 20px;
+      padding: 0 24px 4px;
+      scroll-padding-left: 24px;
+    }
+
+    .filter-bar::-webkit-scrollbar {
+      display: none;
+    }
+
+    .filter-chip {
+      flex-shrink: 0;
+      white-space: nowrap;
+    }
+
+    /* Icon kategori dibuang di layar sempit — pada ukuran kecil bentuknya
+       ambigu (mis. ikon bunga terbaca seperti tanda "+"), teks label saja
+       sudah cukup jelas di chip sekecil ini. */
+    .filter-chip :global(svg) {
+      display: none;
+    }
+
+    .katalog-toolbar {
+      gap: 10px;
+    }
+
+    .katalog-count {
+      font-size: 12.5px;
+    }
+  }
+
+  @media (max-width: 420px) {
+    .katalog-sort span {
+      display: none;
+    }
+  }
+
   .produk-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -190,7 +305,12 @@ const jumlahPerGrup = (slug: string) => semuaProduk.filter((p) => p.data.grup ==
   const chips = document.querySelectorAll<HTMLButtonElement>('[data-filter]');
   const items = document.querySelectorAll<HTMLElement>('[data-produk-grid] [data-grup]');
   const emptyMsg = document.querySelector<HTMLElement>('[data-filter-empty]');
+  const countEl = document.querySelector<HTMLElement>('[data-katalog-count]');
   const validSlugs = new Set(Array.from(chips).map((c) => c.dataset.filter));
+
+  function updateCount(n: number) {
+    if (countEl) countEl.textContent = `${n} varietas ditemukan`;
+  }
 
   function applyFilter(slug: string) {
     let visibleCount = 0;
@@ -216,7 +336,29 @@ const jumlahPerGrup = (slug: string) => semuaProduk.filter((p) => p.data.grup ==
     }
 
     if (emptyMsg) emptyMsg.hidden = visibleCount !== 0;
+    updateCount(visibleCount);
   }
+
+  // Sort sederhana — cuma reorder DOM, tanpa reload. "Rekomendasi" adalah
+  // urutan asli dari server (dikelompokkan per kategori, lalu alfabet).
+  // Nggak ada opsi harga/ketersediaan karena datanya memang belum ada.
+  const grid = document.querySelector<HTMLElement>('[data-produk-grid]');
+  const sortSelect = document.querySelector<HTMLSelectElement>('[data-sort]');
+  const defaultOrder = Array.from(items);
+
+  function applySort(mode: string) {
+    if (!grid) return;
+    let ordered = defaultOrder;
+    if (mode === 'az' || mode === 'za') {
+      ordered = [...defaultOrder].sort((a, b) => {
+        const cmp = (a.dataset.nama ?? '').localeCompare(b.dataset.nama ?? '', 'id');
+        return mode === 'az' ? cmp : -cmp;
+      });
+    }
+    ordered.forEach((item) => grid.appendChild(item));
+  }
+
+  sortSelect?.addEventListener('change', () => applySort(sortSelect.value));
 
   chips.forEach((chip) => {
     chip.addEventListener('click', () => {
@@ -246,5 +388,6 @@ const jumlahPerGrup = (slug: string) => semuaProduk.filter((p) => p.data.grup ==
     });
     chips.forEach((chip) => chip.classList.remove('is-active'));
     if (emptyMsg) emptyMsg.hidden = visibleCount !== 0;
+    updateCount(visibleCount);
   }
 </script>
