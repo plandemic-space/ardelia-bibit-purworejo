@@ -85,15 +85,15 @@ const collageTiles = [
   .hero-collage {
     position: relative;
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    grid-template-rows: minmax(0, 1fr) minmax(0, 1fr);
     gap: 14px;
   }
 
   .collage-tile {
     position: relative;
+    min-width: 0;
     aspect-ratio: 1 / 1;
-    max-height: 175px;
     border-radius: 16px;
     overflow: hidden;
     box-shadow: 0 14px 32px rgba(14, 53, 53, 0.18);
