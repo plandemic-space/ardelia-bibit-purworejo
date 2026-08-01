@@ -1,5 +1,5 @@
 ---
-import { getCollection, render } from 'astro:content';
+import { render } from 'astro:content';
 import Layout from '../../layouts/Layout.astro';
 import WhatsAppButton from '../../components/WhatsAppButton.astro';
 import ArtikelCard from '../../components/ArtikelCard.astro';
@@ -7,10 +7,14 @@ import Icon from '../../components/Icon.astro';
 import { kategoriBibit } from '../../data/nav';
 import { site } from '../../data/site';
 import { estimasiWaktuBaca } from '../../lib/readingTime';
+import { getArtikelTerbit } from '../../lib/artikel';
 
 export async function getStaticPaths() {
-  const semuaArtikel = await getCollection('artikel');
-  return semuaArtikel.map((entry) => ({
+  // Cuma artikel yang publishDate-nya udah lewat yang dapat halaman —
+  // draf dengan tanggal masa depan gak digenerate sama sekali (404 kalau
+  // ditebak manual), bukan cuma disembunyiin dari daftar.
+  const artikelTerbit = await getArtikelTerbit();
+  return artikelTerbit.map((entry) => ({
     params: { slug: entry.id },
     props: { entry },
   }));
@@ -25,10 +29,9 @@ const relatedKategori = entry.data.relatedCategorySlug
   ? kategoriBibit.find((k) => k.slug === entry.data.relatedCategorySlug)
   : undefined;
 
-// Artikel lain, diurutkan terbaru dulu — dipakai untuk artikel terkait & navigasi sebelumnya/selanjutnya
-const semuaArtikel = (await getCollection('artikel')).sort(
-  (a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf()
-);
+// Artikel lain yang sudah tayang, diurutkan terbaru dulu — dipakai untuk
+// artikel terkait & navigasi sebelumnya/selanjutnya
+const semuaArtikel = await getArtikelTerbit();
 const posisiSekarang = semuaArtikel.findIndex((a) => a.id === entry.id);
 const artikelSebelumnya = semuaArtikel[posisiSekarang + 1]; // lebih lama
 const artikelSelanjutnya = semuaArtikel[posisiSekarang - 1]; // lebih baru

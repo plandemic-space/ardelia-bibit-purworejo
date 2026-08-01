@@ -2,7 +2,7 @@
 title: "Kayu Rp1,5 Miliar per Kg Ini Ternyata Tumbuh di Kutoarjo — Bisa Ditanam di Pekarangan Sendiri"
 seoTitle: "Gaharu Rp1,5 M/Kg, Sudah Ditanam di Kutoarjo"
 description: "Gaharu, salah satu kayu termahal di dunia, ternyata sudah dibudidayakan puluhan tahun oleh warga Kutoarjo, Purworejo. Ini fakta dan cara memulainya."
-publishDate: 2026-08-17
+publishDate: 2026-08-01
 coverImage: "/images/artikel/gaharu-kayu-termahal-kutoarjo.webp"
 relatedCategorySlug: "pohon-kayu"
 relatedCategoryLabel: "Pohon Kayu & Kehutanan"

@@ -2,7 +2,7 @@
 title: "Viral! Ini Pohon 'Sakura' yang Lagi Mekar di Purworejo — Bisa Ditanam Sendiri di Rumah"
 seoTitle: "Tabebuya Viral di Purworejo, Ini Faktanya"
 description: "Tabebuya yang mirip bunga sakura lagi viral difoto warga di Purworejo. Kenali asal-usul, ciri-cirinya, dan cara menanamnya sendiri di rumah."
-publishDate: 2026-08-03
+publishDate: 2026-08-01
 coverImage: "/images/artikel/tabebuya-viral-purworejo.webp"
 relatedCategorySlug: "tanaman-hias"
 relatedCategoryLabel: "Tanaman Hias & Landscape"

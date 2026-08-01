@@ -2,7 +2,7 @@
 title: "Harga Cengkeh Tembus Rp150 Ribu/Kg, Kenapa Sekarang Momen Pas Buat Mulai Kebun Sendiri?"
 seoTitle: "Harga Cengkeh Rp150rb/Kg, Saatnya Mulai Kebun"
 description: "Harga cengkeh masih bertahan tinggi di kisaran Rp150 ribu per kg pertengahan 2026. Ini alasan kenapa sekarang waktu yang pas untuk mulai menanam sendiri."
-publishDate: 2026-08-10
+publishDate: 2026-08-01
 coverImage: "/images/artikel/harga-cengkeh-tembus-150-ribu.webp"
 relatedCategorySlug: "rempah"
 relatedCategoryLabel: "Rempah & Bumbu"
