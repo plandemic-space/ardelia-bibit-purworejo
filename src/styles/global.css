@@ -166,9 +166,11 @@ section {
   color: var(--color-teal-dark);
 }
 
-.btn-primary:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 6px 16px rgba(141, 191, 69, 0.35);
+@media (hover: hover) {
+  .btn-primary:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 16px rgba(141, 191, 69, 0.35);
+  }
 }
 
 .btn-outline {
@@ -177,9 +179,11 @@ section {
   background: transparent;
 }
 
-.btn-outline:hover {
-  background: var(--color-teal);
-  color: #fff;
+@media (hover: hover) {
+  .btn-outline:hover {
+    background: var(--color-teal);
+    color: #fff;
+  }
 }
 
 .btn-ghost {
