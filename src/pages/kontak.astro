@@ -7,10 +7,6 @@ import { site } from '../data/site';
 
 const telHref = `tel:+${site.contact.whatsappNumber}`;
 
-const kunjungiPoin = [
-  { icon: 'leaf', text: 'Lihat langsung kondisi bibit sebelum memutuskan beli' },
-];
-
 // Landmark publik di sekitar nursery — cuma buat kasih gambaran lokasi,
 // BUKAN bisnis pesaing. Koordinat dicek lewat Google Places, bukan
 // perkiraan.
@@ -20,7 +16,6 @@ const landmarkTerdekat = [
   { nama: 'SDN Gentan', lat: -7.6704735, lng: 109.8760545 },
   { nama: 'SD Negeri Rejosari', lat: -7.682444, lng: 109.8737654 },
   { nama: 'Pasar Inpres Kemiri', lat: -7.681285, lng: 109.8935533 },
-  { nama: 'POLSEK Kemiri', lat: -7.6833113, lng: 109.8931573 },
 ];
 ---
 
@@ -85,19 +80,10 @@ const landmarkTerdekat = [
         <p class="eyebrow">Datang Langsung</p>
         <h2>Alamat & Peta Nursery</h2>
         <p class="kunjungi-desc">
-          Berikut lokasi persisnya kalau Anda mau datang langsung.
+          Sebelum membeli, Anda bisa datang langsung untuk melihat kondisi
+          bibit. Titik lokasi tepat kami ada di peta berikut, lengkap
+          dengan beberapa patokan terdekat.
         </p>
-
-        <ul class="kunjungi-poin">
-          {
-            kunjungiPoin.map((poin) => (
-              <li>
-                <Icon name={poin.icon} size={18} />
-                <span>{poin.text}</span>
-              </li>
-            ))
-          }
-        </ul>
 
         <p class="kunjungi-alamat">
           <Icon name="map-pin" size={16} />
@@ -180,8 +166,8 @@ const landmarkTerdekat = [
       const landmarkIcon = L.divIcon({
         className: 'peta-landmark-marker',
         html: '<span></span>',
-        iconSize: [10, 10],
-        iconAnchor: [5, 5],
+        iconSize: [7, 7],
+        iconAnchor: [3.5, 3.5],
       });
 
       landmarks.forEach((lm) => {
@@ -297,29 +283,6 @@ const landmarkTerdekat = [
     margin-bottom: 24px;
   }
 
-  .kunjungi-poin {
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
-    margin-bottom: 24px;
-    padding-bottom: 24px;
-    border-bottom: 1px solid var(--color-line);
-  }
-
-  .kunjungi-poin li {
-    display: flex;
-    align-items: flex-start;
-    gap: 10px;
-    font-size: 14px;
-    color: var(--color-charcoal);
-  }
-
-  .kunjungi-poin :global(svg) {
-    flex-shrink: 0;
-    margin-top: 1px;
-    color: var(--color-leaf-dark);
-  }
-
   .kunjungi-alamat {
     display: flex;
     align-items: flex-start;
@@ -416,23 +379,23 @@ const landmarkTerdekat = [
      utama. Bukan bisnis, jadi aman ditampilkan berdampingan. */
   :global(.peta-landmark-marker span) {
     display: block;
-    width: 8px;
-    height: 8px;
+    width: 6px;
+    height: 6px;
     border-radius: 50%;
     background: #fff;
-    border: 2px solid var(--color-charcoal-soft);
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+    border: 1.5px solid var(--color-charcoal-soft);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
   }
 
   :global(.peta-landmark-label) {
-    background: rgba(255, 255, 255, 0.92) !important;
+    background: rgba(255, 255, 255, 0.9) !important;
     border: none !important;
-    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15) !important;
-    padding: 2px 7px !important;
-    font-size: 11px !important;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12) !important;
+    padding: 1px 6px !important;
+    font-size: 10px !important;
     font-weight: 600;
     color: var(--color-charcoal-soft) !important;
-    border-radius: 5px !important;
+    border-radius: 4px !important;
   }
 
   :global(.peta-landmark-label::before) {
