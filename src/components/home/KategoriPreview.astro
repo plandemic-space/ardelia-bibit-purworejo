@@ -20,6 +20,11 @@ for (const kat of kategoriBibit) {
 
 // Sementara cuma tampilkan kategori yang sudah punya minimal 1 foto asli.
 const kategoriDenganFoto = kategoriBibit.filter((kat) => fotoPerKategori[kat.slug]);
+
+// Kartu kategori ditampilkan kecil (kotak 1:1 di grid 2-6 kolom), jadi cukup
+// pakai varian -sm.webp yang sudah ada untuk semua foto produk — bukan foto
+// ukuran penuh. Lihat catatan PageSpeed 1 Agu 2026 (Improve image delivery).
+const smallSrc = (src: string) => src.replace(/\.webp$/, '-sm.webp');
 ---
 
 <section class="kategori">
@@ -40,7 +45,17 @@ const kategoriDenganFoto = kategoriBibit.filter((kat) => fotoPerKategori[kat.slu
           return (
             <a class="kategori-card" href={kat.href}>
               <span class="kategori-photo" data-fotos={JSON.stringify(fotos)}>
-                <img src={fotos[0]} alt={kat.label} loading="lazy" decoding="async" data-kategori-img />
+                <img
+                  src={smallSrc(fotos[0])}
+                  srcset={`${smallSrc(fotos[0])} 400w, ${fotos[0]} 640w`}
+                  sizes="(max-width: 520px) 45vw, (max-width: 880px) 30vw, 180px"
+                  width="400"
+                  height="400"
+                  alt={kat.label}
+                  loading="lazy"
+                  decoding="async"
+                  data-kategori-img
+                />
               </span>
               <span class="kategori-info">
                 <b>{kat.label}</b>
@@ -153,7 +168,11 @@ const kategoriDenganFoto = kategoriBibit.filter((kat) => fotoPerKategori[kat.slu
       if (fotos.length <= 1) return;
       const pilihan = fotos[Math.floor(Math.random() * fotos.length)];
       const img = el.querySelector<HTMLImageElement>('[data-kategori-img]');
-      if (img && pilihan) img.src = pilihan;
+      if (img && pilihan) {
+        const small = pilihan.replace(/\.webp$/, '-sm.webp');
+        img.src = small;
+        img.srcset = `${small} 400w, ${pilihan} 640w`;
+      }
     } catch {
       // Data rusak — biarkan foto default (server-rendered) tampil.
     }
