@@ -60,7 +60,7 @@ const isActive = (href: string) => (href === '/' ? currentPath === '/' : current
 
 <!-- Drawer mobile: menutupi gap dari mockup v4 yang cuma display:none tanpa pengganti -->
 <div class="drawer-backdrop" data-drawer-backdrop hidden></div>
-<aside id="mobile-drawer" class="drawer" data-drawer aria-hidden="true">
+<aside id="mobile-drawer" class="drawer" data-drawer aria-hidden="true" inert>
   <div class="drawer-head">
     <a class="brand" href="/">
       <img src="/images/logo/logo-ardelia-bibit.jpg" alt={`Logo ${site.name}`} width="30" height="30" />
@@ -448,6 +448,7 @@ const isActive = (href: string) => (href === '/' ? currentPath === '/' : current
     backdrop.hidden = false;
     requestAnimationFrame(() => backdrop.classList.add('is-visible'));
     drawer.setAttribute('aria-hidden', 'false');
+    drawer.removeAttribute('inert');
     toggle.setAttribute('aria-expanded', 'true');
     document.body.style.overflow = 'hidden';
   }
@@ -457,6 +458,7 @@ const isActive = (href: string) => (href === '/' ? currentPath === '/' : current
     drawer.classList.remove('is-open');
     backdrop.classList.remove('is-visible');
     drawer.setAttribute('aria-hidden', 'true');
+    drawer.setAttribute('inert', '');
     toggle.setAttribute('aria-expanded', 'false');
     document.body.style.overflow = '';
     setTimeout(() => {

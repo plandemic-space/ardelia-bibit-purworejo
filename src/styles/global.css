@@ -4,7 +4,9 @@
    tanpa alasan kuat, lihat data-ardelia-bibit.md)
    ========================================================================== */
 
-@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap');
+/* Font Fraunces + Inter dimuat lewat <link> di src/layouts/Layout.astro
+   (bukan @import di sini) supaya browser bisa fetch paralel dari awal,
+   bukan nunggu chain CSS selesai dulu — lihat catatan PageSpeed 1 Agu 2026. */
 
 :root {
   /* Warna utama — disamakan dengan Style Guide mockup (12 Style Guide.png) */
