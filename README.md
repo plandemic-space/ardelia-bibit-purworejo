@@ -12,6 +12,52 @@ Dokumen lain yang wajib dicek juga (jangan diulang isinya di sini):
 
 ---
 
+## 0. WAJIB Paling Awal: Cek 3 Sumber, Jangan Cuma Percaya Backlog
+
+Sebelum mulai kerjain apa pun di sesi baru — bahkan sebelum lanjut baca Section 1-5 —
+cross-check dulu 3 sumber ini, karena status "✅ Selesai/Live" di
+`backlog-ardelia-bibit.md` cuma nyatet apa yang PERNAH dikerjakan di suatu sesi, bukan
+jaminan itu udah bener-bener tampil di internet. Tiga sumber ini bisa beda satu sama
+lain di titik waktu tertentu, jangan diasumsikan otomatis sinkron:
+
+1. **`backlog-ardelia-bibit.md`** — klaim status (apa yang "sudah selesai").
+2. **Isi zip project** (`ardelia-bibit-purworejo-main.zip`) — kondisi file LOKAL owner,
+   kadang lebih baru dari backlog (misal owner nulis/publish artikel sendiri tanpa
+   sempat update backlog-nya).
+3. **Website live** (`https://ardeliabibit.vercel.app/`) — kondisi yang BENERAN dilihat
+   pengunjung/Google, hasil dari commit yang sudah di-push + Vercel selesai deploy. Bisa
+   ketinggalan dari zip kalau owner belum sempat push/deploy.
+
+**Cara cepat cross-check** (pakai `web_fetch`, bukan tebak-tebakan):
+- Fetch `https://ardeliabibit.vercel.app/` → cek badge jumlah varietas ("47+ Varietas"
+  dll), cocokkan ke jumlah entri `src/data/produk.json` di zip.
+- Fetch `https://ardeliabibit.vercel.app/artikel` → cek daftar judul yang BENERAN tampil
+  di sana, cocokkan ke daftar file `src/content/artikel/*.md` di zip DAN ke status
+  "✅ Live" di backlog Section B1. Perhatikan juga `publishDate` tiap artikel di
+  frontmatter — kalau tanggalnya masih di masa depan, wajar belum muncul di live site
+  meski filenya sudah lengkap di zip (bukan berarti "belum dikerjakan").
+
+**Kalau ketemu selisih** (artikel/produk ada di zip/backlog tapi gak muncul di live
+site, atau sebaliknya file yang backlog bilang "belum dikerjakan" ternyata isinya sudah
+lengkap di zip) — **jangan diam-diam nerusin kerjaan baru seolah semua udah sinkron**.
+Laporkan dulu selisihnya ke owner di chat sebelum lanjut, biar owner yang konfirmasi
+apa itu emang belum di-push, belum kelar deploy Vercel, atau backlog-nya yang perlu
+diupdate. Ini beda sama aturan "jangan bongkar file di luar scope" di Section 4 — ini
+soal ngasih tau dulu, bukan bikin owner harus jelasin ulang situasinya tiap sesi baru.
+
+**Awas: `web_fetch` bisa kena cache basi dan bikin kesimpulan salah.** Pernah kejadian
+(1 Agu 2026) `web_fetch` ke `/artikel` nunjukkan versi lama (8 artikel) padahal
+screenshot browser owner sendiri saat itu juga jelas nunjukkan 9 artikel + 59 varietas
+sudah live — situsnya sudah update, cuma hasil fetch-nya yang basi kena cache (CDN atau
+cache internal tool). Kalau hasil `web_fetch` bilang "belum update" tapi owner bilang
+"punya saya sudah update" — **percaya owner / screenshot langsung dari browser mereka**,
+bukan ngotot ke hasil fetch. Kalau perlu re-verifikasi, coba fetch ulang sekali lagi
+(kadang cache-nya keburu refresh), tapi jangan jadiin 1 hasil fetch yang mencurigakan
+sebagai dasar buat bilang ke owner "situsnya belum update" tanpa kasih catatan bahwa itu
+bisa jadi cuma cache.
+
+---
+
 ## 1. Stack & Struktur Project
 
 - Astro (file `.astro`), content collection buat artikel ada di `src/content/artikel/`
