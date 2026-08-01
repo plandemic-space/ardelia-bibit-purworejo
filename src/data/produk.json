@@ -147,6 +147,27 @@
     "fotoTersedia": true
   },
   {
+    "id": "gayam",
+    "nama": "Gayam",
+    "grup": "bibit-buah",
+    "foto": "/images/produk/gayam.webp",
+    "fotoTersedia": true
+  },
+  {
+    "id": "jengkol",
+    "nama": "Jengkol",
+    "grup": "bibit-buah",
+    "foto": "/images/produk/jengkol.webp",
+    "fotoTersedia": true
+  },
+  {
+    "id": "rambutan",
+    "nama": "Rambutan",
+    "grup": "bibit-buah",
+    "foto": "/images/produk/rambutan.webp",
+    "fotoTersedia": true
+  },
+  {
     "id": "beringin",
     "nama": "Beringin",
     "grup": "tanaman-hias",
@@ -287,6 +308,13 @@
     "fotoTersedia": true
   },
   {
+    "id": "jenitri",
+    "nama": "Jenitri",
+    "grup": "pohon-kayu",
+    "foto": "/images/produk/jenitri.webp",
+    "fotoTersedia": true
+  },
+  {
     "id": "bidara",
     "nama": "Bidara",
     "grup": "rempah",
@@ -333,6 +361,13 @@
     "nama": "Pala",
     "grup": "rempah",
     "foto": "/images/produk/pala.webp",
+    "fotoTersedia": true
+  },
+  {
+    "id": "kayu-manis",
+    "nama": "Kayu Manis",
+    "grup": "rempah",
+    "foto": "/images/produk/kayu-manis.webp",
     "fotoTersedia": true
   },
   {

@@ -82,6 +82,33 @@ buat bandingin — itu semua udah jadi default behavior AI.
   bagian B2 — selalu cek itu sebelum nulis artikel baru, jangan andalan ingatan sesi
   sebelumnya karena tiap sesi mulai tanpa histori.
 
+## 5. Cara Owner Push Perubahan ke GitHub (GitHub Desktop)
+
+Mulai 1 Agustus 2026, owner pakai **GitHub Desktop** (bukan upload manual satu-satu
+lewat browser) buat naikin perubahan ke GitHub — soalnya upload manual lewat web
+kena limit ~100 file sekali drag, sementara zip perubahan dari AI kadang lebih dari itu.
+
+Repo lokal ada di `Documents\GitHub\ardelia-bibit-purworejo` di laptop owner, sudah
+di-clone dari `plandemic-space/ardelia-bibit-purworejo`.
+
+**Alur tiap owner dapat zip perubahan dari AI:**
+1. Buka GitHub Desktop, pastikan repo aktifnya `ardelia-bibit-purworejo` (bukan repo
+   lain — owner punya beberapa repo di organisasi yang sama, termasuk satu yang
+   namanya mirip: `khanza-bibit-purworejo`, jangan ketuker).
+2. Klik **"Fetch origin"** dulu (kadang berubah jadi "Pull origin" kalau ada
+   perubahan remote) — supaya folder lokal sinkron sebelum ditimpa.
+3. Extract zip perubahan dari AI, copy-paste isinya ke folder repo lokal (pilih
+   "Replace files" kalau ditanya).
+4. Balik ke GitHub Desktop — daftar file yang berubah otomatis muncul di tab
+   "Changes". Isi kolom Summary singkat, klik **"Commit to main"**, lalu
+   **"Push origin"**.
+
+**Implikasi buat AI:** karena alur ini pakai Git (bukan upload manual web), aturan
+"kirim balik cuma file yang berubah" di Section 3 di atas **masih tetap berlaku
+dan makin penting** — commit yang isinya jelas cuma file yang relevan itu jauh lebih
+gampang di-review owner di GitHub Desktop dibanding commit yang isinya nyangkut file
+gak jelas kenapa berubah.
+
 ---
 
 *File ini boleh diupdate kapan pun ada aturan kerja baru yang disepakati owner —

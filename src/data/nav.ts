@@ -1,8 +1,8 @@
 /**
  * Struktur navigasi utama (mega menu) — sinkron dengan taksonomi produk
- * di src/data/produk.json (54 varietas, 6 grup — 7 varietas baru
- * ditambahkan 1 Agustus 2026: Apel Putsa, Dewandaru, Kayu Putih,
- * Trembesi, Aren, Kakao, Kopi Arabika).
+ * di src/data/produk.json (59 varietas, 6 grup — 5 varietas baru
+ * ditambahkan 1 Agustus 2026 lanjutan: Gayam, Jengkol, Rambutan,
+ * Jenitri, Kayu Manis).
  */
 
 export type MegaCategory = {
