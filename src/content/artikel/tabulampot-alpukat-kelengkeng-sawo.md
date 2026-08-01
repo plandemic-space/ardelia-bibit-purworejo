@@ -28,6 +28,10 @@ Campuran media tanam yang umum dipakai adalah tanah, sekam (untuk menjaga porosi
 
 Salah satu tahap yang sering dilewatkan pemula: penggantian pot secara berkala. Menurut Cybex Kementerian Pertanian, penggantian pot tabulampot idealnya dilakukan setiap 3-5 tahun sekali, dibarengi dengan memangkas akar tua yang sudah memadati media tanam supaya tidak merusak pot dan supaya tanaman terangsang membentuk akar baru yang lebih aktif menyerap hara. Pemangkasan bagian atas (cabang dan daun) juga tetap perlu dilakukan rutin — bukan cuma soal bentuk, tapi supaya energi tanaman terarah ke pembungaan, bukan sekadar tumbuh rimbun tanpa berbuah.
 
+## Awas Kebanyakan Pupuk Kimia, Bukannya Berbuah Malah Rimbun Daun
+
+Salah satu kesalahan yang paling sering bikin tabulampot gagal berbuah, menurut Dinas Pertanian Kabupaten Mojokerto, justru bukan karena kurang dirawat — tapi karena terlalu rajin memupuk dengan dosis kimia yang tinggi. Hasilnya tanaman tumbuh subur, cabang banyak, daun rimbun, tapi tidak kunjung berbunga. Pupuk kimia berlebih tanpa diimbangi pupuk organik juga bisa bikin media tanam mengeras, sehingga akar justru makin susah menyerap hara. Solusinya bukan menambah dosis, tapi menyeimbangkan dengan pupuk organik — kompos, atau campuran tanah gembur dari sekam dan pupuk kandang yang sudah difermentasi — plus suplemen cair sesekali untuk merangsang pembungaan.
+
 ## Bukan Instan, Tapi Bukan Mustahil
 
 Yang perlu ditekankan: tabulampot bukan jalan pintas buat panen buah dalam hitungan bulan, apalagi untuk jenis yang secara alami memang lebih sulit berbuah di pot seperti kelengkeng dan alpukat. Perawatan yang konsisten — penyiraman teratur, pemupukan organik berkala, dan pemangkasan yang disiplin — jauh lebih menentukan hasilnya dibanding trik-trik instan. Tapi buat yang halamannya terbatas dan tetap ingin punya pohon buah sendiri, tabulampot tetap jadi jalan yang realistis dijalani, asal ekspektasinya disesuaikan dengan jenis tanamannya.
