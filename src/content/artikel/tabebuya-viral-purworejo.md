@@ -33,6 +33,8 @@ Bagian yang sering belum banyak diketahui: tabebuya bukan cuma cocok untuk proye
 
 Karena bunganya mekar musiman dan momennya sedang jadi perbincangan warga sekitar, ini waktu yang pas kalau memang berencana punya pohon serupa di rumah sendiri — tidak perlu menunggu tren reda dulu baru mulai menanam, justru bibit yang ditanam sekarang bisa ikut mekar di musim berikutnya.
 
+Kalau yang dicari lebih ke arah pagar hidup yang rapi sepanjang tahun (bukan pohon musiman berbunga), opsi lain yang juga populer adalah [pucuk merah](/artikel/pucuk-merah-untuk-pagar-tanaman) — perawatannya juga tergolong ringan.
+
 ---
 
 Tertarik punya tabebuya sendiri di halaman rumah? Chat kami untuk cek ukuran bibit yang tersedia dan rekomendasi yang paling pas untuk luas halaman Anda.

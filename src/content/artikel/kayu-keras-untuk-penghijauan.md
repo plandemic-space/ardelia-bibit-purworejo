@@ -31,6 +31,8 @@ Tidak semua kayu keras cocok untuk tujuan yang sama:
 
 Memilih jenis yang tepat sebaiknya disesuaikan dulu dengan tujuannya — apakah untuk investasi jangka panjang, penghijauan cepat, atau kombinasi keduanya di lahan yang sama.
 
+Ada juga opsi kayu keras dengan nilai jual jauh lebih tinggi dari keempatnya, meski butuh kesabaran ekstra — baca ceritanya di [Kayu Rp1,5 Miliar per Kg Ini Ternyata Tumbuh di Kutoarjo](/artikel/gaharu-kayu-termahal-kutoarjo).
+
 ## Menanam Kombinasi, Bukan Cuma Satu Jenis
 
 Salah satu pendekatan yang cukup umum dipakai adalah menanam kombinasi jenis cepat tumbuh (seperti sengon) dengan jenis lambat tumbuh tapi bernilai tinggi (seperti jati) di lahan yang sama. Pohon cepat tumbuh bisa dipanen lebih dulu, sementara jati dibiarkan tumbuh lebih lama. Pendekatan ini membantu lahan tetap "produktif" di berbagai fase waktu, bukan menunggu satu jenis pohon sampai puluhan tahun baru ada hasil.

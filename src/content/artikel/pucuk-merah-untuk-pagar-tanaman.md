@@ -34,6 +34,8 @@ Pucuk merah tergolong tahan banting dan bisa hidup hingga puluhan tahun dengan p
 
 Salah satu gangguan yang paling umum menyerang pucuk merah adalah hama ulat bulu, yang biasanya muncul saat cuaca lembap baik di musim hujan maupun kemarau. Gejalanya berupa daun yang berlubang-lubang; kalau dibiarkan, serangan bisa meluas dan mengganggu pertumbuhan pucuk baru. Semakin cepat terdeteksi dan dikendalikan, semakin kecil risikonya terhadap keseluruhan pagar.
 
+Kalau selain pagar rapi Anda juga ingin ada momen berbunga musiman di halaman, [tabebuya](/artikel/tabebuya-viral-purworejo) — yang belakangan lagi viral di Purworejo — bisa jadi pelengkap yang menarik.
+
 ---
 
 Kalau Anda sedang merencanakan pagar hidup dan butuh bibit pucuk merah dengan ukuran yang siap tanam, tinggal chat kami untuk cek stok dan ukuran yang tersedia.

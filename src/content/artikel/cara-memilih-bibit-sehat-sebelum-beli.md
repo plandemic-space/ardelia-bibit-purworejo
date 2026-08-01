@@ -44,3 +44,5 @@ Bibit dari penangkar atau nursery yang jelas asal-usulnya biasanya lebih bisa di
 Kalau setelah dicek ada satu-dua hal yang meragukan tapi bibitnya tetap ingin dibeli, itu bukan berarti otomatis bibitnya jelek — tapi jadi bahan pertanyaan yang wajar ke penjualnya. Penjual yang terbuka soal kondisi bibitnya biasanya juga lebih bisa dipercaya soal perawatan setelahnya.
 
 Kalau Anda masih ragu menentukan bibit mana yang cocok untuk kebutuhan atau lahan Anda, kami di Ardelia Bibit senang membantu — tinggal ceritakan saja rencana tanamnya, kami bantu arahkan pilihan yang sesuai.
+
+Sudah dapat bibit yang sehat? Langkah selanjutnya sama pentingnya — baca [3 Hal yang Perlu Diperhatikan Saat Bibit Baru Sampai di Rumah](/artikel/perawatan-bibit-baru-masa-adaptasi) supaya bibitnya tidak stres di masa-masa awal.

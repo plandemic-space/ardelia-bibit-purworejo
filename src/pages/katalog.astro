@@ -18,6 +18,37 @@ const produkTerurut = [...semuaProduk].sort((a, b) => {
 });
 
 const jumlahPerGrup = (slug: string) => semuaProduk.filter((p) => p.data.grup === slug).length;
+
+// Cross-link balik (katalog -> artikel) untuk pengunjung yang landing di
+// katalog duluan, bukan dari artikel. 1 artikel paling relevan per grup —
+// diprioritaskan yang paling "menarik" (viral/harga) kalau grupnya punya
+// lebih dari satu artikel terkait.
+const artikelPerKategori: Record<string, { title: string; href: string }> = {
+  'bibit-buah': {
+    title: 'Cara Memilih Bibit Sehat Sebelum Beli',
+    href: '/artikel/cara-memilih-bibit-sehat-sebelum-beli',
+  },
+  'tanaman-hias': {
+    title: 'Viral! Ini Pohon "Sakura" yang Lagi Mekar di Purworejo',
+    href: '/artikel/tabebuya-viral-purworejo',
+  },
+  'pohon-kayu': {
+    title: 'Kayu Rp1,5 Miliar per Kg Ini Ternyata Tumbuh di Kutoarjo',
+    href: '/artikel/gaharu-kayu-termahal-kutoarjo',
+  },
+  rempah: {
+    title: 'Harga Cengkeh Tembus Rp150 Ribu/Kg',
+    href: '/artikel/harga-cengkeh-tembus-150-ribu',
+  },
+  perkebunan: {
+    title: 'Bibit Petai Unggul: Berapa Tahun Sampai Berbuah?',
+    href: '/artikel/bibit-petai-unggul-berapa-tahun-berbuah',
+  },
+  'pakan-ternak': {
+    title: 'Kaliandra vs Indigofera: Pilihan Hijauan Pakan Ternak',
+    href: '/artikel/kaliandra-vs-indigofera-pakan-ternak',
+  },
+};
 ---
 
 <Layout
@@ -84,6 +115,14 @@ const jumlahPerGrup = (slug: string) => semuaProduk.filter((p) => p.data.grup ==
           <Icon name="chevron-down" size={12} class="katalog-sort-icon" />
         </label>
       </div>
+
+      <a class="artikel-banner" data-artikel-banner href="#" hidden>
+        <Icon name="document" size={16} class="artikel-banner-icon" />
+        <span class="artikel-banner-text">
+          Baca juga: <strong data-artikel-banner-title></strong>
+        </span>
+        <span class="artikel-banner-arrow" aria-hidden="true">→</span>
+      </a>
 
       <p class="filter-empty" data-filter-empty hidden>
         Tidak ada produk di kelompok ini.
@@ -225,6 +264,52 @@ const jumlahPerGrup = (slug: string) => semuaProduk.filter((p) => p.data.grup ==
     text-align: center;
     padding: 40px 0;
     color: var(--color-charcoal-soft);
+  }
+
+  .artikel-banner {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+    padding: 12px 16px;
+    border-radius: 12px;
+    border: 1px solid var(--color-line);
+    background: var(--color-mist);
+    color: var(--color-charcoal);
+    text-decoration: none;
+    font-size: 13.5px;
+    transition: 0.15s;
+  }
+
+  .artikel-banner :global(.artikel-banner-icon) {
+    flex-shrink: 0;
+    color: var(--color-teal-dark);
+  }
+
+  .artikel-banner-text {
+    flex: 1;
+  }
+
+  .artikel-banner-text strong {
+    color: var(--color-teal-dark);
+    font-weight: 700;
+  }
+
+  .artikel-banner-arrow {
+    flex-shrink: 0;
+    color: var(--color-teal-dark);
+    font-weight: 700;
+    transition: transform 0.15s ease;
+  }
+
+  @media (hover: hover) {
+    .artikel-banner:hover {
+      border-color: var(--color-teal);
+    }
+
+    .artikel-banner:hover .artikel-banner-arrow {
+      transform: translateX(3px);
+    }
   }
 
   /* --- Toolbar: jumlah hasil + sort --- */
@@ -372,14 +457,30 @@ const jumlahPerGrup = (slug: string) => semuaProduk.filter((p) => p.data.grup ==
   }
 </style>
 
-<script>
+<script define:vars={{ artikelPerKategori }}>
   // Filter grid berdasarkan grup, murni client-side (tanpa reload).
   // Kalau datang dari link mega menu (#slug), filter otomatis ke grup itu.
   const chips = document.querySelectorAll<HTMLButtonElement>('[data-filter]');
   const items = document.querySelectorAll<HTMLElement>('[data-produk-grid] [data-grup]');
   const emptyMsg = document.querySelector<HTMLElement>('[data-filter-empty]');
   const countEl = document.querySelector<HTMLElement>('[data-katalog-count]');
+  const artikelBanner = document.querySelector<HTMLAnchorElement>('[data-artikel-banner]');
+  const artikelBannerTitle = document.querySelector<HTMLElement>('[data-artikel-banner-title]');
   const validSlugs = new Set(Array.from(chips).map((c) => c.dataset.filter));
+
+  // Update banner "Baca juga" (cross-link katalog -> artikel) sesuai
+  // kategori yang lagi aktif. Disembunyikan waktu "Semua" dipilih.
+  function updateArtikelBanner(slug: string) {
+    if (!artikelBanner || !artikelBannerTitle) return;
+    const artikel = (artikelPerKategori as Record<string, { title: string; href: string }>)[slug];
+    if (slug === 'semua' || !artikel) {
+      artikelBanner.hidden = true;
+      return;
+    }
+    artikelBannerTitle.textContent = artikel.title;
+    artikelBanner.href = artikel.href;
+    artikelBanner.hidden = false;
+  }
 
   // Dropdown kategori (mobile) — tombol "Kategori: ... ▾" yang buka/tutup
   // panel filter-bar. Di desktop elemen ini disembunyikan via CSS, jadi
@@ -436,6 +537,7 @@ const jumlahPerGrup = (slug: string) => semuaProduk.filter((p) => p.data.grup ==
 
     if (emptyMsg) emptyMsg.hidden = visibleCount !== 0;
     updateCount(visibleCount);
+    updateArtikelBanner(slug);
   }
 
   // Sort sederhana — cuma reorder DOM, tanpa reload. "Rekomendasi" adalah

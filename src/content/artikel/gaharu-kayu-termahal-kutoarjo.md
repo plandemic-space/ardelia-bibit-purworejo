@@ -38,6 +38,8 @@ Penting untuk jujur sejak awal: menanam gaharu bukan cara cepat kaya. Pohon baru
 
 Gaharu juga tergolong tanaman yang bisa ditanam di sembarang tempat pada ketinggian rendah hingga menengah dengan iklim panas, dan cukup toleran terhadap berbagai kondisi tanah asalkan drainasenya baik.
 
+Kalau Anda punya lahan kosong dan tertarik jenis kayu keras lain dengan perawatan yang lebih santai (meski nilai jualnya tidak setinggi gaharu), baca juga [Kenapa Pohon Kayu Keras Penting untuk Penghijauan Lahan Kosong](/artikel/kayu-keras-untuk-penghijauan).
+
 ---
 
 Tertarik mulai budidaya gaharu sendiri di rumah? Chat kami untuk cek ketersediaan bibit gaharu dan informasi lebih lanjut.

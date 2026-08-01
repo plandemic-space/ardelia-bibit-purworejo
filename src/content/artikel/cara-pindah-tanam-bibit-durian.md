@@ -41,3 +41,5 @@ Beberapa kesalahan yang sering kami temui dari cerita pembeli:
 Kalau bibit durian yang Anda tanam menunjukkan daun layu terus di minggu pertama meskipun sudah disiram rutin, jangan panik dulu — itu wajar selama proses adaptasi. Yang perlu diwaspadai adalah kalau batangnya mulai menghitam atau lunak di pangkal, itu tanda ada masalah dan sebaiknya segera ditanya ke penjual bibitnya.
 
 Setiap varietas durian punya karakter tumbuh yang sedikit berbeda — kalau Anda baru pertama kali menanam dan mau tanya-tanya dulu soal jenis durian yang cocok dengan kondisi lahan Anda, kami senang membantu.
+
+Belum menentukan mau menanam varietas apa? Baca dulu perbandingannya di [Bawor vs Musang King, Mana yang Cocok untuk Pemula](/artikel/durian-bawor-vs-musang-king-pemula).

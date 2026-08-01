@@ -35,3 +35,5 @@ Selama masa jeda ini, letakkan bibit di lokasi yang teduh sebagian, siram secuku
 Setiap jenis bibit punya karakter adaptasi yang sedikit berbeda — bibit buah, tanaman hias, dan kayu keras tidak selalu butuh perlakuan yang persis sama di masa-masa awal ini. Kalau ada tanda-tanda yang bikin ragu (daun rontok banyak, batang mulai lunak, atau muncul bercak aneh), lebih baik ditanyakan dulu daripada mengambil risiko salah penanganan.
 
 Kami selalu terbuka untuk dihubungi soal kondisi bibit yang baru sampai — baik yang diambil langsung dari nursery maupun yang dikirim. Semakin cepat ditanyakan, semakin besar peluang bibitnya bisa diselamatkan kalau memang ada masalah.
+
+Belum sempat beli bibitnya dan masih mau memastikan kualitasnya dulu? Baca juga [Cara Memilih Bibit Sehat Sebelum Beli](/artikel/cara-memilih-bibit-sehat-sebelum-beli).

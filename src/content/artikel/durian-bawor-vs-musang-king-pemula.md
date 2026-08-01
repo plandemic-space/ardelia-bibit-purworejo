@@ -56,3 +56,5 @@ Bisa, selama jarak tanamnya cukup (idealnya minimal 8-10 meter antar pohon duria
 Bawor, karena lebih toleran terhadap kesalahan perawatan pemula dan lebih cepat kelihatan hasilnya (3 tahun) sehingga lebih cepat juga dapat "sinyal" kalau ada yang salah di cara merawatnya.
 
 Kalau masih bingung menentukan mana yang cocok dengan kondisi lahan Anda, ceritakan saja ke kami — kami bantu arahkan sesuai stok bibit yang tersedia di Ardelia Bibit.
+
+Setelah menentukan varietasnya, langkah berikutnya adalah proses pindah tanam yang benar — baca panduannya di [Cara Pindah Tanam Bibit Durian dari Polybag ke Lahan](/artikel/cara-pindah-tanam-bibit-durian).
