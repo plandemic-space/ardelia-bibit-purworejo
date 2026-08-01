@@ -86,6 +86,25 @@ const breadcrumbItems = [{ name: 'Beranda', path: '/' }, ...breadcrumbs];
         postalCode: site.contact.address.postalCode,
         addressCountry: 'ID',
       },
+      geo: {
+        '@type': 'GeoCoordinates',
+        latitude: site.contact.coordinates.lat,
+        longitude: site.contact.coordinates.lng,
+      },
+      openingHoursSpecification: {
+        '@type': 'OpeningHoursSpecification',
+        dayOfWeek: [
+          'Monday',
+          'Tuesday',
+          'Wednesday',
+          'Thursday',
+          'Friday',
+          'Saturday',
+          'Sunday',
+        ],
+        opens: '00:00',
+        closes: '23:59',
+      },
       sameAs: [site.social.youtube, site.social.facebook, site.social.tiktok, site.contact.googleMapsUrl],
     })} />
 

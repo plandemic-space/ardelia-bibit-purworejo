@@ -54,6 +54,18 @@ const urlArtikelIni = `${site.url}/artikel/${entry.id}`;
     { name: entry.data.title, path: `/artikel/${entry.id}` },
   ]}
 >
+  <script type="application/ld+json" set:html={JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: entry.data.title,
+    description: entry.data.description,
+    ...(entry.data.coverImage && { image: new URL(entry.data.coverImage, site.url).toString() }),
+    datePublished: entry.data.publishDate.toISOString(),
+    author: { '@type': 'Organization', name: site.name },
+    publisher: { '@type': 'Organization', name: site.name },
+    mainEntityOfPage: urlArtikelIni,
+  })} />
+
   <article class="artikel-detail">
     <div class="wrap artikel-head">
       <a class="back-link" href="/artikel">← Semua Artikel</a>
