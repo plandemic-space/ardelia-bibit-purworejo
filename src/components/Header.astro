@@ -401,7 +401,10 @@ const isActive = (href: string) => (href === '/' ? currentPath === '/' : current
     if (!header) return;
     header.classList.toggle('is-scrolled', window.scrollY > 8);
   }
-  updateScrollState();
+  // Baca window.scrollY ditunda ke requestAnimationFrame (bukan langsung saat
+  // script jalan) supaya gak "forced reflow" — baca properti geometri pas
+  // style/layout awal belum settle. Lihat catatan PageSpeed 1 Agu 2026.
+  requestAnimationFrame(updateScrollState);
   window.addEventListener('scroll', updateScrollState, { passive: true });
 
   // Toggle kotak pencarian di navbar — submit mengarahkan ke /katalog?cari=...
