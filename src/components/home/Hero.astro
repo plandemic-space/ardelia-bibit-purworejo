@@ -12,6 +12,10 @@ const collageTiles = [
   { role: 'produk', src: '/images/hero/hero-bibit-pilihan.webp', alt: 'Bibit pilihan Ardelia Bibit', label: 'Bibit Pilihan' },
   { role: 'kirim', src: '/images/hero/hero-siap-kirim.webp', alt: 'Bibit Ardelia Bibit siap dikirim', label: 'Siap Kirim' },
 ];
+
+// Versi kecil (maks sisi 480px) untuk collage hero yang eager-loaded ini —
+// ngurangin beban LCP di HP. Lihat playbook §QA performa Agustus 2026.
+const withSmallSrc = (src: string) => src.replace(/\.webp$/, '-sm.webp');
 ---
 
 <section class="hero">
@@ -38,7 +42,14 @@ const collageTiles = [
       {
         collageTiles.map((tile) => (
           <div class={`collage-tile tile-${tile.role}`}>
-            <img src={tile.src} alt={tile.alt} loading="eager" decoding="async" />
+            <img
+              src={tile.src}
+              srcset={`${withSmallSrc(tile.src)} 480w, ${tile.src} 700w`}
+              sizes="(max-width: 640px) 45vw, 280px"
+              alt={tile.alt}
+              loading="eager"
+              decoding="async"
+            />
             <span class="collage-caption" aria-hidden="true">{tile.label}</span>
           </div>
         ))

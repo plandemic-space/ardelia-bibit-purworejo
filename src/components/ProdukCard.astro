@@ -13,13 +13,27 @@ interface Props {
 const { nama, ukuran, perluKonfirmasi = false, foto, placeholderEmoji = '🌱' } = Astro.props;
 
 const pesanWa = `Halo Ardelia Bibit, saya mau tanya stok & harga ${nama}`;
+
+// Versi kecil (maks sisi 400px) dibuat khusus untuk kartu produk yang
+// kecil ini — browser di HP otomatis pakai versi ini, desktop tetap
+// pakai foto aslinya lewat srcset. Lihat playbook §QA performa Agustus 2026.
+const fotoSmall = foto?.replace(/\.webp$/, '-sm.webp');
 ---
 
 <article class="produk-card">
   <div class="produk-photo">
     {
       foto ? (
-        <img src={foto} alt={`Bibit ${nama} di nursery Ardelia Bibit`} loading="lazy" decoding="async" width="700" height="700" />
+        <img
+          src={foto}
+          srcset={`${fotoSmall} 400w, ${foto} 640w`}
+          sizes="(max-width: 480px) 45vw, (max-width: 900px) 30vw, 260px"
+          alt={`Bibit ${nama} di nursery Ardelia Bibit`}
+          loading="lazy"
+          decoding="async"
+          width="700"
+          height="700"
+        />
       ) : (
         <>
           <span class="produk-photo-emoji" aria-hidden="true">{placeholderEmoji}</span>
