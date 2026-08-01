@@ -1,6 +1,7 @@
 ---
 title: "Bidara Lagi Ramai Diburu Orang — Ini yang Perlu Diketahui Sebelum Ikut Menanamnya"
-description: "Belakangan banyak yang mendadak cari bibit bidara. Sebelum ikut-ikutan beli, kenalan dulu dengan tanamannya — cara tanam, cara rawat, dan kenapa banyak dicari."
+seoTitle: "Kenapa Bidara Lagi Ramai Diburu?"
+description: "Belakangan banyak mendadak cari bibit bidara. Kenalan dulu dengan tanamannya — cara tanam, cara rawat, dan kenapa banyak dicari orang."
 publishDate: 2026-07-31
 coverImage: "/images/artikel/bidara-lagi-diburu.webp"
 relatedCategorySlug: "rempah"

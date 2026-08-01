@@ -47,7 +47,7 @@ const urlArtikelIni = `${site.url}/artikel/${entry.id}`;
 ---
 
 <Layout
-  title={`${entry.data.title} — Artikel Ardelia Bibit`}
+  title={`${entry.data.seoTitle ?? entry.data.title} | Ardelia Bibit`}
   description={entry.data.description}
   breadcrumbs={[
     { name: 'Artikel', path: '/artikel' },

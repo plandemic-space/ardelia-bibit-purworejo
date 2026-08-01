@@ -1,5 +1,6 @@
 ---
 title: "Kaliandra vs Indigofera: Pilihan Hijauan Pakan Ternak Berprotein Tinggi"
+seoTitle: "Kaliandra vs Indigofera untuk Pakan Ternak"
 description: "Perbandingan kandungan protein, jarak tanam, dan siklus panen kaliandra dan indigofera — dua hijauan pakan ternak yang paling banyak dicari peternak."
 publishDate: 2026-07-31
 coverImage: "/images/artikel/kaliandra-indigofera-pakan-ternak.webp"
@@ -36,6 +37,17 @@ Dua-duanya sama-sama tahan kekeringan, tapi masing-masing punya kelebihan spesif
 ## Kombinasi, Bukan Pilih Salah Satu
 
 Beberapa penelitian peternakan justru menguji kombinasi kaliandra dan indigofera dalam satu ransum pakan komplit — bukan memilih salah satu. Pendekatan ini masuk akal karena karakter keduanya saling melengkapi: indigofera protein lebih tinggi dan kecernaan lebih baik, kaliandra lebih tahan dipangkas rutin dan cocok sekaligus untuk konservasi lahan miring. Kalau lahan memungkinkan, menanam keduanya berdampingan bisa jadi strategi yang lebih fleksibel dibanding hanya mengandalkan satu jenis.
+
+## Pertanyaan yang Sering Ditanyakan
+
+**Amankah kaliandra diberikan setiap hari ke ternak?**
+Sebaiknya tidak diberikan 100% sendirian setiap hari karena kandungan tanin-nya. Dicampur dengan hijauan lain (termasuk indigofera) dengan porsi kaliandra maksimal sekitar 30% dari total ransum jauh lebih aman untuk penyerapan protein ternak.
+
+**Mana yang lebih cocok untuk lahan sempit di pekarangan?**
+Indigofera lebih fleksibel untuk lahan sempit karena bisa ditanam rapat (jarak antar tanaman 50-100 cm) dan dipangkas rendah. Kaliandra untuk kebutuhan pakan juga bisa dirapatkan, tapi karakternya yang jadi pohon serbaguna (bisa untuk kayu bakar & penahan erosi) membuatnya lebih ideal kalau lahannya sedikit lebih luas atau berkontur miring.
+
+**Berapa kali bisa panen dalam setahun?**
+Kaliandra bisa dipanen tiap 12 minggu sekali (sekitar 4 kali setahun) setelah panen pertama di usia 1 tahun. Indigofera sedikit lebih jarang, tiap 60-90 hari (sekitar 4-6 kali setahun) setelah panen pertama di usia 240 hari.
 
 ---
 

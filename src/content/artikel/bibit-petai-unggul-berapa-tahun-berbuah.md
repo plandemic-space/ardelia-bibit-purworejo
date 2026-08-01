@@ -1,5 +1,6 @@
 ---
 title: "Bibit Petai Unggul: Berapa Tahun Sampai Berbuah?"
+seoTitle: "Bibit Petai Unggul: Berapa Tahun Berbuah?"
 description: "Perbedaan waktu berbuah bibit petai cangkok/okulasi dibanding bibit dari biji, plus jarak tanam dan ukuran lubang tanam yang disarankan."
 publishDate: 2026-07-31
 coverImage: "/images/artikel/bibit-petai-unggul.webp"

@@ -1,6 +1,7 @@
 ---
 title: "Cara Memilih Bibit Durian Unggul: Bawor vs Musang King, Mana yang Cocok untuk Pemula"
-description: "Dua durian paling sering dicari pembeli bibit, tapi karakternya cukup berbeda. Ini perbandingannya dari sudut pandang orang yang baru mau mulai menanam, bukan investor kebun."
+seoTitle: "Durian Bawor vs Musang King untuk Pemula"
+description: "Dua durian paling sering dicari pembeli bibit, tapi karakternya beda. Perbandingan dari sudut pandang yang baru mau mulai menanam, bukan investor kebun."
 publishDate: 2026-07-31
 coverImage: "/images/artikel/durian-bawor-vs-musang-king.webp"
 relatedCategorySlug: "bibit-buah"
@@ -36,5 +37,22 @@ Pohon durian Bawor cenderung tidak terlalu tinggi dibanding durian pada umumnya,
 Kalau prioritasnya ingin cepat melihat hasil, lahan di rumah tidak terlalu luas, dan belum terlalu berpengalaman merawat durian — Bawor jadi pilihan yang lebih masuk akal untuk mulai. Kalau memang menargetkan rasa premium kelas atas dan sudah siap menunggu lebih lama serta merawat lebih telaten (termasuk soal kebutuhan lahan yang lebih besar), Musang King layak dipertimbangkan.
 
 Tidak ada yang "lebih baik" secara mutlak — dua-duanya durian unggul dengan pasar dan penggemarnya sendiri. Yang penting disesuaikan dulu dengan kondisi lahan dan seberapa sabar Anda menunggu panen pertama.
+
+## Ketahanan terhadap Hama dan Penyakit
+
+Ini juga sering luput dari perbandingan, padahal penting buat pemula yang belum banyak pengalaman merawat durian. Bawor, karena hasil silangan berbagai durian lokal yang sudah lama beradaptasi dengan iklim dan hama di Indonesia, cenderung lebih toleran terhadap kondisi lapangan yang tidak ideal — termasuk serangan hama umum seperti penggerek batang atau busuk akar akibat drainase kurang baik. Musang King, sebagai varietas introduksi, umumnya butuh perhatian ekstra soal drainase dan sirkulasi udara di sekitar tajuk, karena lebih rentan terhadap penyakit jamur pada kondisi lembap berkepanjangan.
+
+Bukan berarti Musang King "rewel" — hanya saja marjin kesalahan perawatannya lebih tipis dibanding Bawor, jadi lebih cocok untuk yang sudah punya sedikit pengalaman menanam buah sebelumnya.
+
+## Pertanyaan yang Sering Ditanyakan
+
+**Apakah durian Bawor sama enaknya dengan Musang King?**
+Soal enak itu subjektif — keduanya sama-sama durian unggul dengan basis penggemar sendiri. Bawor unggul di rasa manis yang dominan dan ramah untuk yang belum terbiasa pahit; Musang King unggul di kompleksitas rasa dan tekstur creamy yang jadi favorit penggemar durian kelas atas.
+
+**Bisa nggak Bawor dan Musang King ditanam berdampingan di satu pekarangan?**
+Bisa, selama jarak tanamnya cukup (idealnya minimal 8-10 meter antar pohon durian dewasa) dan lahan mendapat sinar matahari penuh untuk keduanya. Banyak yang justru menanam dua-duanya sekaligus supaya bisa menikmati dua karakter rasa berbeda dari kebun sendiri.
+
+**Kalau baru pertama kali menanam durian, mana yang risikonya lebih kecil?**
+Bawor, karena lebih toleran terhadap kesalahan perawatan pemula dan lebih cepat kelihatan hasilnya (3 tahun) sehingga lebih cepat juga dapat "sinyal" kalau ada yang salah di cara merawatnya.
 
 Kalau masih bingung menentukan mana yang cocok dengan kondisi lahan Anda, ceritakan saja ke kami — kami bantu arahkan sesuai stok bibit yang tersedia di Ardelia Bibit.

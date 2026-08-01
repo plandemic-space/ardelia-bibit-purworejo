@@ -1,6 +1,7 @@
 ---
 title: "Cara Memilih Bibit Sehat Sebelum Beli — Ciri-Ciri yang Bisa Dicek Sendiri"
-description: "Sebelum memutuskan beli, ada beberapa hal fisik yang bisa dicek langsung untuk tahu apakah bibit yang ditawarkan benar-benar sehat — bukan cuma soal harga murah."
+seoTitle: "Cara Memilih Bibit Sehat Sebelum Beli"
+description: "Beberapa hal fisik yang bisa dicek langsung untuk tahu apakah bibit yang ditawarkan benar-benar sehat — bukan cuma soal harga murah."
 publishDate: 2026-07-31
 coverImage: "/images/artikel/cara-pilih-bibit-sehat.webp"
 relatedCategorySlug: "bibit-buah"

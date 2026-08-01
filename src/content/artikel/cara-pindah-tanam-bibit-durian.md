@@ -1,5 +1,6 @@
 ---
 title: "Cara Pindah Tanam Bibit Durian dari Polybag ke Lahan"
+seoTitle: "Cara Pindah Tanam Bibit Durian ke Lahan"
 description: "Panduan singkat memindahkan bibit durian dari polybag ke lahan tanam — dari persiapan lubang tanam sampai perawatan di minggu-minggu pertama."
 publishDate: 2026-06-15
 coverImage: "/images/artikel/pindah-tanam-durian.webp"

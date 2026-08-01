@@ -1,5 +1,6 @@
 ---
 title: "Pucuk Merah untuk Pagar Tanaman: Jarak Tanam dan Perawatannya"
+seoTitle: "Pucuk Merah untuk Pagar: Jarak Tanam & Rawat"
 description: "Panduan menanam pucuk merah sebagai pagar hidup — jarak tanam yang tepat, kenapa daunnya berubah warna, sampai cara mengatasi hama yang paling sering muncul."
 publishDate: 2026-07-31
 coverImage: "/images/artikel/pucuk-merah-pagar-tanaman.webp"

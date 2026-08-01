@@ -1,5 +1,6 @@
 ---
 title: "3 Hal yang Perlu Diperhatikan Saat Bibit Baru Sampai di Rumah"
+seoTitle: "3 Hal Penting Saat Bibit Baru Sampai"
 description: "Bibit yang baru datang dari pengiriman butuh perlakuan berbeda dibanding bibit yang sudah lama beradaptasi di satu tempat. Ini yang perlu dicek pertama kali."
 publishDate: 2026-07-18
 coverImage: "/images/artikel/bibit-baru-sampai.webp"

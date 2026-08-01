@@ -39,6 +39,8 @@ const artikel = defineCollection({
   loader: glob({ pattern: '**/*.md', base: './src/content/artikel' }),
   schema: z.object({
     title: z.string(),
+    /** Versi judul lebih pendek khusus untuk <title> tag & og:title, supaya tidak terpotong di hasil pencarian Google (~60 karakter termasuk suffix "| Ardelia Bibit"). Kalau kosong, fallback ke `title`. */
+    seoTitle: z.string().max(48).optional(),
     description: z.string(),
     publishDate: z.date(),
     coverImage: z.string().optional(),
