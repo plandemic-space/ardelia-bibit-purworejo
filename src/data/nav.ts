@@ -1,7 +1,8 @@
 /**
  * Struktur navigasi utama (mega menu) — sinkron dengan taksonomi produk
- * di src/data/produk.json (47 varietas, 6 grup — daftar katalog revisi
- * terbaru dari owner, menggantikan daftar 48 varietas sebelumnya).
+ * di src/data/produk.json (54 varietas, 6 grup — 7 varietas baru
+ * ditambahkan 1 Agustus 2026: Apel Putsa, Dewandaru, Kayu Putih,
+ * Trembesi, Aren, Kakao, Kopi Arabika).
  */
 
 export type MegaCategory = {
@@ -43,7 +44,7 @@ export const kategoriBibit: MegaCategory[] = [
   },
   {
     label: 'Tanaman Perkebunan',
-    description: 'Petai',
+    description: 'Petai, aren, kakao, kopi arabika',
     href: '/katalog#perkebunan',
     slug: 'perkebunan',
     icon: 'tree',

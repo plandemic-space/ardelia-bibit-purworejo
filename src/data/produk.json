@@ -140,6 +140,13 @@
     "fotoTersedia": true
   },
   {
+    "id": "apel-putsa",
+    "nama": "Apel Putsa",
+    "grup": "bibit-buah",
+    "foto": "/images/produk/apel-putsa.webp",
+    "fotoTersedia": true
+  },
+  {
     "id": "beringin",
     "nama": "Beringin",
     "grup": "tanaman-hias",
@@ -210,6 +217,13 @@
     "fotoTersedia": true
   },
   {
+    "id": "dewandaru",
+    "nama": "Dewandaru",
+    "grup": "tanaman-hias",
+    "foto": "/images/produk/dewandaru.webp",
+    "fotoTersedia": true
+  },
+  {
     "id": "balsa",
     "nama": "Balsa",
     "grup": "pohon-kayu",
@@ -256,6 +270,20 @@
     "nama": "Sengon Solomon",
     "grup": "pohon-kayu",
     "foto": "/images/produk/sengon-solomon.webp",
+    "fotoTersedia": true
+  },
+  {
+    "id": "kayu-putih",
+    "nama": "Kayu Putih",
+    "grup": "pohon-kayu",
+    "foto": "/images/produk/kayu-putih.webp",
+    "fotoTersedia": true
+  },
+  {
+    "id": "trembesi",
+    "nama": "Trembesi",
+    "grup": "pohon-kayu",
+    "foto": "/images/produk/trembesi.webp",
     "fotoTersedia": true
   },
   {
@@ -312,6 +340,27 @@
     "nama": "Petai",
     "grup": "perkebunan",
     "foto": "/images/produk/petai.webp",
+    "fotoTersedia": true
+  },
+  {
+    "id": "aren",
+    "nama": "Aren",
+    "grup": "perkebunan",
+    "foto": "/images/produk/aren.webp",
+    "fotoTersedia": true
+  },
+  {
+    "id": "kakao",
+    "nama": "Kakao",
+    "grup": "perkebunan",
+    "foto": "/images/produk/kakao.webp",
+    "fotoTersedia": true
+  },
+  {
+    "id": "kopi-arabika",
+    "nama": "Kopi Arabika",
+    "grup": "perkebunan",
+    "foto": "/images/produk/kopi-arabika.webp",
     "fotoTersedia": true
   },
   {
