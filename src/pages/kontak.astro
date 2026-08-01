@@ -10,6 +10,18 @@ const telHref = `tel:+${site.contact.whatsappNumber}`;
 const kunjungiPoin = [
   { icon: 'leaf', text: 'Lihat langsung kondisi bibit sebelum memutuskan beli' },
 ];
+
+// Landmark publik di sekitar nursery — cuma buat kasih gambaran lokasi,
+// BUKAN bisnis pesaing. Koordinat dicek lewat Google Places, bukan
+// perkiraan.
+const landmarkTerdekat = [
+  { nama: 'Balai Desa Samping', lat: -7.6671649, lng: 109.8731099 },
+  { nama: 'Masjid Sabilal Huda', lat: -7.6700375, lng: 109.8754844 },
+  { nama: 'SDN Gentan', lat: -7.6704735, lng: 109.8760545 },
+  { nama: 'SD Negeri Rejosari', lat: -7.682444, lng: 109.8737654 },
+  { nama: 'Pasar Inpres Kemiri', lat: -7.681285, lng: 109.8935533 },
+  { nama: 'POLSEK Kemiri', lat: -7.6833113, lng: 109.8931573 },
+];
 ---
 
 <Layout
@@ -115,6 +127,7 @@ const kunjungiPoin = [
           data-lat={site.contact.coordinates.lat}
           data-lng={site.contact.coordinates.lng}
           data-nama={site.name}
+          data-landmarks={JSON.stringify(landmarkTerdekat)}
         >
         </div>
       </div>
@@ -125,8 +138,9 @@ const kunjungiPoin = [
   <script is:inline src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
   <script is:inline>
     // Peta custom (OpenStreetMap via Leaflet) — sengaja bukan Google Maps
-    // embed, supaya hanya menampilkan SATU pin (nursery kami sendiri) tanpa
-    // pin bisnis pesaing di sekitar yang ikut muncul di embed Google biasa.
+    // embed, supaya hanya menampilkan pin nursery kami + landmark publik
+    // pilihan sendiri, tanpa pin bisnis pesaing yang ikut muncul di embed
+    // Google biasa.
     (function () {
       const el = document.getElementById('peta-lokasi');
       if (!el || typeof L === 'undefined') return;
@@ -134,6 +148,12 @@ const kunjungiPoin = [
       const lat = parseFloat(el.dataset.lat);
       const lng = parseFloat(el.dataset.lng);
       const nama = el.dataset.nama || 'Lokasi';
+      let landmarks = [];
+      try {
+        landmarks = JSON.parse(el.dataset.landmarks || '[]');
+      } catch {
+        landmarks = [];
+      }
 
       const map = L.map('peta-lokasi', {
         scrollWheelZoom: false,
@@ -154,7 +174,33 @@ const kunjungiPoin = [
         iconAnchor: [11, 11],
       });
 
-      L.marker([lat, lng], { icon }).addTo(map).bindPopup(nama).openPopup();
+      const mainMarker = L.marker([lat, lng], { icon }).addTo(map).bindPopup(nama).openPopup();
+      const bounds = L.latLngBounds([[lat, lng]]);
+
+      const landmarkIcon = L.divIcon({
+        className: 'peta-landmark-marker',
+        html: '<span></span>',
+        iconSize: [10, 10],
+        iconAnchor: [5, 5],
+      });
+
+      landmarks.forEach((lm) => {
+        L.marker([lm.lat, lm.lng], { icon: landmarkIcon })
+          .addTo(map)
+          .bindTooltip(lm.nama, {
+            permanent: true,
+            direction: 'right',
+            offset: [6, 0],
+            className: 'peta-landmark-label',
+          });
+        bounds.extend([lm.lat, lm.lng]);
+      });
+
+      // Auto-atur zoom biar pin nursery + semua landmark kelihatan sekaligus,
+      // tapi jangan zoom out lebih jauh dari perlu (maxZoom jaga supaya
+      // nursery-nya sendiri tetap jelas, bukan cuma titik kecil).
+      map.fitBounds(bounds, { padding: [32, 32], maxZoom: 15 });
+      mainMarker.openPopup();
     })();
   </script>
 </Layout>
@@ -363,6 +409,34 @@ const kunjungiPoin = [
     transform: rotate(-45deg);
     border: 2px solid #fff;
     box-shadow: 0 2px 6px rgba(14, 53, 41, 0.4);
+  }
+
+  /* Titik landmark publik (balai desa, sekolah, masjid, dst) — sengaja
+     dibikin kecil & redup, cuma buat kasih konteks lokasi, bukan pin
+     utama. Bukan bisnis, jadi aman ditampilkan berdampingan. */
+  :global(.peta-landmark-marker span) {
+    display: block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #fff;
+    border: 2px solid var(--color-charcoal-soft);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+  }
+
+  :global(.peta-landmark-label) {
+    background: rgba(255, 255, 255, 0.92) !important;
+    border: none !important;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15) !important;
+    padding: 2px 7px !important;
+    font-size: 11px !important;
+    font-weight: 600;
+    color: var(--color-charcoal-soft) !important;
+    border-radius: 5px !important;
+  }
+
+  :global(.peta-landmark-label::before) {
+    display: none;
   }
 
   @media (max-width: 900px) {
