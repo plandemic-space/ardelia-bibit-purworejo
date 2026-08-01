@@ -77,6 +77,8 @@ const breadcrumbItems = [{ name: 'Beranda', path: '/' }, ...breadcrumbs];
       '@type': 'Store',
       name: site.name,
       description: 'Nursery bibit tanaman: buah-buahan, kayu keras & penghijauan, palem hias, dan rempah/rimpang.',
+      image: new URL('/images/og-default.jpg', site.url).toString(),
+      priceRange: '$',
       telephone: `+${site.contact.whatsappNumber}`,
       url: site.url,
       address: {
