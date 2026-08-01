@@ -5,9 +5,10 @@ interface Props {
   href: string;
   coverImage?: string;
   readingMinutes?: number;
+  categoryLabel?: string;
 }
 
-const { title, description, href, coverImage, readingMinutes } = Astro.props;
+const { title, description, href, coverImage, readingMinutes, categoryLabel } = Astro.props;
 ---
 
 <a class="artikel-card" href={href}>
@@ -15,10 +16,12 @@ const { title, description, href, coverImage, readingMinutes } = Astro.props;
     coverImage ? (
       <div class="artikel-cover artikel-cover-photo">
         <img src={coverImage} alt={title} loading="lazy" decoding="async" />
+        {categoryLabel && <span class="artikel-badge">{categoryLabel}</span>}
       </div>
     ) : (
       <div class="artikel-cover">
         <span aria-hidden="true">🌱</span>
+        {categoryLabel && <span class="artikel-badge">{categoryLabel}</span>}
       </div>
     )
   }
@@ -51,6 +54,7 @@ const { title, description, href, coverImage, readingMinutes } = Astro.props;
   }
 
   .artikel-cover {
+    position: relative;
     aspect-ratio: 16 / 9;
     background: linear-gradient(135deg, var(--color-mist), #e7ecdf);
     display: flex;
@@ -70,6 +74,21 @@ const { title, description, href, coverImage, readingMinutes } = Astro.props;
     height: 100%;
     object-fit: cover;
     display: block;
+  }
+
+  .artikel-badge {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    padding: 5px 12px;
+    border-radius: 999px;
+    background: var(--color-teal-dark);
+    color: #fff;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    z-index: 1;
   }
 
   .artikel-body {

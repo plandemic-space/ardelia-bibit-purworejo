@@ -35,6 +35,7 @@ const semuaArtikel = (await getCollection('artikel')).sort(
                 href={`/artikel/${entry.id}`}
                 coverImage={entry.data.coverImage}
                 readingMinutes={estimasiWaktuBaca(entry.body ?? '')}
+                categoryLabel={entry.data.relatedCategoryLabel}
               />
             ))}
           </div>

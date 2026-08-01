@@ -145,6 +145,7 @@ const urlArtikelIni = `${site.url}/artikel/${entry.id}`;
                   href={`/artikel/${a.id}`}
                   coverImage={a.data.coverImage}
                   readingMinutes={estimasiWaktuBaca(a.body ?? '')}
+                  categoryLabel={a.data.relatedCategoryLabel}
                 />
               ))}
             </div>
