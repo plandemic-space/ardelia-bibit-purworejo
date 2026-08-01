@@ -2,10 +2,6 @@
  * Struktur navigasi utama (mega menu) — sinkron dengan taksonomi produk
  * di src/data/produk.json (47 varietas, 6 grup — daftar katalog revisi
  * terbaru dari owner, menggantikan daftar 48 varietas sebelumnya).
- *
- * Catatan: label "Cari Berdasarkan Kebutuhan" memetakan grup produk ke
- * skenario kebutuhan pengunjung (pekarangan, kebun buah, dst) — pola ini
- * dipertahankan dari mockup v4, isi teksnya tetap orisinal Ardelia Bibit.
  */
 
 export type MegaCategory = {
@@ -14,13 +10,6 @@ export type MegaCategory = {
   href: string;
   slug: string;
   icon: 'fruit' | 'flower' | 'tree' | 'root' | 'coffee-cup' | 'grass';
-};
-
-export type MegaNeed = {
-  label: string;
-  description: string;
-  href: string;
-  highlight?: boolean;
 };
 
 export const kategoriBibit: MegaCategory[] = [
@@ -65,45 +54,6 @@ export const kategoriBibit: MegaCategory[] = [
     href: '/katalog#pakan-ternak',
     slug: 'pakan-ternak',
     icon: 'grass',
-  },
-];
-
-export const kebutuhan: MegaNeed[] = [
-  {
-    label: 'Pekarangan',
-    description: 'Biar halaman rumah lebih hijau dan teduh',
-    href: '/katalog?kebutuhan=pekarangan',
-  },
-  {
-    label: 'Kebun Buah',
-    description: 'Mulai menanam buah dari bibit yang tepat',
-    href: '/katalog?kebutuhan=kebun-buah',
-  },
-  {
-    label: 'Landscape',
-    description: 'Tanaman hias untuk mempercantik lahan',
-    href: '/katalog?kebutuhan=landscape',
-  },
-  {
-    label: 'Penghijauan',
-    description: 'Kayu keras untuk lahan gundul & kritis',
-    href: '/katalog?kebutuhan=penghijauan',
-  },
-  {
-    label: 'Perkebunan',
-    description: 'Petai untuk lahan produktif',
-    href: '/katalog?kebutuhan=perkebunan',
-  },
-  {
-    label: 'Pakan Ternak',
-    description: 'Hijauan pakan untuk ternak Anda',
-    href: '/katalog?kebutuhan=pakan-ternak',
-  },
-  {
-    label: 'Belum tahu mau tanam apa?',
-    description: 'Konsultasi Bibit →',
-    href: '/kontak',
-    highlight: true,
   },
 ];
 
