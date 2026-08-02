@@ -427,7 +427,14 @@ const isActive = (href: string) => (href === '/' ? currentPath === '/' : current
   }
 
   searchToggle?.addEventListener('click', () => {
-    if (searchWrap?.classList.contains('is-open')) {
+    const isOpen = searchWrap?.classList.contains('is-open');
+    if (isOpen && searchInput?.value.trim()) {
+      // Kotak sudah kebuka dan ada isi — klik ikon kedua kali dianggap "cari",
+      // bukan nutup. Ini nutup gap UX: orang biasa reflex klik ulang ikon
+      // kaca pembesar buat "submit", bukan tekan Enter. Lihat catatan
+      // PageSpeed/UX 1 Agu 2026.
+      searchInput.closest('form')?.requestSubmit();
+    } else if (isOpen) {
       closeSearch();
     } else {
       openSearch();
