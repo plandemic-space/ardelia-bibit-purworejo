@@ -94,6 +94,16 @@ h4 {
 
 p {
   margin: 0;
+  /* Cegah kata "nyendiri" (widow/orphan) di baris terakhir paragraf —
+     browser modern otomatis atur ulang wrapping biar baris terakhir
+     gak cuma sisa 1 kata pendek. Dipasang di sini (base style `p`)
+     biar berlaku konsisten ke SEMUA paragraf di situs (subtitle,
+     isi artikel, deskripsi produk, dll), bukan cuma 1 tempat. Browser
+     lama yang belum dukung (support: Chrome/Edge 117+, Firefox 121+)
+     otomatis fallback ke wrap biasa — aman, gak ada yang rusak.
+     Ditambahkan 2 Agu 2026 setelah ketemu kasus nyata di subtitle
+     katalog ("cepat." sendirian di baris terakhir). */
+  text-wrap: pretty;
 }
 
 /* Kontainer standar tiap section */

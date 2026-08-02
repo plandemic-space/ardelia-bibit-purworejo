@@ -44,14 +44,19 @@ const { eyebrow, title, subtitle } = Astro.props;
 
   .page-intro-sub {
     color: var(--color-charcoal-soft);
-    /* 820px (bukan 640px) — dilebarin 2 Agu 2026 khusus biar subtitle
+    /* 860px (bukan 640px) — dilebarin 2 Agu 2026 khusus biar subtitle
        katalog (paling panjang, ~335 karakter) kebagi rata jadi ~3 baris
        daripada 4 baris yang terlalu padat. Halaman lain (Cara Beli,
        Kontak, dll) subtitle-nya jauh lebih pendek jadi tetap 1 baris
        walau batasnya dilebarin — gak ada efek samping. Satu angka ini
        dipakai semua 5 halaman biar tetap 1 sumber kebenaran, bukan
-       override khusus per halaman. */
-    max-width: 820px;
+       override khusus per halaman. Sempat dicoba 820px tapi hasil
+       render aslinya (screenshot owner) masih 4 baris + 1 kata nyendiri
+       di baris terakhir ("cepat.") — dinaikkan lagi ke 860px. Pencegah
+       kata nyendiri sekarang ditangani global lewat `text-wrap: pretty`
+       di base style `p` (lihat global.css), jadi gak perlu diulang di
+       sini. */
+    max-width: 860px;
     margin: 0 auto;
     font-size: 15.5px;
   }
