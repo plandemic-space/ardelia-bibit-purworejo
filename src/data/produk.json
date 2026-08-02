@@ -156,7 +156,7 @@
   {
     "id": "jengkol",
     "nama": "Jengkol",
-    "grup": "bibit-buah",
+    "grup": "perkebunan",
     "foto": "/images/produk/jengkol.webp",
     "fotoTersedia": true
   },
@@ -296,7 +296,7 @@
   {
     "id": "kayu-putih",
     "nama": "Kayu Putih",
-    "grup": "pohon-kayu",
+    "grup": "rempah",
     "foto": "/images/produk/kayu-putih.webp",
     "fotoTersedia": true
   },
