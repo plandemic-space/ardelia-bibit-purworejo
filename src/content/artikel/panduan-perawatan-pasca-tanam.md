@@ -2,7 +2,7 @@
 title: "Panduan Perawatan Bibit Pasca-Tanam: Sebulan Pertama yang Paling Menentukan"
 seoTitle: "Panduan Perawatan Bibit Pasca-Tanam"
 description: "Sebulan pertama setelah tanam adalah masa paling rawan buat bibit. Ini panduan umum penyiraman, pemupukan, dan tanda-tanda yang perlu diwaspadai."
-publishDate: 2026-08-31
+publishDate: 2026-08-02
 coverImage: "/images/artikel/panduan-perawatan-pasca-tanam.webp"
 relatedCategorySlug: "bibit-buah"
 relatedCategoryLabel: "Bibit Buah"
