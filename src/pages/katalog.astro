@@ -245,6 +245,15 @@ const artikelPerKategori: Record<string, { title: string; href: string }> = {
     color: var(--color-charcoal-soft);
   }
 
+  /* [hidden] attribute biasanya bikin elemen otomatis display:none, tapi
+     override ini WAJIB ada karena .artikel-banner set display:flex
+     langsung ke class-nya — tanpa baris ini, atribut hidden (dipasang JS
+     pas filter "Semua") kalah sama display:flex dan banner kosong tetap
+     nongol. Ketemu & diperbaiki 2 Agu 2026 dari laporan screenshot owner. */
+  .artikel-banner[hidden] {
+    display: none;
+  }
+
   .artikel-banner {
     display: flex;
     align-items: center;
