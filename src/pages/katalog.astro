@@ -1,6 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 import Layout from '../layouts/Layout.astro';
+import PageIntro from '../components/PageIntro.astro';
 import ProdukCard from '../components/ProdukCard.astro';
 import WhatsAppButton from '../components/WhatsAppButton.astro';
 import Icon from '../components/Icon.astro';
@@ -56,19 +57,11 @@ const artikelPerKategori: Record<string, { title: string; href: string }> = {
   description={`Katalog ${semuaProduk.length} varietas bibit dari Ardelia Bibit: buah, tanaman hias, kayu keras, rempah, perkebunan, dan pakan ternak. Tanya stok & harga langsung via WhatsApp.`}
   breadcrumbs={[{ name: 'Katalog Bibit', path: '/katalog' }]}
 >
-  <section class="katalog-head">
-    <div class="wrap">
-      <p class="eyebrow">Katalog Bibit</p>
-      <h1>{semuaProduk.length} Varietas dalam 6 Kategori</h1>
-      <p class="katalog-sub">
-        Dari bibit buah unggul, pohon pelindung dan pohon jalan seperti
-        Glodogan Tiang dan Tabebuya, sampai pohon kayu keras siap tanam —
-        semua hasil seleksi kebun kami dan mitra petani di Purworejo. Harga
-        dan stok kami infokan langsung lewat WhatsApp sesuai ukuran dan
-        jumlah pesanan — tekan tombol di tiap kartu untuk tanya cepat.
-      </p>
-    </div>
-  </section>
+  <PageIntro
+    eyebrow="Katalog Bibit"
+    title={`${semuaProduk.length} Varietas dalam 6 Kategori`}
+    subtitle="Dari bibit buah unggul, pohon pelindung dan pohon jalan seperti Glodogan Tiang dan Tabebuya, sampai pohon kayu keras siap tanam — semua hasil seleksi kebun kami dan mitra petani di Purworejo. Harga dan stok kami infokan langsung lewat WhatsApp sesuai ukuran dan jumlah pesanan — tekan tombol di tiap kartu untuk tanya cepat."
+  />
 
   <section class="katalog-body">
     <div class="wrap">
@@ -158,43 +151,15 @@ const artikelPerKategori: Record<string, { title: string; href: string }> = {
 </Layout>
 
 <style>
-  .katalog-head {
-    padding: 40px 0 24px;
-    background: var(--color-mist);
-  }
-
-  .katalog-head h1 {
-    font-size: clamp(28px, 3.6vw, 40px);
-    margin: 12px 0 12px;
-  }
-
-  .katalog-sub {
-    color: var(--color-charcoal-soft);
-    max-width: 640px;
-    margin: 0 auto;
-    font-size: 15.5px;
-  }
-
-  /* Center-align konten head di SEMUA ukuran layar (termasuk mobile) —
-     ikut pola .section-head yang sudah dipakai di section lain (mis.
-     KategoriPreview homepage), dan biar konsisten sama PageIntro.astro
-     yang dipakai halaman lain. Awalnya cuma dinyalain di desktop, diubah
-     jadi berlaku semua layar per permintaan owner 2 Agu 2026 (konsistensi
-     brand). Cuma section head ini yang di-center, filter/grid di bawahnya
-     tetap left-aligned. */
-  .katalog-head .wrap {
-    text-align: center;
-  }
-
   .katalog-body {
-    padding-top: 32px;
+    padding-top: 24px;
   }
 
   .filter-bar {
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
-    margin-bottom: 18px;
+    margin-bottom: 14px;
   }
 
   .filter-chip {
@@ -284,8 +249,8 @@ const artikelPerKategori: Record<string, { title: string; href: string }> = {
     display: flex;
     align-items: center;
     gap: 10px;
-    margin-bottom: 20px;
-    padding: 12px 16px;
+    margin-bottom: 14px;
+    padding: 10px 16px;
     border-radius: 12px;
     border: 1px solid var(--color-line);
     background: var(--color-mist);
@@ -332,8 +297,8 @@ const artikelPerKategori: Record<string, { title: string; href: string }> = {
     align-items: center;
     justify-content: space-between;
     gap: 16px;
-    padding-top: 14px;
-    margin-bottom: 18px;
+    padding-top: 4px;
+    margin-bottom: 14px;
     border-top: 1px solid var(--color-line);
   }
 
