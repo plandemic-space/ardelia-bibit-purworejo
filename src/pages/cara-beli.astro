@@ -74,6 +74,8 @@ const faq = [
     icon: 'root' as const,
     q: 'Pohonnya dijamin hidup setelah ditanam?',
     a: 'Kami bekali Anda panduan lengkap perawatan pasca-tanam supaya peluang hidupnya maksimal. Khusus pesanan proyek dalam jumlah besar, ada opsi garansi tersendiri yang bisa dibicarakan dan disepakati bareng sebelum order, menyesuaikan jenis bibit dan skala proyeknya.',
+    link: '/artikel/panduan-perawatan-pasca-tanam',
+    linkText: 'Baca panduan lengkapnya →',
   },
   {
     icon: 'clock' as const,
@@ -141,6 +143,9 @@ const faq = [
                 <Icon name="chevron-down" size={16} class="faq-chevron" />
               </summary>
               <p>{item.a}</p>
+              {(item as any).link && (
+                <a class="faq-link" href={(item as any).link}>{(item as any).linkText}</a>
+              )}
             </details>
           ))
         }
@@ -316,6 +321,19 @@ const faq = [
     font-size: 14px;
     color: var(--color-charcoal-soft);
     line-height: 1.6;
+  }
+
+  .faq-link {
+    display: block;
+    margin: -12px 0 18px 44px;
+    font-size: 13.5px;
+    font-weight: 600;
+    color: var(--color-teal-dark);
+    text-decoration: none;
+  }
+
+  .faq-link:hover {
+    text-decoration: underline;
   }
 
   .faq-more {
