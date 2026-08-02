@@ -36,6 +36,8 @@ Salah satu kesalahan yang paling sering bikin tabulampot gagal berbuah, menurut 
 
 Yang perlu ditekankan: tabulampot bukan jalan pintas buat panen buah dalam hitungan bulan, apalagi untuk jenis yang secara alami memang lebih sulit berbuah di pot seperti kelengkeng dan alpukat. Perawatan yang konsisten — penyiraman teratur, pemupukan organik berkala, dan pemangkasan yang disiplin — jauh lebih menentukan hasilnya dibanding trik-trik instan. Tapi buat yang halamannya terbatas dan tetap ingin punya pohon buah sendiri, tabulampot tetap jadi jalan yang realistis dijalani, asal ekspektasinya disesuaikan dengan jenis tanamannya.
 
+Sebelum belanja bibit untuk ditanam di pot, pastikan dulu fisiknya benar-benar sehat — baca [Cara Memilih Bibit Sehat Sebelum Beli](/artikel/cara-memilih-bibit-sehat-sebelum-beli) supaya tidak salah pilih sejak awal.
+
 ---
 
 Kalau Anda tertarik mulai tabulampot dan butuh bibit hasil cangkok/okulasi yang memang cocok ditanam di pot — termasuk varietas genjah untuk kelengkeng dan alpukat — tinggal chat kami untuk konsultasi jenis yang paling sesuai dengan halaman Anda.

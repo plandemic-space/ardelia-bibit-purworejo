@@ -45,4 +45,4 @@ Kalau setelah dicek ada satu-dua hal yang meragukan tapi bibitnya tetap ingin di
 
 Kalau Anda masih ragu menentukan bibit mana yang cocok untuk kebutuhan atau lahan Anda, kami di Ardelia Bibit senang membantu — tinggal ceritakan saja rencana tanamnya, kami bantu arahkan pilihan yang sesuai.
 
-Sudah dapat bibit yang sehat? Langkah selanjutnya sama pentingnya — baca [3 Hal yang Perlu Diperhatikan Saat Bibit Baru Sampai di Rumah](/artikel/perawatan-bibit-baru-masa-adaptasi) supaya bibitnya tidak stres di masa-masa awal.
+Sudah dapat bibit yang sehat? Langkah selanjutnya sama pentingnya — baca [3 Hal yang Perlu Diperhatikan Saat Bibit Baru Sampai di Rumah](/artikel/perawatan-bibit-baru-masa-adaptasi) supaya bibitnya tidak stres di masa-masa awal. Kalau halaman rumah Anda terbatas dan berencana menanam di pot, cek juga [Tabulampot: Bisa Nggak Alpukat, Kelengkeng, Sawo Ditanam di Pot?](/artikel/tabulampot-alpukat-kelengkeng-sawo)
