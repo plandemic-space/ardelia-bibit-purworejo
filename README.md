@@ -109,6 +109,15 @@ Alurnya, setiap kali dapat 1 zip project dan diminta ngerjain sesuatu:
 7. Sebelum present file ke owner, **list isi zip** (`unzip -l`) dan sebutkan satu-satu
    nama file yang berubah di chat — biar owner bisa langsung cross-check tanpa buka
    zip dulu.
+8. **Kalau ada file yang harusnya DIHAPUS** (bukan diubah) — zip perubahan gak bisa
+   merepresentasikan "hapus file ini", karena zip cuma nambah/nimpa isi folder pas
+   di-extract, gak pernah ngosongin/ngapus apa pun. Jadi kalau nemu file yang emang
+   sebaiknya dihapus (foto lama gak kepake, dll), **jangan cuma dibiarkan/didiemin** —
+   sebut eksplisit di chat path lengkapnya dan bilang owner perlu hapus manual sendiri.
+   Ketemu pas beres-beres 2 Agu 2026: `hero-artikel.webp` sempat dicatat "aman dihapus"
+   di komentar kode dari sesi sebelumnya, tapi gak pernah beneran disebut ke owner
+   secara eksplisit buat dihapus — jadi nyangkut gak kehapus-hapus sampai beberapa
+   sesi kemudian.
 
 **Kalau owner memang kasih 2 zip sekaligus** (situasi khusus kayak di atas) — baru boleh
 pakai `diff -rq` buat bandingin langsung, itu lebih akurat daripada tracking manual kalau

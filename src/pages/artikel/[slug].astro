@@ -233,7 +233,7 @@ const urlArtikelIni = `${site.url}/artikel/${entry.id}`;
     margin-left: auto;
     margin-right: auto;
     border-radius: 16px;
-    background: linear-gradient(135deg, var(--color-mist), #e7ecdf);
+    background: linear-gradient(135deg, var(--color-mist), var(--color-mist-deep));
     display: flex;
     align-items: center;
     justify-content: center;
@@ -345,7 +345,7 @@ const urlArtikelIni = `${site.url}/artikel/${entry.id}`;
 
   @media (hover: hover) {
     .share-btn:hover {
-      background: #dcebd4;
+      background: var(--color-mist-hover);
     }
   }
 
@@ -355,7 +355,7 @@ const urlArtikelIni = `${site.url}/artikel/${entry.id}`;
     margin-top: -38px;
     margin-left: -8px;
     background: var(--color-teal-dark);
-    color: #fff;
+    color: var(--color-paper);
     font-size: 11.5px;
     padding: 4px 8px;
     border-radius: 6px;

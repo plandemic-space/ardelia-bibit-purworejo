@@ -35,6 +35,16 @@
   --color-leaf-text: #4c6a1f;
   --color-line: #e4e2d8;
   --color-paper: #ffffff;
+  /* Sebelumnya di-hardcode langsung (#dcebd4) di CSS tombol share artikel,
+     bukan lewat token resmi — ketauan pas audit konsistensi 2 Agu 2026.
+     Nilainya TIDAK diubah (bukan keputusan desain baru), cuma dipindah
+     jadi token biar tercatat resmi & gampang dipakai ulang kalau perlu. */
+  --color-mist-hover: #dcebd4;
+  /* Sama kasusnya — #e7ecdf dipakai berulang (hardcode manual) sebagai
+     warna akhir gradient placeholder foto kosong di 4 file berbeda
+     (GaleriGrid, ProdukCard, ArtikelCard, artikel/[slug]). Ditokenize
+     2 Agu 2026, nilai tetap sama. */
+  --color-mist-deep: #e7ecdf;
 
   /* Tipografi */
   --font-display: 'Fraunces', serif;
