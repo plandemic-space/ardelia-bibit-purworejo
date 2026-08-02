@@ -159,7 +159,7 @@ const artikelPerKategori: Record<string, { title: string; href: string }> = {
 
 <style>
   .katalog-head {
-    padding: 48px 0 28px;
+    padding: 40px 0 24px;
     background: var(--color-mist);
   }
 
@@ -170,19 +170,31 @@ const artikelPerKategori: Record<string, { title: string; href: string }> = {
 
   .katalog-sub {
     color: var(--color-charcoal-soft);
-    max-width: 560px;
+    max-width: 640px;
+    margin: 0 auto;
     font-size: 15.5px;
   }
 
+  /* Center-align konten head di SEMUA ukuran layar (termasuk mobile) —
+     ikut pola .section-head yang sudah dipakai di section lain (mis.
+     KategoriPreview homepage), dan biar konsisten sama PageIntro.astro
+     yang dipakai halaman lain. Awalnya cuma dinyalain di desktop, diubah
+     jadi berlaku semua layar per permintaan owner 2 Agu 2026 (konsistensi
+     brand). Cuma section head ini yang di-center, filter/grid di bawahnya
+     tetap left-aligned. */
+  .katalog-head .wrap {
+    text-align: center;
+  }
+
   .katalog-body {
-    padding-top: 40px;
+    padding-top: 32px;
   }
 
   .filter-bar {
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
-    margin-bottom: 20px;
+    margin-bottom: 18px;
   }
 
   .filter-chip {
@@ -321,7 +333,7 @@ const artikelPerKategori: Record<string, { title: string; href: string }> = {
     justify-content: space-between;
     gap: 16px;
     padding-top: 14px;
-    margin-bottom: 24px;
+    margin-bottom: 18px;
     border-top: 1px solid var(--color-line);
   }
 
