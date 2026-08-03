@@ -61,14 +61,17 @@ const facebookLabel = site.name;
         </ul>
         <p class="footer-shipping">
           <Icon name="truck" size={14} />
-          Kirim ke seluruh Indonesia — dikemas rapi sesuai jenis bibit.
+          Kirim ke seluruh Indonesia, dikemas rapi dari Purworejo dengan sepenuh hati.
         </p>
       </div>
     </div>
 
     <div class="footer-bottom">
-      <span>&copy; {year} {site.name}. Semua hak cipta dilindungi.</span>
-      <span>Melayani sepenuh hati dari Purworejo</span>
+      <span>&copy; {year} {site.name}</span>
+      <span class="footer-credit">
+        Crafted by{' '}
+        <a href="https://plandemicspace.vercel.app/" target="_blank" rel="noopener noreferrer">Plandemic Space</a>
+      </span>
     </div>
   </div>
 </footer>
@@ -176,12 +179,29 @@ const facebookLabel = site.name;
 
   .footer-bottom {
     display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 8px;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
     padding-top: 22px;
+    text-align: center;
     font-size: 13px;
     color: rgba(255, 255, 255, 0.55);
+  }
+
+  .footer-credit {
+    font-size: 11.5px;
+    color: rgba(255, 255, 255, 0.4);
+  }
+
+  .footer-credit a {
+    color: rgba(255, 255, 255, 0.45);
+    transition: color 0.15s;
+  }
+
+  @media (hover: hover) {
+    .footer-credit a:hover {
+      color: var(--color-leaf);
+    }
   }
 
   @media (max-width: 880px) {
@@ -197,11 +217,6 @@ const facebookLabel = site.name;
   @media (max-width: 520px) {
     .footer-grid {
       grid-template-columns: 1fr;
-    }
-
-    .footer-bottom {
-      flex-direction: column;
-      align-items: flex-start;
     }
   }
 </style>
