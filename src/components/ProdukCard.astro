@@ -217,5 +217,14 @@ const fotoSmall = foto?.replace(/\.webp$/, '-sm.webp');
     .produk-wa-short {
       display: inline;
     }
+
+    /* Di mobile, grid katalog turun ke 2 kolom (lihat katalog.astro),
+       jadi kartu jauh lebih sempit dari desktop (4 kolom) — 3 baris
+       cuma cukup ±60-70 karakter di lebar ini, padahal rata-rata
+       deskripsi ±87 karakter. Dinaikkan ke 5 baris supaya hampir semua
+       deskripsi (maks 100 karakter) tetap terbaca utuh tanpa "...". */
+    .produk-deskripsi {
+      -webkit-line-clamp: 5;
+    }
   }
 </style>
