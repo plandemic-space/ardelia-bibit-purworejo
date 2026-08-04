@@ -139,6 +139,28 @@ const breadcrumbItems = [{ name: 'Beranda', path: '/' }, ...breadcrumbs];
     <Header />
 
     <main id="konten-utama">
+      {
+        breadcrumbItems.length > 1 && (
+          <nav class="breadcrumb-visual" aria-label="Breadcrumb">
+            <div class="wrap">
+              <ol>
+                {breadcrumbItems.map((item, i) => (
+                  <li>
+                    {i < breadcrumbItems.length - 1 ? (
+                      <a href={item.path}>{item.name}</a>
+                    ) : (
+                      <span aria-current="page">{item.name}</span>
+                    )}
+                    {i < breadcrumbItems.length - 1 && (
+                      <span class="breadcrumb-sep" aria-hidden="true">/</span>
+                    )}
+                  </li>
+                ))}
+              </ol>
+            </div>
+          </nav>
+        )
+      }
       <slot />
     </main>
 
@@ -146,3 +168,55 @@ const breadcrumbItems = [{ name: 'Beranda', path: '/' }, ...breadcrumbs];
     <FloatingActions />
   </body>
 </html>
+
+<style>
+  /*
+   * Item 0.6 — breadcrumb visual. Data-nya (breadcrumbItems) sudah ada
+   * sejak awal (dipakai untuk schema BreadcrumbList di <head>), di sini
+   * cuma dirender jadi elemen visual. Disembunyikan otomatis di Home
+   * karena breadcrumbItems cuma berisi "Beranda" sendirian di sana
+   * (length === 1) — tidak perlu logic tambahan per halaman.
+   */
+  .breadcrumb-visual {
+    padding: 12px 0;
+  }
+
+  .breadcrumb-visual ol {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 6px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .breadcrumb-visual li {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .breadcrumb-visual a,
+  .breadcrumb-visual span {
+    font-size: 13px;
+    color: var(--color-charcoal-soft);
+  }
+
+  .breadcrumb-visual a {
+    text-decoration: none;
+  }
+
+  .breadcrumb-visual a:hover {
+    color: var(--color-teal-dark);
+    text-decoration: underline;
+  }
+
+  .breadcrumb-visual [aria-current='page'] {
+    color: var(--color-charcoal-soft);
+  }
+
+  .breadcrumb-sep {
+    color: var(--color-line);
+  }
+</style>
