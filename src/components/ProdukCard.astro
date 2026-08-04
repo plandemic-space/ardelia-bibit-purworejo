@@ -137,13 +137,14 @@ const fotoSmall = foto?.replace(/\.webp$/, '-sm.webp');
 
   /* Nama produk direserve tinggi 2 baris (min-height) supaya kartu tetap
      seragam meski ada nama panjang ("Kelapa Gading Kuning"). Untuk nama
-     pendek 1 kata ("Petai"), teks di-bottom-align lewat wrapper flex ini
-     supaya nempel ke deskripsi di bawahnya — bukan nempel ke atas dengan
-     ruang kosong di bawah (itu penyebab jarak nama↔deskripsi kelihatan
-     lebih lebar dari jarak deskripsi↔CTA sebelumnya). */
+     pendek 1 kata ("Petai"), align-items: CENTER (bukan flex-end) —
+     ruang kosong sisa dibagi rata atas & bawah, bukan ditumpuk semua di
+     atas (itu penyebab jarak foto↔nama kelihatan kelewat lebar di
+     hotfix sebelumnya, karena flex-end mendorong semua ruang kosong ke
+     atas teks). */
   .produk-name-wrap {
     display: flex;
-    align-items: flex-end;
+    align-items: center;
     justify-content: center;
     /* px, BUKAN em — wrapper ini tidak punya font-size 13.5px seperti h3
        di dalamnya, jadi kalau pakai em, tingginya dihitung dari font-size
