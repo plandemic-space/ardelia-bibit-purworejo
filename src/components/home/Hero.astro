@@ -21,13 +21,13 @@ const withSmallSrc = (src: string) => src.replace(/\.webp$/, '-sm.webp');
 <section class="hero">
   <div class="wrap hero-grid">
     <div class="hero-copy">
-      <p class="eyebrow">Ardelia Bibit &middot; Kemiri, Purworejo</p>
+      <p class="eyebrow">Ardelia Bibit &middot; Samping</p>
       <h1>Mulai Menanam dari Satu Bibit</h1>
-      <p class="hero-sub">
-        Nursery kami menyediakan aneka bibit tanaman — dari buah, kayu
-        keras, tanaman hias, rempah, sampai pakan ternak — untuk kebun,
+      <h2 class="hero-sub">
+        Nursery bibit tanaman di Kemiri, Purworejo — sedia bibit buah, kayu
+        keras, tanaman hias, rempah, sampai pakan ternak untuk kebun,
         pekarangan, atau penghijauan Anda.
-      </p>
+      </h2>
       <div class="hero-cta">
         <a class="btn btn-primary" href="/katalog">Jelajahi Katalog</a>
         <WhatsAppButton
@@ -79,6 +79,8 @@ const withSmallSrc = (src: string) => src.replace(/\.webp$/, '-sm.webp');
   }
 
   .hero-sub {
+    font-family: var(--font-body);
+    font-weight: 400;
     font-size: 17px;
     color: var(--color-charcoal-soft);
     max-width: 560px;
