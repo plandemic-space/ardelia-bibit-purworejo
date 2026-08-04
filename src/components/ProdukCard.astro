@@ -45,8 +45,14 @@ const fotoSmall = foto?.replace(/\.webp$/, '-sm.webp');
   </div>
 
   <div class="produk-body">
-    <h3>{nama}</h3>
-    {deskripsi && <p class="produk-deskripsi">{deskripsi}</p>}
+    <div class="produk-name-wrap">
+      <h3>{nama}</h3>
+    </div>
+    {deskripsi && (
+      <div class="produk-desc-wrap">
+        <p class="produk-deskripsi">{deskripsi}</p>
+      </div>
+    )}
     <p class="produk-cta-note">Ukuran &amp; harga menyesuaikan stok</p>
     <a class="produk-wa btn btn-outline" href={waLink(pesanWa)} target="_blank" rel="noopener">
       <Icon name="whatsapp" size={15} />
@@ -129,31 +135,52 @@ const fotoSmall = foto?.replace(/\.webp$/, '-sm.webp');
     flex: 1;
   }
 
+  /* Nama produk direserve tinggi 2 baris (min-height) supaya kartu tetap
+     seragam meski ada nama panjang ("Kelapa Gading Kuning"). Untuk nama
+     pendek 1 kata ("Petai"), teks di-bottom-align lewat wrapper flex ini
+     supaya nempel ke deskripsi di bawahnya — bukan nempel ke atas dengan
+     ruang kosong di bawah (itu penyebab jarak nama↔deskripsi kelihatan
+     lebih lebar dari jarak deskripsi↔CTA sebelumnya). */
+  .produk-name-wrap {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    min-height: 2.5em;
+  }
+
   .produk-body h3 {
     font-size: 13.5px;
     font-weight: 600;
     font-family: var(--font-body);
     color: var(--color-charcoal);
     line-height: 1.25;
-    min-height: 2.5em;
+    margin: 0;
     display: -webkit-box;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
     overflow: hidden;
   }
 
-  /* Deskripsi 1 kalimat per produk — tinggi dikunci 2 baris (min-height +
-     line-clamp) supaya kartu tetap seragam tingginya di grid, mau
-     deskripsinya pendek atau panjang. text-wrap: pretty sudah otomatis
-     berlaku (base style `p` di global.css), jadi baris terakhir tidak
-     nyisa 1 kata sendirian. */
+  /* Deskripsi 1 kalimat per produk. Dinaikkan dari 2 → 3 baris supaya
+     mayoritas deskripsi (rata-rata ±87 karakter) terbaca utuh tanpa
+     kepotong "..." di tengah kalimat. Wrapper bottom-align sama seperti
+     nama produk, untuk deskripsi pendek yang cuma makan 1-2 baris —
+     supaya tetap nempel rapi ke baris CTA di bawahnya. text-wrap: pretty
+     sudah otomatis berlaku (base style `p` di global.css). */
+  .produk-desc-wrap {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    min-height: 4.05em;
+  }
+
   .produk-deskripsi {
     font-size: 11px;
     color: var(--color-charcoal-soft);
     line-height: 1.35;
-    min-height: 2.7em;
+    margin: 0;
     display: -webkit-box;
-    -webkit-line-clamp: 2;
+    -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
     overflow: hidden;
   }
