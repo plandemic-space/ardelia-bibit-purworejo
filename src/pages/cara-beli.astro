@@ -83,6 +83,19 @@ const faq = [
     a: 'Untuk pesanan dalam jumlah besar, pengiriman bisa langsung jalan kapan saja. Tapi kalau pesanannya kecil dan tujuannya jauh di luar kota, biasanya kami jadwalkan bareng pengiriman lain yang searah lebih dulu — supaya ongkos kirimnya tetap masuk akal, bukan satu mobil jalan jauh cuma untuk satu bibit kecil. Estimasi waktunya selalu kami infokan di awal lewat WhatsApp, jadi Anda tahu perkiraan kapan bibit sampai.',
   },
 ];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faq.map((item) => ({
+    '@type': 'Question',
+    name: item.q,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: item.a,
+    },
+  })),
+};
 ---
 
 <Layout
@@ -90,6 +103,8 @@ const faq = [
   description="Cara pesan bibit di Ardelia Bibit: pilih bibit, chat WhatsApp, sepakati pengiriman, bibit siap. Termasuk info pesanan partai besar dan pertanyaan yang sering ditanyakan."
   breadcrumbs={[{ name: 'Cara Beli', path: '/cara-beli' }]}
 >
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+
   <PageIntro
     eyebrow="Cara Beli"
     title="4 Langkah Mudah Pesan Bibit"
