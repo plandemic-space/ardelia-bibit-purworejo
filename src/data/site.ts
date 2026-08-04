@@ -25,6 +25,7 @@ export const site = {
     address: {
       street: 'Dusun Ngemplak RT.01/RW.02, Desa Samping',
       district: 'Kec. Kemiri',
+      locality: 'Kemiri',
       regency: 'Kabupaten Purworejo',
       province: 'Jawa Tengah',
       postalCode: '54262',

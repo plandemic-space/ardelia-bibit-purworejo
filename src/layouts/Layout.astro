@@ -76,17 +76,17 @@ const breadcrumbItems = [{ name: 'Beranda', path: '/' }, ...breadcrumbs];
     <!-- Schema.org: Organization dasar — disinkronkan dengan konten visible -->
     <script type="application/ld+json" set:html={JSON.stringify({
       '@context': 'https://schema.org',
-      '@type': 'Store',
+      '@type': 'GardenStore',
       name: site.name,
       description: 'Nursery bibit tanaman: buah-buahan, kayu keras & penghijauan, palem hias, dan rempah/rimpang.',
       image: new URL('/images/og-default.jpg', site.url).toString(),
-      priceRange: '$',
+      priceRange: '$$',
       telephone: `+${site.contact.whatsappNumber}`,
       url: site.url,
       address: {
         '@type': 'PostalAddress',
         streetAddress: site.contact.address.street,
-        addressLocality: 'Kemiri',
+        addressLocality: site.contact.address.locality,
         addressRegion: site.contact.address.province,
         postalCode: site.contact.address.postalCode,
         addressCountry: 'ID',
