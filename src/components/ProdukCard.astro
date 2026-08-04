@@ -145,7 +145,12 @@ const fotoSmall = foto?.replace(/\.webp$/, '-sm.webp');
     display: flex;
     align-items: flex-end;
     justify-content: center;
-    min-height: 2.5em;
+    /* px, BUKAN em — wrapper ini tidak punya font-size 13.5px seperti h3
+       di dalamnya, jadi kalau pakai em, tingginya dihitung dari font-size
+       warisan yang lebih besar dan kotaknya jadi kelewat tinggi (bug yang
+       sempat bikin jarak nama-deskripsi malah tambah lebar). 34px = 2 baris
+       h3 pada line-height 1.25 * font-size 13.5px. */
+    min-height: 34px;
   }
 
   .produk-body h3 {
@@ -171,7 +176,9 @@ const fotoSmall = foto?.replace(/\.webp$/, '-sm.webp');
     display: flex;
     align-items: flex-end;
     justify-content: center;
-    min-height: 4.05em;
+    /* px, alasan sama seperti .produk-name-wrap di atas. 45px = 3 baris
+       deskripsi pada line-height 1.35 * font-size 11px. */
+    min-height: 45px;
   }
 
   .produk-deskripsi {
