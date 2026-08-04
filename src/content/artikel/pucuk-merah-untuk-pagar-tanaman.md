@@ -6,6 +6,7 @@ publishDate: 2026-07-31
 coverImage: "/images/artikel/pucuk-merah-pagar-tanaman.webp"
 relatedCategorySlug: "tanaman-hias"
 relatedCategoryLabel: "Tanaman Hias & Landscape"
+writtenByOwner: true
 ---
 
 Pucuk merah (nama ilmiahnya *Syzygium oleana*) jadi salah satu tanaman pagar paling sering dipilih di Indonesia — dari halaman rumah, taman kota, sampai median jalan. Alasannya sederhana: perawatannya relatif mudah, tapi hasilnya tetap terlihat rapi dan hidup sepanjang tahun. Berikut beberapa hal praktis yang perlu diketahui sebelum menanamnya.

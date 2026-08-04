@@ -47,6 +47,19 @@ const artikelTerkait = semuaArtikel
   .slice(0, 3);
 
 const urlArtikelIni = `${site.url}/artikel/${entry.id}`;
+
+// Item 1.1 (E-E-A-T) — artikel yang ditandai `writtenByOwner: true` di
+// frontmatter pakai schema Person untuk Pak Yarohim (pengalaman nursery
+// langsung), selain itu tetap Organization (artikel jenis berita/tren/
+// studi kasus dari sumber luar, bukan pengalaman pribadi pemilik).
+const authorSchema = entry.data.writtenByOwner
+  ? {
+      '@type': 'Person',
+      name: site.owner,
+      jobTitle: 'Pemilik & Pengelola Nursery Ardelia Bibit',
+      worksFor: { '@type': 'Organization', name: site.name },
+    }
+  : { '@type': 'Organization', name: site.name };
 ---
 
 <Layout
@@ -64,7 +77,7 @@ const urlArtikelIni = `${site.url}/artikel/${entry.id}`;
     description: entry.data.description,
     ...(entry.data.coverImage && { image: new URL(entry.data.coverImage, site.url).toString() }),
     datePublished: entry.data.publishDate.toISOString(),
-    author: { '@type': 'Organization', name: site.name },
+    author: authorSchema,
     publisher: { '@type': 'Organization', name: site.name },
     mainEntityOfPage: urlArtikelIni,
   })} />

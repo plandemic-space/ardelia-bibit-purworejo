@@ -6,6 +6,7 @@ publishDate: 2026-07-31
 coverImage: "/images/artikel/bibit-petai-unggul.webp"
 relatedCategorySlug: "perkebunan"
 relatedCategoryLabel: "Tanaman Perkebunan"
+writtenByOwner: true
 ---
 
 Salah satu pertanyaan paling sering ditanyakan sebelum beli bibit petai adalah: berapa lama sampai bisa panen? Jawabannya sebenarnya tergantung jenis bibitnya — bibit dari biji dan bibit hasil cangkok/okulasi punya rentang waktu berbuah yang cukup jauh berbeda.

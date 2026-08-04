@@ -6,6 +6,7 @@ publishDate: 2026-08-02
 coverImage: "/images/artikel/panduan-perawatan-pasca-tanam.webp"
 relatedCategorySlug: "bibit-buah"
 relatedCategoryLabel: "Bibit Buah"
+writtenByOwner: true
 ---
 
 Banyak yang mengira kerja keras berhenti begitu bibit selesai ditanam — padahal justru sebulan pertama setelah itu yang paling menentukan hidup atau tidaknya. Bibit yang akarnya baru saja beradaptasi dengan tanah baru masih dalam kondisi rentan, jauh lebih sensitif dibanding pohon yang sudah mapan bertahun-tahun. Berikut panduan umum yang bisa jadi pegangan, apa pun jenis bibitnya — buah, kayu keras, atau tanaman hias.

@@ -6,6 +6,7 @@ publishDate: 2026-06-15
 coverImage: "/images/artikel/pindah-tanam-durian.webp"
 relatedCategorySlug: "bibit-buah"
 relatedCategoryLabel: "Bibit Buah"
+writtenByOwner: true
 ---
 
 Banyak yang menanam bibit durian lalu kaget kenapa pertumbuhannya lambat, padahal masalahnya sering bukan di bibitnya — tapi di cara pindah tanamnya. Bibit yang sehat pun bisa stres kalau proses pindah dari polybag ke lahan dilakukan buru-buru. Berikut urutan yang biasa kami sarankan ke pembeli.

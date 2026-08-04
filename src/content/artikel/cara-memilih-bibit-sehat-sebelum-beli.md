@@ -6,6 +6,7 @@ publishDate: 2026-07-31
 coverImage: "/images/artikel/cara-pilih-bibit-sehat.webp"
 relatedCategorySlug: "bibit-buah"
 relatedCategoryLabel: "Bibit Buah"
+writtenByOwner: true
 ---
 
 Banyak orang baru sadar bibitnya bermasalah setelah beberapa bulan ditanam — pertumbuhannya kerdil, gampang layu, atau bahkan mati pelan-pelan tanpa sebab yang jelas. Padahal sebagian besar masalah itu sebenarnya bisa dideteksi dari awal, sebelum bibit dibawa pulang. Berikut beberapa hal yang bisa dicek sendiri, baik saat datang langsung ke nursery maupun saat memilih dari foto penjual online.

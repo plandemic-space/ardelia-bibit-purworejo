@@ -6,6 +6,7 @@ publishDate: 2026-07-31
 coverImage: "/images/artikel/durian-bawor-vs-musang-king.webp"
 relatedCategorySlug: "bibit-buah"
 relatedCategoryLabel: "Bibit Buah"
+writtenByOwner: true
 ---
 
 Kalau baru mulai cari bibit durian, dua nama ini hampir pasti muncul duluan: Bawor dan Musang King. Keduanya sama-sama populer, tapi asal-usul dan karakternya cukup jauh berbeda. Buat yang baru mau menanam satu-dua pohon di pekarangan — bukan buka kebun komersial — perbedaan ini penting supaya ekspektasinya pas sejak awal.

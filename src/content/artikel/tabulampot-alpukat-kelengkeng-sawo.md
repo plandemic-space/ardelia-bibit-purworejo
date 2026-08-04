@@ -6,6 +6,7 @@ publishDate: 2026-08-24
 coverImage: "/images/artikel/tabulampot-alpukat-kelengkeng-sawo.webp"
 relatedCategorySlug: "bibit-buah"
 relatedCategoryLabel: "Bibit Buah"
+writtenByOwner: true
 ---
 
 Keterbatasan lahan sering jadi alasan orang mengurungkan niat menanam pohon buah sendiri di rumah. Padahal, tabulampot (tanaman buah dalam pot) sudah lama jadi solusi buat halaman sempit atau bahkan teras rumah — bukan cuma tren dadakan, tapi juga mulai didorong secara resmi oleh sejumlah dinas ketahanan pangan sebagai cara keluarga memenuhi kebutuhan buah sendiri tanpa perlu lahan luas. Pertanyaannya: apakah semua jenis bibit sama gampangnya ditanam dengan cara ini, termasuk alpukat, kelengkeng, dan sawo yang paling sering ditanya pembeli?

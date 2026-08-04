@@ -6,6 +6,7 @@ publishDate: 2026-07-31
 coverImage: "/images/artikel/kaliandra-indigofera-pakan-ternak.webp"
 relatedCategorySlug: "pakan-ternak"
 relatedCategoryLabel: "Pakan Ternak"
+writtenByOwner: true
 ---
 
 Pakan hijauan jadi faktor penting buat produktivitas ternak ruminansia — sapi, domba, kambing — tapi rumput saja sering tidak cukup memenuhi kebutuhan protein. Di sinilah kaliandra dan indigofera jadi pilihan yang banyak dicari peternak, karena dua-duanya tergolong tanaman legum dengan kandungan protein jauh lebih tinggi dibanding rumput biasa. Tapi keduanya tidak identik — ada beberapa perbedaan yang perlu diketahui sebelum memutuskan mau menanam yang mana, atau kombinasi keduanya.

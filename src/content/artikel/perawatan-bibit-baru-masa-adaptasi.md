@@ -6,6 +6,7 @@ publishDate: 2026-07-18
 coverImage: "/images/artikel/bibit-baru-sampai.webp"
 relatedCategorySlug: "bibit-buah"
 relatedCategoryLabel: "Bibit Buah"
+writtenByOwner: true
 ---
 
 Bibit yang baru sampai — baik diambil langsung dari nursery maupun dikirim dari jauh — sedang dalam kondisi rentan. Perjalanan, perubahan suhu, dan proses pengemasan bisa membuat bibit sedikit stres meskipun kondisinya sehat. Sebelum buru-buru menanamnya langsung ke lahan, ada baiknya perhatikan tiga hal ini dulu.

@@ -54,6 +54,14 @@ const artikel = defineCollection({
     /** Untuk internal link ke katalog di akhir artikel (checklist playbook §10) */
     relatedCategorySlug: z.enum(grupProduk).optional(),
     relatedCategoryLabel: z.string().optional(),
+    /** Item 1.1 (E-E-A-T) — true kalau artikel ini pantas ditandai sebagai
+     * ditulis berdasarkan pengalaman langsung Pak Yarohim mengelola nursery
+     * (tips/panduan praktis), dipakai untuk pilih schema author Person vs
+     * Organization di [slug].astro. Default false = tetap author Organization
+     * (dipakai untuk artikel jenis berita/tren/studi kasus dari sumber luar,
+     * bukan pengalaman pribadi pemilik). Lihat IMPLEMENTATION_LOG.md Item 1.1
+     * untuk daftar & alasan klasifikasi tiap artikel. */
+    writtenByOwner: z.boolean().optional().default(false),
   }),
 });
 
