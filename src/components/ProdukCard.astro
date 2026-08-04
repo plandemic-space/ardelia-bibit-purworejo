@@ -4,13 +4,13 @@ import { waLink } from '../data/site';
 
 interface Props {
   nama: string;
-  ukuran?: string;
+  deskripsi?: string;
   perluKonfirmasi?: boolean;
   foto?: string;
   placeholderEmoji?: string;
 }
 
-const { nama, ukuran, perluKonfirmasi = false, foto, placeholderEmoji = '🌱' } = Astro.props;
+const { nama, deskripsi, perluKonfirmasi = false, foto, placeholderEmoji = '🌱' } = Astro.props;
 
 const pesanWa = `Halo Ardelia Bibit, saya mau tanya stok & harga ${nama}`;
 
@@ -46,7 +46,8 @@ const fotoSmall = foto?.replace(/\.webp$/, '-sm.webp');
 
   <div class="produk-body">
     <h3>{nama}</h3>
-    {ukuran && <p class="produk-ukuran">{ukuran}</p>}
+    {deskripsi && <p class="produk-deskripsi">{deskripsi}</p>}
+    <p class="produk-cta-note">Ukuran &amp; harga menyesuaikan stok</p>
     <a class="produk-wa btn btn-outline" href={waLink(pesanWa)} target="_blank" rel="noopener">
       <Icon name="whatsapp" size={15} />
       <span class="produk-wa-full">Tanya Stok &amp; Harga</span>
@@ -141,14 +142,32 @@ const fotoSmall = foto?.replace(/\.webp$/, '-sm.webp');
     overflow: hidden;
   }
 
-  .produk-ukuran {
+  /* Deskripsi 1 kalimat per produk — tinggi dikunci 2 baris (min-height +
+     line-clamp) supaya kartu tetap seragam tingginya di grid, mau
+     deskripsinya pendek atau panjang. text-wrap: pretty sudah otomatis
+     berlaku (base style `p` di global.css), jadi baris terakhir tidak
+     nyisa 1 kata sendirian. */
+  .produk-deskripsi {
     font-size: 11px;
     color: var(--color-charcoal-soft);
-    line-height: 1.3;
+    line-height: 1.35;
+    min-height: 2.7em;
     display: -webkit-box;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
     overflow: hidden;
+  }
+
+  /* Pengganti field `ukuran` statis — teks universal, sama di semua kartu,
+     supaya tidak pernah basi kalau ukuran/harga stok berubah (harga & ukuran
+     memang sengaja tidak dicantumkan statis, lihat kebijakan di
+     PROJECT_KNOWLEDGE.md §1 dan FAQ "Kenapa harga tidak dicantumkan"). */
+  .produk-cta-note {
+    font-size: 10px;
+    font-style: italic;
+    color: var(--color-charcoal-soft);
+    opacity: 0.75;
+    line-height: 1.25;
   }
 
   .produk-wa {

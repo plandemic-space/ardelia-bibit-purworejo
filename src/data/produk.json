@@ -4,412 +4,471 @@
     "nama": "Alpukat Aligator",
     "grup": "bibit-buah",
     "foto": "/images/produk/alpukat-aligator.webp",
-    "fotoTersedia": true
+    "fotoTersedia": true,
+    "deskripsi": "Bibit alpukat sambung pucuk, ukuran buah besar, daging tebal, cocok di pekarangan maupun kebun."
   },
   {
     "id": "alpukat-hass",
     "nama": "Alpukat Hass",
     "grup": "bibit-buah",
     "foto": "/images/produk/alpukat-hass.webp",
-    "fotoTersedia": true
+    "fotoTersedia": true,
+    "deskripsi": "Bibit alpukat sambung pucuk varietas Hass, kulit kasar khas, daging lembut dan creamy."
   },
   {
     "id": "alpukat-miki",
     "nama": "Alpukat Miki",
     "grup": "bibit-buah",
     "foto": "/images/produk/alpukat-miki.webp",
-    "fotoTersedia": true
+    "fotoTersedia": true,
+    "deskripsi": "Bibit alpukat sambung pucuk yang dikenal cepat berbuah, daging tebal dengan biji kecil."
   },
   {
     "id": "alpukat-pluwang",
     "nama": "Alpukat Pluwang",
     "grup": "bibit-buah",
     "foto": "/images/produk/alpukat-pluwang.webp",
-    "fotoTersedia": true
+    "fotoTersedia": true,
+    "deskripsi": "Bibit alpukat sambung pucuk varietas lokal, daging tebal dan lembut."
   },
   {
     "id": "alpukat-mentega",
     "nama": "Alpukat Mentega",
     "grup": "bibit-buah",
     "foto": "/images/produk/alpukat-mentega.webp",
-    "fotoTersedia": true
+    "fotoTersedia": true,
+    "deskripsi": "Bibit alpukat sambung pucuk, daging lembut menyerupai mentega dengan biji kecil."
   },
   {
     "id": "alpukat-siger",
     "nama": "Alpukat Siger",
     "grup": "bibit-buah",
     "foto": "/images/produk/alpukat-siger.webp",
-    "fotoTersedia": true
+    "fotoTersedia": true,
+    "deskripsi": "Bibit alpukat sambung pucuk varietas lokal, daging tebal dan pulen."
   },
   {
     "id": "durian-bawor",
     "nama": "Durian Bawor",
     "grup": "bibit-buah",
     "foto": "/images/produk/durian-bawor.webp",
-    "fotoTersedia": true
+    "fotoTersedia": true,
+    "deskripsi": "Bibit durian okulasi dari indukan Bawor, daging tebal, manis legit dengan sedikit pahit khas."
   },
   {
     "id": "durian-duri-hitam",
     "nama": "Durian Duri Hitam",
     "grup": "bibit-buah",
     "foto": "/images/produk/durian-duri-hitam.webp",
-    "fotoTersedia": true
+    "fotoTersedia": true,
+    "deskripsi": "Bibit durian okulasi dengan duri buah berwarna gelap, daging tebal dan rasa manis creamy."
   },
   {
     "id": "durian-musang-king",
     "nama": "Durian Musang King",
     "grup": "bibit-buah",
     "foto": "/images/produk/durian-musang-king.webp",
-    "fotoTersedia": true
+    "fotoTersedia": true,
+    "deskripsi": "Bibit durian okulasi asal Malaysia, daging kuning pekat, tekstur creamy rasa manis-pahit khas."
   },
   {
     "id": "durian-super-tembaga",
     "nama": "Durian Super Tembaga",
     "grup": "bibit-buah",
     "foto": "/images/produk/durian-super-tembaga.webp",
-    "fotoTersedia": true
+    "fotoTersedia": true,
+    "deskripsi": "Bibit durian okulasi varietas lokal, daging berwarna kuning tembaga dengan rasa manis pekat."
   },
   {
     "id": "kelengkeng-itoh",
     "nama": "Kelengkeng Itoh",
     "grup": "bibit-buah",
     "foto": "/images/produk/kelengkeng-itoh.webp",
-    "fotoTersedia": true
+    "fotoTersedia": true,
+    "deskripsi": "Bibit kelengkeng hasil cangkok/sambung varietas Itoh, buah lebat bergerombol, daging manis."
   },
   {
     "id": "kelengkeng-new-crystal",
     "nama": "Kelengkeng New Crystal",
     "grup": "bibit-buah",
     "foto": "/images/produk/kelengkeng-new-crystal.webp",
-    "fotoTersedia": true
+    "fotoTersedia": true,
+    "deskripsi": "Bibit kelengkeng varietas New Crystal, dikenal buah berukuran besar dengan rasa manis renyah."
   },
   {
     "id": "kelengkeng-merah",
     "nama": "Kelengkeng Merah",
     "grup": "bibit-buah",
     "foto": "/images/produk/kelengkeng-merah.webp",
-    "fotoTersedia": true
+    "fotoTersedia": true,
+    "deskripsi": "Bibit kelengkeng varietas kulit merah, daging manis, sekaligus jadi tanaman hias unik."
   },
   {
     "id": "mangga-kiojay",
     "nama": "Mangga Kiojay",
     "grup": "bibit-buah",
     "foto": "/images/produk/mangga-kiojay.webp",
-    "fotoTersedia": true
+    "fotoTersedia": true,
+    "deskripsi": "Bibit mangga hasil sambung pucuk, buah harum dengan daging tebal dan rasa manis khas."
   },
   {
     "id": "manggis",
     "nama": "Manggis",
     "grup": "bibit-buah",
     "foto": "/images/produk/manggis.webp",
-    "fotoTersedia": true
+    "fotoTersedia": true,
+    "deskripsi": "Bibit manggis hasil pembibitan generatif/sambung, daging putih lembut rasa manis-asam segar."
   },
   {
     "id": "nangka-madu",
     "nama": "Nangka Madu",
     "grup": "bibit-buah",
     "foto": "/images/produk/nangka-madu.webp",
-    "fotoTersedia": true
+    "fotoTersedia": true,
+    "deskripsi": "Bibit nangka varietas madu, daging buah tebal, manis, dan beraroma khas saat matang."
   },
   {
     "id": "sawo-manila",
     "nama": "Sawo Manila",
     "grup": "bibit-buah",
     "foto": "/images/produk/sawo-manila.webp",
-    "fotoTersedia": true
+    "fotoTersedia": true,
+    "deskripsi": "Bibit sawo Manila, daging buah lembut dan manis legit, mudah tumbuh di berbagai lahan."
   },
   {
     "id": "sawo-jumbo",
     "nama": "Sawo Jumbo",
     "grup": "bibit-buah",
     "foto": "/images/produk/sawo-jumbo.webp",
-    "fotoTersedia": true
+    "fotoTersedia": true,
+    "deskripsi": "Bibit sawo varietas buah besar, daging manis legit dengan tekstur lembut."
   },
   {
     "id": "kelapa-gading-kuning",
     "nama": "Kelapa Gading Kuning",
     "grup": "bibit-buah",
     "foto": "/images/produk/kelapa-gading-kuning.webp",
-    "fotoTersedia": true
+    "fotoTersedia": true,
+    "deskripsi": "Bibit kelapa gading kuning bentuk dongkelan siap tanam, tanaman hias sekaligus penghasil air kelapa."
   },
   {
     "id": "kurma",
     "nama": "Kurma",
     "grup": "bibit-buah",
     "foto": "/images/produk/kurma.webp",
-    "fotoTersedia": true
+    "fotoTersedia": true,
+    "deskripsi": "Bibit kurma untuk iklim tropis, tanaman hias sekaligus berpotensi menghasilkan buah kurma."
   },
   {
     "id": "apel-putsa",
     "nama": "Apel Putsa",
     "grup": "bibit-buah",
     "foto": "/images/produk/apel-putsa.webp",
-    "fotoTersedia": true
+    "fotoTersedia": true,
+    "deskripsi": "Bibit apel tropis yang bisa berbuah di dataran rendah, buah renyah dan segar."
   },
   {
     "id": "gayam",
     "nama": "Gayam",
     "grup": "bibit-buah",
     "foto": "/images/produk/gayam.webp",
-    "fotoTersedia": true
+    "fotoTersedia": true,
+    "deskripsi": "Bibit gayam, pohon peneduh besar yang bijinya biasa diolah jadi camilan tradisional."
   },
   {
     "id": "jengkol",
     "nama": "Jengkol",
     "grup": "perkebunan",
     "foto": "/images/produk/jengkol.webp",
-    "fotoTersedia": true
+    "fotoTersedia": true,
+    "deskripsi": "Bibit jengkol, pohon polong dengan biji beraroma khas, favorit sebagai lalapan dan olahan."
   },
   {
     "id": "rambutan",
     "nama": "Rambutan",
     "grup": "bibit-buah",
     "foto": "/images/produk/rambutan.webp",
-    "fotoTersedia": true
+    "fotoTersedia": true,
+    "deskripsi": "Bibit rambutan hasil okulasi, cocok di pekarangan untuk buah musiman yang manis dan berair."
   },
   {
     "id": "beringin",
     "nama": "Beringin",
     "grup": "tanaman-hias",
     "foto": "/images/produk/beringin.webp",
-    "fotoTersedia": true
+    "fotoTersedia": true,
+    "deskripsi": "Bibit beringin, pohon peneduh besar yang juga populer dibentuk sebagai bonsai."
   },
   {
     "id": "glodogan-tiang",
     "nama": "Glodogan Tiang",
     "grup": "tanaman-hias",
     "foto": "/images/produk/glodogan-tiang.webp",
-    "fotoTersedia": true
+    "fotoTersedia": true,
+    "deskripsi": "Bibit glodogan tiang, tanaman pagar/pembatas jalan dengan bentuk ramping menjulang rapi."
   },
   {
     "id": "lohansung",
     "nama": "Lohansung",
     "grup": "tanaman-hias",
     "foto": "/images/produk/lohansung.webp",
-    "fotoTersedia": true
+    "fotoTersedia": true,
+    "deskripsi": "Bibit Lohansung, tanaman hias daun jarum yang populer untuk pagar dan taman formal."
   },
   {
     "id": "palem-kol",
     "nama": "Palem Kol",
     "grup": "tanaman-hias",
     "foto": "/images/produk/palem-kol.webp",
-    "fotoTersedia": true
+    "fotoTersedia": true,
+    "deskripsi": "Bibit palem kol, tanaman hias berbentuk roset mirip kubis untuk mempercantik taman."
   },
   {
     "id": "palem-kuning",
     "nama": "Palem Kuning",
     "grup": "tanaman-hias",
     "foto": "/images/produk/palem-kuning.webp",
-    "fotoTersedia": true
+    "fotoTersedia": true,
+    "deskripsi": "Bibit palem kuning, tanaman hias rumpun dengan pelepah kuning cerah untuk taman minimalis."
   },
   {
     "id": "palem-merah",
     "nama": "Palem Merah",
     "grup": "tanaman-hias",
     "foto": "/images/produk/palem-merah.webp",
-    "fotoTersedia": true
+    "fotoTersedia": true,
+    "deskripsi": "Bibit palem merah, tanaman hias dengan pelepah kemerahan mencolok untuk mempercantik taman."
   },
   {
     "id": "pucuk-merah",
     "nama": "Pucuk Merah",
     "grup": "tanaman-hias",
     "foto": "/images/produk/pucuk-merah.webp",
-    "fotoTersedia": true
+    "fotoTersedia": true,
+    "deskripsi": "Bibit pucuk merah, tanaman pagar populer karena daun mudanya berwarna merah cerah."
   },
   {
     "id": "solobium",
     "nama": "Solobium",
     "grup": "tanaman-hias",
     "foto": "/images/produk/solobium.webp",
-    "fotoTersedia": true
+    "fotoTersedia": true,
+    "deskripsi": "Bibit Solobium, tanaman hias berbunga yang biasa dibentuk sebagai pagar rapi."
   },
   {
     "id": "tanaman-hias-brokoli",
     "nama": "Tanaman Hias Brokoli",
     "grup": "tanaman-hias",
     "foto": "/images/produk/tanaman-hias-brokoli.webp",
-    "fotoTersedia": true
+    "fotoTersedia": true,
+    "deskripsi": "Bibit tanaman hias brokoli, semak kompak berdaun rimbun untuk pagar dan border taman."
   },
   {
     "id": "tabebuya",
     "nama": "Tabebuya",
     "grup": "tanaman-hias",
     "foto": "/images/produk/tabebuya.webp",
-    "fotoTersedia": true
+    "fotoTersedia": true,
+    "deskripsi": "Bibit Tabebuya, pohon berbunga lebat mirip sakura yang mekar musiman di Indonesia."
   },
   {
     "id": "dewandaru",
     "nama": "Dewandaru",
     "grup": "tanaman-hias",
     "foto": "/images/produk/dewandaru.webp",
-    "fotoTersedia": true
+    "fotoTersedia": true,
+    "deskripsi": "Bibit Dewandaru, tanaman hias/bonsai berdaun rimbun dengan buah kecil yang bisa dimakan."
   },
   {
     "id": "balsa",
     "nama": "Balsa",
     "grup": "pohon-kayu",
     "foto": "/images/produk/balsa.webp",
-    "fotoTersedia": true
+    "fotoTersedia": true,
+    "deskripsi": "Bibit balsa, pohon kayu ringan bertumbuh cepat, banyak dipakai untuk kerajinan dan model."
   },
   {
     "id": "gaharu",
     "nama": "Gaharu",
     "grup": "pohon-kayu",
     "foto": "/images/produk/gaharu.webp",
-    "fotoTersedia": true
+    "fotoTersedia": true,
+    "deskripsi": "Bibit gaharu, pohon penghasil resin bernilai tinggi lewat proses alami dalam batang."
   },
   {
     "id": "jabon",
     "nama": "Jabon",
     "grup": "pohon-kayu",
     "foto": "/images/produk/jabon.webp",
-    "fotoTersedia": true
+    "fotoTersedia": true,
+    "deskripsi": "Bibit jabon, pohon kayu cepat tumbuh yang populer untuk investasi hutan tanaman industri."
   },
   {
     "id": "jati",
     "nama": "Jati",
     "grup": "pohon-kayu",
     "foto": "/images/produk/jati.webp",
-    "fotoTersedia": true
+    "fotoTersedia": true,
+    "deskripsi": "Bibit jati, pohon kayu keras bernilai tinggi yang terkenal awet dan kuat untuk mebel/konstruksi."
   },
   {
     "id": "mahoni",
     "nama": "Mahoni",
     "grup": "pohon-kayu",
     "foto": "/images/produk/mahoni.webp",
-    "fotoTersedia": true
+    "fotoTersedia": true,
+    "deskripsi": "Bibit mahoni, pohon kayu keras serbaguna untuk mebel sekaligus penghijauan lahan."
   },
   {
     "id": "sengon-albasia",
     "nama": "Sengon Laut (Albasia)",
     "grup": "pohon-kayu",
     "foto": "/images/produk/sengon-albasia.webp",
-    "fotoTersedia": true
+    "fotoTersedia": true,
+    "deskripsi": "Bibit sengon laut, pohon kayu cepat tumbuh yang populer untuk plywood dan pulp kertas."
   },
   {
     "id": "sengon-solomon",
     "nama": "Sengon Solomon",
     "grup": "pohon-kayu",
     "foto": "/images/produk/sengon-solomon.webp",
-    "fotoTersedia": true
+    "fotoTersedia": true,
+    "deskripsi": "Bibit sengon Solomon, varietas sengon dengan batang lebih lurus dan tahan penyakit karat tumor."
   },
   {
     "id": "kayu-putih",
     "nama": "Kayu Putih",
     "grup": "rempah",
     "foto": "/images/produk/kayu-putih.webp",
-    "fotoTersedia": true
+    "fotoTersedia": true,
+    "deskripsi": "Bibit kayu putih, tanaman penghasil minyak atsiri yang diolah jadi minyak kayu putih."
   },
   {
     "id": "trembesi",
     "nama": "Trembesi",
     "grup": "pohon-kayu",
     "foto": "/images/produk/trembesi.webp",
-    "fotoTersedia": true
+    "fotoTersedia": true,
+    "deskripsi": "Bibit trembesi, pohon peneduh raksasa berkanopi lebar, sering ditanam di tepi jalan."
   },
   {
     "id": "jenitri",
     "nama": "Jenitri",
     "grup": "pohon-kayu",
     "foto": "/images/produk/jenitri.webp",
-    "fotoTersedia": true
+    "fotoTersedia": true,
+    "deskripsi": "Bibit jenitri, pohon penghasil biji keras yang biasa diolah jadi tasbih dan kerajinan."
   },
   {
     "id": "bidara",
     "nama": "Bidara",
     "grup": "rempah",
     "foto": "/images/produk/bidara.webp",
-    "fotoTersedia": true
+    "fotoTersedia": true,
+    "deskripsi": "Bibit bidara, tanaman yang daunnya dikenal dalam pengobatan tradisional dan perawatan herbal."
   },
   {
     "id": "bidara-cina",
     "nama": "Bidara Cina",
     "grup": "rempah",
     "foto": "/images/produk/bidara-cina.webp",
-    "fotoTersedia": true
+    "fotoTersedia": true,
+    "deskripsi": "Bibit bidara cina, kerabat bidara dengan buah kecil yang juga dimanfaatkan sebagai tanaman obat."
   },
   {
     "id": "cabe-jawa",
     "nama": "Cabe Jawa",
     "grup": "rempah",
     "foto": "/images/produk/cabe-jawa.webp",
-    "fotoTersedia": true
+    "fotoTersedia": true,
+    "deskripsi": "Bibit cabe jawa, tanaman rempah merambat, buahnya dipakai sebagai bumbu dan jamu."
   },
   {
     "id": "cengkeh-sansibar",
     "nama": "Cengkeh Sansibar",
     "grup": "rempah",
     "foto": "/images/produk/cengkeh-sansibar.webp",
-    "fotoTersedia": true
+    "fotoTersedia": true,
+    "deskripsi": "Bibit cengkeh varietas Sansibar, penghasil bunga cengkeh kering untuk rempah dan rokok."
   },
   {
     "id": "jeruk-purut",
     "nama": "Jeruk Purut",
     "grup": "rempah",
     "foto": "/images/produk/jeruk-purut.webp",
-    "fotoTersedia": true
+    "fotoTersedia": true,
+    "deskripsi": "Bibit jeruk purut, penghasil daun dan buah beraroma khas untuk bumbu masakan."
   },
   {
     "id": "lada-perdu",
     "nama": "Lada Perdu",
     "grup": "rempah",
     "foto": "/images/produk/lada-perdu.webp",
-    "fotoTersedia": true
+    "fotoTersedia": true,
+    "deskripsi": "Bibit lada perdu, varietas lada yang tumbuh sebagai perdu tanpa perlu tiang rambat."
   },
   {
     "id": "pala",
     "nama": "Pala",
     "grup": "rempah",
     "foto": "/images/produk/pala.webp",
-    "fotoTersedia": true
+    "fotoTersedia": true,
+    "deskripsi": "Bibit pala, pohon rempah penghasil biji dan fuli yang jadi bumbu dan bahan minyak atsiri."
   },
   {
     "id": "kayu-manis",
     "nama": "Kayu Manis",
     "grup": "rempah",
     "foto": "/images/produk/kayu-manis.webp",
-    "fotoTersedia": true
+    "fotoTersedia": true,
+    "deskripsi": "Bibit kayu manis, pohon rempah yang kulit batangnya diolah jadi bumbu dan bahan jamu."
   },
   {
     "id": "petai",
     "nama": "Petai",
     "grup": "perkebunan",
     "foto": "/images/produk/petai.webp",
-    "fotoTersedia": true
+    "fotoTersedia": true,
+    "deskripsi": "Bibit petai unggul, pohon polong penghasil biji beraroma khas untuk lalapan dan masakan."
   },
   {
     "id": "aren",
     "nama": "Aren",
     "grup": "perkebunan",
     "foto": "/images/produk/aren.webp",
-    "fotoTersedia": true
+    "fotoTersedia": true,
+    "deskripsi": "Bibit aren, pohon serbaguna penghasil nira untuk gula aren dan bahan baku kolang-kaling."
   },
   {
     "id": "kakao",
     "nama": "Kakao",
     "grup": "perkebunan",
     "foto": "/images/produk/kakao.webp",
-    "fotoTersedia": true
+    "fotoTersedia": true,
+    "deskripsi": "Bibit kakao, tanaman perkebunan penghasil biji coklat untuk investasi jangka panjang."
   },
   {
     "id": "kopi-arabika",
     "nama": "Kopi Arabika",
     "grup": "perkebunan",
     "foto": "/images/produk/kopi-arabika.webp",
-    "fotoTersedia": true
+    "fotoTersedia": true,
+    "deskripsi": "Bibit kopi Arabika, penghasil biji kopi bercita rasa khas, cocok di dataran tinggi sejuk."
   },
   {
     "id": "indigofera",
     "nama": "Indigofera",
     "grup": "pakan-ternak",
     "foto": "/images/produk/indigofera.webp",
-    "fotoTersedia": true
+    "fotoTersedia": true,
+    "deskripsi": "Bibit indigofera, tanaman legum hijauan pakan ternak berprotein tinggi untuk kambing dan sapi."
   },
   {
     "id": "kaliandra",
     "nama": "Kaliandra",
     "grup": "pakan-ternak",
     "foto": "/images/produk/kaliandra.webp",
-    "fotoTersedia": true
+    "fotoTersedia": true,
+    "deskripsi": "Bibit kaliandra, tanaman legum hijauan pakan ternak yang juga bermanfaat sebagai pakan lebah."
   }
 ]

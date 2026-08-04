@@ -19,9 +19,16 @@ const produk = defineCollection({
   schema: z.object({
     nama: z.string(),
     grup: z.enum(grupProduk),
-    /** Ukuran/media tanam — hanya diisi kalau sudah dikonfirmasi, boleh kosong */
+    /** DEPRECATED sejak item 0.5 (4 Agu 2026) — ukuran fisik bibit fluktuatif
+     * ikut stok/musim, sama seperti harga, jadi tidak lagi ditampilkan statis
+     * di kartu produk (diganti CTA universal "Ukuran & harga menyesuaikan
+     * stok" di ProdukCard.astro). Field dipertahankan di schema untuk
+     * kompatibilitas, tapi sengaja tidak diisi & tidak dipakai UI manapun. */
     ukuran: z.string().optional(),
-    /** Deskripsi singkat opsional per varietas — kosong dulu sampai ada datanya */
+    /** Deskripsi singkat 1 kalimat per varietas — karakteristik varietas
+     * (rasa/tekstur/kegunaan), BUKAN ukuran/harga (lihat catatan `ukuran`
+     * di atas kenapa itu sengaja tidak ditampilkan). Terisi untuk semua 59
+     * produk sejak item 0.5 (4 Agu 2026). */
     deskripsi: z.string().optional(),
     /** True kalau varietas ini belum dikonfirmasi ulang ketersediaannya ke owner */
     perluKonfirmasi: z.boolean().optional().default(false),
