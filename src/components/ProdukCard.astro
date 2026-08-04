@@ -45,14 +45,8 @@ const fotoSmall = foto?.replace(/\.webp$/, '-sm.webp');
   </div>
 
   <div class="produk-body">
-    <div class="produk-name-wrap">
-      <h3>{nama}</h3>
-    </div>
-    {deskripsi && (
-      <div class="produk-desc-wrap">
-        <p class="produk-deskripsi">{deskripsi}</p>
-      </div>
-    )}
+    <h3>{nama}</h3>
+    {deskripsi && <p class="produk-deskripsi">{deskripsi}</p>}
     <p class="produk-cta-note">Ukuran &amp; harga menyesuaikan stok</p>
     <a class="produk-wa btn btn-outline" href={waLink(pesanWa)} target="_blank" rel="noopener">
       <Icon name="whatsapp" size={15} />
@@ -70,6 +64,13 @@ const fotoSmall = foto?.replace(/\.webp$/, '-sm.webp');
     overflow: hidden;
     display: flex;
     flex-direction: column;
+    /* Wajib supaya card ini benar-benar ikut tinggi yang sudah disamakan
+       CSS Grid (`.produk-grid` default align-items: stretch menyamakan
+       tinggi `.produk-item`, wrapper tak terlihat di katalog.astro) —
+       tanpa ini, tinggi card cuma ikut isinya sendiri dan tombol WA bisa
+       tidak sejajar antar kartu kalau panjang nama/deskripsi beda jauh
+       dalam 1 baris. */
+    height: 100%;
     transition:
       transform 0.15s ease,
       box-shadow 0.15s ease;
@@ -135,25 +136,18 @@ const fotoSmall = foto?.replace(/\.webp$/, '-sm.webp');
     flex: 1;
   }
 
-  /* Nama produk direserve tinggi 2 baris (min-height) supaya kartu tetap
-     seragam meski ada nama panjang ("Kelapa Gading Kuning"). Untuk nama
-     pendek 1 kata ("Petai"), align-items: CENTER (bukan flex-end) —
-     ruang kosong sisa dibagi rata atas & bawah, bukan ditumpuk semua di
-     atas (itu penyebab jarak foto↔nama kelihatan kelewat lebar di
-     hotfix sebelumnya, karena flex-end mendorong semua ruang kosong ke
-     atas teks). */
-  .produk-name-wrap {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    /* px, BUKAN em — wrapper ini tidak punya font-size 13.5px seperti h3
-       di dalamnya, jadi kalau pakai em, tingginya dihitung dari font-size
-       warisan yang lebih besar dan kotaknya jadi kelewat tinggi (bug yang
-       sempat bikin jarak nama-deskripsi malah tambah lebar). 34px = 2 baris
-       h3 pada line-height 1.25 * font-size 13.5px. */
-    min-height: 34px;
-  }
-
+  /* Nama produk & deskripsi — SENGAJA TANPA reservasi tinggi buatan
+     (min-height/wrapper align-items). 3 hotfix sebelumnya mencoba
+     memaksa tinggi kotak seragam dan malah berulang kali menggeser
+     masalah dari satu sisi ke sisi lain (foto↔nama vs nama↔deskripsi).
+     Solusi yang benar: biarkan mengalir natural. CSS Grid `.produk-grid`
+     sudah otomatis menyamakan tinggi SEMUA kartu dalam 1 baris (default
+     align-items: stretch), dan tombol WA sudah `margin-top: auto` di
+     bawah — jadi sisa ruang dari nama/deskripsi pendek otomatis ngumpul
+     jadi 1 gap wajar tepat di atas tombol, bukan nyempil aneh di antara
+     elemen teks. `line-clamp` dipertahankan HANYA sebagai jaring
+     pengaman kalau ada teks jauh lebih panjang dari biasanya (nama 3+
+     kata atau deskripsi >100 karakter), bukan untuk memaksa tinggi. */
   .produk-body h3 {
     font-size: 13.5px;
     font-weight: 600;
@@ -165,21 +159,6 @@ const fotoSmall = foto?.replace(/\.webp$/, '-sm.webp');
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
     overflow: hidden;
-  }
-
-  /* Deskripsi 1 kalimat per produk. Dinaikkan dari 2 → 3 baris supaya
-     mayoritas deskripsi (rata-rata ±87 karakter) terbaca utuh tanpa
-     kepotong "..." di tengah kalimat. Wrapper bottom-align sama seperti
-     nama produk, untuk deskripsi pendek yang cuma makan 1-2 baris —
-     supaya tetap nempel rapi ke baris CTA di bawahnya. text-wrap: pretty
-     sudah otomatis berlaku (base style `p` di global.css). */
-  .produk-desc-wrap {
-    display: flex;
-    align-items: flex-end;
-    justify-content: center;
-    /* px, alasan sama seperti .produk-name-wrap di atas. 45px = 3 baris
-       deskripsi pada line-height 1.35 * font-size 11px. */
-    min-height: 45px;
   }
 
   .produk-deskripsi {
