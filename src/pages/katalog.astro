@@ -7,6 +7,7 @@ import WhatsAppButton from '../components/WhatsAppButton.astro';
 import Icon from '../components/Icon.astro';
 import ClosingCTA from '../components/home/ClosingCTA.astro';
 import { kategoriBibit } from '../data/nav';
+import { site } from '../data/site';
 
 const semuaProduk = await getCollection('produk');
 
@@ -17,6 +18,26 @@ const produkTerurut = [...semuaProduk].sort((a, b) => {
   if (grupDiff !== 0) return grupDiff;
   return a.data.nama.localeCompare(b.data.nama, 'id');
 });
+
+// ItemList/Product schema — bantu Google & AI crawler "tahu" isi katalog
+// tanpa perlu scrape 59 kartu HTML manual. Tanpa `price`/`offers` karena
+// situs sengaja tidak menampilkan harga statis (lihat kebijakan won't-fix
+// di PROJECT_KNOWLEDGE.md §1). `image` di-resolve absolut lewat site.url
+// karena field `foto` di produk.json berupa path relatif ('/images/...').
+const katalogSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  itemListElement: produkTerurut.map((item, i) => ({
+    '@type': 'ListItem',
+    position: i + 1,
+    item: {
+      '@type': 'Product',
+      name: item.data.nama,
+      image: item.data.foto ? new URL(item.data.foto, site.url).toString() : undefined,
+      category: kategoriBibit.find((k) => k.slug === item.data.grup)?.label,
+    },
+  })),
+};
 
 const jumlahPerGrup = (slug: string) => semuaProduk.filter((p) => p.data.grup === slug).length;
 
@@ -57,6 +78,8 @@ const artikelPerKategori: Record<string, { title: string; href: string }> = {
   description={`Katalog ${semuaProduk.length} varietas bibit dari Ardelia Bibit: buah, tanaman hias, kayu keras, rempah, perkebunan, dan pakan ternak. Tanya stok & harga langsung via WhatsApp.`}
   breadcrumbs={[{ name: 'Katalog Bibit', path: '/katalog' }]}
 >
+  <script type="application/ld+json" set:html={JSON.stringify(katalogSchema)} />
+
   <PageIntro
     eyebrow="Katalog Bibit"
     title={`${semuaProduk.length} Varietas dalam 6 Kategori`}
