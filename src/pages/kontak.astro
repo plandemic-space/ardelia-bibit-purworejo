@@ -27,6 +27,8 @@ const landmarkTerdekat = [
   <PageIntro
     eyebrow="Kontak"
     title="Hubungi atau Kunjungi Nursery Kami di Kemiri, Purworejo"
+    titleMain="Hubungi atau Kunjungi Nursery Kami"
+    titleLocation="di Kemiri, Purworejo"
     subtitle="Cara tercepat menghubungi kami adalah WhatsApp. Kalau mau lihat kondisi bibit dulu, nursery kami juga terbuka untuk kunjungan langsung."
   />
 
@@ -85,14 +87,17 @@ const landmarkTerdekat = [
           dengan beberapa patokan terdekat.
         </p>
 
-        <p class="kunjungi-wilayah">
-          Kami melayani langsung di Kemiri dan sekitar Purworejo — termasuk
-          Kutoarjo, Bagelen, Butuh, dan Loano — serta menerima pesanan kirim
-          ke Kebumen, Magelang, Wonosobo, Temanggung, dan Yogyakarta.
-          Jangkauan kami bahkan lebih luas dari itu: bibit dari nursery kami
-          pernah terkirim sampai ke Semarang, Tasikmalaya, Kuningan, Sragen,
-          Nganjuk, Salatiga, Pacitan, Karawang, hingga Sumatra.
-        </p>
+        <div class="kunjungi-wilayah">
+          <p class="kunjungi-wilayah-label">Wilayah Layanan</p>
+          <p class="kunjungi-wilayah-text">
+            Kami melayani langsung di Kemiri dan sekitar Purworejo — termasuk
+            Kutoarjo, Bagelen, Butuh, dan Loano — serta menerima pesanan kirim
+            ke Kebumen, Magelang, Wonosobo, Temanggung, dan Yogyakarta.
+            Jangkauan kami bahkan lebih luas dari itu: bibit dari nursery kami
+            pernah terkirim sampai ke Semarang, Tasikmalaya, Kuningan, Sragen,
+            Nganjuk, Salatiga, Pacitan, Karawang, hingga Sumatra.
+          </p>
+        </div>
 
         <p class="kunjungi-alamat">
           <Icon name="map-pin" size={16} />
@@ -292,11 +297,31 @@ const landmarkTerdekat = [
     margin-bottom: 24px;
   }
 
+  /* Item terbaru (0.7) — awalnya paragraf biasa, dirapikan jadi kotak
+     info terpisah supaya tidak "tenggelam" di antara kunjungi-desc &
+     kunjungi-alamat yang gaya tulisannya mirip. Teks isinya tidak
+     diubah sama sekali, cuma dibungkus + dikasih label kecil. */
   .kunjungi-wilayah {
-    font-size: 13.5px;
-    color: var(--color-charcoal-soft);
-    line-height: 1.65;
+    background: var(--color-mist);
+    border-left: 3px solid var(--color-leaf);
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+    padding: 12px 14px;
     margin-bottom: 24px;
+  }
+
+  .kunjungi-wilayah-label {
+    font-size: 11.5px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--color-teal-dark);
+    margin-bottom: 4px;
+  }
+
+  .kunjungi-wilayah-text {
+    font-size: 13px;
+    color: var(--color-charcoal-soft);
+    line-height: 1.6;
   }
 
   .kunjungi-alamat {

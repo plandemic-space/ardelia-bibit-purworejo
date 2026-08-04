@@ -2,16 +2,37 @@
 interface Props {
   eyebrow: string;
   title: string;
+  /*
+   * titleMain/titleLocation (opsional) — cara menampilkan H1 yang sama
+   * persis (kata & tanda baca tidak berubah) dalam 2 baris visual:
+   * klausa utama (besar) + klausa lokasi (lebih kecil, warna aksen).
+   * titleMain + " " + titleLocation harus sama persis dengan `title`
+   * supaya teks H1 yang dibaca Google/screen reader tetap identik —
+   * ini murni styling, bukan perubahan copywriting/SEO text.
+   * Kalau tidak diisi, h1 tampil seperti sebelumnya (1 baris/wrap alami).
+   */
+  titleMain?: string;
+  titleLocation?: string;
   subtitle?: string;
 }
 
-const { eyebrow, title, subtitle } = Astro.props;
+const { eyebrow, title, titleMain, titleLocation, subtitle } = Astro.props;
+const hasSplitTitle = Boolean(titleMain && titleLocation);
 ---
 
 <section class="page-intro">
   <div class="wrap">
     <p class="eyebrow">{eyebrow}</p>
-    <h1>{title}</h1>
+    <h1>
+      {hasSplitTitle ? (
+        <>
+          <span class="title-main">{titleMain}</span>{' '}
+          <span class="title-location">{titleLocation}</span>
+        </>
+      ) : (
+        title
+      )}
+    </h1>
     {subtitle && <p class="page-intro-sub">{subtitle}</p>}
   </div>
 </section>
@@ -39,6 +60,22 @@ const { eyebrow, title, subtitle } = Astro.props;
   .page-intro h1 {
     font-size: clamp(28px, 3.6vw, 40px);
     margin: 12px 0 12px;
+  }
+
+  /* Dipakai hanya kalau prop titleMain/titleLocation diisi (lihat
+     komentar Props di atas) — teks H1 tidak berubah, cuma dipecah
+     jadi 2 baris visual dengan hierarki ukuran/warna. */
+  .page-intro h1 .title-main {
+    display: block;
+    font-size: clamp(26px, 3.4vw, 38px);
+  }
+
+  .page-intro h1 .title-location {
+    display: block;
+    font-size: clamp(14px, 1.7vw, 17px);
+    font-weight: 400;
+    color: var(--color-teal);
+    margin-top: 6px;
   }
 
   .page-intro-sub {
