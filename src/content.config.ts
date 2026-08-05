@@ -80,6 +80,18 @@ const artikel = defineCollection({
         }),
       )
       .optional(),
+    /** Ad-hoc (5 Agu 2026) — link manual ke artikel lain ("Baca juga") yang
+     * dipilih sendiri per-artikel, BEDA dari "Artikel Terkait" otomatis di
+     * atas (yang cuma match by kategori). Isi array slug (id) artikel
+     * tujuan. Dirender kondisional di [slug].astro — HANYA slug yang
+     * sudah lolos getArtikelTerbit() (sudah live) yang muncul, supaya
+     * kalau ada slug tujuan yang masih di-hold (publishDate belum lewat,
+     * jadwal terbit misal via kalender editorial), link-nya otomatis
+     * "senyap" dulu (bukan 404) dan otomatis muncul sendiri begitu
+     * artikel tujuannya lewat tanggal terbit & di-build ulang — tidak
+     * perlu ada yang inget-inget nambah manual lagi. Lihat kasus asal:
+     * cara-memilih-bibit-sehat-sebelum-beli.md → tabulampot (masih hold). */
+    relatedManual: z.array(z.string()).optional(),
   }),
 });
 

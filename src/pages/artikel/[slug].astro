@@ -46,6 +46,17 @@ const artikelTerkait = semuaArtikel
   })
   .slice(0, 3);
 
+// Ad-hoc (5 Agu 2026) — "Baca juga" manual, beda dari artikelTerkait di atas
+// (yang auto by kategori). Dipilih sendiri per-artikel lewat frontmatter
+// `relatedManual` (array slug). Match cuma dicari di `semuaArtikel`, yang
+// isinya SUDAH difilter getArtikelTerbit() — jadi slug tujuan yang masih
+// hold (publishDate belum lewat) otomatis tidak ketemu & tidak dirender,
+// tanpa perlu guard tambahan. Begitu artikel tujuannya lewat tanggal
+// terbit & situs di-build ulang, link ini otomatis muncul sendiri.
+const manualRelated = (entry.data.relatedManual ?? [])
+  .map((slug) => semuaArtikel.find((a) => a.id === slug))
+  .filter((a): a is (typeof semuaArtikel)[number] => Boolean(a));
+
 const urlArtikelIni = `${site.url}/artikel/${entry.id}`;
 
 // Item 1.1 (E-E-A-T) — artikel yang ditandai `writtenByOwner: true` di
@@ -132,6 +143,20 @@ const howToSchema =
       <div class="prose">
         <Content />
       </div>
+
+      {
+        manualRelated.length > 0 && (
+          <p class="baca-juga">
+            Baca juga:{' '}
+            {manualRelated.map((a, i) => (
+              <>
+                <a href={`/artikel/${a.id}`}>{a.data.title}</a>
+                {i < manualRelated.length - 1 && ', '}
+              </>
+            ))}
+          </p>
+        )
+      }
 
       {
         relatedKategori && (
@@ -341,6 +366,26 @@ const howToSchema =
     max-width: 720px;
     margin-left: auto;
     margin-right: auto;
+  }
+
+  /* "Baca juga" manual (relatedManual) — sengaja dipisah dari .prose (bukan
+     bagian dari markdown body lagi) supaya render-nya bisa kondisional per
+     link (lihat manualRelated di frontmatter script). Gaya disamakan
+     dengan paragraf artikel biasa (bukan box mencolok) karena isinya cuma
+     1-2 link tambahan, bukan CTA utama. */
+  .baca-juga {
+    max-width: 720px;
+    margin: 20px auto 0;
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--color-charcoal);
+  }
+
+  .baca-juga a {
+    color: var(--color-teal-dark);
+    font-weight: 600;
+    text-decoration: underline;
+    text-underline-offset: 2px;
   }
 
   .artikel-cta p {
