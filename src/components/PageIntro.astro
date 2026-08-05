@@ -73,7 +73,13 @@ const hasSplitTitle = Boolean(titleMain && titleLocation);
   .page-intro h1 .title-location {
     display: block;
     font-size: clamp(14px, 1.7vw, 17px);
-    font-weight: 400;
+    /* Sengaja TIDAK mewarisi font-display (Fraunces) dari h1 — di bobot
+       tipis, Fraunces terlihat encer/pudar di layar HP dan kelihatan
+       seperti font berbeda dibanding title-main. Dipakai font-body
+       (Inter) di sini supaya konsisten dengan pola hero-sub di Home
+       (Item 0.2, Hero.astro) yang sudah lebih dulu di-override serupa. */
+    font-family: var(--font-body);
+    font-weight: 600;
     color: var(--color-teal);
     margin-top: 6px;
   }

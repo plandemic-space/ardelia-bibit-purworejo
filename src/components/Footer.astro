@@ -188,13 +188,18 @@ const facebookLabel = site.name;
     color: rgba(255, 255, 255, 0.55);
   }
 
+  /* Opacity dinaikkan (0.4→0.6 teks, 0.45→0.65 link) — versi lama gagal
+     kontras WCAG AA di atas background teal-dark (3.48:1 & 4.01:1,
+     standar minimal 4.5:1 untuk teks kecil). Versi baru 5.9:1 & 6.7:1,
+     tetap terasa sebagai elemen sekunder/kecil di footer, cuma tidak
+     terlalu pudar untuk dibaca. */
   .footer-credit {
     font-size: 11.5px;
-    color: rgba(255, 255, 255, 0.4);
+    color: rgba(255, 255, 255, 0.6);
   }
 
   .footer-credit a {
-    color: rgba(255, 255, 255, 0.45);
+    color: rgba(255, 255, 255, 0.65);
     transition: color 0.15s;
   }
 

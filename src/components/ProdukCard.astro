@@ -175,12 +175,15 @@ const fotoSmall = foto?.replace(/\.webp$/, '-sm.webp');
   /* Pengganti field `ukuran` statis — teks universal, sama di semua kartu,
      supaya tidak pernah basi kalau ukuran/harga stok berubah (harga & ukuran
      memang sengaja tidak dicantumkan statis, lihat kebijakan di
-     PROJECT_KNOWLEDGE.md §1 dan FAQ "Kenapa harga tidak dicantumkan"). */
+     PROJECT_KNOWLEDGE.md §1 dan FAQ "Kenapa harga tidak dicantumkan").
+     `opacity: 0.75` yang sebelumnya di sini DIHAPUS — di atas kartu putih,
+     itu bikin charcoal-soft efektif jadi rgb(144,144,144), rasio kontras
+     cuma 3.19:1 (gagal WCAG AA, butuh 4.5:1 untuk teks 10px). Warna solid
+     tanpa opacity sudah 5.33:1, lolos AA tanpa perlu ganti warna. */
   .produk-cta-note {
     font-size: 10px;
     font-style: italic;
     color: var(--color-charcoal-soft);
-    opacity: 0.75;
     line-height: 1.25;
   }
 
