@@ -38,7 +38,7 @@ const faq = [
   {
     icon: 'leaf' as const,
     q: 'Ada jumlah minimal pembelian, atau bisa beli satuan/eceran?',
-    a: 'Tidak ada minimum — sesuai tagline kami "Mulai dari Satu Tanaman", mau beli satu bibit untuk pekarangan atau ratusan untuk proyek penghijauan, kami layani dengan cara yang sama. Satu hal yang perlu jadi pertimbangan untuk pembelian satuan ke lokasi yang cukup jauh: ongkos kirim kadang bisa lebih mahal dari harga bibitnya sendiri, karena bibit perlu dikemas aman (apalagi kalau ikut media tanam). Chat dulu via WhatsApp supaya kami bantu carikan opsi pengiriman paling hemat — atau kalau lokasi Anda dekat Purworejo, datang langsung ke nursery biasanya jadi opsi paling murah sekaligus bisa lihat kondisi bibitnya sendiri.',
+    a: 'Tidak ada minimum — sesuai tagline kami "Mulai dari Satu Tanaman", satu bibit atau ratusan untuk proyek, kami layani sama. Untuk pesanan kecil ke lokasi jauh, ada 2 hal yang perlu diketahui: ongkos kirim kadang lebih mahal dari harga bibitnya, dan pengirimannya biasa dijadwalkan bareng pesanan lain yang searah dulu — bukan langsung berangkat — supaya ongkirnya tetap masuk akal. Chat WhatsApp untuk estimasi ongkir & waktu kirim yang lebih pasti, atau kalau dekat Purworejo, datang langsung ke nursery biasanya paling hemat.',
   },
   {
     icon: 'cart' as const,
@@ -52,18 +52,18 @@ const faq = [
   },
   {
     icon: 'search' as const,
-    q: 'Kenapa harga bibit tidak dicantumkan di website?',
-    a: 'Karena harga bisa berubah mengikuti musim, ketersediaan stok, dan ukuran bibit yang tersedia saat itu — kalau kami patok angka tetap di web, risikonya malah menyesatkan Anda begitu stok berganti. Pembelian dalam jumlah besar juga biasanya dapat harga lebih kompetitif. Cara paling akurat: tanya langsung via WhatsApp, kami infokan harga yang berlaku saat itu sesuai kebutuhan Anda.',
-  },
-  {
-    icon: 'check' as const,
-    q: 'Ukuran bibit yang saya terima sama seperti yang saya minta?',
-    a: 'Kami selalu infokan ukuran aktual yang tersedia sebelum Anda bayar, bukan setelahnya — jadi apa yang disepakati di chat, itu yang Anda terima. Tidak ada yang mengejutkan.',
+    q: 'Kenapa harga dan ukuran bibit tidak dicantumkan pasti di website?',
+    a: 'Karena harga dan ukuran bibit bisa berubah mengikuti musim dan stok yang tersedia saat itu — kalau kami patok angka tetap di web, risikonya malah menyesatkan begitu stok berganti. Kami selalu infokan harga dan ukuran aktual dulu via WhatsApp sebelum Anda bayar, jadi apa yang disepakati di chat itu yang Anda terima — tidak ada yang mengejutkan. Pembelian jumlah besar biasanya juga dapat harga lebih kompetitif.',
   },
   {
     icon: 'document' as const,
     q: 'Gimana alurnya kalau pesan partai besar atau untuk proyek?',
-    a: 'Sebutkan dulu kebutuhan Anda via WhatsApp — jenis bibit, perkiraan jumlah, dan kota tujuan. Belum tahu varietas yang cocok untuk daerah Anda? Kami bantu pilihkan. Setelah itu kami cek stok dan kirimkan rincian penawarannya — varietas, ukuran, harga, dan opsi pengiriman yang paling pas untuk jumlah pesanan. Kalau sudah sepakat dan DP masuk, bibit kami siapkan lalu kirimkan foto dan videonya dulu sebelum berangkat — pelunasan menyusul setelah itu.',
+    a: 'Sebutkan kebutuhan Anda via WhatsApp — jenis bibit, perkiraan jumlah, dan kota tujuan (belum tahu varietas yang cocok? kami bantu pilihkan). Kami cek stok lalu kirim rincian penawaran: varietas, ukuran, harga, dan opsi pengiriman yang paling pas. Setelah sepakat dan DP masuk, bibit disiapkan dan dikirimkan foto/videonya dulu sebelum berangkat — pelunasan menyusul.',
+    waButton: {
+      message:
+        'Halo Ardelia Bibit, saya mau tanya soal pemesanan partai besar/proyek — jenis bibit: ___, perkiraan jumlah: ___, kota tujuan: ___',
+      label: 'Tanya Partai Besar',
+    },
   },
   {
     icon: 'message-circle' as const,
@@ -81,11 +81,6 @@ const faq = [
     a: 'Kami bekali Anda panduan lengkap perawatan pasca-tanam supaya peluang hidupnya maksimal. Khusus pesanan proyek dalam jumlah besar, ada opsi garansi tersendiri yang bisa dibicarakan dan disepakati bareng sebelum order, menyesuaikan jenis bibit dan skala proyeknya.',
     link: '/artikel/panduan-perawatan-pasca-tanam',
     linkText: 'Baca panduan lengkapnya →',
-  },
-  {
-    icon: 'clock' as const,
-    q: 'Pesanan saya kecil tapi lokasinya jauh, apa tetap dikirim cepat?',
-    a: 'Untuk pesanan dalam jumlah besar, pengiriman bisa langsung jalan kapan saja. Tapi kalau pesanannya kecil dan tujuannya jauh di luar kota, biasanya kami jadwalkan bareng pengiriman lain yang searah lebih dulu — supaya ongkos kirimnya tetap masuk akal, bukan satu mobil jalan jauh cuma untuk satu bibit kecil. Estimasi waktunya selalu kami infokan di awal lewat WhatsApp, jadi Anda tahu perkiraan kapan bibit sampai.',
   },
 ];
 
@@ -165,6 +160,16 @@ const faqSchema = {
               <p>{item.a}</p>
               {(item as any).link && (
                 <a class="faq-link" href={(item as any).link}>{(item as any).linkText}</a>
+              )}
+              {(item as any).waButton && (
+                <div class="faq-wa-cta">
+                  <WhatsAppButton
+                    message={(item as any).waButton.message}
+                    label={(item as any).waButton.label}
+                    variant="outline"
+                    size="sm"
+                  />
+                </div>
               )}
             </details>
           ))
@@ -354,6 +359,10 @@ const faqSchema = {
 
   .faq-link:hover {
     text-decoration: underline;
+  }
+
+  .faq-wa-cta {
+    margin: -12px 0 18px 44px;
   }
 
   .faq-more {
