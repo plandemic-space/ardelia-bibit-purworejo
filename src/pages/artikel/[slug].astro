@@ -256,7 +256,17 @@ const howToSchema =
 
 <style>
   .artikel-head {
-    padding: 40px 0 28px;
+    /* Sengaja pisah padding-top/bottom (bukan shorthand `padding: 40px 0 28px`)
+       — shorthand itu menimpa padding kiri-kanan `.wrap` (0 24px) jadi 0,
+       karena scoped style ini lebih spesifik dari class global `.wrap`.
+       Di desktop bug ini tersamar (max-width 720px + margin:auto bikin ada
+       jarak kosong dari centering, bukan dari padding), tapi di mobile
+       (viewport < 720px, max-width sudah gak ngaruh) teks jadi nempel
+       langsung ke tepi layar. Ditemukan dari laporan owner (screenshot
+       mobile) 5 Agu 2026. Dengan padding-top/bottom terpisah begini,
+       padding kiri-kanan dari `.wrap` tidak pernah disentuh sama sekali. */
+    padding-top: 40px;
+    padding-bottom: 28px;
     max-width: 720px;
     margin-left: auto;
     margin-right: auto;
