@@ -62,6 +62,24 @@ const artikel = defineCollection({
      * bukan pengalaman pribadi pemilik). Lihat IMPLEMENTATION_LOG.md Item 1.1
      * untuk daftar & alasan klasifikasi tiap artikel. */
     writtenByOwner: z.boolean().optional().default(false),
+    /** Item 1.4 (SEO/AI SEO) — diisi HANYA untuk artikel yang kontennya
+     * memang berupa urutan langkah nyata untuk 1 prosedur (bukan sekadar
+     * artikel ber-H2). Dipetakan manual (bukan auto-generate dari H2 markdown)
+     * karena tidak semua H2 di artikel adalah "langkah" — sebagian cuma info
+     * pendukung (tanda-tanda, hal yang dihindari, cross-link) yang sengaja
+     * TIDAK dimasukkan supaya schema HowTo akurat merepresentasikan isi
+     * artikel, bukan filler mecha struktur data. Kalau kosong/tidak diisi,
+     * artikel tetap pakai schema Article saja seperti sebelumnya (HowTo
+     * cuma tambahan, bukan pengganti). Lihat IMPLEMENTATION_LOG.md Item 1.4
+     * untuk daftar artikel & alasan step mana yang dipilih/dikecualikan. */
+    howToSteps: z
+      .array(
+        z.object({
+          name: z.string(),
+          text: z.string(),
+        }),
+      )
+      .optional(),
   }),
 });
 

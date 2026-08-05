@@ -7,6 +7,13 @@ coverImage: "/images/artikel/panduan-perawatan-pasca-tanam.webp"
 relatedCategorySlug: "bibit-buah"
 relatedCategoryLabel: "Bibit Buah"
 writtenByOwner: true
+howToSteps:
+  - name: "Dua Minggu Pertama: Fokus ke Penyiraman, Bukan Pemupukan"
+    text: "Siram secara rutin (idealnya tiap hari kalau tidak hujan) tanpa membuat tanah tergenang di pangkal batang. Tunda pemupukan sampai bibit menunjukkan tanda mulai stabil — akar yang masih beradaptasi belum siap menyerap nutrisi tambahan."
+  - name: "Gunakan Mulsa untuk Menjaga Kelembapan"
+    text: "Tutup area sekitar pangkal batang dengan mulsa (jerami, sekam, atau daun kering) untuk menjaga tanah tetap lembap lebih lama dan menekan pertumbuhan gulma di sekitar bibit."
+  - name: "Beri Penyangga Kalau Lokasinya Berangin"
+    text: "Pasang ajir (penyangga dari bambu/kayu) di sisi bibit dan ikat batangnya secara longgar, supaya bibit muda tidak miring atau roboh di lokasi yang terbuka dan berangin."
 ---
 
 Banyak yang mengira kerja keras berhenti begitu bibit selesai ditanam — padahal justru sebulan pertama setelah itu yang paling menentukan hidup atau tidaknya. Bibit yang akarnya baru saja beradaptasi dengan tanah baru masih dalam kondisi rentan, jauh lebih sensitif dibanding pohon yang sudah mapan bertahun-tahun. Berikut panduan umum yang bisa jadi pegangan, apa pun jenis bibitnya — buah, kayu keras, atau tanaman hias.

@@ -7,6 +7,15 @@ coverImage: "/images/artikel/pindah-tanam-durian.webp"
 relatedCategorySlug: "bibit-buah"
 relatedCategoryLabel: "Bibit Buah"
 writtenByOwner: true
+howToSteps:
+  - name: "Siapkan Lubang Tanam Lebih Dulu"
+    text: "Siapkan lubang tanam sekitar 50x50x50 cm (60x60x60 cm untuk tanah liat/padat atau bibit besar) seminggu sebelum tanam. Campur tanah galian dengan pupuk kandang matang, lalu biarkan campuran istirahat beberapa hari supaya panas fermentasi pupuk tidak langsung mengenai akar."
+  - name: "Lepas Polybag dengan Hati-Hati"
+    text: "Siram media tanam di polybag sampai lembap, lalu sobek polybag-nya — jangan ditarik dari bibitnya. Kalau ada akar yang melingkar di dasar polybag, luruskan pelan-pelan sebelum ditanam."
+  - name: "Posisi Tanam dan Penyiraman Awal"
+    text: "Tanam bibit sedalam batas media tanam aslinya, padatkan tanah di sekitar pangkal batang, lalu siram sampai basah di hari pertama. Siram setiap hari selama dua minggu pertama tanpa membuat tanah tergenang."
+  - name: "Beri Naungan Sementara Kalau Perlu"
+    text: "Kalau lokasi tanam kena sinar matahari penuh sepanjang hari, beri naungan sementara (paranet atau daun kelapa) selama satu sampai dua minggu pertama, lalu lepas bertahap setelah tunas baru mulai tumbuh."
 ---
 
 Banyak yang menanam bibit durian lalu kaget kenapa pertumbuhannya lambat, padahal masalahnya sering bukan di bibitnya — tapi di cara pindah tanamnya. Bibit yang sehat pun bisa stres kalau proses pindah dari polybag ke lahan dilakukan buru-buru. Berikut urutan yang biasa kami sarankan ke pembeli.

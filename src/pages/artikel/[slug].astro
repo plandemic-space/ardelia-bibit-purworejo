@@ -60,6 +60,28 @@ const authorSchema = entry.data.writtenByOwner
       worksFor: { '@type': 'Organization', name: site.name },
     }
   : { '@type': 'Organization', name: site.name };
+
+// Item 1.4 — schema HowTo tambahan (berdampingan dengan Article di atas,
+// bukan pengganti), cuma dirender kalau artikel punya `howToSteps` terisi
+// di frontmatter. Sebagian besar artikel (berita/tren/perbandingan) tidak
+// akan punya field ini sama sekali dan tetap seperti sebelumnya.
+const howToSchema =
+  entry.data.howToSteps && entry.data.howToSteps.length > 0
+    ? {
+        '@context': 'https://schema.org',
+        '@type': 'HowTo',
+        name: entry.data.title,
+        description: entry.data.description,
+        ...(entry.data.coverImage && {
+          image: new URL(entry.data.coverImage, site.url).toString(),
+        }),
+        step: entry.data.howToSteps.map((s) => ({
+          '@type': 'HowToStep',
+          name: s.name,
+          text: s.text,
+        })),
+      }
+    : null;
 ---
 
 <Layout
@@ -81,6 +103,8 @@ const authorSchema = entry.data.writtenByOwner
     publisher: { '@type': 'Organization', name: site.name },
     mainEntityOfPage: urlArtikelIni,
   })} />
+
+  {howToSchema && <script type="application/ld+json" set:html={JSON.stringify(howToSchema)} />}
 
   <article class="artikel-detail">
     <div class="wrap artikel-head">
