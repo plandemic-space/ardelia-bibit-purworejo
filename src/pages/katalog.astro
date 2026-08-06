@@ -19,11 +19,23 @@ const produkTerurut = [...semuaProduk].sort((a, b) => {
   return a.data.nama.localeCompare(b.data.nama, 'id');
 });
 
-// ItemList/Product schema — bantu Google & AI crawler "tahu" isi katalog
-// tanpa perlu scrape 59 kartu HTML manual. Tanpa `price`/`offers` karena
-// situs sengaja tidak menampilkan harga statis (lihat kebijakan won't-fix
-// di PROJECT_KNOWLEDGE.md §1). `image` di-resolve absolut lewat site.url
+// ItemList schema — bantu Google & AI crawler "tahu" isi katalog tanpa
+// perlu scrape 59 kartu HTML manual. Tanpa `price`/`offers` karena situs
+// sengaja tidak menampilkan harga statis (lihat kebijakan won't-fix di
+// PROJECT_KNOWLEDGE.md §1). `image` di-resolve absolut lewat site.url
 // karena field `foto` di produk.json berupa path relatif ('/images/...').
+//
+// Catatan (6 Agu 2026, hotfix Item 0.4): item di dalam ItemList SENGAJA
+// tidak dideklarasikan `'@type': 'Product'`. Google mewajibkan minimal
+// salah satu dari offers/review/aggregateRating begitu sebuah item
+// bertipe Product — tanpa itu, GSC/Rich Results Test menandai "tidak
+// valid" (terkonfirmasi: 59/59 item flagged kritis di GSC). Kita tidak
+// bisa & tidak mau memenuhi syarat itu (tidak boleh pasang harga statis,
+// tidak boleh karang review) — jadi daripada terus muncul error yang
+// sebenarnya tidak berbahaya (halaman tetap terindeks normal), tipe
+// Product dilepas. ItemList tetap valid, AI crawler tetap bisa baca
+// name/image/category — cuma tidak lagi diklaim sebagai "Product"
+// menurut standar schema.org Google.
 const katalogSchema = {
   '@context': 'https://schema.org',
   '@type': 'ItemList',
@@ -31,7 +43,6 @@ const katalogSchema = {
     '@type': 'ListItem',
     position: i + 1,
     item: {
-      '@type': 'Product',
       name: item.data.nama,
       image: item.data.foto ? new URL(item.data.foto, site.url).toString() : undefined,
       category: kategoriBibit.find((k) => k.slug === item.data.grup)?.label,
