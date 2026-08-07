@@ -68,6 +68,7 @@ const authorSchema = entry.data.writtenByOwner
       '@type': 'Person',
       name: site.owner,
       jobTitle: 'Pemilik & Pengelola Nursery Ardelia Bibit',
+      url: `${site.url}/tentang`,
       worksFor: { '@type': 'Organization', name: site.name },
     }
   : { '@type': 'Organization', name: site.name };
