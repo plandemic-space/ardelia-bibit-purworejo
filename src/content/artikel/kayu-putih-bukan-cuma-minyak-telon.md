@@ -2,7 +2,7 @@
 title: "Kayu Putih: Bukan Cuma Buat Minyak Telon"
 seoTitle: "Kayu Putih, Bukan Cuma Minyak Telon"
 description: "Selain jadi bahan minyak kayu putih yang akrab di rumah, tanaman ini juga cocok untuk penghijauan lahan kritis dan bisa dipanen daunnya berulang tanpa ditebang."
-publishDate: 2026-10-10
+publishDate: 2027-03-30
 coverImage: "/images/artikel/kayu-putih-bukan-cuma-minyak-telon.webp"
 relatedCategorySlug: "rempah"
 relatedCategoryLabel: "Rempah & Tanaman Obat"
