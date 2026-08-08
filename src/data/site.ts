@@ -45,6 +45,14 @@ export const site = {
     facebook: 'https://www.facebook.com/ardelia.bibit',
     tiktok: 'https://www.tiktok.com/@ardeliabibit',
   },
+
+  // GA4 Measurement ID — dipasang di Layout.astro (semua halaman) +
+  // dipakai untuk event tracking klik WhatsApp (WhatsAppButton.astro).
+  // Dibuat 8 Agustus 2026 untuk keperluan evaluasi traffic/konversi
+  // sebelum lanjut nulis artikel Tier C sisa (arahan owner).
+  analytics: {
+    ga4MeasurementId: 'G-E47HB8SHCK',
+  },
 } as const;
 
 /**

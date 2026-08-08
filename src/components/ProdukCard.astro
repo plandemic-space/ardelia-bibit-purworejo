@@ -48,7 +48,7 @@ const fotoSmall = foto?.replace(/\.webp$/, '-sm.webp');
     <h3>{nama}</h3>
     {deskripsi && <p class="produk-deskripsi">{deskripsi}</p>}
     <p class="produk-cta-note">Ukuran &amp; harga menyesuaikan stok</p>
-    <a class="produk-wa btn btn-outline" href={waLink(pesanWa)} target="_blank" rel="noopener">
+    <a class="produk-wa btn btn-outline" href={waLink(pesanWa)} target="_blank" rel="noopener" data-wa-track={`Kartu Produk: ${nama}`}>
       <Icon name="whatsapp" size={15} />
       <span class="produk-wa-full">Tanya Stok &amp; Harga</span>
       <span class="produk-wa-short">Tanya Harga</span>

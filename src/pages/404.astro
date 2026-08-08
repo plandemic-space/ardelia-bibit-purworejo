@@ -60,7 +60,7 @@ const quickLinks = [
       <div class="links-grid">
         {
           quickLinks.map((item) => (
-            <a class="link-card" href={item.href} target={item.href.startsWith('http') ? '_blank' : undefined} rel={item.href.startsWith('http') ? 'noopener' : undefined}>
+            <a class="link-card" href={item.href} target={item.href.startsWith('http') ? '_blank' : undefined} rel={item.href.startsWith('http') ? 'noopener' : undefined} data-wa-track={item.icon === 'whatsapp' ? '404 Quick Link' : undefined}>
               <span class="link-icon"><Icon name={item.icon} size={24} /></span>
               <b>{item.title}</b>
               <span class="link-desc">{item.desc}</span>

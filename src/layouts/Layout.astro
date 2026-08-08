@@ -26,6 +26,41 @@ const breadcrumbItems = [{ name: 'Beranda', path: '/' }, ...breadcrumbs];
 <!doctype html>
 <html lang="id">
   <head>
+    <!-- Google tag (gtag.js) — GA4, dipasang 8 Agustus 2026 untuk evaluasi
+         traffic & konversi (event whatsapp_click, lihat WhatsAppButton.astro).
+         ID diambil dari site.ts, bukan hardcode di sini (single source of truth). -->
+    <script async src={`https://www.googletagmanager.com/gtag/js?id=${site.analytics.ga4MeasurementId}`}></script>
+    <script define:vars={{ gaId: site.analytics.ga4MeasurementId }}>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(...args) {
+        dataLayer.push(args);
+      }
+      gtag('js', new Date());
+      gtag('config', gaId);
+    </script>
+
+    <!-- Event tracking klik WhatsApp (GA4) — dipasang 8 Agustus 2026.
+         Ditaruh di sini (bukan di WhatsAppButton.astro) supaya dijamin
+         jalan di SEMUA halaman, termasuk titik WA yang tidak memakai
+         komponen <WhatsAppButton> (FloatingActions FAB, kartu produk
+         ProdukCard, link WA di Footer) — event delegasi ke `document`
+         menangkap klik dari elemen manapun yang punya `data-wa-track`,
+         di mana pun elemen itu dirender. -->
+    <script>
+      document.addEventListener('click', (e) => {
+        const target = e.target as HTMLElement | null;
+        const btn = target?.closest('[data-wa-track]');
+        if (!btn) return;
+        const gtag = (window as any).gtag;
+        if (typeof gtag === 'function') {
+          gtag('event', 'whatsapp_click', {
+            button_label: btn.getAttribute('data-wa-track'),
+            page_path: window.location.pathname,
+          });
+        }
+      });
+    </script>
+
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="google-site-verification" content="ctXkL6KuBMznNHbs9jCUApY6yQh5nB_k7ubTmcG5HVM" />
